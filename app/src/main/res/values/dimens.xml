@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Intro dimensions -->
+    <dimen name="layout_top_viewpager">30dp</dimen>
+    <dimen name="intro_title">35sp</dimen>
+    <dimen name="intro_title_large">55sp</dimen>
+    <dimen name="intro_description">20sp</dimen>
+    <dimen name="intro_description_large">40sp</dimen>
+    <dimen name="button_large">30sp</dimen>
+
+    <!-- Login dimensions -->
+    <dimen name="top_margin">16dp</dimen>
+    <dimen name="bottom_margin">16dp</dimen>
+    <dimen name="left_margin">16dp</dimen>
+    <dimen name="right_margin">16dp</dimen>
+    <dimen name="forgot_password_size">15sp</dimen>
+    <dimen name="login_button">25sp</dimen>
+    <dimen name="google_top_margin">30dp</dimen>
+    <dimen name="google_text_view_size">15sp</dimen>
+    <dimen name="signup_top_margin">25dp</dimen>
+    <dimen name="signup_size">20sp</dimen>
+
+    <!--    Login dimensions large -->
+
+    <dimen name="top_margin_large">20dp</dimen>
+    <dimen name="bottom_margin_large">20dp</dimen>
+    <dimen name="left_margin_large">20dp</dimen>
+    <dimen name="right_margin_large">20dp</dimen>
+    <dimen name="forgot_password_size_large">25sp</dimen>
+    <dimen name="login_button_large">45sp</dimen>
+    <dimen name="google_top_margin_large">45dp</dimen>
+    <dimen name="google_text_view_size_large">25sp</dimen>
+    <dimen name="signup_top_margin_large">45dp</dimen>
+    <dimen name="signup_size_large">40sp</dimen>
+
+    <!--    Forgot Password dimensions-->
+
+    <dimen name="fp_title_size">25sp</dimen>
+    <dimen name="fp_body_size">20sp</dimen>
+    <dimen name="fp_button">20sp</dimen>
+
+    <!--    Forgot Password dimensions large-->
+
+    <dimen name="fp_title_size_large">40sp</dimen>
+    <dimen name="fp_body_size_large">35sp</dimen>
+    <dimen name="fp_button_large">35sp</dimen>
+    <dimen name="button_text_margins">20dp</dimen>
+
+
+    <!--    Forgot Password pop up-->
+    <dimen name="margin_left">5dp</dimen>
+    <dimen name="margin_right">5dp</dimen>
+    <dimen name="close_margin_top">7dp</dimen>
+    <dimen name="close_margin_right">7dp</dimen>
+    <dimen name="close_elevation">5dp</dimen>
+    <dimen name="card_corner_radius">15dp</dimen>
+    <dimen name="linear_layout_margin_top">25dp</dimen>
+    <dimen name="linear_layout_margin_bottom">25dp</dimen>
+    <dimen name="tex_view_margin_left">20dp</dimen>
+    <dimen name="tex_view_margin_right">20dp</dimen>
+    <dimen name="card_view_text_size">15sp</dimen>
+    <dimen name="button_margin">20dp</dimen>
+    <dimen name="go_to_login_button">25sp</dimen>
+    <dimen name="check_size">40dp</dimen>
+    <dimen name="check_margin_bottom">20dp</dimen>
+
+    <!--    Forgot Password pop up large-->
+    <dimen name="margin_left_large">10dp</dimen>
+    <dimen name="margin_right_large">10dp</dimen>
+    <dimen name="close_margin_top_large">12dp</dimen>
+    <dimen name="close_margin_right_large">12dp</dimen>
+    <dimen name="close_elevation_large">10dp</dimen>
+    <dimen name="card_corner_radius_large">15dp</dimen>
+    <dimen name="linear_layout_margin_top_large">35dp</dimen>
+    <dimen name="linear_layout_margin_bottom_large">35dp</dimen>
+    <dimen name="tex_view_margin_left_large">30dp</dimen>
+    <dimen name="tex_view_margin_right_large">30dp</dimen>
+    <dimen name="card_view_text_size_large">25sp</dimen>
+    <dimen name="button_margin_large">30dp</dimen>
+    <dimen name="go_to_login_button_large">30sp</dimen>
+    <dimen name="check_size_large">60dp</dimen>
+    <dimen name="check_margin_bottom_large">30dp</dimen>
+
+</resources>

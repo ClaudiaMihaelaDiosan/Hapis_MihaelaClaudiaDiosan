@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Hapis_MihaelaClaudiaDiosan</string>
+    <string name="name">HAPIS</string>
+
+    <!-- Intro Activity-->
+
+    <string name="logo_intro_title">HAPIS</string>
+    <string name="donor_intro_title">DONANTE</string>
+    <string name="volunteer_intro_tile">VOLUNTARIO</string>
+
+        <string name="logo_intro_description">Esta es una aplicación social a través de la cual puedes donar cosas básicas a una persona que de verdad lo necesita.</string>
+    <string name="donor_intro_description">Puedes registrarte como donante y tendrás la oportunidad de ver los perfiles de las personas sin recursos y ayudarlas.</string>
+    <string name="volunteer_intro_description">Puedes registrarte como voluntario y ayudar a registrar y administrar los perfiles de las personas que necesitan ayuda.</string>
+
+    <string name="next_button">Siguiente</string>
+    <string name="get_started_button">EMPEZAR</string>
+
+    <!--    Login Activity -->
+
+    <string name="email_hint">Nombre de Usuario o Correo</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="forgot_password">¿Has olvidado tu contraseña?</string>
+    <string name="login_button">ENTRAR</string>
+    <string name="google_text_view">También puedes continuar con la cuenta de Google:</string>
+    <string name="signup_tex_view">¿No tienes una cuenta aún?</string>
+    <string name="sign_up">REGISTRATE AHORA</string>
+
+    <!--   Forgot password activity-->
+
+    <string name="fp_title">¿Has olvidado tu contraseña?</string>
+    <string name="fp_body">Para restablecer tu contraseña, introduce tu correo electrónico que utilizas para entrar en la aplicación HAPIS.</string>
+    <string name="fp_email_hint">Correo electrónico</string>
+    <string name="fp_button">RECUPERAR CONTRASEÑA</string>
+    <string name="pop_up_message"> Un correo ha sido enviado al email facilitado.Sigue las instrucciones para restablecer tu contraseña.</string>
+    <string name="pop_up_button">VOLVER AL LOGIN</string>
+
+</resources>

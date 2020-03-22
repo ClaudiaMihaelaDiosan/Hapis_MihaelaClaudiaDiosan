@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Hapis_MihaelaClaudiaDiosan</string>
+    <string name="name">HAPIS</string>
+
+    <!-- Intro Activity-->
+
+    <string name="logo_intro_title">HAPIS</string>
+    <string name="donor_intro_title">DONOR</string>
+    <string name="volunteer_intro_tile">VOLUNTEER</string>
+
+    <string name="logo_intro_description">This is a social app where you can donate resources to someone that really need it.</string>
+    <string name="donor_intro_description">Become a donor and you will have the opportunity to see profiles of people in need and help them.</string>
+    <string name="volunteer_intro_description">Be a volunteer and help to register and manage the profiles of people that need help.</string>
+
+    <string name="next_button">Next</string>
+    <string name="get_started_button">GET STARTED</string>
+
+    <!--    Login Activity -->
+
+    <string name="email_hint">Username or Email</string>
+    <string name="password_hint">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login_button">LOGIN</string>
+    <string name="google_text_view">You also can continue with Google:</string>
+    <string name="signup_tex_view">Don\'t have an account yet?</string>
+    <string name="sign_up">SIGN UP NOW</string>
+
+    <!--   Forgot password activity-->
+
+    <string name="fp_title">Forgot your password?</string>
+    <string name="fp_body">To reset your password, enter the email address you use to login to HAPIS.</string>
+    <string name="fp_email_hint">Email</string>
+    <string name="fp_button">RECOVER PASSWORD</string>
+    <string name="pop_up_message">An email has been sent to the supplied email address.Follow the instructions in the email to reset your password.</string>
+    <string name="pop_up_button">GO TO LOGIN</string>
+
+
+</resources>

@@ -14,9 +14,17 @@
         android:layout_gravity="center"
         android:baselineAligned="false"
         android:layout_marginTop="@dimen/top_margin"
-        android:layout_marginBottom="@dimen/bottom_margin"
         android:src="@drawable/logo_hapis"
         />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login_title"
+        android:layout_marginBottom="@dimen/bottom_margin"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/login_text_size"
+        android:gravity="center"/>
 
 
     <com.google.android.material.textfield.TextInputLayout

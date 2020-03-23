@@ -24,11 +24,12 @@
     <string name="google_text_view">También puedes continuar con la cuenta de Google:</string>
     <string name="signup_tex_view">¿No tienes una cuenta aún?</string>
     <string name="sign_up">REGÍSTRATE AHORA</string>
+    <string name="login_title">Inicia sesión para continuar</string>
 
     <!--   Forgot password activity-->
-
+    <string name="forgot_password_name">Contraseña olvidada</string>
     <string name="fp_title">¿Has olvidado tu contraseña?</string>
-    <string name="fp_body">Para restablecer tu contraseña, introduce tu correo electrónico que utilizas para entrar en la aplicación HAPIS.</string>
+    <string name="fp_body">Para restablecer tu contraseña, introduce tu correo electrónico que utilizas para iniciar sesión en HAPIS.</string>
     <string name="fp_email_hint">Correo electrónico</string>
     <string name="fp_button">RECUPERAR CONTRASEÑA</string>
     <string name="pop_up_message"> Un correo ha sido enviado al email facilitado.Sigue las instrucciones para restablecer tu contraseña.</string>
@@ -42,5 +43,42 @@
     <string name="donor_button_text">Regístrate como donante</string>
     <string name="volunteer_button">REGÍSTRATE COMO VOLUNTARIO</string>
     <string name="volunteer_button_text">Regístrate como voluntario</string>
+
+    <!--    Register Donor Activity-->
+    <string name="register_donor_name">Registro Donante</string>
+    <string name="register_donor_title">Crea tu cuenta</string>
+    <string name="register_donor_login_info">Información de inicio de sesión</string>
+    <string name="register_donor_username_hint">Nombre de usuario</string>
+    <string name="register_donor_email_hint">Correo electrónico</string>
+    <string name="register_donor_password_hint">Contraseña</string>
+    <string name="register_donor_opional_info">Información Opcional</string>
+    <string name="register_donor_first_name_hint">Nombre</string>
+    <string name="register_donor_last_name_hint">Apellido</string>
+    <string name="register_donor_birthday">Fecha de nacimiento</string>
+    <string name="register_donor_button">REGISTRAR</string>
+    <string name="register_donor_pop_up_title">REGISTRO CORRECTO</string>
+    <string name="register_donor_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
+    <string name="register_donor_pop_up_button">OK</string>
+    <string name="register_donor_terms">I agree the <a href="https://docs.google.com/document/d/1ZIIJa9KbmTksrC9oWBR_fnjPOXYogTASH-KA9LwpCw8/edit?usp=sharing">Terms and Conditions</a> and the <a href="https://docs.google.com/document/d/13UfrKy4JK6U_5hrsPT4h3wWnR7DY_RFeWEhmMIP3w_s/edit?usp=sharing">Privacy Policy</a></string>
+    <string name="register_donor_terms_error">Primero acepta las condiciones legales!</string>
+
+    <!--    Register Volunteer Activity-->
+    <string name="register_volunteer_name">Registro Voluntario</string>
+    <string name="register_volunteer_title">Crea tu cuenta</string>
+    <string name="register_volunteer_login_info">Información de inicio de sesión</string>
+    <string name="register_volunteer_username_hint">Nombre de usuario</string>
+    <string name="register_volunteer_email_hint">Correo electrónico</string>
+    <string name="register_volunteer_password_hint">Contraseña</string>
+    <string name="register_volunteer_phone_number_hint">Teléfono</string>
+    <string name="register_volunteer_opional_info">Información Opcional</string>
+    <string name="register_volunteer_first_name_hint">Nombre</string>
+    <string name="register_volunteer_last_name_hint">Apellido</string>
+    <string name="register_volunteer_birthday">Fecha de nacimiento</string>
+    <string name="register_volunteer_button">REGISTRAR</string>
+    <string name="register_volunteer_pop_up_title">REGISTRO CORRECTO</string>
+    <string name="register_volunteer_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
+    <string name="register_volunteer_pop_up_button">OK</string>
+    <string name="register_volunteer_terms">Acepto las <a href="https://docs.google.com/document/d/1ZIIJa9KbmTksrC9oWBR_fnjPOXYogTASH-KA9LwpCw8/edit?usp=sharing">Condiciones legales</a> y <a href="https://docs.google.com/document/d/13UfrKy4JK6U_5hrsPT4h3wWnR7DY_RFeWEhmMIP3w_s/edit?usp=sharing">Información basica de privacidad</a></string>
+    <string name="register_volunteer_terms_error">Primero acepta las condiciones legales!</string>
 
 </resources>

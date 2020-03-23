@@ -9,13 +9,18 @@
         android:roundIcon="@mipmap/hapis_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".register.RegisterVolunteerActivity"/>
-        <activity android:name=".register.RegisterDonorActivity" />
+        <activity android:name=".register.RegisterVolunteerActivity"
+            android:label="@string/register_volunteer_name"/>
+
+        <activity android:name=".register.RegisterDonorActivity"
+            android:label="@string/register_donor_name"/>
 
         <activity android:name=".register.RegisterActivity"
             android:label="@string/register_activity_name"/>
 
-        <activity android:name=".login.ForgotPasswordActivity" />
+        <activity android:name=".login.ForgotPasswordActivity"
+            android:label="@string/forgot_password_name"/>
+
         <activity android:name=".login.LoginActivity" />
         <activity
             android:name=".intro.IntroActivity"

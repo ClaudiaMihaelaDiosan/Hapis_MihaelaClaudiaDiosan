@@ -1,20 +1,232 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
-    tools:context=".register.RegisterVolunteerActivity">
-    <TextView
+    android:orientation="vertical">
+
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="70dp"
-        android:gravity="center"
-        android:textColor="@color/colorAccent"
-        android:text="VOLUNTEER">
+        android:layout_height="wrap_content">
 
-    </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:baselineAligned="false"
+                android:layout_marginTop="@dimen/top_margin"
+                android:src="@drawable/logo_hapis"
+                />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/register_volunteer_title"
+                android:layout_marginBottom="@dimen/bottom_margin"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/create_volunteer_account_title"
+                android:gravity="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginStart="@dimen/left_margin"
+                android:layout_marginEnd="@dimen/right_margin"
+                android:orientation="vertical"
+                android:layout_marginBottom="@dimen/bottom_margin">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/register_volunteer_login_info"
+                    android:textSize="@dimen/register_volunteer_login_info_size"
+                    android:textColor="@color/white" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/left_margin"
+                    android:layout_marginEnd="@dimen/right_margin">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/volunteer_username_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/register_volunteer_username_hint"
+                        android:drawableStart="@drawable/username_drawable"
+                        android:drawablePadding="@dimen/drawable_padding_volunteer"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/left_margin"
+                    android:layout_marginEnd="@dimen/right_margin">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/volunteer_email_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/register_volunteer_email_hint"
+                        android:drawableStart="@drawable/email_drawable"
+                        android:drawablePadding="@dimen/drawable_padding_volunteer"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/left_margin"
+                    android:layout_marginEnd="@dimen/right_margin"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/volunteer_password_text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/register_volunteer_password_hint"
+                        android:drawableStart="@drawable/password_drawable"
+                        android:drawablePadding="@dimen/drawable_padding_volunteer"
+                        android:inputType="textPassword"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/register_volunteer_opional_info"
+                    android:textSize="@dimen/register_volunteer_optional_info"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:textColor="@color/white" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/left_margin"
+                    android:layout_marginEnd="@dimen/right_margin">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/volunteer_first_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/register_volunteer_first_name_hint"
+                        android:drawableStart="@drawable/username_drawable"
+                        android:drawablePadding="@dimen/drawable_padding_volunteer"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/left_margin"
+                    android:layout_marginEnd="@dimen/right_margin">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/volunteer_last_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/register_volunteer_last_name_hint"
+                        android:drawableStart="@drawable/username_drawable"
+                        android:drawablePadding="@dimen/drawable_padding_volunteer"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/left_margin"
+                    android:layout_marginEnd="@dimen/right_margin">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/volunteer_birthday_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/register_volunteer_birthday"
+                        android:drawableStart="@drawable/birthday_drawable"
+                        android:drawablePadding="@dimen/drawable_padding_volunteer"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/left_margin"
+                    android:layout_marginEnd="@dimen/right_margin">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/volunteer_phone_number"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/register_volunteer_phone_number_hint"
+                        android:drawableStart="@drawable/phone_drawable"
+                        android:drawablePadding="@dimen/drawable_padding_volunteer"
+                        android:inputType="phone"
+
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <CheckBox
+                        android:id="@+id/volunteer_terms_checkbox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="false"/>
+
+                    <TextView
+                        android:id="@+id/accept_terms_text_view_volunteer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/bottom_margin"
+                        android:text="@string/register_volunteer_terms" />
+
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/register_volunteer_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/left_margin"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:layout_marginEnd="@dimen/right_margin"
+                    android:background="@drawable/btn_gradient_style"
+                    android:text="@string/register_volunteer_button"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/register_volunteer_button" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+
+
+
+</LinearLayout>

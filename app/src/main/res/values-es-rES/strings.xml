@@ -34,4 +34,13 @@
     <string name="pop_up_message"> Un correo ha sido enviado al email facilitado.Sigue las instrucciones para restablecer tu contraseña.</string>
     <string name="pop_up_button">VOLVER AL LOGIN</string>
 
+
+    <!--    Register Activity-->
+
+    <string name="register_activity_name">Registro</string>
+    <string name="donor_button">REGÍSTRATE COMO DONANTE</string>
+    <string name="donor_button_text">Regístrate como donante</string>
+    <string name="volunteer_button">REGÍSTRATE COMO VOLUNTARIO</string>
+    <string name="volunteer_button_text">Regístrate como voluntario</string>
+
 </resources>

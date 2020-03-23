@@ -82,4 +82,12 @@
     <dimen name="check_size_large">60dp</dimen>
     <dimen name="check_margin_bottom_large">30dp</dimen>
 
+    <!--    Register Activity-->
+    <dimen name="cardCornerRadius">30dp</dimen>
+    <dimen name="elevation">30dp</dimen>
+    <dimen name="margin">10dp</dimen>
+    <dimen name="padding">10dp</dimen>
+    <dimen name="image_size">150dp</dimen>
+    <dimen name="text_button">20dp</dimen>
+
 </resources>

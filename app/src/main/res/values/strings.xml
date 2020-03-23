@@ -34,5 +34,13 @@
     <string name="pop_up_message">An email has been sent to the supplied email address.Follow the instructions in the email to reset your password.</string>
     <string name="pop_up_button">GO TO LOGIN</string>
 
+    <!--    Register Activity-->
+
+    <string name="register_activity_name">Register</string>
+    <string name="donor_button">REGISTER AS DONOR</string>
+    <string name="donor_button_text">Register as Donor</string>
+    <string name="volunteer_button">REGISTER AS VOLUNTEER</string>
+    <string name="volunteer_button_text">Register as Volunteer</string>
+
 
 </resources>

@@ -15,7 +15,8 @@
         android:baselineAligned="false"
         android:layout_marginTop="@dimen/top_margin"
         android:layout_marginBottom="@dimen/bottom_margin"
-        android:src="@drawable/logo_hapis" />
+        android:src="@drawable/logo_hapis"
+        />
 
 
     <com.google.android.material.textfield.TextInputLayout

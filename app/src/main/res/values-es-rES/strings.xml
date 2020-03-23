@@ -23,7 +23,7 @@
     <string name="login_button">ENTRAR</string>
     <string name="google_text_view">También puedes continuar con la cuenta de Google:</string>
     <string name="signup_tex_view">¿No tienes una cuenta aún?</string>
-    <string name="sign_up">REGISTRATE AHORA</string>
+    <string name="sign_up">REGÍSTRATE AHORA</string>
 
     <!--   Forgot password activity-->
 

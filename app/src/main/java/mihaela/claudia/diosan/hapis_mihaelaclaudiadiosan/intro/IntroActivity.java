@@ -40,9 +40,9 @@ public class IntroActivity extends AppCompatActivity {
 
         //make the activity on full screen
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
 
 //        //when this activity is about to be launch we need to check if is opened before or not
         if (restorePrefData()){

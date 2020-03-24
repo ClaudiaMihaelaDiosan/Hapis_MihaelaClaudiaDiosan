@@ -7,8 +7,9 @@
     <string name="logo_intro_title">HAPIS</string>
     <string name="donor_intro_title">DONANTE</string>
     <string name="volunteer_intro_tile">VOLUNTARIO</string>
+    <string name="intro_img_contentDescription">Imagen Intro</string>
 
-        <string name="logo_intro_description">Esta es una aplicación social a través de la cual puedes donar cosas básicas a una persona que de verdad lo necesita.</string>
+    <string name="logo_intro_description">Esta es una aplicación social a través de la cual puedes donar cosas básicas a una persona que de verdad lo necesita.</string>
     <string name="donor_intro_description">Puedes registrarte como donante y tendrás la oportunidad de ver los perfiles de las personas sin recursos y ayudarlas.</string>
     <string name="volunteer_intro_description">Puedes registrarte como voluntario y ayudar a registrar y administrar los perfiles de las personas que necesitan ayuda.</string>
 
@@ -20,11 +21,12 @@
     <string name="email_hint">Nombre de Usuario o Correo</string>
     <string name="password_hint">Contraseña</string>
     <string name="forgot_password">¿Has olvidado tu contraseña?</string>
-    <string name="login_button">ENTRAR</string>
+    <string name="login_button">INICIAR SESIÓN</string>
     <string name="google_text_view">También puedes continuar con la cuenta de Google:</string>
     <string name="signup_tex_view">¿No tienes una cuenta aún?</string>
     <string name="sign_up">REGÍSTRATE AHORA</string>
     <string name="login_title">Inicia sesión para continuar</string>
+    <string name="login_foto_content_description">Logo de Hapis </string>
 
     <!--   Forgot password activity-->
     <string name="forgot_password_name">Contraseña olvidada</string>
@@ -34,15 +36,26 @@
     <string name="fp_button">RECUPERAR CONTRASEÑA</string>
     <string name="pop_up_message"> Un correo ha sido enviado al email facilitado.Sigue las instrucciones para restablecer tu contraseña.</string>
     <string name="pop_up_button">VOLVER AL LOGIN</string>
-
+    <string name="content_description_check">Icono éxito</string>
+    <string name="content_description_close_popup">Icono cerrar</string>
+    <string name="content_description_thinking_boy">Dibujo de un niño que piensa</string>
 
     <!--    Register Activity-->
 
     <string name="register_activity_name">Registro</string>
-    <string name="donor_button">REGÍSTRATE COMO DONANTE</string>
-    <string name="donor_button_text">Regístrate como donante</string>
-    <string name="volunteer_button">REGÍSTRATE COMO VOLUNTARIO</string>
-    <string name="volunteer_button_text">Regístrate como voluntario</string>
+    <string name="donor_cv_title">REGÍSTRATE COMO DONANTE</string>
+    <string name="donor_cv_text">Regístrate como donante</string>
+    <string name="donor_cv_more_button">SABER MÁS</string>
+    <string name="donor_cv_start_button">EMPEZAR</string>
+    <string name="content_description_donor_card">Persona pobre abraza una mujer</string>
+    <string name="content_description_volunteer_card">Persona pobre recibe una manzada de una niña</string>
+
+
+
+    <string name="volunteer_cv_title">REGÍSTRATE COMO VOLUNTARIO</string>
+    <string name="volunteer_cv_text">Regístrate como voluntario</string>
+
+
 
     <!--    Register Donor Activity-->
     <string name="register_donor_name">Registro Donante</string>

@@ -5,6 +5,7 @@
     <color name="colorAccent">#18ffff</color>
 
     <color name="blue">#0A4CB6</color>
+    <color name="transparent">#00000000</color>
 
 
     <!-- colors for Intro-->
@@ -18,11 +19,10 @@
     <!--colors for tab and screens text-->
 
     <color name="tab_indicator_gray">#c0c0c0</color>
-    <color name="intro_title_color">#000000</color>
     <color name="intro_description_color">#656565</color>
 
     <!--    Login colors -->
     <color name="black">#000000</color>
-    <color name="grey">#3C3F41</color>
+    <color name="grey">#656565</color>
 
 </resources>

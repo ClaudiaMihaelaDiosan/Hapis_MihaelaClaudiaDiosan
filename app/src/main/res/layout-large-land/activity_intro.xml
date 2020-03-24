@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/left_margin_large"
+    android:layout_marginEnd="@dimen/right_margin_large"
     android:orientation="vertical"
     android:background="@color/white"
     tools:context=".intro.IntroActivity">
@@ -40,7 +42,7 @@
 
     </com.google.android.material.tabs.TabLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -49,9 +51,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:textSize="@dimen/button_large"
-        android:background="@color/white"
-        android:drawableEnd="@drawable/ic_arrow_forward_black_24dp"
-        android:drawableTint="@color/gradient_start_color"
+        android:backgroundTint="@color/white"
+        android:drawableEnd="@drawable/arrow_next_intro"
         android:text="@string/next_button"
         android:textColor="@color/gradient_start_color"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -59,7 +60,7 @@
         app:layout_constraintStart_toEndOf="@+id/screen_viewpager"
         app:layout_constraintTop_toBottomOf="@+id/btn_get_started" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_get_started"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,7 +68,7 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="32dp"
-        android:background="@drawable/btn_gradient_style"
+        android:backgroundTint="@color/colorPrimary"
         android:text="@string/get_started_button"
         android:textColor="@color/white"
         android:textSize="@dimen/button_large"

@@ -14,8 +14,9 @@
     <dimen name="bottom_margin">16dp</dimen>
     <dimen name="left_margin">16dp</dimen>
     <dimen name="right_margin">16dp</dimen>
+    <dimen name="card_view_margins">8dp</dimen>
     <dimen name="forgot_password_size">15sp</dimen>
-    <dimen name="login_button">25sp</dimen>
+    <dimen name="login_button">20sp</dimen>
     <dimen name="google_top_margin">30dp</dimen>
     <dimen name="google_text_view_size">15sp</dimen>
     <dimen name="login_text_size">15sp</dimen>
@@ -28,13 +29,14 @@
     <dimen name="bottom_margin_large">20dp</dimen>
     <dimen name="left_margin_large">20dp</dimen>
     <dimen name="right_margin_large">20dp</dimen>
-    <dimen name="forgot_password_size_large">25sp</dimen>
-    <dimen name="login_button_large">45sp</dimen>
+    <dimen name="card_view_margins_large">8dp</dimen>
+    <dimen name="forgot_password_size_large">20sp</dimen>
+    <dimen name="login_button_large">35sp</dimen>
     <dimen name="google_top_margin_large">45dp</dimen>
-    <dimen name="google_text_view_size_large">25sp</dimen>
-    <dimen name="login_text_size_large">25sp</dimen>
+    <dimen name="google_text_view_size_large">20sp</dimen>
+    <dimen name="login_text_size_large">20sp</dimen>
     <dimen name="signup_top_margin_large">45dp</dimen>
-    <dimen name="signup_size_large">40sp</dimen>
+    <dimen name="signup_size_large">35sp</dimen>
 
     <!--    Forgot Password dimensions-->
 
@@ -87,12 +89,24 @@
     <dimen name="check_margin_bottom_large">30dp</dimen>
 
     <!--    Register Activity-->
-    <dimen name="cardCornerRadius">30dp</dimen>
-    <dimen name="elevation">30dp</dimen>
-    <dimen name="margin">10dp</dimen>
+    <dimen name="cardCornerRadius">5dp</dimen>
+    <dimen name="elevation">5dp</dimen>
+    <dimen name="cv_margin">5dp</dimen>
     <dimen name="padding">10dp</dimen>
-    <dimen name="image_size">150dp</dimen>
-    <dimen name="text_button">20dp</dimen>
+    <dimen name="register_cv_title">20sp</dimen>
+    <dimen name="cv_button_margin">8dp</dimen>
+    <dimen name="cv_button_text_size">15sp</dimen>
+
+    <!--    Register Activity Large-->
+    <dimen name="cardCornerRadius_large">5dp</dimen>
+    <dimen name="elevation_large">5dp</dimen>
+    <dimen name="cv_margin_large">10dp</dimen>
+    <dimen name="padding_large">15dp</dimen>
+    <dimen name="register_cv_title_large">25sp</dimen>
+    <dimen name="cv_button_margin_large">8dp</dimen>
+    <dimen name="cv_button_text_size_large">20sp</dimen>
+
+
 
     <!--    Register Donor Activity-->
     <dimen name="create_donor_account_title">15sp</dimen>

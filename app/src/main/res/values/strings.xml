@@ -7,6 +7,7 @@
     <string name="logo_intro_title">HAPIS</string>
     <string name="donor_intro_title">DONOR</string>
     <string name="volunteer_intro_tile">VOLUNTEER</string>
+    <string name="intro_img_contentDescription">Intro Image</string>
 
     <string name="logo_intro_description">This is a social app where you can donate resources to someone that really need it.</string>
     <string name="donor_intro_description">Become a donor and you will have the opportunity to see profiles of people in need and help them.</string>
@@ -25,6 +26,7 @@
     <string name="signup_tex_view">Don\'t have an account yet?</string>
     <string name="sign_up">REGISTER NOW</string>
     <string name="login_title">Login to continue</string>
+    <string name="login_foto_content_description">Hapis Logo</string>
 
     <!--   Forgot password activity-->
     <string name="forgot_password_name">Forgot password</string>
@@ -34,14 +36,23 @@
     <string name="fp_button">RECOVER PASSWORD</string>
     <string name="pop_up_message">An email has been sent to the supplied email address.Follow the instructions in the email to reset your password.</string>
     <string name="pop_up_button">GO TO LOGIN</string>
+    <string name="content_description_check">Check</string>
+    <string name="content_description_close_popup">Close icon</string>
+    <string name="content_description_thinking_boy">Thinking boy image</string>
 
     <!--    Register Activity-->
 
     <string name="register_activity_name">Register</string>
-    <string name="donor_button">REGISTER AS DONOR</string>
-    <string name="donor_button_text">Register as Donor</string>
-    <string name="volunteer_button">REGISTER AS VOLUNTEER</string>
-    <string name="volunteer_button_text">Register as Volunteer</string>
+    <string name="donor_cv_title">REGISTER AS DONOR</string>
+    <string name="donor_cv_text">Register as Donor</string>
+    <string name="donor_cv_more_button">KNOW MORE</string>
+    <string name="donor_cv_start_button">START</string>
+    <string name="content_description_donor_card">Homeless hugging women</string>
+    <string name="content_description_volunteer_card">Poor person receive an apple for a girl</string>
+
+    <string name="volunteer_cv_title">REGISTER AS VOLUNTEER</string>
+    <string name="volunteer_cv_text">Register as Volunteer</string>
+
 
     <!--    Register Donor Activity-->
     <string name="register_donor_name">Register Donor</string>

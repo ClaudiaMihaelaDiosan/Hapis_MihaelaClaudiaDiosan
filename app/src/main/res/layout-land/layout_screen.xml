@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/left_margin"
+    android:layout_marginEnd="@dimen/right_margin"
     android:background="@color/white">
 
 
@@ -15,8 +17,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="TextView"
-        android:textColor="@color/intro_title_color"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/intro_title"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/intro_img"
@@ -33,7 +34,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="TextView"
+        android:textColor="@color/grey"
         android:textAlignment="center"
         android:textSize="@dimen/intro_description"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,9 +47,10 @@
         android:layout_height="166dp"
 
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:contentDescription="@string/intro_img_contentDescription"
         app:layout_constraintBottom_toTopOf="@+id/intro_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

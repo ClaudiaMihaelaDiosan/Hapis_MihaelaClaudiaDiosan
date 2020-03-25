@@ -94,4 +94,21 @@
     <string name="register_volunteer_terms">Acepto las <a href="https://docs.google.com/document/d/1ZIIJa9KbmTksrC9oWBR_fnjPOXYogTASH-KA9LwpCw8/edit?usp=sharing">Condiciones legales</a> y <a href="https://docs.google.com/document/d/13UfrKy4JK6U_5hrsPT4h3wWnR7DY_RFeWEhmMIP3w_s/edit?usp=sharing">Información basica de privacidad</a></string>
     <string name="register_volunteer_terms_error">Primero acepta las condiciones legales!</string>
 
+    <!--    Know more register donor popup -->
+
+    <string name="donor_know_more_title">Que puedes hacer si te registras como donante?</string>
+    <string name="donor_know_more_text">1. Puedes ayudar personas que no disponen de recursos tan básicos como comida, alojamiento o ropa \n\n
+                                  2. Puedes escojer el perfil de la persona que más te atrae la atención y ayudarla \n\n
+                                  3. Puedes donar comida, ropa, alojamiento, trabajo o productos de higiene personal \n\n
+                                  4. Puedes entregar la ayuda personalmente o con la ayuda de un voluntario \n
+                                  </string>
+
+    <!--    Know more register volunteer popup -->
+
+    <string name="volunteer_know_more_title">Que puedes hacer si te registras como voluntario?</string>
+    <string name="volunteer_know_more_text">1. Puedes conectar con personas sin recursos que necesitan nuestra ayuda \n\n
+                                            2. Puedes crear y gestionar perfiles para ellos, ya que ellos no siempre tienen un teléfono móvil conectado a Internet \n\n
+                                            3. Puedes ayudar a realizar la entrega de donaciones en caso que los donantes no tienen la posibilidad de realizarla personalmente \n
+    </string>
+
 </resources>

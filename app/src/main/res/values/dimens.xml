@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+<!--    Normal margins-->
+
+    <dimen name="top_margin">16dp</dimen>
+    <dimen name="bottom_margin">16dp</dimen>
+    <dimen name="left_margin">16dp</dimen>
+    <dimen name="right_margin">16dp</dimen>
+
+<!--    Large margins -->
+    <dimen name="top_margin_large">20dp</dimen>
+    <dimen name="bottom_margin_large">20dp</dimen>
+    <dimen name="left_margin_large">20dp</dimen>
+    <dimen name="right_margin_large">20dp</dimen>
+
+
+
     <!--Intro dimensions -->
     <dimen name="layout_top_viewpager">30dp</dimen>
     <dimen name="intro_title">35sp</dimen>
@@ -10,10 +25,6 @@
     <dimen name="button_large">30sp</dimen>
 
     <!-- Login dimensions -->
-    <dimen name="top_margin">16dp</dimen>
-    <dimen name="bottom_margin">16dp</dimen>
-    <dimen name="left_margin">16dp</dimen>
-    <dimen name="right_margin">16dp</dimen>
     <dimen name="card_view_margins">8dp</dimen>
     <dimen name="forgot_password_size">15sp</dimen>
     <dimen name="login_button">20sp</dimen>
@@ -25,10 +36,7 @@
 
     <!--    Login dimensions large -->
 
-    <dimen name="top_margin_large">20dp</dimen>
-    <dimen name="bottom_margin_large">20dp</dimen>
-    <dimen name="left_margin_large">20dp</dimen>
-    <dimen name="right_margin_large">20dp</dimen>
+
     <dimen name="card_view_margins_large">8dp</dimen>
     <dimen name="forgot_password_size_large">20sp</dimen>
     <dimen name="login_button_large">35sp</dimen>
@@ -50,6 +58,8 @@
     <dimen name="fp_body_size_large">35sp</dimen>
     <dimen name="fp_button_large">35sp</dimen>
     <dimen name="button_text_margins">20dp</dimen>
+    <dimen name="fp_margin_left_large">10dp</dimen>
+    <dimen name="fp_margin_right_large">10dp</dimen>
 
 
     <!--    Forgot Password pop up-->
@@ -71,10 +81,10 @@
     <dimen name="check_margin_bottom">10dp</dimen>
 
     <!--    Forgot Password pop up large-->
-    <dimen name="margin_left_large">10dp</dimen>
-    <dimen name="margin_right_large">10dp</dimen>
+
     <dimen name="close_margin_top_large">12dp</dimen>
     <dimen name="close_margin_right_large">12dp</dimen>
+    <dimen name="size_close">20dp</dimen>
     <dimen name="close_elevation_large">10dp</dimen>
     <dimen name="card_corner_radius_large">30dp</dimen>
     <dimen name="card_view_elevation_large">30dp</dimen>
@@ -161,5 +171,36 @@
     <dimen name="rv_go_to_login_button">25sp</dimen>
     <dimen name="rv_check_size">50dp</dimen>
     <dimen name="rv_check_margin_bottom">10dp</dimen>
+
+
+    <!--    Know more  popup -->
+    <dimen name="km_card_corner_radius">10dp</dimen>
+    <dimen name="km_card_view_elevation">10dp</dimen>
+    <dimen name="km_close_margin_bottom">7dp</dimen>
+    <dimen name="km_close_margin_right">7dp</dimen>
+    <dimen name="km_close_elevation">5dp</dimen>
+    <dimen name="km_tex_view_margin_left">20dp</dimen>
+    <dimen name="km_tex_view_margin_right">20dp</dimen>
+    <dimen name="km_bottom_margin">7dp</dimen>
+    <dimen name="km_card_view_title_size">18sp</dimen>
+    <dimen name="km_card_view_text_size">15sp</dimen>
+    <dimen name="km_button_size">20sp</dimen>
+
+
+
+    <!--    Know more  popup Large -->
+    <dimen name="km_card_corner_radius_large">10dp</dimen>
+    <dimen name="km_card_view_elevation_large">10dp</dimen>
+    <dimen name="km_close_margin_bottom_large">12dp</dimen>
+    <dimen name="km_close_margin_right_large">12dp</dimen>
+    <dimen name="km_close_elevation_large">10dp</dimen>
+    <dimen name="km_tex_view_margin_right_large">25dp</dimen>
+    <dimen name="km_tex_view_margin_left_large">25dp</dimen>
+    <dimen name="km_bottom_margin_large">12dp</dimen>
+    <dimen name="km_card_view_title_size_large">30sp</dimen>
+    <dimen name="km_card_view_text_size_large">25sp</dimen>
+    <dimen name="km_button_size_large">30sp</dimen>
+
+
 
 </resources>

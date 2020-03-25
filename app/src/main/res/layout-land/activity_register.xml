@@ -64,6 +64,7 @@
                         android:layout_gravity="end">
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/know_more_donor_button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/cv_button_margin"
@@ -146,6 +147,7 @@
                         android:layout_gravity="end">
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/know_more_volunteer_button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="@dimen/cv_button_margin"

@@ -91,4 +91,22 @@
     <string name="register_volunteer_terms">I agree the <a href="https://docs.google.com/document/d/1ZIIJa9KbmTksrC9oWBR_fnjPOXYogTASH-KA9LwpCw8/edit?usp=sharing">Terms and Conditions</a> and the <a href="https://docs.google.com/document/d/13UfrKy4JK6U_5hrsPT4h3wWnR7DY_RFeWEhmMIP3w_s/edit?usp=sharing">Privacy Policy</a></string>
     <string name="register_volunteer_terms_error">You have to agree the Terms and conditions first!</string>
 
+    <!--    Know more register donor popup -->
+
+    <string name="donor_know_more_title">What can you do if you register as donor?</string>
+    <string name="donor_know_more_text">1. You can help people without basic resources such as food, accommodation or clothing \n\n
+                                  2. You can choose the profile of the person who most attracts your attention and help them \n\n
+                                  3. You can donate food, clothing, accommodation, work or personal hygiene products \n\n
+                                  4. You can deliver the aid personally or with the help of a volunteer \n</string>
+
+    <!--    Know more register volunteer popup -->
+
+    <string name="volunteer_know_more_title">What can you do if you register as volunteer?</string>
+    <string name="volunteer_know_more_text">1. You can connect with people without resources who need our help \n\n
+                                            2. You can create and manage profiles for them, since they do not always have a mobile phone connected to the Internet \n\n
+                                            3. You can help to make the donation delivery in case the donors do not have the possibility to do it personally \n
+    </string>
+
+
+
 </resources>

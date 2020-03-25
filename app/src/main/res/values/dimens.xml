@@ -124,26 +124,34 @@
     <dimen name="drawable_padding">10dp</dimen>
     <dimen name="register_donor_optional_info">20sp</dimen>
     <dimen name="register_donor_button">25sp</dimen>
+    <dimen name="register_donor_card_view_margins">8dp</dimen>
 
     <!--    Register Donor pop up-->
-    <dimen name="rp_margin_left">5dp</dimen>
-    <dimen name="rp_margin_right">5dp</dimen>
-    <dimen name="rp_close_margin_top">7dp</dimen>
-    <dimen name="rp_close_margin_right">7dp</dimen>
+    <dimen name="rp_close_margin_top">10dp</dimen>
+    <dimen name="rp_close_margin_right">10dp</dimen>
     <dimen name="rp_close_elevation">5dp</dimen>
     <dimen name="rp_card_corner_radius">30dp</dimen>
     <dimen name="rp_card_view_elevation">30dp</dimen>
-    <dimen name="rp_linear_layout_margin_top">25dp</dimen>
-    <dimen name="rp_linear_layout_margin_bottom">25dp</dimen>
     <dimen name="rp_tex_view_margin_left">20dp</dimen>
     <dimen name="rp_tex_view_margin_right">20dp</dimen>
     <dimen name="rp_card_view_title_size">20dp</dimen>
     <dimen name="rp_card_view_text_size">15sp</dimen>
-    <dimen name="rp_button_margin">20dp</dimen>
     <dimen name="rp_button_size">25sp</dimen>
-    <dimen name="rp_go_to_login_button">25sp</dimen>
-    <dimen name="rp_check_size">50dp</dimen>
     <dimen name="rp_check_margin_bottom">10dp</dimen>
+
+    <!--    Register Donor pop up Large-->
+    <dimen name="rp_card_corner_radius_large">30dp</dimen>
+    <dimen name="rp_card_view_elevation_large">30dp</dimen>
+    <dimen name="rp_close_margin_top_large">15dp</dimen>
+    <dimen name="rp_close_margin_right_large">15dp</dimen>
+    <dimen name="rp_check_margin_bottom_large">15dp</dimen>
+    <dimen name="rp_tex_view_margin_left_large">20dp</dimen>
+    <dimen name="rp_tex_view_margin_right_large">20dp</dimen>
+    <dimen name="rp_card_view_title_size_large">30dp</dimen>
+    <dimen name="rp_card_view_text_size_large">25sp</dimen>
+    <dimen name="rp_button_size_large">30sp</dimen>
+
+
 
     <!--    Register Volunteer Activity-->
     <dimen name="create_volunteer_account_title">15sp</dimen>
@@ -151,26 +159,32 @@
     <dimen name="drawable_padding_volunteer">10dp</dimen>
     <dimen name="register_volunteer_optional_info">20sp</dimen>
     <dimen name="register_volunteer_button">25sp</dimen>
+    <dimen name="register_volunteer_card_view_margins">8dp</dimen>
 
-    <!--    Register Donor pop up-->
-    <dimen name="rv_margin_left">5dp</dimen>
-    <dimen name="rv_margin_right">5dp</dimen>
-    <dimen name="rv_close_margin_top">7dp</dimen>
-    <dimen name="rv_close_margin_right">7dp</dimen>
+    <!--    Register Volunteer pop up-->
+    <dimen name="rv_close_margin_top">10dp</dimen>
+    <dimen name="rv_close_margin_right">10dp</dimen>
     <dimen name="rv_close_elevation">5dp</dimen>
     <dimen name="rv_card_corner_radius">30dp</dimen>
     <dimen name="rv_card_view_elevation">30dp</dimen>
-    <dimen name="rv_linear_layout_margin_top">25dp</dimen>
-    <dimen name="rv_linear_layout_margin_bottom">25dp</dimen>
     <dimen name="rv_tex_view_margin_left">20dp</dimen>
     <dimen name="rv_tex_view_margin_right">20dp</dimen>
     <dimen name="rv_card_view_title_size">20dp</dimen>
     <dimen name="rv_card_view_text_size">15sp</dimen>
-    <dimen name="rv_button_margin">20dp</dimen>
     <dimen name="rv_button_size">25sp</dimen>
-    <dimen name="rv_go_to_login_button">25sp</dimen>
-    <dimen name="rv_check_size">50dp</dimen>
     <dimen name="rv_check_margin_bottom">10dp</dimen>
+
+    <!--    Register Volunteer pop up Large-->
+    <dimen name="rv_card_corner_radius_large">30dp</dimen>
+    <dimen name="rv_card_view_elevation_large">30dp</dimen>
+    <dimen name="rv_close_margin_top_large">15dp</dimen>
+    <dimen name="rv_close_margin_right_large">15dp</dimen>
+    <dimen name="rv_check_margin_bottom_large">15dp</dimen>
+    <dimen name="rv_tex_view_margin_left_large">20dp</dimen>
+    <dimen name="rv_tex_view_margin_right_large">20dp</dimen>
+    <dimen name="rv_card_view_title_size_large">30dp</dimen>
+    <dimen name="rv_card_view_text_size_large">25sp</dimen>
+    <dimen name="rv_button_size_large">30sp</dimen>
 
 
     <!--    Know more  popup -->

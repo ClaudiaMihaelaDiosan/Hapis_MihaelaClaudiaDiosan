@@ -4,19 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginEnd="@dimen/margin_right"
-    android:layout_marginStart="@dimen/margin_left"
+    android:layout_marginEnd="@dimen/right_margin"
+    android:layout_marginStart="@dimen/left_margin"
     android:gravity="center">
 
-    <ImageView
-        android:id="@+id/rp_close_pop_up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_close_black_24dp"
-        android:layout_marginTop="@dimen/rp_close_margin_top"
-        android:layout_marginEnd="@dimen/rp_close_margin_right"
-        android:elevation="@dimen/rp_close_elevation"
-        android:layout_alignParentEnd="true"/>
 
 
     <androidx.cardview.widget.CardView
@@ -24,7 +15,7 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/rp_card_corner_radius"
         app:cardElevation="@dimen/rp_card_view_elevation"
-        app:cardBackgroundColor="@color/white"
+        app:cardBackgroundColor="@color/light_blue"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true">
@@ -34,19 +25,30 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/rd_close_pop_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_close_black_24dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="@dimen/rp_close_margin_top"
+                android:layout_marginEnd="@dimen/rp_close_margin_right"
+                android:elevation="@dimen/rp_close_elevation"
+                android:contentDescription="@string/content_description_close_popup"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_marginTop="@dimen/rp_linear_layout_margin_top"
-                android:layout_marginBottom="@dimen/rp_linear_layout_margin_bottom">
+                android:orientation="vertical">
+
 
                 <ImageView
                     android:layout_width="@dimen/check_size"
                     android:layout_height="@dimen/check_size"
                     android:src="@drawable/ic_check_circle_black_24dp"
                     android:layout_gravity="center"
-                    android:layout_marginBottom="@dimen/rp_check_margin_bottom"/>
+                    android:layout_marginBottom="@dimen/rp_check_margin_bottom"
+                    android:contentDescription="@string/content_description_check"/>
 
                 <TextView
                     android:id="@+id/rp_title_popup"
@@ -71,17 +73,16 @@
                     android:textSize="@dimen/rp_card_view_text_size"
                     android:text="@string/register_donor_pop_up_message"/>
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/rp_ok_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/rp_button_margin"
-                    android:layout_marginStart="@dimen/rp_button_margin"
-                    android:layout_marginEnd="@dimen/rp_button_margin"
+                    android:layout_gravity="center"
                     android:text="@string/register_donor_pop_up_button"
                     android:textSize="@dimen/rp_button_size"
+                    style="?attr/borderlessButtonStyle"
                     android:background="@drawable/btn_gradient_style"
-                    android:textColor="@color/white"/>
+                    android:textColor="@color/colorPrimary"/>
 
             </LinearLayout>
         </LinearLayout>

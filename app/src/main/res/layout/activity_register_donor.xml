@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background"
     android:orientation="vertical">
 
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -18,14 +13,21 @@
             android:orientation="vertical" >
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:baselineAligned="false"
-                android:layout_marginTop="@dimen/top_margin"
-                android:src="@drawable/logo_hapis"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"
+                android:src="@drawable/register_donor_image"
+                android:contentDescription="@string/content_description_register_donor_image"
                 />
 
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/cardCornerRadius"
+            app:cardElevation="@dimen/elevation"
+            android:layout_margin="@dimen/register_donor_card_view_margins">
 
             <TextView
                 android:layout_width="match_parent"
@@ -48,15 +50,18 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/top_margin"
                     android:text="@string/register_donor_login_info"
                     android:textSize="@dimen/register_donor_login_info_size"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/colorPrimary" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/left_margin"
-                    android:layout_marginEnd="@dimen/right_margin">
+                    android:layout_marginEnd="@dimen/right_margin"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/donor_username_edit_text"
@@ -65,7 +70,6 @@
                         android:hint="@string/register_donor_username_hint"
                         android:drawableStart="@drawable/username_drawable"
                         android:drawablePadding="@dimen/drawable_padding"
-
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,7 +77,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/left_margin"
-                    android:layout_marginEnd="@dimen/right_margin">
+                    android:layout_marginEnd="@dimen/right_margin"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/donor_email_edit_text"
@@ -91,7 +96,8 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/left_margin"
                     android:layout_marginEnd="@dimen/right_margin"
-                    app:passwordToggleEnabled="true">
+                    app:passwordToggleEnabled="true"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/donor_password_text_view"
@@ -111,13 +117,15 @@
                     android:text="@string/register_donor_opional_info"
                     android:textSize="@dimen/register_donor_optional_info"
                     android:layout_marginTop="@dimen/top_margin"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/colorPrimary" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/left_margin"
-                    android:layout_marginEnd="@dimen/right_margin">
+                    android:layout_marginEnd="@dimen/right_margin"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    >
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/donor_first_name"
@@ -134,7 +142,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/left_margin"
-                    android:layout_marginEnd="@dimen/right_margin">
+                    android:layout_marginEnd="@dimen/right_margin"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/donor_last_name"
@@ -152,7 +161,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginStart="@dimen/left_margin"
-                    android:layout_marginEnd="@dimen/right_margin">
+                    android:layout_marginEnd="@dimen/right_margin"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/donor_birthday_edit_text"
@@ -163,6 +173,7 @@
                         android:drawablePadding="@dimen/drawable_padding"
                         android:focusable="false"
                         android:focusableInTouchMode="false"
+                        android:inputType="date"
 
                         />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -184,10 +195,9 @@
                         android:layout_marginBottom="@dimen/bottom_margin"
                         android:text="@string/register_donor_terms" />
 
-
                 </LinearLayout>
 
-                <Button
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/register_donor_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -195,19 +205,16 @@
                     android:layout_marginStart="@dimen/left_margin"
                     android:layout_marginTop="@dimen/top_margin"
                     android:layout_marginEnd="@dimen/right_margin"
-                    android:background="@drawable/btn_gradient_style"
+                    android:backgroundTint="@color/colorPrimary"
                     android:text="@string/register_donor_button"
                     android:textColor="@color/white"
                     android:textSize="@dimen/register_donor_button" />
             </LinearLayout>
 
 
-        </LinearLayout>
-    </ScrollView>
+        </com.google.android.material.card.MaterialCardView>
 
 
+    </LinearLayout>
 
-
-
-
-</LinearLayout>
+</ScrollView>

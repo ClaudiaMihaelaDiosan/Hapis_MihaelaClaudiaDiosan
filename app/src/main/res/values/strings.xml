@@ -55,6 +55,7 @@
 
 
     <!--    Register Donor Activity-->
+    <string name="content_description_register_donor_image">Image Register Donor</string>
     <string name="register_donor_name">Register Donor</string>
     <string name="register_donor_title">Create an account</string>
     <string name="register_donor_login_info">Login Info</string>

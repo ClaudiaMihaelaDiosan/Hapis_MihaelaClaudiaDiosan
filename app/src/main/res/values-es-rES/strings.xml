@@ -58,6 +58,7 @@
 
 
     <!--    Register Donor Activity-->
+    <string name="content_description_register_donor_image">Imagen registro donante</string>
     <string name="register_donor_name">Registro Donante</string>
     <string name="register_donor_title">Crea tu cuenta</string>
     <string name="register_donor_login_info">Información de inicio de sesión</string>
@@ -72,10 +73,11 @@
     <string name="register_donor_pop_up_title">REGISTRO CORRECTO</string>
     <string name="register_donor_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
     <string name="register_donor_pop_up_button">OK</string>
-    <string name="register_donor_terms">I agree the <a href="https://docs.google.com/document/d/1ZIIJa9KbmTksrC9oWBR_fnjPOXYogTASH-KA9LwpCw8/edit?usp=sharing">Terms and Conditions</a> and the <a href="https://docs.google.com/document/d/13UfrKy4JK6U_5hrsPT4h3wWnR7DY_RFeWEhmMIP3w_s/edit?usp=sharing">Privacy Policy</a></string>
+    <string name="register_donor_terms">Acepto las <a href="https://docs.google.com/document/d/1ZIIJa9KbmTksrC9oWBR_fnjPOXYogTASH-KA9LwpCw8/edit?usp=sharing">Condiciones Legales</a> e  <a href="https://docs.google.com/document/d/13UfrKy4JK6U_5hrsPT4h3wWnR7DY_RFeWEhmMIP3w_s/edit?usp=sharing">Información basica de privacidad</a></string>
     <string name="register_donor_terms_error">Primero acepta las condiciones legales!</string>
 
     <!--    Register Volunteer Activity-->
+
     <string name="register_volunteer_name">Registro Voluntario</string>
     <string name="register_volunteer_title">Crea tu cuenta</string>
     <string name="register_volunteer_login_info">Información de inicio de sesión</string>
@@ -91,7 +93,7 @@
     <string name="register_volunteer_pop_up_title">REGISTRO CORRECTO</string>
     <string name="register_volunteer_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
     <string name="register_volunteer_pop_up_button">OK</string>
-    <string name="register_volunteer_terms">Acepto las <a href="https://docs.google.com/document/d/1ZIIJa9KbmTksrC9oWBR_fnjPOXYogTASH-KA9LwpCw8/edit?usp=sharing">Condiciones legales</a> y <a href="https://docs.google.com/document/d/13UfrKy4JK6U_5hrsPT4h3wWnR7DY_RFeWEhmMIP3w_s/edit?usp=sharing">Información basica de privacidad</a></string>
+    <string name="register_volunteer_terms">Acepto las <a href="https://docs.google.com/document/d/1ZIIJa9KbmTksrC9oWBR_fnjPOXYogTASH-KA9LwpCw8/edit?usp=sharing">Condiciones legales</a> e <a href="https://docs.google.com/document/d/13UfrKy4JK6U_5hrsPT4h3wWnR7DY_RFeWEhmMIP3w_s/edit?usp=sharing">Información basica de privacidad</a></string>
     <string name="register_volunteer_terms_error">Primero acepta las condiciones legales!</string>
 
     <!--    Know more register donor popup -->

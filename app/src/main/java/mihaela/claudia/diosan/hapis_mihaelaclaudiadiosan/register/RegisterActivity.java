@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -19,9 +20,6 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
 public class RegisterActivity extends AppCompatActivity {
 
-//    CardView donorRegister;
-//    CardView volunteerRegister;
-//    Configuration newConfig;
     Dialog knowMoreDonorDialog;
     Dialog knowMoreVolunteerDialog;
 
@@ -32,6 +30,8 @@ public class RegisterActivity extends AppCompatActivity {
     MaterialButton knowMoreDonorOkBtn;
     MaterialButton knowMoreVolunteerBtn;
     MaterialButton knowMoreVolunteerOkBtn;
+    MaterialButton startRegisterDonorBtn;
+    MaterialButton startRegisterVolunteerBtn;
 
 
     @Override
@@ -44,13 +44,13 @@ public class RegisterActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
 
-//        donorRegister = (CardView) findViewById(R.id.donor_cardview);
-//        volunteerRegister = (CardView) findViewById(R.id.volunteer_cardview);
           knowMoreDonorDialog =  new Dialog(this);
           knowMoreDonorBtn =  findViewById(R.id.know_more_donor_button);
+          startRegisterDonorBtn = findViewById(R.id.start_register_donor);
 
           knowMoreVolunteerDialog =  new Dialog(this);
           knowMoreVolunteerBtn =  findViewById(R.id.know_more_volunteer_button);
+          startRegisterVolunteerBtn = findViewById(R.id.start_register_volunteer);
 
 
 
@@ -68,25 +68,25 @@ public class RegisterActivity extends AppCompatActivity {
               }
           });
 //
-//
-//        donorRegister.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent registerDonorActivity = new Intent(RegisterActivity.this, RegisterDonorActivity.class );
-//                startActivity(registerDonorActivity);
-//                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-//            }
-//        });
-//
-//        volunteerRegister.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent registerVolunteerActivity = new Intent(RegisterActivity.this, RegisterVolunteerActivity.class );
-//                startActivity(registerVolunteerActivity);
-//                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-//
-//            }
-//        });
+
+        startRegisterDonorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerDonorActivity = new Intent(RegisterActivity.this, RegisterDonorActivity.class );
+                startActivity(registerDonorActivity);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+
+        startRegisterVolunteerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerVolunteerActivity = new Intent(RegisterActivity.this, RegisterVolunteerActivity.class );
+                startActivity(registerVolunteerActivity);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+
     }
 
     private void showVolunteerPopUpDialog() {

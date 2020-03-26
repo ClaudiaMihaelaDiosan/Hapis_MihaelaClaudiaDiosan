@@ -123,8 +123,19 @@
     <dimen name="register_donor_login_info_size">20sp</dimen>
     <dimen name="drawable_padding">10dp</dimen>
     <dimen name="register_donor_optional_info">20sp</dimen>
-    <dimen name="register_donor_button">25sp</dimen>
+    <dimen name="register_donor_button">20sp</dimen>
     <dimen name="register_donor_card_view_margins">8dp</dimen>
+
+    <!--    Register Donor Activity Large-->
+    <dimen name="create_donor_account_title_large">20sp</dimen>
+    <dimen name="register_donor_login_info_size_large">25sp</dimen>
+    <dimen name="drawable_padding_large">15dp</dimen>
+    <dimen name="register_donor_optional_info_large">25sp</dimen>
+    <dimen name="register_donor_button_large">35sp</dimen>
+    <dimen name="register_donor_card_view_margins_large">15dp</dimen>
+    <dimen name="register_donor_terms_large">20sp</dimen>
+
+
 
     <!--    Register Donor pop up-->
     <dimen name="rp_close_margin_top">10dp</dimen>
@@ -136,7 +147,7 @@
     <dimen name="rp_tex_view_margin_right">20dp</dimen>
     <dimen name="rp_card_view_title_size">20dp</dimen>
     <dimen name="rp_card_view_text_size">15sp</dimen>
-    <dimen name="rp_button_size">25sp</dimen>
+    <dimen name="rp_button_size">20sp</dimen>
     <dimen name="rp_check_margin_bottom">10dp</dimen>
 
     <!--    Register Donor pop up Large-->
@@ -158,8 +169,20 @@
     <dimen name="register_volunteer_login_info_size">20sp</dimen>
     <dimen name="drawable_padding_volunteer">10dp</dimen>
     <dimen name="register_volunteer_optional_info">20sp</dimen>
-    <dimen name="register_volunteer_button">25sp</dimen>
+    <dimen name="register_volunteer_button">20sp</dimen>
     <dimen name="register_volunteer_card_view_margins">8dp</dimen>
+
+
+
+    <!--    Register Volunteer Activity Large-->
+    <dimen name="create_volunteer_account_title_large">20sp</dimen>
+    <dimen name="register_volunteer_login_info_size_large">25sp</dimen>
+    <dimen name="drawable_padding_volunteer_large">15dp</dimen>
+    <dimen name="register_volunteer_optional_info_large">25sp</dimen>
+    <dimen name="register_volunteer_button_large">35sp</dimen>
+    <dimen name="register_volunteer_card_view_margins_large">15dp</dimen>
+
+
 
     <!--    Register Volunteer pop up-->
     <dimen name="rv_close_margin_top">10dp</dimen>
@@ -171,7 +194,7 @@
     <dimen name="rv_tex_view_margin_right">20dp</dimen>
     <dimen name="rv_card_view_title_size">20dp</dimen>
     <dimen name="rv_card_view_text_size">15sp</dimen>
-    <dimen name="rv_button_size">25sp</dimen>
+    <dimen name="rv_button_size">20sp</dimen>
     <dimen name="rv_check_margin_bottom">10dp</dimen>
 
     <!--    Register Volunteer pop up Large-->

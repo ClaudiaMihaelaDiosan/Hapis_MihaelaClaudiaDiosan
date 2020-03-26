@@ -102,7 +102,7 @@
     <string name="donor_know_more_text">1. Puedes ayudar personas que no disponen de recursos tan básicos como comida, alojamiento o ropa \n\n
                                   2. Puedes escojer el perfil de la persona que más te atrae la atención y ayudarla \n\n
                                   3. Puedes donar comida, ropa, alojamiento, trabajo o productos de higiene personal \n\n
-                                  4. Puedes entregar la ayuda personalmente o con la ayuda de un voluntario \n
+                                  4. Puedes entregar la ayuda personalmente o con la ayuda de un voluntario
                                   </string>
 
     <!--    Know more register volunteer popup -->
@@ -110,7 +110,7 @@
     <string name="volunteer_know_more_title">Que puedes hacer si te registras como voluntario?</string>
     <string name="volunteer_know_more_text">1. Puedes conectar con personas sin recursos que necesitan nuestra ayuda \n\n
                                             2. Puedes crear y gestionar perfiles para ellos, ya que ellos no siempre tienen un teléfono móvil conectado a Internet \n\n
-                                            3. Puedes ayudar a realizar la entrega de donaciones en caso que los donantes no tienen la posibilidad de realizarla personalmente \n
+                                            3. Puedes ayudar a realizar la entrega de donaciones en caso que los donantes no tienen la posibilidad de realizarla personalmente
     </string>
 
 </resources>

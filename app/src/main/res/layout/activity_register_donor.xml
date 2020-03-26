@@ -18,7 +18,7 @@
                 android:layout_gravity="center"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
-                android:src="@drawable/register_donor_image"
+                android:src="@drawable/donor_card_view_image"
                 android:contentDescription="@string/content_description_register_donor_image"
                 />
 
@@ -199,12 +199,10 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/register_donor_button"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginStart="@dimen/left_margin"
                     android:layout_marginTop="@dimen/top_margin"
-                    android:layout_marginEnd="@dimen/right_margin"
                     android:backgroundTint="@color/colorPrimary"
                     android:text="@string/register_donor_button"
                     android:textColor="@color/white"

@@ -30,7 +30,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/ic_close_black_24dp"
-                    android:layout_marginBottom="@dimen/km_close_margin_bottom"
                     android:layout_marginEnd="@dimen/km_close_margin_right"
                     android:elevation="@dimen/km_close_elevation"
                     android:layout_gravity="end"

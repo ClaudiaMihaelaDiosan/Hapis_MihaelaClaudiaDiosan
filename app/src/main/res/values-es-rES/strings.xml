@@ -111,6 +111,27 @@
     <string name="volunteer_know_more_text">1. Puedes conectar con personas sin recursos que necesitan nuestra ayuda \n\n
                                             2. Puedes crear y gestionar perfiles para ellos, ya que ellos no siempre tienen un teléfono móvil conectado a Internet \n\n
                                             3. Puedes ayudar a realizar la entrega de donaciones en caso que los donantes no tienen la posibilidad de realizarla personalmente
-    </string>
+    </string>7
+
+    <!--    Volunteer Home Activity-->
+    <string name="volunteer_home_name">Voluntario</string>
+    <string name="volunteer_menu_home">Inicio</string>
+    <string name="volunteer_menu_donate">Donar</string>
+
+    <string name="volunteer_menu_profile">Perfil</string>
+    <string name="volunteer_menu_configuration">Configuración</string>
+    <string name="volunteer_menu_logout">Salir</string>
+
+
+    <string name="volunteer_menu_contact">Contacto</string>
+
+    <string name="volunteer_username_text_view">Nombre de usuario</string>
+    <string name="volunteer_email_text_view">Correo electrónico</string>
+
+    <string name="open_navigation_drawer_volunteer">Abrir navigation drawer</string>
+    <string name="close_navigation_drawer_volunteer">Cerrar navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

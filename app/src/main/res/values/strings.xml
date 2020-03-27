@@ -109,5 +109,26 @@
     </string>
 
 
+    <!--    Volunteer Home Activity-->
+    <string name="volunteer_home_name">Volunteer</string>
+    <string name="volunteer_menu_home">Home</string>
+    <string name="volunteer_menu_donate">Donate</string>
+
+    <string name="volunteer_menu_profile">Profile</string>
+    <string name="volunteer_menu_configuration">Configuration</string>
+    <string name="volunteer_menu_logout">Logout</string>
+
+
+    <string name="volunteer_menu_contact">Contact</string>
+
+    <string name="volunteer_username_text_view">Username</string>
+    <string name="volunteer_email_text_view">Email</string>
+
+    <string name="open_navigation_drawer_volunteer">Open navigation drawer</string>
+    <string name="close_navigation_drawer_volunteer">Close navigation drawer</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

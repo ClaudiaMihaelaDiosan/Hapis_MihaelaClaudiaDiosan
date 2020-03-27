@@ -165,6 +165,25 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/volunteer_phone_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/register_volunteer_phone_number_hint"
+                        android:drawableStart="@drawable/phone_drawable"
+                        android:drawablePadding="@dimen/drawable_padding"
+                        android:inputType="phone"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/left_margin"
+                    android:layout_marginEnd="@dimen/right_margin"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/volunteer_birthday_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

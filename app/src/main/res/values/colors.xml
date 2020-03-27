@@ -26,4 +26,6 @@
     <color name="black">#000000</color>
     <color name="grey">#656565</color>
 
+    <color name="darkGrey">#555454</color>
+
 </resources>

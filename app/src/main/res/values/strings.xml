@@ -130,6 +130,13 @@
     <string name="profile_menu">Profile</string>
     <string name="contact_menu">Contact</string>
 
+    <string name="vcf_title">CONTACT US</string>
+    <string name="vcf_text">If you have any doubt, need help or want to contact us for any reason, complete your email and write your message and we will answer you as soon as possible.Thank you!</string>
+    <string name="vcf_email_hint">Email</string>
+    <string name="vcf_text_hint">Write your message here</string>
+    <string name="vcf_button">SEND MESSAGE</string>
+    <string name="vcf_toast_message">You have successfully sent your message.\n We\'ll revert back to you as soon as possible.</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

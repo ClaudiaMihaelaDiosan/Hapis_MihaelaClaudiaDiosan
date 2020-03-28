@@ -238,6 +238,11 @@
     <dimen name="km_card_view_text_size_large">25sp</dimen>
     <dimen name="km_button_size_large">30sp</dimen>
 
+<!--    Volunteer Contact  Fragment-->
+    <dimen name="vcf_title_size">25sp</dimen>
+    <dimen name="vcf_body_size">20sp</dimen>
+    <dimen name="vcf_edit_text_box">200dp</dimen>
+
 
 
 </resources>

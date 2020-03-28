@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/volunteer_drawer"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fitsSystemWindows="true"
+
     tools:context=".volunteer.HomeVolunteer"
     android:background="@drawable/gradient_background"
     tools:openDrawer="start">

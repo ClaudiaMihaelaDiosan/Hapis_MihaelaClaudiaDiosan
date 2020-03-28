@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="200dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-
-    android:background="@color/colorPrimaryDark"
+    android:background="@drawable/volunteer_header"
     android:orientation="horizontal"
     android:gravity="bottom">
     
@@ -30,17 +29,17 @@
             android:layout_height="wrap_content"
             android:text="@string/volunteer_username_text_view"
             android:textStyle="bold"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimaryDark"
             android:textSize="20dp"/>
 
         <TextView
-            android:id="@+id/volunteer_emai_text_view"
+            android:id="@+id/volunteer_email_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/volunteer_email_text_view"
             android:textStyle="bold"
             android:textSize="15dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/colorPrimaryDark"/>
 
     </LinearLayout>
 

@@ -134,6 +134,13 @@
     <string name="profile_menu">Perfil</string>
     <string name="contact_menu">Contacto</string>
 
+    <string name="vcf_title">CONTACTA CON NOSOTROS</string>
+    <string name="vcf_text">Si tienes alguna duda, necesitas ayuda o quieres contactar con nosotros por cualquier motivo, rellena a continuación tu correo y el mensaje y nos pondremos en contacto contigo lo antes posible. Gracias!</string>
+    <string name="vcf_email_hint">Correo electrónico</string>
+    <string name="vcf_text_hint">Escribe tu mensaje aquí</string>
+    <string name="vcf_button">ENVIAR MENSAJE</string>
+    <string name="vcf_toast_message">El mensaje se ha enviado correctamente.\n Recibirás una respuesta lo antes posible.</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

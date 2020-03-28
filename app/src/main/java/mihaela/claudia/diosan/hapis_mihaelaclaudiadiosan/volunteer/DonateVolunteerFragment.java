@@ -10,15 +10,13 @@ import android.view.ViewGroup;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
-
-public class HomeVolunteerFragment extends Fragment {
-
+public class DonateVolunteerFragment extends Fragment {
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home_volunteer, container, false);
+        return inflater.inflate(R.layout.fragment_donate_volunteer, container, false);
     }
 }

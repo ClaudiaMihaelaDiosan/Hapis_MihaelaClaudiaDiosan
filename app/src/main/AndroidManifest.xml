@@ -10,7 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".volunteer.HomeVolunteer"
-            android:label="@string/volunteer_home_name"/>
+            android:label="@string/volunteer_home_name"
+         android:theme="@style/AppTheme.NoActionBar"
+            />
 
         <activity
             android:name=".register.RegisterVolunteerActivity"
@@ -24,6 +26,7 @@
         <activity
             android:name=".login.ForgotPasswordActivity"
             android:label="@string/forgot_password_name" />
+
         <activity android:name=".login.LoginActivity" />
         <activity
             android:name=".intro.IntroActivity"

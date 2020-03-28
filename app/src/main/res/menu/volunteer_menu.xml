@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
         <item
@@ -14,30 +16,43 @@
 
     </group>
 
+    <item android:title="@string/profile_menu">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/volunteer_menu_profile"
-            android:title="@string/volunteer_menu_profile"
-            android:icon="@drawable/menu_profile_icon"/>
+        <menu>
+            <item
+                android:id="@+id/volunteer_menu_profile"
+                android:title="@string/volunteer_menu_profile"
+                android:icon="@drawable/menu_profile_icon"/>
 
-        <item
-            android:id="@+id/volunteer_menu_configuration"
-            android:title="@string/volunteer_menu_configuration"
-            android:icon="@drawable/menu_configuration_icon"/>
+            <item
+                android:id="@+id/volunteer_menu_configuration"
+                android:title="@string/volunteer_menu_configuration"
+                android:icon="@drawable/menu_configuration_icon"/>
 
-        <item
-            android:id="@+id/volunteer_menu_logout"
-            android:title="@string/volunteer_menu_logout"
-            android:icon="@drawable/menu_logout_icon"/>
+            <item
+                android:id="@+id/volunteer_menu_logout"
+                android:title="@string/volunteer_menu_logout"
+                android:icon="@drawable/menu_logout_icon"/>
+        </menu>
 
-    </group>
+    </item>
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/volunteer_menu_contact"
-            android:title="@string/volunteer_menu_contact"
-            android:icon="@drawable/menu_contact_icon"/>
-    </group>
+
+    <item android:title="@string/contact_menu">
+
+        <menu>
+
+            <item
+                android:id="@+id/volunteer_menu_contact"
+                android:title="@string/volunteer_menu_contact"
+                android:icon="@drawable/menu_contact_icon"/>
+
+        </menu>
+
+    </item>
+
+
+
+
 
 </menu>

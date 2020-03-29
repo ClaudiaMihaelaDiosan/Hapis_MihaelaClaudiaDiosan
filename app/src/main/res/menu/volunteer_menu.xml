@@ -16,14 +16,9 @@
 
     </group>
 
-    <item android:title="@string/profile_menu">
+    <item android:title="@string/configuration_menu">
 
         <menu>
-            <item
-                android:id="@+id/volunteer_menu_profile"
-                android:title="@string/volunteer_menu_profile"
-                android:icon="@drawable/menu_profile_icon"/>
-
             <item
                 android:id="@+id/volunteer_menu_configuration"
                 android:title="@string/volunteer_menu_configuration"

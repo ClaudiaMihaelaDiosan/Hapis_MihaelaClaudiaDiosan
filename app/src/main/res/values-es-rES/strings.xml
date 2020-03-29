@@ -131,17 +131,31 @@
     <string name="open_navigation_drawer_volunteer">Abrir navigation drawer</string>
     <string name="close_navigation_drawer_volunteer">Cerrar navigation drawer</string>
 
-    <string name="profile_menu">Perfil</string>
+    <string name="configuration_menu">Configuración</string>
     <string name="contact_menu">Contacto</string>
 
     <string name="vcf_title">CONTACTA CON NOSOTROS</string>
-    <string name="vcf_text">Si tienes alguna duda, necesitas ayuda o quieres contactar con nosotros por cualquier motivo, rellena a continuación tu correo y el mensaje y nos pondremos en contacto contigo lo antes posible. Gracias!</string>
     <string name="vcf_email_hint">Correo electrónico</string>
     <string name="vcf_text_hint">Escribe tu mensaje aquí</string>
     <string name="vcf_button">ENVIAR MENSAJE</string>
     <string name="vcf_toast_message">El mensaje se ha enviado correctamente.\n Recibirás una respuesta lo antes posible.</string>
+    <string name="vcf_subject_hint">Asunto</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Volunteer Configuration Fragment -->
+    <string name="volunteer_personal_info_title">Información Personal</string>
+    <string name="volunteer_phone_number_title">Número de teléfono</string>
+    <string name="volunteer_phone_number_summary">Cambia tu número de teléfono existente o añade un número nuevo</string>
+    <string name="volunteer_system_title">Sistema</string>
+    <string name="volunteer_change_language_title">Idioma</string>
+    <string name="volunteer_change_language_summary">Cambia el idioma de la aplicación</string>
+    <string name="volunteer_change_language_dialog_title">Escoje idioma</string>
+    <string name="vounteer_phone_text_view">Número de teléfono</string>
+
+    <!--    Volunteer Donate Fragment-->
+    <string name="volunteer_donate_title">HAZ UNA DONACIÓN A HAPIS</string>
+    <string name="volunteer_donate_text"> Tu donación proporciona cosas como comida a personas reales y nos ayuda seguir manteniendo esta aplicación.</string>
+    <string name="volunteer_donate_button">DONAR</string>
+    <string name="volunteer_donate_video">Mira el video para dona 0.40 centimos.</string>
+
 
 </resources>

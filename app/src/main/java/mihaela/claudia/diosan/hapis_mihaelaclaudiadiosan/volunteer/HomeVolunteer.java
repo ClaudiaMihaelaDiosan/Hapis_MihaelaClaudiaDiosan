@@ -7,11 +7,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceManager;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Message;
+import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -19,6 +24,7 @@ import android.view.WindowManager;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.Locale;
 import java.util.Objects;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
@@ -30,10 +36,11 @@ public class HomeVolunteer extends AppCompatActivity implements NavigationView.O
     Toolbar mToolbar;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_home_volunteer);
 
         mToolbar = findViewById(R.id.volunteer_toolbar);
@@ -81,9 +88,6 @@ public class HomeVolunteer extends AppCompatActivity implements NavigationView.O
             case R.id.volunteer_menu_donate:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DonateVolunteerFragment()).commit();
                 break;
-            case R.id.volunteer_menu_profile:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileVolunteerFragment()).commit();
-                break;
             case R.id.volunteer_menu_configuration:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConfigurationVolunteerFragment()).commit();
                 break;
@@ -109,7 +113,6 @@ public class HomeVolunteer extends AppCompatActivity implements NavigationView.O
             super.onBackPressed();
         }
     }
-
 
 }
 

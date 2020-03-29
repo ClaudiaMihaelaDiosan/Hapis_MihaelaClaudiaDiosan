@@ -123,22 +123,37 @@
 
     <string name="volunteer_username_text_view">Username</string>
     <string name="volunteer_email_text_view">Email</string>
+    <string name="vounteer_phone_text_view">Phone Number</string>
 
     <string name="open_navigation_drawer_volunteer">Open navigation drawer</string>
     <string name="close_navigation_drawer_volunteer">Close navigation drawer</string>
 
-    <string name="profile_menu">Profile</string>
+    <string name="configuration_menu">Configuration</string>
     <string name="contact_menu">Contact</string>
 
+    <!--    Volunteer Contact Fragment-->
     <string name="vcf_title">CONTACT US</string>
-    <string name="vcf_text">If you have any doubt, need help or want to contact us for any reason, complete your email and write your message and we will answer you as soon as possible.Thank you!</string>
-    <string name="vcf_email_hint">Email</string>
+     <string name="vcf_email_hint">Email</string>
+    <string name="vcf_subject_hint">Subject</string>
     <string name="vcf_text_hint">Write your message here</string>
     <string name="vcf_button">SEND MESSAGE</string>
     <string name="vcf_toast_message">You have successfully sent your message.\n We\'ll revert back to you as soon as possible.</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+   <!-- Volunteer Configuration Fragment -->
+    <string name="volunteer_personal_info_title">Personal Info</string>
+    <string name="volunteer_phone_number_title">Phone number</string>
+    <string name="volunteer_phone_number_summary">Change your existing phone number or add a new one</string>
+    <string name="volunteer_system_title">System</string>
+    <string name="volunteer_change_language_title">Language</string>
+    <string name="volunteer_change_language_summary">Change the app\'s system language</string>
+    <string name="volunteer_change_language_dialog_title">Choose language</string>
+
+    <!--    Volunteer Donate Fragment-->
+    <string name="volunteer_donate_title">DONATE TO HAPIS</string>
+    <string name="volunteer_donate_text">Your generous support provide real people with things like food and helps us to continue with this application.</string>
+    <string name="volunteer_donate_button">DONATE</string>
+    <string name="volunteer_donate_video"> Watch the video to donate 0.40 Euro.</string>
+
 
 
 </resources>

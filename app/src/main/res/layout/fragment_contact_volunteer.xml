@@ -21,6 +21,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/left_margin"
+            android:layout_marginEnd="@dimen/right_margin"
             android:orientation="vertical">
 
             <TextView
@@ -34,72 +36,78 @@
                 android:layout_marginTop="@dimen/top_margin"
                 android:layout_marginBottom="@dimen/bottom_margin"/>
 
-            <TextView
-                android:id="@+id/fp_body"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/vcf_text"
-                android:textAlignment="inherit"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/vcf_body_size"
-                android:layout_marginTop="@dimen/top_margin"
-                android:layout_marginStart="@dimen/left_margin"
-                android:layout_marginEnd="@dimen/right_margin"/>
 
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:src="@drawable/contact_drawable"/>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/vcf_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/vcf_email_hint"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/volunteer_contact_email"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/vcf_email_hint"
-                    android:layout_marginTop="@dimen/top_margin"
-                    android:layout_marginStart="@dimen/left_margin"
-                    android:layout_marginEnd="@dimen/right_margin"/>
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/volunteer_contact_subject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/vcf_subject_hint"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/form_contact_message_volunteer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:hint="@string/vcf_text_hint"
+
+                android:inputType="textMultiLine"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/form_contact_message_volunteer"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/vcf_edit_text_box"
-                    android:hint="@string/vcf_text_hint"
-                    android:layout_marginTop="@dimen/top_margin"
-                    android:layout_marginStart="@dimen/left_margin"
-                    android:layout_marginEnd="@dimen/right_margin"
                     android:gravity="top"
-                    android:inputType="textMultiLine" />
+                   />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/volunteer_contact_button"
-                    android:layout_width="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_height="wrap_content"
-                    android:text="@string/vcf_button"
-                    android:textColor="@color/white"
-                    android:padding="@dimen/padding"
-                    android:backgroundTint="@color/colorPrimary"
-                    android:layout_marginTop="@dimen/top_margin"
-                    android:layout_marginBottom="@dimen/bottom_margin"
-                    />
 
             </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/volunteer_contact_button"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:text="@string/vcf_button"
+                android:textColor="@color/white"
+                android:padding="@dimen/padding"
+                android:backgroundTint="@color/colorPrimary"
+                android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginBottom="@dimen/bottom_margin"
+                />
 
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
-
-
 
 </FrameLayout>
 

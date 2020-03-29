@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/volunteer_personal_info_title">
+
+        <EditTextPreference
+            android:key="change_phone_key"
+            android:title="@string/volunteer_phone_number_title"
+            android:summary="@string/volunteer_phone_number_summary"/>
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:title="@string/volunteer_system_title">
+
+       <ListPreference
+           android:key="language_pref"
+           android:defaultValue="es"
+           android:title="@string/volunteer_change_language_title"
+           android:summary="@string/volunteer_change_language_summary"
+           android:dialogTitle="@string/volunteer_change_language_dialog_title"
+           android:entries="@array/Language"
+           app:entryValues="@array/languageAlias">
+       </ListPreference>
+
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

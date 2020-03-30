@@ -43,13 +43,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.0-alpha05'
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'androidx.preference:preference:1.1.0'
-    implementation 'com.google.android.gms:play-services-wallet:18.0.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.stripe:stripe-android:14.2.1'
-
-
-
-
-
+    implementation 'com.braintreepayments:card-form:3.1.1'
+    implementation 'me.abhinay.input:currency-edittext:1.1'
 
 }

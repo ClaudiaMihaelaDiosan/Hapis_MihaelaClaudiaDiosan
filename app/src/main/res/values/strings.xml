@@ -133,13 +133,13 @@
 
     <!--    Volunteer Contact Fragment-->
     <string name="vcf_title">CONTACT US</string>
-     <string name="vcf_email_hint">Email</string>
+    <string name="vcf_email_hint">Email</string>
     <string name="vcf_subject_hint">Subject</string>
     <string name="vcf_text_hint">Write your message here</string>
     <string name="vcf_button">SEND MESSAGE</string>
     <string name="vcf_toast_message">You have successfully sent your message.\n We\'ll revert back to you as soon as possible.</string>
 
-   <!-- Volunteer Configuration Fragment -->
+    <!-- Volunteer Configuration Fragment -->
     <string name="volunteer_personal_info_title">Personal Info</string>
     <string name="volunteer_phone_number_title">Phone number</string>
     <string name="volunteer_phone_number_summary">Change your existing phone number or add a new one</string>
@@ -153,6 +153,23 @@
     <string name="volunteer_donate_text">Your generous support provide real people with things like food and helps us to continue with this application.</string>
     <string name="volunteer_donate_button">DONATE</string>
     <string name="volunteer_donate_video"> Watch the video to donate 0.40 Euro.</string>
+
+    <!--    Payment activity-->
+    <string name="payment_activity_name">Donate </string>
+    <string name="payment_title">Introduce the donation amount:</string>
+    <string name="payment_card_credit">Introduce your credit card data:</string>
+    <string name="payment_donate_button">DONATE</string>
+    <string name="payment_confirm_title">Confirm Before Purchase</string>
+    <string name="payment_confirm_button">Confirm</string>
+    <string name="payment_cancel_button">Cancel</string>
+    <string name="paymant_phone_explanation">SMS is required on this number</string>
+    <string name="payment_card__number">Card Number:</string>
+    <string name="payment_card_expiration">Card Expiry Date: </string>
+    <string name="payment_card_cvv">Card CVV:</string>
+    <string name="payment_postal_code">Postal Code:</string>
+    <string name="payment_phone_number">Phone Number:</string>
+    <string name="payment_toast_success">Thank you for your donation</string>
+    <string name="payment_toast_fail">Please complete the form</string>
 
 
 

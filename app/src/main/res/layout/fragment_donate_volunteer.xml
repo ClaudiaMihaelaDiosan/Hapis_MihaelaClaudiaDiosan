@@ -6,7 +6,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/donatefragment"
     android:background="@drawable/gradient_background"
-    tools:context=".volunteer.DonateVolunteerFragment">
+    tools:context=".volunteer.DonateVolunteerFragment"
+    >
 
 
     <com.google.android.material.card.MaterialCardView
@@ -57,7 +58,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/volunteer_donate_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:text="@string/volunteer_donate_button"
@@ -78,7 +79,7 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:layout_gravity="center"
                 android:textStyle="bold"
-                android:textSize="15sp"
+                android:textSize="20sp"
                 android:text="@string/volunteer_donate_video"
                 android:layout_marginTop="@dimen/top_margin"
                 android:layout_marginBottom="@dimen/bottom_margin"/>
@@ -94,6 +95,8 @@
                     android:layout_height="wrap_content" />
 
             </FrameLayout>
+
+
 
 
         </LinearLayout>

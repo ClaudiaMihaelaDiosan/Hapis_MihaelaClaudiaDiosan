@@ -152,10 +152,27 @@
     <string name="vounteer_phone_text_view">Número de teléfono</string>
 
     <!--    Volunteer Donate Fragment-->
-    <string name="volunteer_donate_title">HAZ UNA DONACIÓN A HAPIS</string>
+    <string name="volunteer_donate_title">DONA A HAPIS</string>
     <string name="volunteer_donate_text"> Tu donación proporciona cosas como comida a personas reales y nos ayuda seguir manteniendo esta aplicación.</string>
     <string name="volunteer_donate_button">DONAR</string>
     <string name="volunteer_donate_video">Mira el video para dona 0.40 centimos.</string>
+
+    <!--    Payment activity-->
+    <string name="payment_activity_name">Donar </string>
+    <string name="payment_title">Introduce el importe de la donación:</string>
+   <string name="payment_card_credit">Introduce los datos de tu tarjeta:</string>
+    <string name="payment_donate_button">DONAR</string>
+    <string name="payment_confirm_title">Confirma los datos antes de pagar</string>
+    <string name="payment_confirm_button">Confirmar</string>
+    <string name="payment_cancel_button">Cancelar</string>
+    <string name="paymant_phone_explanation">Se enviará un SMS a este número de teléfono</string>
+    <string name="payment_card__number">Número de la tarjeta: </string>
+    <string name="payment_card_expiration">Fecha caducidad tarjeta: </string>
+    <string name="payment_card_cvv">CVV: </string>
+    <string name="payment_postal_code">Código Postal: </string>
+    <string name="payment_phone_number">Número de teléfono: </string>
+    <string name="payment_toast_success">Gracias por tu donación!</string>
+    <string name="payment_toast_fail">Por favor, rellena el formulario</string>
 
 
 </resources>

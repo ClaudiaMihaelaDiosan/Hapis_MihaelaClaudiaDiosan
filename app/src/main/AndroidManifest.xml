@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan">
 
-    <meta-data
-        android:name="com.google.android.gms.wallet.api.enabled"
-        android:value="true" />
 
     <application
         android:allowBackup="true"
+        android:configChanges="locale"
         android:icon="@mipmap/hapis_icon"
         android:label="@string/name"
+        tools:replace="android:label"
         android:roundIcon="@mipmap/hapis_icon_round"
         android:supportsRtl="true"
-        android:configChanges="locale"
         android:theme="@style/AppTheme">
-        <activity android:name=".volunteer.HomeVolunteer"
+        <activity android:name=".volunteer.PaymentActivity" />
+        <activity
+            android:name=".volunteer.HomeVolunteer"
             android:label="@string/volunteer_home_name"
-         android:theme="@style/AppTheme.NoActionBar"
-            />
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".register.RegisterVolunteerActivity"
             android:label="@string/register_volunteer_name" />
@@ -31,7 +30,6 @@
         <activity
             android:name=".login.ForgotPasswordActivity"
             android:label="@string/forgot_password_name" />
-
         <activity android:name=".login.LoginActivity" />
         <activity
             android:name=".intro.IntroActivity"

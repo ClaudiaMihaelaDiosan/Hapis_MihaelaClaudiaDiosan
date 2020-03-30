@@ -3,16 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan">
 
-
     <application
         android:allowBackup="true"
         android:configChanges="locale"
         android:icon="@mipmap/hapis_icon"
         android:label="@string/name"
-        tools:replace="android:label"
         android:roundIcon="@mipmap/hapis_icon_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+        <activity android:name=".volunteer.CreateHomelessPerfileActivity"
+            android:label="@string/create_homeless_profile_name"/>
         <activity android:name=".volunteer.PaymentActivity" />
         <activity
             android:name=".volunteer.HomeVolunteer"

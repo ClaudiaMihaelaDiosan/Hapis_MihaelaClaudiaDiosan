@@ -45,5 +45,6 @@ dependencies {
     implementation 'androidx.preference:preference:1.1.0'
     implementation 'com.braintreepayments:card-form:3.1.1'
     implementation 'me.abhinay.input:currency-edittext:1.1'
+    implementation 'com.github.clans:fab:1.6.4'
 
 }

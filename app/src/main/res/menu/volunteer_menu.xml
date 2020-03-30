@@ -19,6 +19,7 @@
     <item android:title="@string/configuration_menu">
 
         <menu>
+            <group android:checkableBehavior="single">
             <item
                 android:id="@+id/volunteer_menu_configuration"
                 android:title="@string/volunteer_menu_configuration"
@@ -28,6 +29,7 @@
                 android:id="@+id/volunteer_menu_logout"
                 android:title="@string/volunteer_menu_logout"
                 android:icon="@drawable/menu_logout_icon"/>
+            </group>
         </menu>
 
     </item>
@@ -37,11 +39,12 @@
 
         <menu>
 
+            <group android:checkableBehavior="single">
             <item
                 android:id="@+id/volunteer_menu_contact"
                 android:title="@string/volunteer_menu_contact"
                 android:icon="@drawable/menu_contact_icon"/>
-
+            </group>
         </menu>
 
     </item>

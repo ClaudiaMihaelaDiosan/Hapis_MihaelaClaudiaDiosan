@@ -171,6 +171,19 @@
     <string name="payment_toast_success">Thank you for your donation</string>
     <string name="payment_toast_fail">Please complete the form</string>
 
+    <!--Floating Action Menu -->
+    <string name="new_homeless_profile">New homeless profile</string>
+    <string name="send_delivery_notification">Send delivery notification to donor</string>
+    <string name="delivery_notification_title">Delivery Notification</string>
+    <string name="delivery_donor_username">Donor username</string>
+    <string name="delivery_homeless_username">Homeless username</string>
+    <string name="delivery_cancel_button">Cancel</string>
+    <string name="delivery_send_toast">The donor will receive a push notification like this: \n\nTitle: Donation successfully delivered \n\nBody: The volunteer delivered your donation to the homeless.</string>
+
+
+    <!--  Create homeless profile  -->
+    <string name="create_homeless_profile_name">Create profile</string>
+
 
 
 </resources>

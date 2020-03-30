@@ -175,4 +175,17 @@
     <string name="payment_toast_fail">Por favor, rellena el formulario</string>
 
 
+    <!--Floating Action Menu -->
+    <string name="new_homeless_profile">Nuevo perfil persona necesitada</string>
+    <string name="send_delivery_notification">Enviar notification de entrega al donante</string>
+    <string name="delivery_notification_title">Notificatión de entrega</string>
+    <string name="delivery_donor_username">Nombre usuario Donante</string>
+    <string name="delivery_homeless_username">Nombre usuario persona necesitada</string>
+    <string name="delivery_cancel_button">Cancelar</string>
+    <string name="delivery_send_toast">El donante recibirá una notificación push como en el ejemplo siguiente: \nAsunto: Donación entregada correctamente \nMensaje: El voluntario ha realizado la entrega de tu donación a la persona necesitada.</string>
+
+    <!--  Create homeless profile  -->
+    <string name="create_homeless_profile_name">Crear perfil</string>
+
+
 </resources>

@@ -183,6 +183,25 @@
 
     <!--  Create homeless profile  -->
     <string name="create_homeless_profile_name">Create profile</string>
+    <string name="fragment_terms_title">Before you start creating the profile, read the following terms and privacy policy to the homeless persona and make sure that he/she understand it and gives his/her consent.</string>
+    <string name = "fragment_terms_text"> 1. Next, the volunteer will ask you for some personal information in order to create your profile, so that people will better understand your situation and
+            be able to help you \n\n2. You will not be asked for your real name, but a username that will be visible to donors \n\n3. You can add a photo of yourself to the profile, but it is not
+            required. \n\n4. You will be asked for your birth date, a short story from your life and what you need most right now. \n\n5. You will have
+            to specify the location and a time in which you can be found in said location. This information is used by people who want to donate something to hand things over to you.\n\n6. All the data provided will be used only
+            so that people know you better in order to help you and at no time will it be transferred to third parties. </string>
+    <string name="clear_signature_button">CLEAR</string>
+    <string name="save_signature_button">SAVE</string>
+    <string name="signature_saved_jpg">Signature saved into the Gallery</string>
+    <string name="unable_to_store_jpg">Unable to store the signature</string>
+    <string name="svg_signature_saved">SVG Signature saved into the Gallery</string>
+    <string name="unable_to_store_svg">Unable to store the SVG signature</string>
+    <string name="cannot_write_external">Cannot write images to external storage</string>
+    <string name="signature_pad">SignaturePad</string>
+    <string name="directory_not_created">Directory not created</string>
+    <string name="album_name">SignaturePad</string>
+    <string name="agreement">I agree the terms and conditions</string>
+
+
 
 
 

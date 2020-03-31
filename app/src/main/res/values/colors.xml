@@ -8,6 +8,7 @@
     <color name="light_blue">#e3f2fd</color>
     <color name="green">#00F10A</color>
     <color name="transparent">#00000000</color>
+    <color name="red">#F10000</color>
 
 
     <!-- colors for Intro-->

@@ -186,6 +186,22 @@
 
     <!--  Create homeless profile  -->
     <string name="create_homeless_profile_name">Crear perfil</string>
+    <string name="fragment_terms_title">Antes de empezar a crear el perifl, lee las siguientes condiciones y política de privacidad a la persona necesitada y asegurate que ha entendido todo y da su consentimiento.</string>
+    <string name="fragment_terms_text">1. A continuación el voluntario te solicitará algunos datos personales por tal de crear tu perfil.De este modo, las personas entendrán mejor tu situación y
+            podrán ayudarte\n\n2. No se te pedirá tu nombre real,sino un nombre de usuario que será visible para los donantes\n\n3. Podrás añadir una foto tuya al perfil, pero no es
+            obligatorio.\n\n4. Se te pedirán la fecha de nacimiento,una pequeña historia de tu vida y lo que más necesitas en este momento.\n\n5. Tendrás
+            que especificar la localización y un horario en el que podrás ser encontrado en la dicha localización. Estos datos sirven para que las personas que quieren donar algo te entreguen las cosas personalmente.\n\n6. Todos los datos facilitados serán utilizados solamente con el fin de que las personas te conozcan mejor para poder ayudarte y en ningún momento serán cedidas a terceros.</string>
+    <string name="clear_signature_button">BORRAR</string>
+    <string name="save_signature_button">GUARDAR</string>
+    <string name="signature_saved_jpg">Firma guardada en la Galeria</string>
+    <string name="unable_to_store_jpg">No ha sido posible guardar la firma</string>
+    <string name="svg_signature_saved">Firma guardada en la Galeria en formato SVG</string>
+    <string name="unable_to_store_svg">No ha sido posible guardar la firma en formato SVG</string>
+    <string name="cannot_write_external">No se pueden guardar imàgenes en la memoria externa</string>
+    <string name="signature_pad">SignaturePad</string>
+    <string name="directory_not_created">Directorio no creado</string>
+    <string name="album_name">SignaturePad</string>
+    <string name="agreement">Acepto los tèrminos y las condiciones</string>
 
 
 </resources>

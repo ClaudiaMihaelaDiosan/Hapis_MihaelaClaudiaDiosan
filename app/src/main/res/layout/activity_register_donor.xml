@@ -75,7 +75,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/left_margin"
                     android:layout_marginEnd="@dimen/right_margin"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
@@ -93,7 +93,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/left_margin"
                     android:layout_marginEnd="@dimen/right_margin"
                     app:passwordToggleEnabled="true"
@@ -121,7 +121,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/left_margin"
                     android:layout_marginEnd="@dimen/right_margin"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -140,7 +140,7 @@
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/left_margin"
                     android:layout_marginEnd="@dimen/right_margin"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
@@ -159,7 +159,7 @@
                 <com.google.android.material.textfield.TextInputLayout
 
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/left_margin"
                     android:layout_marginEnd="@dimen/right_margin"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">

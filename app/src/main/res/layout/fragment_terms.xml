@@ -44,9 +44,9 @@
                     android:layout_gravity="start"
                     android:layout_marginStart="@dimen/left_margin"
                     android:layout_marginEnd="@dimen/right_margin"
-                    android:textColor="@color/darkGrey"
+                    android:textColor="@color/grey"
                     android:scrollbars="vertical"
-                    android:textSize="15dp"
+                    android:textSize="12dp"
                     />
 
                 <com.github.gcacace.signaturepad.views.SignaturePad

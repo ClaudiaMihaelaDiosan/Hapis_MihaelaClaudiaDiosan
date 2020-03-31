@@ -33,6 +33,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register.RegisterDonorActivity;
 
 public class TermsFragment extends Fragment {
 
@@ -97,21 +98,34 @@ public class TermsFragment extends Fragment {
                 Bitmap signatureBitmap = signaturePad.getSignatureBitmap();
                 verifyStoragePermissions(getActivity());
 
-                if (addJpgSignatureToGallery(signatureBitmap)) {
-                    Toast.makeText(getActivity(), getString(R.string.signature_saved_jpg), Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getActivity(), getString(R.string.unable_to_store_jpg), Toast.LENGTH_SHORT).show();
+                if (signaturePad.isEmpty()){
+                    showSignatureToast();
+                }else{
+
+                    if (addJpgSignatureToGallery(signatureBitmap)) {
+                        Toast.makeText(getActivity(), getString(R.string.signature_saved_jpg), Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getActivity(), getString(R.string.unable_to_store_jpg), Toast.LENGTH_SHORT).show();
+                    }
+//
                 }
-                if (addSvgSignatureToGallery(signaturePad.getSignatureSvg())) {
-                    Toast.makeText(getActivity(), getString(R.string.svg_signature_saved), Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(getActivity(), getString(R.string.unable_to_store_svg), Toast.LENGTH_SHORT).show();
                 }
-            }
+
+
         });
 
         return view;
     }
+
+    public void showSignatureToast(){
+        Toast toast = Toast.makeText(getActivity(), getString(R.string.have_to_sign), Toast.LENGTH_LONG);
+        View view =toast.getView();
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        view.setBackgroundColor(Color.TRANSPARENT);
+        toastMessage.setTextColor(Color.RED);
+        toast.show();
+    }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
@@ -168,23 +182,6 @@ public class TermsFragment extends Fragment {
         getActivity().sendBroadcast(mediaScanIntent);
     }
 
-    public boolean addSvgSignatureToGallery(String signatureSvg) {
-        boolean result = false;
-        try {
-            File svgFile = new File(getAlbumStorageDir(getString(R.string.signature_pad)), String.format("Signature_%d.svg", System.currentTimeMillis()));
-            OutputStream stream = new FileOutputStream(svgFile);
-            OutputStreamWriter writer = new OutputStreamWriter(stream);
-            writer.write(signatureSvg);
-            writer.close();
-            stream.flush();
-            stream.close();
-            scanMediaFile(svgFile);
-            result = true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
 
     /**
      * Checks if the app has permission to write to device storage

@@ -46,6 +46,7 @@ public class CreateHomelessPerfileActivity extends AppCompatActivity {
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(),0);
         viewPagerAdapter.addFragment(termsFragment);
+
         viewPagerAdapter.addFragment(profileFragment);
         viewPagerAdapter.addFragment(needsFragment);
         viewPagerAdapter.addFragment(locationFragment);

@@ -38,7 +38,7 @@
                 android:icon="@drawable/create_homeless_location" />
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.appbar.AppBarLayout>
-    
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/create_homeless_view_pager"
         android:layout_width="match_parent"
@@ -46,6 +46,7 @@
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
     </androidx.viewpager.widget.ViewPager>
+
 
 
 

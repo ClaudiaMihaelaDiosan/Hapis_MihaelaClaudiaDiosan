@@ -1,7 +1,5 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
-
-import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.InputType;
@@ -70,9 +68,7 @@ public class ConfigurationVolunteerFragment extends PreferenceFragmentCompat{
             }
         });
 
-
     }
-
 
 }
 

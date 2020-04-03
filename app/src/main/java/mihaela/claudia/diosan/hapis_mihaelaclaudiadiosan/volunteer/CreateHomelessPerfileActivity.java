@@ -8,7 +8,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.tabs.TabLayout;
@@ -28,6 +37,8 @@ public class CreateHomelessPerfileActivity extends AppCompatActivity {
     private ProfileFragment profileFragment;
     private NeedsFragment needsFragment;
     private LocationFragment locationFragment;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +68,7 @@ public class CreateHomelessPerfileActivity extends AppCompatActivity {
         tabLayout.getTabAt(2).setIcon(R.drawable.create_homeless_needs);
         tabLayout.getTabAt(3).setIcon(R.drawable.create_homeless_location);
 
+
     }
 
     private static class ViewPagerAdapter extends FragmentPagerAdapter {
@@ -84,4 +96,22 @@ public class CreateHomelessPerfileActivity extends AppCompatActivity {
         }
 
     }
+
+
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle oldInstanceState) {
+        super.onSaveInstanceState(oldInstanceState);
+        oldInstanceState.clear();
+    }
+
+
+
+
+
 }

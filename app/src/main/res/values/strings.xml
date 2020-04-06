@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Hapis_MihaelaClaudiaDiosan</string>
     <string name="name">HAPIS</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCl1fruupMLaDB11EO0hHb2Ahx7rTYzwkA</string>
+
 
     <!-- Intro Activity-->
 
@@ -189,8 +191,8 @@
             required. \n\n4. You will be asked for your birth date,your phone number, a short story from your life and what you need most right now. \n\n5. You will have
             to specify the location and a time in which you can be found in said location. This information is used by people who want to donate something to hand things over to you.\n\n6. All the data provided will be used only
             so that people know you better in order to help you and at no time will it be transferred to third parties. </string>
-    <string name="clear_signature_button">CLEAR</string>
-    <string name="save_signature_button">SAVE</string>
+    <string name="clear_signature_button">CLEAR SIGNATURE</string>
+    <string name="save_signature_button">SAVE SIGNATURE</string>
     <string name="signature_saved_jpg">Signature saved into the Gallery</string>
     <string name="unable_to_store_jpg">Unable to store the signature</string>
     <string name="cannot_write_external">Cannot write images to external storage</string>
@@ -210,6 +212,17 @@
     <string name="homeless_profile_cancel_button">CANCEL</string>
     <string name="homeless_profile_save_button">SAVE</string>
     <string name="homeless_profile_add_photo">Add profile photo</string>
+    <string name="chooser_gallery">Gallery</string>
+    <string name="chooser_camera">Camera</string>
+    <string name="chooser_cancel">Cancel</string>
+    <string name="dialog_add_image">Add Image</string>
+    <string name="dialog_select_file">Select File</string>
+
+    <!--    Location Fragment -->
+    <string name="location_fragment_title">Next, search and select the location where the donors can find the homeless person </string>
+    <string name="select_location_button">SELECT LOCATION</string>
+
+
 
 
 

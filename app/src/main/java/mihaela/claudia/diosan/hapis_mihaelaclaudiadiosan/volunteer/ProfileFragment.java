@@ -59,21 +59,12 @@ public class ProfileFragment extends Fragment {
 
       homelessProfileImage = view.findViewById(R.id.homeless_profile_image);
       addProfilePhotoBtn = view.findViewById(R.id.add_homeless_profile_photo_button);
-//
-//      homelessProfileImage.setOnClickListener(new View.OnClickListener() {
-//          @Override
-//          public void onClick(View v) {
-//
-//          }
-//      });
 
       addProfilePhotoBtn.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
-//              Toast.makeText(getActivity(),"ImageButton", Toast.LENGTH_SHORT).show();
-//              verifyStoragePermissions(getActivity());
+              verifyStoragePermissions(getActivity());
               selectImage();
-
           }
       });
 
@@ -82,36 +73,32 @@ public class ProfileFragment extends Fragment {
 
 
         private void selectImage(){
-        final CharSequence[] items = {"Camera", "Gallery", "Cancel"};
+        final CharSequence[] items = {getString(R.string.chooser_gallery), getString(R.string.chooser_camera), getString(R.string.chooser_cancel)};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Add Image");
+        builder.setTitle(getString(R.string.dialog_add_image));
 
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int i) {
 
-                if (items[i].equals("Camera")){
+                if (items[i].equals(getString(R.string.chooser_camera))){
                     Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     startActivityForResult(cameraIntent,REQUEST_CAMERA);
 
-                }else
-                if (items[i].equals("Gallery")){
+                }else if (items[i].equals(getString(R.string.chooser_gallery))){
 
                     Intent selectFileIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                     selectFileIntent.setType("image/*");
-                    startActivityForResult(selectFileIntent.createChooser(selectFileIntent, "Select FIle"), SELECT_FILE);
+                    startActivityForResult(selectFileIntent.createChooser(selectFileIntent, getString(R.string.dialog_select_file)), SELECT_FILE);
 
-                }else if (items[i].equals("Cancel")){
+                }else if (items[i].equals(getString(R.string.chooser_cancel))){
                     dialog.dismiss();
                 }
             }
         });
-
         builder.show();
     }
-
-
 
 
 

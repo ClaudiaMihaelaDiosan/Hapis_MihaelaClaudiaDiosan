@@ -191,8 +191,8 @@
             podrán ayudarte\n\n2. No se te pedirá tu nombre real,sino un nombre de usuario que será visible para los donantes\n\n3. Podrás añadir una foto tuya al perfil, pero no es
             obligatorio.\n\n4. Se te pedirán la fecha de nacimiento,una pequeña historia de tu vida, el número de teléfono y lo que más necesitas en este momento.\n\n5. Tendrás
             que especificar la localización y un horario en el que podrás ser encontrado en la dicha localización. Estos datos sirven para que las personas que quieren donar algo te entreguen las cosas personalmente.\n\n6. Todos los datos facilitados serán utilizados solamente con el fin de que las personas te conozcan mejor para poder ayudarte y en ningún momento serán cedidas a terceros.</string>
-    <string name="clear_signature_button">BORRAR</string>
-    <string name="save_signature_button">GUARDAR</string>
+    <string name="clear_signature_button">BORRAR </string>
+    <string name="save_signature_button">GUARDAR FIRMA</string>
     <string name="signature_saved_jpg">Firma guardada en la Galeria</string>
     <string name="unable_to_store_jpg">No ha sido posible guardar la firma</string>
     <string name="cannot_write_external">No se pueden guardar imàgenes en la memoria externa</string>
@@ -212,6 +212,15 @@
     <string name="homeless_profile_cancel_button">CANCELAR</string>
     <string name="homeless_profile_save_button">GUARDAR</string>
     <string name="homeless_profile_add_photo">Añadir foto de perfil</string>
+    <string name="chooser_gallery">Galería</string>
+    <string name="chooser_camera">Cámara</string>
+    <string name="chooser_cancel">Cancelar</string>
+    <string name="dialog_add_image">Añadir Imagen</string>
+    <string name="dialog_select_file">Seleccionar Archivo</string>
+
+    <!--    Location Fragment -->
+    <string name="location_fragment_title">A continuación, busca y selecciona una ubicación donde los donantes podrán encontrar a la persona necesitada </string>
+    <string name="select_location_button">SELECCIONAR UBICACIÓN</string>
 
 
 

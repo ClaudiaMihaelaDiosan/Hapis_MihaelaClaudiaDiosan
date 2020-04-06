@@ -57,16 +57,15 @@ public class CreateHomelessPerfileActivity extends AppCompatActivity {
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(),0);
         viewPagerAdapter.addFragment(termsFragment);
-
         viewPagerAdapter.addFragment(profileFragment);
-        viewPagerAdapter.addFragment(needsFragment);
         viewPagerAdapter.addFragment(locationFragment);
+        viewPagerAdapter.addFragment(needsFragment);
         viewPager.setAdapter(viewPagerAdapter);
 
         tabLayout.getTabAt(0).setIcon(R.drawable.create_homeless_terms);
         tabLayout.getTabAt(1).setIcon(R.drawable.create_homeless_profile);
-        tabLayout.getTabAt(2).setIcon(R.drawable.create_homeless_needs);
-        tabLayout.getTabAt(3).setIcon(R.drawable.create_homeless_location);
+        tabLayout.getTabAt(2).setIcon(R.drawable.create_homeless_location);
+        tabLayout.getTabAt(3).setIcon(R.drawable.create_homeless_needs);
 
 
     }

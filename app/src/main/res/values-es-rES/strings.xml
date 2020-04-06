@@ -220,8 +220,17 @@
 
     <!--    Location Fragment -->
     <string name="location_fragment_title">A continuación, busca y selecciona una ubicación donde los donantes podrán encontrar a la persona necesitada </string>
-    <string name="select_location_button">SELECCIONAR UBICACIÓN</string>
+    <string name="selected_location">Has seleccionado la siguiente ubicación:</string>
 
-
+    <!--    Needs Fragment -->
+    <string name="schedule_text">Escribe cuando puede ser encontrada la persona necesitada en la ubicación seleccionada anteriormente:</string>
+    <string name="schedule_edit_text">Días y horas disponibles </string>
+    <string name="needs_text">A continuación, selecciona la necesidad más imporante que tiene la persona necesitada en este momento:</string>
+    <string name="chip_food">Comida</string>
+    <string name="chip_clothes">Ropa</string>
+    <string name="chip_work">Trabajo</string>
+    <string name="chip_lodging">Alojamiento</string>
+    <string name="chip_hygiene_products">Higiene personal</string>
+    <string name="most_important_need_tv">La necesidad más importante seleccionada es: </string>
 
 </resources>

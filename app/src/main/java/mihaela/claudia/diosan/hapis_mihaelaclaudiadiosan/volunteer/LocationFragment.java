@@ -44,6 +44,7 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
     List<Place.Field> placeFields = Arrays.asList(Place.Field.ID,Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
     AutocompleteSupportFragment autocompleteSupportFragment;
     TextView selectedLocationTV;
+    TextView textLocation;
 
     GoogleMap mGoogleMap;
     SupportMapFragment mMapFragment;
@@ -69,6 +70,7 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
         mMapFragment.getMapAsync(this);
 
         selectedLocationTV = view.findViewById(R.id.selected_location_tv);
+        textLocation = view.findViewById(R.id.selected_location_text);
 
         initPlaces();
         setupPlaceAutoComplete();
@@ -91,6 +93,7 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
             public void onPlaceSelected(@NonNull final Place place) {
 
                 if (place.getLatLng() != null) {
+                    textLocation.setVisibility(View.VISIBLE);
                     latitude = place.getLatLng().latitude;
                     longitude = place.getLatLng().longitude;
                     String name = place.getName();

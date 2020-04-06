@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
@@ -36,7 +36,7 @@
                     android:layout_gravity="center"
                     android:textStyle="bold"
                      android:layout_marginBottom="@dimen/bottom_margin"
-                    android:textColor="@color/red"
+                    android:textColor="@color/grey"
                     android:text="@string/location_fragment_title"/>
 
 
@@ -60,7 +60,9 @@
 
 
                 <TextView
-                    android:text="Has seleccionado la siguiente ubicación:"
+                    android:id="@+id/selected_location_text"
+                    android:visibility="invisible"
+                    android:text="@string/selected_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/top_margin"
@@ -83,12 +85,14 @@
                     class="com.google.android.gms.maps.SupportMapFragment"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
+                    android:layout_marginBottom="@dimen/bottom_margin"
                     map:liteMode="true" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/top_margin"
                     android:gravity="center"
                     android:orientation="horizontal">
 

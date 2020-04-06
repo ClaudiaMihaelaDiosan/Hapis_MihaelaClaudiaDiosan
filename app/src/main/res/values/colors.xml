@@ -10,6 +10,12 @@
     <color name="transparent">#00000000</color>
     <color name="red">#F10000</color>
 
+    <color name="light_red">#ff6666</color>
+    <color name="blue_light">#00bfff</color>
+    <color name="lila_color">#cc99ff</color>
+    <color name="green_color">#66ff99</color>
+    <color name="yellow_color">#ffcc66</color>
+
 
     <!-- colors for Intro-->
     <color name="white">#ffffff</color>

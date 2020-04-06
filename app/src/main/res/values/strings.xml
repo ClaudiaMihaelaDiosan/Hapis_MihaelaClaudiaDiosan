@@ -220,11 +220,18 @@
 
     <!--    Location Fragment -->
     <string name="location_fragment_title">Next, search and select the location where the donors can find the homeless person </string>
-    <string name="select_location_button">SELECT LOCATION</string>
+    <string name="selected_location">You have selected the next location:</string>
 
 
-
-
-
+    <!--    Needs Fragment -->
+    <string name="schedule_text">Write when the homeless could  be found on the previous selected location:</string>
+    <string name="schedule_edit_text">Available days and hours </string>
+    <string name="needs_text">Next, select the most important need of the homeless person in this moment:</string>
+    <string name="chip_food">Food</string>
+    <string name="chip_clothes">Clothes</string>
+    <string name="chip_work">Work</string>
+    <string name="chip_lodging">Lodging</string>
+    <string name="chip_hygiene_products">Hygiene products</string>
+    <string name="most_important_need_tv">The  most important need selected is: </string>
 
 </resources>

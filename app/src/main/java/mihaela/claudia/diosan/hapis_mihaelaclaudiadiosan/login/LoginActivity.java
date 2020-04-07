@@ -14,6 +14,7 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor.HomeDonor;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register.RegisterActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer.HomeVolunteer;
 
@@ -57,8 +58,8 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent volunteerActivity = new Intent(LoginActivity.this, HomeVolunteer.class);
-                startActivity(volunteerActivity);
+                Intent donorActivity = new Intent(LoginActivity.this, HomeDonor.class);
+                startActivity(donorActivity);
             }
         });
     }

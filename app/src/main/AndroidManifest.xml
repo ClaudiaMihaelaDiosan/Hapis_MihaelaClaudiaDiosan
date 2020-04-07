@@ -3,17 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan">
 
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL"
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.MEDIA_CONTENT_CONTROL"
         tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-
+    <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -24,8 +23,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
-        <activity android:name=".volunteer.CreateHomelessPerfileActivity"
-            android:label="@string/create_homeless_profile_name"/>
+        <activity android:name=".donor.HomeDonor"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        
+        <activity
+            android:name=".volunteer.CreateHomelessPerfileActivity"
+            android:label="@string/create_homeless_profile_name" />
         <activity android:name=".volunteer.PaymentActivity" />
         <activity
             android:name=".volunteer.HomeVolunteer"
@@ -55,11 +58,9 @@
         </activity>
         <activity android:name=".MainActivity" />
 
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

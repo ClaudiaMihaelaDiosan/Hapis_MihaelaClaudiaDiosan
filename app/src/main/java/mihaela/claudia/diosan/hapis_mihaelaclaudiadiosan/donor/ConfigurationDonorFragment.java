@@ -1,41 +1,36 @@
-package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
+package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.text.InputType;
-import android.text.TextUtils;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
-import androidx.preference.EditTextPreference;
+import androidx.fragment.app.Fragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceManager;
 
+import android.text.InputType;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
 
 import java.util.Locale;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer.ConfigurationVolunteerFragment;
 
-public class ConfigurationVolunteerFragment extends PreferenceFragmentCompat{
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class ConfigurationDonorFragment extends PreferenceFragmentCompat {
 
-    private static final String PREF_PHONE = "change_phone_key";
     private static final String PREF_LANGUAGE ="language_pref";
-    private Locale locale = null;
 
 
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        setPreferencesFromResource(R.xml.volunteer_configuration_preference, rootKey);
-
-        androidx.preference.EditTextPreference editTextPreference = getPreferenceManager().findPreference(PREF_PHONE);
-        editTextPreference.setOnBindEditTextListener(new androidx.preference.EditTextPreference.OnBindEditTextListener() {
-            @Override
-            public void onBindEditText(@NonNull EditText editText) {
-                editText.setInputType(InputType.TYPE_CLASS_PHONE);
-            }
-        });
+        setPreferencesFromResource(R.xml.donor_configuration_preference, rootKey);
 
 
 
@@ -61,7 +56,7 @@ public class ConfigurationVolunteerFragment extends PreferenceFragmentCompat{
 
                 // Refresh fragment
                 getFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, new ConfigurationVolunteerFragment())
+                        .replace(R.id.donor_fragment_container, new ConfigurationDonorFragment())
                         .commit();
                 return true;
             }
@@ -69,7 +64,5 @@ public class ConfigurationVolunteerFragment extends PreferenceFragmentCompat{
 
     }
 
+
 }
-
-
-

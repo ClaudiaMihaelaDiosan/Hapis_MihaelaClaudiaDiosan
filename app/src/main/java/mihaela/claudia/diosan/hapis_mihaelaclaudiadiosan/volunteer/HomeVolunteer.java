@@ -1,39 +1,18 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceManager;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Message;
-import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.WindowManager;
 
-import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.navigation.NavigationView;
-
-import java.util.Locale;
-import java.util.Objects;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
@@ -64,7 +43,7 @@ public class HomeVolunteer extends AppCompatActivity implements NavigationView.O
 
 
 
-        ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(this, volunteerDrawer, R.string.open_navigation_drawer_volunteer, R.string.close_navigation_drawer_volunteer);
+        ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(this, volunteerDrawer, R.string.open_navigation_drawer, R.string.close_navigation_drawer);
         volunteerDrawer.addDrawerListener(mToggle);
         mToggle.syncState();
 

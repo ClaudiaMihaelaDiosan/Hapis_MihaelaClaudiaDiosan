@@ -127,8 +127,8 @@
     <string name="volunteer_email_text_view">Email</string>
     <string name="vounteer_phone_text_view">Phone Number</string>
 
-    <string name="open_navigation_drawer_volunteer">Open navigation drawer</string>
-    <string name="close_navigation_drawer_volunteer">Close navigation drawer</string>
+    <string name="open_navigation_drawer">Open navigation drawer</string>
+    <string name="close_navigation_drawer">Close navigation drawer</string>
 
     <string name="configuration_menu">Configuration</string>
     <string name="contact_menu">Contact</string>
@@ -139,7 +139,7 @@
     <string name="vcf_subject_hint">Subject</string>
     <string name="vcf_text_hint">Write your message here</string>
     <string name="vcf_button">SEND MESSAGE</string>
-    <string name="vcf_toast_message">You have successfully sent your message.\n We\'ll revert back to you as soon as possible.</string>
+    <string name="contact_toast_message">You have successfully sent your message.\n We\'ll revert back to you as soon as possible.</string>
 
     <!-- Volunteer Configuration Fragment -->
     <string name="volunteer_personal_info_title">Personal Info</string>
@@ -186,7 +186,7 @@
     <!--  Create homeless profile  -->
     <string name="create_homeless_profile_name">Create profile</string>
     <string name="fragment_terms_title">Before you start creating the profile, read the following terms and privacy policy to the homeless persona and make sure that he/she understand it and gives his/her consent with the signature.</string>
-    <string name = "fragment_terms_text"> 1. Next, the volunteer will ask you for some personal information in order to create your profile, so that people will better understand your situation and
+    <string name="fragment_terms_text"> 1. Next, the volunteer will ask you for some personal information in order to create your profile, so that people will better understand your situation and
             be able to help you \n\n2. You will not be asked for your real name, but a username that will be visible to donors \n\n3. You can add a photo of yourself to the profile, but it is not
             required. \n\n4. You will be asked for your birth date,your phone number, a short story from your life and what you need most right now. \n\n5. You will have
             to specify the location and a time in which you can be found in said location. This information is used by people who want to donate something to hand things over to you.\n\n6. All the data provided will be used only
@@ -264,6 +264,38 @@ The second time I became homeless it followed a similar pattern. I had been work
     <string name="maite_location">Av. de les Garrigues, 38, 25001 Lleida</string>
     <string name="luis_location">Plaça Mossèn Jacint Verdaguer, 4, 25004 Lleida</string>
     <string name="cristina_location">Gran Passeig de Ronda, 63, 25006 Lleida</string>
+
+
+    <!--    Donor Home Activity-->
+    <string name="donor_menu_home">Home</string>
+    <string name="donor_menu_donate">Donate</string>
+
+    <string name="donor_menu_profile">Profile</string>
+    <string name="donor_menu_configuration">Configuration</string>
+    <string name="donor_menu_logout">Logout</string>
+
+
+    <string name="donor_menu_contact">Contact</string>
+
+    <!--    Donor Contact Fragment-->
+    <string name="dcf_title">CONTACT US</string>
+    <string name="dcf_email_hint">Email</string>
+    <string name="dcf_subject_hint">Subject</string>
+    <string name="dcf_text_hint">Write your message here</string>
+    <string name="dcf_button">SEND MESSAGE</string>
+    <string name="dcf_toast_message">You have successfully sent your message.\n We\'ll revert back to you as soon as possible.</string>
+
+    <!--    Donor Donate Fragment-->
+    <string name="donor_donate_title">DONATE TO HAPIS</string>
+    <string name="donor_donate_text">Your generous support provide real people with things like food and helps us to continue with this application.</string>
+    <string name="donor_donate_button">DONATE</string>
+    <string name="donor_donate_video"> Watch the video to donate 0.40 Euro.</string>
+
+    <!-- Donor Configuration Fragment -->
+    <string name="donor_system_title">System</string>
+    <string name="donor_change_language_title">Language</string>
+    <string name="donor_change_language_summary">Change the app\'s system language</string>
+    <string name="donor_change_language_dialog_title">Choose language</string>
 
 
 

@@ -1,6 +1,5 @@
-package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
+package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
-import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,28 +15,36 @@ import com.google.android.material.button.MaterialButton;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class ContactDonorFragment extends Fragment {
 
-public class ContactVolunteerFragment extends Fragment {
+    View view;
+
+    public ContactDonorFragment() {
+        // Required empty public constructor
+    }
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_contact_volunteer, container, false);
+        view = inflater.inflate(R.layout.fragment_contact_donor, container, false);
 
-        MaterialButton volunteerContactBtn = view.findViewById(R.id.volunteer_contact_button);
+        MaterialButton donorContactButton = view.findViewById(R.id.donor_contact_button);
 
 
-        volunteerContactBtn.setOnClickListener(new View.OnClickListener() {
+        donorContactButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               showToast();
+                showToast();
             }
         });
+
         return view;
     }
-
 
     public void showToast(){
         LayoutInflater inflater = getLayoutInflater();
@@ -57,5 +63,4 @@ public class ContactVolunteerFragment extends Fragment {
         toast.setView(layout); // set the inflated layout
         toast.show(); // display the custom Toast
     }
-
 }

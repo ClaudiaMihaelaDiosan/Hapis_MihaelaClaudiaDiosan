@@ -128,8 +128,8 @@
     <string name="volunteer_username_text_view">Nombre de usuario</string>
     <string name="volunteer_email_text_view">Correo electrónico</string>
 
-    <string name="open_navigation_drawer_volunteer">Abrir navigation drawer</string>
-    <string name="close_navigation_drawer_volunteer">Cerrar navigation drawer</string>
+    <string name="open_navigation_drawer">Abrir navigation drawer</string>
+    <string name="close_navigation_drawer">Cerrar navigation drawer</string>
 
     <string name="configuration_menu">Configuración</string>
     <string name="contact_menu">Contacto</string>
@@ -138,7 +138,7 @@
     <string name="vcf_email_hint">Correo electrónico</string>
     <string name="vcf_text_hint">Escribe tu mensaje aquí</string>
     <string name="vcf_button">ENVIAR MENSAJE</string>
-    <string name="vcf_toast_message">El mensaje se ha enviado correctamente.\n Recibirás una respuesta lo antes posible.</string>
+    <string name="contact_toast_message">El mensaje se ha enviado correctamente.\n Recibirás una respuesta lo antes posible.</string>
     <string name="vcf_subject_hint">Asunto</string>
 
     <!-- Volunteer Configuration Fragment -->
@@ -262,5 +262,36 @@ La segunda vez que me quedé sin hogar, siguió un patrón similar. Estuve traba
     <string name="maite_location">Av. de les Garrigues, 38, 25001 Lleida</string>
     <string name="luis_location">Plaça Mossèn Jacint Verdaguer, 4, 25004 Lleida</string>
     <string name="cristina_location">Gran Passeig de Ronda, 63, 25006 Lleida</string>
+
+
+    <!--    Donor Home Activity-->
+    <string name="donor_menu_home">Inicio</string>
+    <string name="donor_menu_donate">Donar</string>
+
+    <string name="donor_menu_profile">Perfil</string>
+    <string name="donor_menu_configuration">Configuración</string>
+    <string name="donor_menu_logout">Salir</string>
+    <string name="donor_menu_contact">Contacto</string>
+
+    <!--    Donor Contact Fragment-->
+    <string name="dcf_title">CONTACTA CON NOSOTROS</string>
+    <string name="dcf_email_hint">Correo electrónico</string>
+    <string name="dcf_text_hint">Escribe tu mensaje aquí</string>
+    <string name="dcf_button">ENVIAR MENSAJE</string>
+    <string name="dcf_toast_message">El mensaje se ha enviado correctamente.\n Recibirás una respuesta lo antes posible.</string>
+    <string name="dcf_subject_hint">Asunto</string>
+
+    <!--    Volunteer Donate Fragment-->
+    <string name="donor_donate_title">DONA A HAPIS</string>
+    <string name="donor_donate_text"> Tu donación proporciona cosas como comida a personas reales y nos ayuda seguir manteniendo esta aplicación.</string>
+    <string name="donor_donate_button">DONAR</string>
+    <string name="donor_donate_video">Mira el video para dona 0.40 centimos.</string>
+
+    <!-- Donor Configuration Fragment -->
+    <string name="donor_system_title">Sistema</string>
+    <string name="donor_change_language_title">Idioma</string>
+    <string name="donor_change_language_summary">Cambia el idioma de la aplicación</string>
+    <string name="donor_change_language_dialog_title">Escoje idioma</string>
+
 
 </resources>

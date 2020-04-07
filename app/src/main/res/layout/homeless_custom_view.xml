@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/top_margin"
+        android:layout_marginStart="@dimen/left_margin"
+        android:layout_marginEnd="@dimen/right_margin"
+        android:layout_marginBottom="@dimen/bottom_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginEnd="@dimen/right_margin"
+            android:layout_marginStart="@dimen/left_margin"
+            android:layout_marginTop="@dimen/top_margin"
+            android:layout_marginBottom="@dimen/bottom_margin">
+
+
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/light_blue"
+                android:src="@mipmap/ic_launcher"
+                android:layout_gravity="center" />
+
+            <TextView
+                android:id="@+id/homeless_username_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_margin"
+                android:textSize="20dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:text="Username"/>
+
+                <TextView
+                    android:id="@+id/homeless_phone_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:text="Phone"/>
+
+
+                <TextView
+                    android:id="@+id/homeless_birthday_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:text="Birthday"/>
+
+
+                <TextView
+                    android:id="@+id/homeless_lifeHistory_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:text="LifeHistory"/>
+
+
+                <TextView
+                    android:id="@+id/homeless_locationAddress_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:text="Location Address"/>
+
+
+                <TextView
+                    android:id="@+id/homeless_schedule_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:text="Schedule"/>
+
+
+
+                <TextView
+                    android:id="@+id/homeless_need_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:text="Need"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/edit_homeless_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/edit_homeless_icon"
+                android:backgroundTint="@color/white"/>
+
+
+            <ImageButton
+                android:id="@+id/delete_homeless_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/delete_homeless_icon"
+                android:backgroundTint="@color/white"/>
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+
+</LinearLayout>

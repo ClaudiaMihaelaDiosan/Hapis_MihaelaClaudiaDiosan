@@ -15,7 +15,7 @@
     <color name="lila_color">#cc99ff</color>
     <color name="green_color">#66ff99</color>
     <color name="yellow_color">#ffcc66</color>
-
+    <color name="amber">#FF5722</color>
 
     <!-- colors for Intro-->
     <color name="white">#ffffff</color>

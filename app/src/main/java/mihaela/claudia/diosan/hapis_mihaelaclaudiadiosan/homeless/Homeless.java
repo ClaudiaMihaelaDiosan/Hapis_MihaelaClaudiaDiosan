@@ -1,4 +1,4 @@
-package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
+package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless;
 
 public class Homeless {
     private int profileImageResource;
@@ -19,6 +19,14 @@ public class Homeless {
         this.locationAddress = locationAddress;
         this.schedule = schedule;
         this.need = need;
+
+    }
+
+    public Homeless(int profileImageResource, String username, String need, String locationAddress){
+        this.profileImageResource = profileImageResource;
+        this.username = username;
+        this.need = need;
+        this.locationAddress = locationAddress;
 
     }
 

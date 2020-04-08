@@ -55,9 +55,6 @@ public class RegisterDonorActivity extends AppCompatActivity {
         acceptTermsCheckbox = findViewById(R.id.donor_terms_checkbox);
 
 
-
-
-
         //Select donor birthday
         donorBirthday.setOnClickListener(new View.OnClickListener() {
             @Override

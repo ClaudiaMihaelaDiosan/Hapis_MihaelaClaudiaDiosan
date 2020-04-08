@@ -298,4 +298,37 @@ The second time I became homeless it followed a similar pattern. I had been work
     <string name="donor_change_language_dialog_title">Choose language</string>
 
 
+    <!-- Donor Home Fragment-->
+    <string name="need_tv">Needs:  </string>
+    <string name="help_button">I WANT TO HELP</string>
+    <string name="birthday">Birthday: </string>
+    <string name="life_history">Life History: </string>
+    <string name="location">Location</string>
+    <string name="schedule">In this location: </string>
+    <string name="need">Most important need:  </string>
+    <string name="donation_type">Choose what you want do donate </string>
+    <string name="help_type">Choose the manner you want to make your donation</string>
+    <string name="personally_button">PERSONALLY</string>
+    <string name="through_volunteer_button">THROUGH A VOLUNTEER</string>
+    <string name="chip_text1">Your donation of   </string>
+    <string name="chip_text2">   will be added to our statistics</string>
+
+    <!--    Fragment personally-->
+    <string name="location_text_personally">You can find the homeless person in the next location in order tu give your donation</string>
+    <string name="schedule_text_personally">It will be here in the next schedule</string>
+
+    <!--Fragment through a volunteer -->
+    <string name="fr_tv_title">Establish a close meeting point, the day and time to meet the volunteer and he will contact you. </string>
+    <string name="pick_date_button">DATE</string>
+    <string name="pick_time_button">HOUR</string>
+    <string name="fr_tv_location">Selected location</string>
+    <string name="fr_tv_date">Selected date</string>
+    <string name="fr_tv_hour">Selected hour</string>
+    <string name="fr_tv_confirm_button">CONFIRM</string>
+    <string name="fr_tv_confirm_toast">Thank you for your help! The volunteer will receive this data and will contact you</string>
+
+    <string name="map_not_ready">Map is not ready yet</string>
+    <string name="here">In this location</string>
+
+
 </resources>

@@ -1,4 +1,4 @@
-package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
+package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.maps;
 
 import android.annotation.SuppressLint;
 import android.os.Build;

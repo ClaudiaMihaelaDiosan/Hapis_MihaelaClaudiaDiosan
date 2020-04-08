@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.github.clans.fab.FloatingActionButton;
@@ -21,9 +20,9 @@ import com.github.clans.fab.FloatingActionMenu;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless.Homeless;
 
 
 public class HomeVolunteerFragment extends Fragment {

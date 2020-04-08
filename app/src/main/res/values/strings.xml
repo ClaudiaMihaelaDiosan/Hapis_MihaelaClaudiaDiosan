@@ -330,5 +330,8 @@ The second time I became homeless it followed a similar pattern. I had been work
     <string name="map_not_ready">Map is not ready yet</string>
     <string name="here">In this location</string>
 
+    <string name="linear">Linear</string>
+    <string name="grid">Grid</string>
+
 
 </resources>

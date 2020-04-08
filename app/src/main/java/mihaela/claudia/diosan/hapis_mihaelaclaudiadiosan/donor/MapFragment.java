@@ -252,35 +252,35 @@ public class MapFragment extends Fragment implements
         Andrew =mMap.addMarker(new MarkerOptions()
                 .position(ANDREW)
                 .title("ANDREW")
-                .snippet(getString(R.string.andrew_schedule))
+                .snippet(getString(R.string.here) + " " + getString(R.string.andrew_schedule))
                 .icon(vectorToBitmap(R.drawable.men_icon, Color.parseColor("#2979ff"))));
         Andrew.setTag(position);
 
         Maria = mMap.addMarker(new MarkerOptions()
                 .position(MARIA)
                 .title("MARIA")
-                .snippet(getString(R.string.maria_schedule))
+                .snippet(getString(R.string.here) + " " + getString(R.string.maria_schedule))
                 .icon(vectorToBitmap(R.drawable.women_icon, Color.parseColor("#F10000"))));
         Maria.setTag(position);
 
         Maite = mMap.addMarker(new MarkerOptions()
                 .position(MAITE)
                 .title("MAITE")
-                .snippet(getString(R.string.maite_schedule))
+                .snippet(getString(R.string.here) + " " + getString(R.string.maite_schedule))
                 .icon(vectorToBitmap(R.drawable.women_icon, Color.parseColor("#F10000"))));
         Maite.setTag(position);
 
         Luis = mMap.addMarker(new MarkerOptions()
                 .position(LUIS)
                 .title("LUIS")
-                .snippet(getString(R.string.luis_schedule))
+                .snippet(getString(R.string.here) + " " + getString(R.string.luis_schedule))
                 .icon(vectorToBitmap(R.drawable.men_icon, Color.parseColor("#2979ff"))));
         Luis.setTag(position);
 
         Cristina = mMap.addMarker(new MarkerOptions()
                 .position(CRISTINA)
                 .title("CRISTINA")
-                .snippet(getString(R.string.cristina_schedule))
+                .snippet(getString(R.string.here) + " " + getString(R.string.cristina_schedule))
                 .icon(vectorToBitmap(R.drawable.women_icon, Color.parseColor("#F10000"))));
         Cristina.setTag(position);
 

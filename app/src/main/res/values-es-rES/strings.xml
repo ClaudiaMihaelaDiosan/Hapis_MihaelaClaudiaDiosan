@@ -324,4 +324,7 @@ La segunda vez que me quedé sin hogar, siguió un patrón similar. Estuve traba
     <string name="map_not_ready">El mapa no esta listo aun</string>
     <string name="here">En esta ubicación</string>
 
+    <string name="linear">Linear</string>
+    <string name="grid">Cuadrícula</string>
+
 </resources>

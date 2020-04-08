@@ -1,5 +1,7 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless;
 
+import com.google.android.gms.maps.model.LatLng;
+
 public class Homeless {
     private int profileImageResource;
     private String username;
@@ -9,6 +11,7 @@ public class Homeless {
     private String locationAddress;
     private String schedule;
     private String need;
+    private LatLng locationCoordinates;
 
     public Homeless(int profileImageResource, String username, String phone, String birthday, String lifeHistory, String locationAddress, String schedule, String need){
         this.profileImageResource = profileImageResource;
@@ -28,6 +31,11 @@ public class Homeless {
         this.need = need;
         this.locationAddress = locationAddress;
 
+    }
+
+    public Homeless(String username, LatLng locationCoordinates){
+        this.username = username;
+        this.locationCoordinates = locationCoordinates;
     }
 
     public int getProfileImageResource(){

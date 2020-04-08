@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,15 +27,18 @@ public class HomeDonor extends AppCompatActivity implements NavigationView.OnNav
     private DrawerLayout donorDrawer;
     Toolbar mToolbar;
     BottomNavigationView bottomNavigationView;
+  //   BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener;
+
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_home_donor);
+
+        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         mToolbar = findViewById(R.id.donor_toolbar);
         setSupportActionBar(mToolbar);
@@ -45,12 +50,12 @@ public class HomeDonor extends AppCompatActivity implements NavigationView.OnNav
         NavigationView navigationView = findViewById(R.id.nav_view_donor);
         navigationView.setNavigationItemSelectedListener(this);
 
-//        bottomNavigationView.findViewById(R.id.bottom_navigation_view);
 
 
         ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(this, donorDrawer, R.string.open_navigation_drawer, R.string.close_navigation_drawer);
         donorDrawer.addDrawerListener(mToggle);
         mToggle.syncState();
+
 
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, new HomeDonorFragment()).commit();
@@ -58,9 +63,39 @@ public class HomeDonor extends AppCompatActivity implements NavigationView.OnNav
         }
 
 
-
-
     }
+
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener(){
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            Fragment fragment = null;
+
+            switch (item.getItemId()){
+
+                case R.id.home_navigation:
+                fragment = new HomeDonorFragment();
+                break;
+
+            case R.id.map_navigation:
+                fragment = new MapFragment();
+                break;
+
+            case R.id.list_map_navigaion:
+                fragment = new ListMapFragment();
+                break;
+
+            }
+
+            getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, fragment).commit();
+            return true;
+
+        }
+    };
+
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -80,13 +115,16 @@ public class HomeDonor extends AppCompatActivity implements NavigationView.OnNav
 
         switch (item.getItemId()){
             case R.id.donor_menu_home:
+                bottomNavigationView.setVisibility(View.VISIBLE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new HomeDonorFragment()).commit();
                 break;
             case R.id.donor_menu_donate:
-
+                bottomNavigationView.setVisibility(View.GONE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new DonateDonorFragment()).commit();
                 break;
             case R.id.donor_menu_configuration:
+                bottomNavigationView.setVisibility(View.GONE);
+
                 getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, new ConfigurationDonorFragment()).commit();
                 break;
             case R.id.donor_menu_logout:
@@ -94,21 +132,9 @@ public class HomeDonor extends AppCompatActivity implements NavigationView.OnNav
                 startActivity(loginIntent);
                 break;
             case R.id.donor_menu_contact:
+                bottomNavigationView.setVisibility(View.GONE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new ContactDonorFragment()).commit();
                 break;
-
-//            case R.id.home_navigation:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new HomeDonorFragment()).commit();
-//                break;
-//
-//            case R.id.map_navigation:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new MapFragment()).commit();
-//                break;
-//
-//            case R.id.list_map_navigaion:
-//                getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new ListMapFragment()).commit();
-//                break;
-
         }
         donorDrawer.closeDrawer(GravityCompat.START);
         return false;

@@ -4,6 +4,9 @@
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCl1fruupMLaDB11EO0hHb2Ahx7rTYzwkA</string>
 
 
+    <!--    Errors -->
+    <string name="is_email_valid_error">The email field is not valid or is empty</string>
+
     <!-- ********* Intro Activity********** -->
 
     <!--    Titles -->
@@ -26,6 +29,33 @@
 
 
 
+    <!--******  Forgot password activity  *******-->
+
+    <string name="forgot_password_name">Forgot password</string>
+
+    <!--    Titles -->
+    <string name="fp_title">Forgot your password?</string>
+
+    <!--    Texts -->
+    <string name="fp_body">To reset your password, enter the email address you use to login to HAPIS.</string>
+    <string name="pop_up_message">An email has been sent to the supplied email address.Follow the instructions in the email to reset your password.</string>
+
+
+    <!--    Buttons -->
+    <string name="fp_button">RECOVER PASSWORD</string>
+    <string name="pop_up_button">GO TO LOGIN</string>
+
+    <!--    Edit Texts -->
+    <string name="fp_email_hint">Email</string>
+
+    <!--    Images -->
+    <string name="content_description_check">Check</string>
+    <string name="content_description_close_popup">Close icon</string>
+    <string name="content_description_thinking_boy">Thinking boy image</string>
+
+
+
+
 
 
     <!--    Login Activity -->
@@ -40,17 +70,7 @@
     <string name="login_title">Login to continue</string>
     <string name="login_foto_content_description">Hapis Logo</string>
 
-    <!--   Forgot password activity-->
-    <string name="forgot_password_name">Forgot password</string>
-    <string name="fp_title">Forgot your password?</string>
-    <string name="fp_body">To reset your password, enter the email address you use to login to HAPIS.</string>
-    <string name="fp_email_hint">Email</string>
-    <string name="fp_button">RECOVER PASSWORD</string>
-    <string name="pop_up_message">An email has been sent to the supplied email address.Follow the instructions in the email to reset your password.</string>
-    <string name="pop_up_button">GO TO LOGIN</string>
-    <string name="content_description_check">Check</string>
-    <string name="content_description_close_popup">Close icon</string>
-    <string name="content_description_thinking_boy">Thinking boy image</string>
+
 
     <!--    Register Activity-->
 

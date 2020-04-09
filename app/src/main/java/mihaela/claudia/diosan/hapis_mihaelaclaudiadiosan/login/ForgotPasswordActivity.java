@@ -7,23 +7,32 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.textfield.TextInputEditText;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 
-    Button recoverPassword;
-
     //Pop Up
     Dialog successRecoverDialog;
+
     TextView messageTV;
     ImageView closePopUp;
+
     Button goLoginBtn;
+    Button recoverPassword;
+
+    TextInputEditText forgotPasswordEmail;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,24 +45,39 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
         recoverPassword = findViewById(R.id.recover_password_button);
         successRecoverDialog = new Dialog(this);
-
-
+        forgotPasswordEmail = findViewById(R.id.forgot_password_email);
 
         recoverPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showPopUpDialog();
+                if (isEmailValid()){
+                    showPopUpDialog();
+                   }else{
+                   showErrorToast();
+                }
             }
         });
 
+    }
 
+    public void showErrorToast(){
+        Toast toast = Toast.makeText(ForgotPasswordActivity.this, getString(R.string.is_email_valid_error), Toast.LENGTH_LONG);
+        View view =toast.getView();
+        view.setBackgroundColor(Color.WHITE);
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        toastMessage.setTextColor(Color.RED);
+        toastMessage.setGravity(Gravity.CENTER);
+        toastMessage.setTextSize(15);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
+        toastMessage.setPadding(10,10,10,10);
+        toast.show();
     }
 
     public void showPopUpDialog(){
         successRecoverDialog.setContentView(R.layout.forgot_password_popup);
-        closePopUp = (ImageView) successRecoverDialog.findViewById(R.id.close_pop_up);
-        goLoginBtn = (Button) successRecoverDialog.findViewById(R.id.go_login_button);
-        messageTV = (TextView) successRecoverDialog.findViewById(R.id.message_pop_up);
+        closePopUp =  successRecoverDialog.findViewById(R.id.close_pop_up);
+        goLoginBtn =  successRecoverDialog.findViewById(R.id.go_login_button);
+        messageTV =   successRecoverDialog.findViewById(R.id.message_pop_up);
 
         closePopUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,4 +103,10 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         super.finish();
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right );
     }
+
+
+    boolean isEmailValid() {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(forgotPasswordEmail.getText().toString()).matches() && !forgotPasswordEmail.getText().toString().isEmpty();
+    }
+
 }

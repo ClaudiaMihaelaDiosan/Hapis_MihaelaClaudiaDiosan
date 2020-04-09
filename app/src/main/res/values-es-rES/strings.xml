@@ -2,6 +2,10 @@
     <string name="app_name">Hapis_MihaelaClaudiaDiosan</string>
     <string name="name">HAPIS</string>
 
+    <!--    Errors -->
+    <string name="is_email_valid_error">El Email no es válido o el campo esta vacio</string>
+
+
     <!-- ********* Intro Activity********** -->
 
     <!--    Titles -->
@@ -25,6 +29,32 @@
 
 
 
+    <!--******  Forgot password activity  *******-->
+
+    <string name="forgot_password_name">Contraseña olvidada</string>
+
+    <!--    Titles -->
+    <string name="fp_title">¿Has olvidado tu contraseña?</string>
+
+    <!--    Texts -->
+    <string name="fp_body">Para restablecer tu contraseña, introduce tu correo electrónico que utilizas para iniciar sesión en HAPIS.</string>
+    <string name="pop_up_message"> Un correo ha sido enviado al email facilitado.Sigue las instrucciones para restablecer tu contraseña.</string>
+
+    <!--    Buttons -->
+    <string name="fp_button">RECUPERAR CONTRASEÑA</string>
+    <string name="pop_up_button">VOLVER AL LOGIN</string>
+
+    <!--    Edit Texts -->
+    <string name="fp_email_hint">Correo electrónico</string>
+
+    <!--   Images -->
+    <string name="content_description_check">Icono éxito</string>
+    <string name="content_description_close_popup">Icono cerrar</string>
+    <string name="content_description_thinking_boy">Dibujo de un niño que piensa</string>
+
+
+
+
     <!--    Login Activity -->
 
     <string name="email_hint">Nombre de Usuario o Correo</string>
@@ -37,17 +67,7 @@
     <string name="login_title">Inicia sesión para continuar</string>
     <string name="login_foto_content_description">Logo de Hapis </string>
 
-    <!--   Forgot password activity-->
-    <string name="forgot_password_name">Contraseña olvidada</string>
-    <string name="fp_title">¿Has olvidado tu contraseña?</string>
-    <string name="fp_body">Para restablecer tu contraseña, introduce tu correo electrónico que utilizas para iniciar sesión en HAPIS.</string>
-    <string name="fp_email_hint">Correo electrónico</string>
-    <string name="fp_button">RECUPERAR CONTRASEÑA</string>
-    <string name="pop_up_message"> Un correo ha sido enviado al email facilitado.Sigue las instrucciones para restablecer tu contraseña.</string>
-    <string name="pop_up_button">VOLVER AL LOGIN</string>
-    <string name="content_description_check">Icono éxito</string>
-    <string name="content_description_close_popup">Icono cerrar</string>
-    <string name="content_description_thinking_boy">Dibujo de un niño que piensa</string>
+
 
     <!--    Register Activity-->
 

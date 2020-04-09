@@ -66,7 +66,7 @@
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/get_started_button"
                 android:textColor="@color/white"
-                android:textSize="@dimen/button_large"
+                android:textSize="@dimen/forgot_password_popup_button_large"
                 android:visibility="invisible" />
 
         </LinearLayout>
@@ -85,7 +85,7 @@
                 android:layout_marginTop="@dimen/top_margin_large"
                 android:layout_marginStart="@dimen/start_margin_large"
                 android:drawableEnd="@drawable/arrow_next_intro"
-                android:textSize="@dimen/button_large"
+                android:textSize="@dimen/forgot_password_popup_button_large"
                 android:text="@string/next_button"
                 android:textColor="@color/colorPrimary" />
 

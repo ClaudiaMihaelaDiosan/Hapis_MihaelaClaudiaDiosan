@@ -19,7 +19,13 @@
     <dimen name="right_margin">16dp</dimen>
     <dimen name="left_margin">16dp</dimen>
 
-    <dimen name="button_large">30sp</dimen>
+
+
+
+    <!--    Cards-->
+    <dimen name="cardCornerRadius">5dp</dimen>
+    <dimen name="elevation">5dp</dimen>
+
 
 
     <!-- Intro Activity  -->
@@ -30,46 +36,18 @@
     <dimen name="intro_description_large">40sp</dimen>
 
 
-
-
-
-    <!-- Login dimensions -->
-    <dimen name="card_view_margins">8dp</dimen>
-    <dimen name="forgot_password_size">15sp</dimen>
-    <dimen name="login_button">20sp</dimen>
-    <dimen name="google_top_margin">30dp</dimen>
-    <dimen name="google_text_view_size">15sp</dimen>
-    <dimen name="login_text_size">15sp</dimen>
-    <dimen name="signup_top_margin">25dp</dimen>
-    <dimen name="signup_size">20sp</dimen>
-
-    <!--    Login dimensions large -->
-
-
-    <dimen name="card_view_margins_large">8dp</dimen>
-    <dimen name="forgot_password_size_large">20sp</dimen>
-    <dimen name="login_button_large">35sp</dimen>
-    <dimen name="google_top_margin_large">45dp</dimen>
-    <dimen name="google_text_view_size_large">20sp</dimen>
-    <dimen name="login_text_size_large">20sp</dimen>
-    <dimen name="signup_top_margin_large">45dp</dimen>
-    <dimen name="signup_size_large">35sp</dimen>
-
-    <!--    Forgot Password dimensions-->
+    <!--    Forgot Password -->
 
     <dimen name="fp_title_size">25sp</dimen>
-    <dimen name="fp_body_size">20sp</dimen>
-    <dimen name="fp_button">20sp</dimen>
-
-    <!--    Forgot Password dimensions large-->
-
     <dimen name="fp_title_size_large">40sp</dimen>
+    <dimen name="fp_body_size">20sp</dimen>
     <dimen name="fp_body_size_large">35sp</dimen>
+    <dimen name="fp_button">20sp</dimen>
     <dimen name="fp_button_large">35sp</dimen>
     <dimen name="button_text_margins">20dp</dimen>
     <dimen name="fp_margin_left_large">10dp</dimen>
     <dimen name="fp_margin_right_large">10dp</dimen>
-
+    <dimen name="recover_password_button_padding">10dp</dimen>
 
     <!--    Forgot Password pop up-->
     <dimen name="margin_left">5dp</dimen>
@@ -105,13 +83,44 @@
     <dimen name="button_margin_large">30dp</dimen>
     <dimen name="go_to_login_button_large">30sp</dimen>
     <dimen name="check_size_large">60dp</dimen>
+    <dimen name="forgot_password_popup_button_large">30sp</dimen>
     <dimen name="check_margin_bottom_large">30dp</dimen>
 
+
+
+
+
+    <!-- Login dimensions -->
+    <dimen name="card_view_margins">8dp</dimen>
+    <dimen name="forgot_password_size">15sp</dimen>
+    <dimen name="login_button">20sp</dimen>
+    <dimen name="google_top_margin">30dp</dimen>
+    <dimen name="google_text_view_size">15sp</dimen>
+    <dimen name="login_text_size">15sp</dimen>
+    <dimen name="signup_top_margin">25dp</dimen>
+    <dimen name="signup_size">20sp</dimen>
+
+    <!--    Login dimensions large -->
+
+
+    <dimen name="card_view_margins_large">8dp</dimen>
+    <dimen name="forgot_password_size_large">20sp</dimen>
+    <dimen name="login_button_large">35sp</dimen>
+    <dimen name="google_top_margin_large">45dp</dimen>
+    <dimen name="google_text_view_size_large">20sp</dimen>
+    <dimen name="login_text_size_large">20sp</dimen>
+    <dimen name="signup_top_margin_large">45dp</dimen>
+    <dimen name="signup_size_large">35sp</dimen>
+
+
+
+
+
+
     <!--    Register Activity-->
-    <dimen name="cardCornerRadius">5dp</dimen>
-    <dimen name="elevation">5dp</dimen>
+
     <dimen name="cv_margin">5dp</dimen>
-    <dimen name="padding">10dp</dimen>
+
     <dimen name="register_cv_title">20sp</dimen>
     <dimen name="cv_button_margin">8dp</dimen>
     <dimen name="cv_button_text_size">15sp</dimen>

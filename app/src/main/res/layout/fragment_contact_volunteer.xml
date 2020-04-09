@@ -99,7 +99,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/vcf_button"
                 android:textColor="@color/white"
-                android:padding="@dimen/padding"
+                android:padding="@dimen/recover_password_button_padding"
                 android:backgroundTint="@color/colorPrimary"
                 android:layout_marginTop="@dimen/top_margin"
                 android:layout_marginBottom="@dimen/bottom_margin"

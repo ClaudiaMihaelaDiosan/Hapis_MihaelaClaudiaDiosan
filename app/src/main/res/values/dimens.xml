@@ -20,7 +20,7 @@
     <dimen name="left_margin">16dp</dimen>
 
 
-
+    <dimen name="padding">10dp</dimen>
 
     <!--    Cards-->
     <dimen name="cardCornerRadius">5dp</dimen>
@@ -47,7 +47,7 @@
     <dimen name="button_text_margins">20dp</dimen>
     <dimen name="fp_margin_left_large">10dp</dimen>
     <dimen name="fp_margin_right_large">10dp</dimen>
-    <dimen name="recover_password_button_padding">10dp</dimen>
+
 
     <!--    Forgot Password pop up-->
     <dimen name="margin_left">5dp</dimen>
@@ -88,29 +88,39 @@
 
 
 
+    <!--Login Activity-->
 
-
-    <!-- Login dimensions -->
     <dimen name="card_view_margins">8dp</dimen>
-    <dimen name="forgot_password_size">15sp</dimen>
-    <dimen name="login_button">20sp</dimen>
-    <dimen name="google_top_margin">30dp</dimen>
-    <dimen name="google_text_view_size">15sp</dimen>
-    <dimen name="login_text_size">15sp</dimen>
-    <dimen name="signup_top_margin">25dp</dimen>
-    <dimen name="signup_size">20sp</dimen>
-
-    <!--    Login dimensions large -->
-
-
     <dimen name="card_view_margins_large">8dp</dimen>
+    <dimen name="forgot_password_size">15sp</dimen>
     <dimen name="forgot_password_size_large">20sp</dimen>
+    <dimen name="login_button">20sp</dimen>
     <dimen name="login_button_large">35sp</dimen>
+    <dimen name="google_top_margin">30dp</dimen>
     <dimen name="google_top_margin_large">45dp</dimen>
+    <dimen name="google_text_view_size">15sp</dimen>
     <dimen name="google_text_view_size_large">20sp</dimen>
+    <dimen name="login_text_size">15sp</dimen>
     <dimen name="login_text_size_large">20sp</dimen>
+    <dimen name="signup_top_margin">25dp</dimen>
     <dimen name="signup_top_margin_large">45dp</dimen>
+    <dimen name="signup_size">20sp</dimen>
     <dimen name="signup_size_large">35sp</dimen>
+    <dimen name="statistics_size">20sp</dimen>
+    <dimen name="statistics_size_large">35sp</dimen>
+
+
+
+
+    <!--    Statistics Activity -->
+    <dimen name="title_statistics">25sp</dimen>
+    <dimen name="title_statistics_large">40sp</dimen>
+    <dimen name="text_statistics">20sp</dimen>
+    <dimen name="text_statistics_large">35sp</dimen>
+    <dimen name="statistics_back_button">20sp</dimen>
+    <dimen name="statistics_back_button_large">35sp</dimen>
+
+
 
 
 

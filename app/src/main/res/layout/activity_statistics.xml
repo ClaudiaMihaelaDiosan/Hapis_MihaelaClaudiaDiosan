@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical"
+    tools:context=".login.StatisticsActivity">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/cardCornerRadius"
+        app:cardElevation="@dimen/elevation"
+        android:layout_marginTop="@dimen/top_margin"
+        android:layout_marginBottom="@dimen/bottom_margin"
+        android:layout_marginStart="@dimen/start_margin"
+        android:layout_marginEnd="@dimen/end_margin">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/start_margin"
+            android:layout_marginEnd="@dimen/end_margin"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/amber"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/title_statistics"
+                android:text="@string/statistics_title"
+                android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginBottom="@dimen/bottom_margin"/>
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:src="@drawable/statistics_img"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold"
+                    android:text="@string/statistics_homeless_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:textStyle="bold"
+                    android:text="@string/statistics_homeless_number" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold"
+                    android:text="@string/statistics_donor_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:textStyle="bold"
+                    android:text="@string/statistics_donor_number" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold"
+                    android:text="@string/statistics_volunteers_text" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:textStyle="bold"
+                    android:text="@string/statistics_volunteers_number" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/amber"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/top_margin"
+                android:textSize="@dimen/text_statistics"
+                android:text="@string/donations_title" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold"
+                    android:text="@string/statistics_food_help" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:textStyle="bold"
+                    android:text="@string/statistics_food_help_number" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold"
+                    android:text="@string/statistics_clothes_help" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:text="@string/statistics_clothes_help_number" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold"
+                    android:text="@string/statistics_work_help" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:text="@string/statistics_work_help_number" />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold"
+                    android:text="@string/statistics_lodging_help" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:text="@string/statistics_lodging_number" />
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold"
+                    android:text="@string/statistics_hygiene_products_help" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:text="@string/statistics_hygiene_products_help_number" />
+
+            </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/amber"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/top_margin"
+                android:textSize="@dimen/text_statistics"
+                android:text="@string/statistics_help_type" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold"
+                    android:text="@string/statistics_personal_help" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:text="@string/statistics_personal_help_number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/bottom_margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey"
+                    android:textStyle="bold"
+                    android:text="@string/statistics_volunteer_help" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:layout_marginBottom="@dimen/bottom_margin"
+                    android:text="@string/statistics_volunteer_help_number" />
+
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/statistics_back_login"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:text="@string/statistics_to_login_button"
+                android:textSize="@dimen/statistics_back_button"
+                android:layout_marginTop="@dimen/top_margin"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                android:backgroundTint="@color/white"
+                app:icon="@drawable/back_arrow"
+                app:iconTint="@color/colorPrimary"
+                android:layout_marginBottom="@dimen/bottom_margin"
+                />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</ScrollView>

@@ -22,6 +22,8 @@ public class LoginActivity extends AppCompatActivity {
 
     TextView forgotPassword;
     TextView signUp;
+    TextView statistics;
+
     Button loginBtn;
 
     @Override
@@ -35,7 +37,10 @@ public class LoginActivity extends AppCompatActivity {
 
         forgotPassword = (TextView) findViewById(R.id.forgot_password_text_view);
         signUp = (TextView) findViewById(R.id.signup);
+        statistics = findViewById(R.id.statistics_tv);
+
         loginBtn = findViewById(R.id.login_button);
+
 
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +60,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        statistics.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent statisticsActivity = new Intent(LoginActivity.this, StatisticsActivity.class);
+                startActivity(statisticsActivity);
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+            }
+        });
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,5 +76,11 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(donorActivity);
             }
         });
+    }
+
+    @Override
+    public void finish(){
+        super.finish();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right );
     }
 }

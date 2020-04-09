@@ -23,9 +23,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
-        <activity android:name=".donor.HomeDonor"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        
+        <activity android:name=".login.StatisticsActivity"
+            android:label="@string/statistics_name"/>
+        <activity
+            android:name=".donor.HomeDonor"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".volunteer.CreateHomelessPerfileActivity"
             android:label="@string/create_homeless_profile_name" />

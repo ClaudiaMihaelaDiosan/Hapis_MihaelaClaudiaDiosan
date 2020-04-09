@@ -52,20 +52,63 @@
     <string name="content_description_close_popup">Icono cerrar</string>
     <string name="content_description_thinking_boy">Dibujo de un niño que piensa</string>
 
+    <!--******  Login activity  *******-->
 
+    <!--    Titles -->
+    <string name="login_title">Inicia sesión para continuar</string>
 
-
-    <!--    Login Activity -->
-
-    <string name="email_hint">Nombre de Usuario o Correo</string>
-    <string name="password_hint">Contraseña</string>
+    <!--    Texts -->
     <string name="forgot_password">¿Has olvidado tu contraseña?</string>
-    <string name="login_button">INICIAR SESIÓN</string>
     <string name="google_text_view">También puedes continuar con la cuenta de Google:</string>
     <string name="signup_tex_view">¿No tienes una cuenta aún?</string>
     <string name="sign_up">REGÍSTRATE AHORA</string>
-    <string name="login_title">Inicia sesión para continuar</string>
+    <string name="statistics">ESTADÍSTICAS</string>
+
+
+    <!--    Buttons -->
+    <string name="login_button">INICIAR SESIÓN</string>
+
+    <!--    Edit Texts-->
+    <string name="email_hint">Nombre de Usuario o Correo</string>
+    <string name="password_hint">Contraseña</string>
+
+    <!--    Images-->
     <string name="login_foto_content_description">Logo de Hapis </string>
+
+
+    <!--*****    Statistics Activity  *****-->
+    <string name="statistics_name">Estadísticas Hapis</string>
+
+    <!--    Titles -->
+    <string name="statistics_title">ESTADÍSTICAS</string>
+    <string name="donations_title">DONACIONES</string>
+    <string name="statistics_help_type">TIPO DE AYUDA</string>
+
+    <!--    Texts -->
+    <string name="statistics_homeless_text">Total personas que necesitan ayuda:</string>
+    <string name="statistics_homeless_number">50</string>
+    <string name="statistics_donor_text">Total Donantes:</string>
+    <string name="statistics_donor_number">35</string>
+    <string name="statistics_volunteers_text">Total Voluntarios:</string>
+    <string name="statistics_volunteers_number">29</string>
+    <string name="statistics_food_help">Comida:</string>
+    <string name="statistics_food_help_number">20</string>
+    <string name="statistics_clothes_help">Ropa:</string>
+    <string name="statistics_clothes_help_number">4</string>
+    <string name="statistics_work_help">Trabajo:</string>
+    <string name="statistics_work_help_number">3</string>
+    <string name="statistics_lodging_help">Alojamiento:</string>
+    <string name="statistics_lodging_number">5</string>
+    <string name="statistics_hygiene_products_help">Productos de higiene personal:</string>
+    <string name="statistics_hygiene_products_help_number">3</string>
+    <string name="statistics_personal_help">Han ofrecido ayuda personalmente: </string>
+    <string name="statistics_personal_help_number">20</string>
+    <string name="statistics_volunteer_help">Han ofrecido ayuda a través de un voluntario:</string>
+    <string name="statistics_volunteer_help_number">15</string>
+
+    <!--    Buttons -->
+    <string name="statistics_to_login_button">Volver</string>
+
 
 
 

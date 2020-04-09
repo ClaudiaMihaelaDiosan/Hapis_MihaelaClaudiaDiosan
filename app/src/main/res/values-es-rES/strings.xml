@@ -2,19 +2,28 @@
     <string name="app_name">Hapis_MihaelaClaudiaDiosan</string>
     <string name="name">HAPIS</string>
 
-    <!-- Intro Activity-->
+    <!-- ********* Intro Activity********** -->
 
+    <!--    Titles -->
     <string name="logo_intro_title">HAPIS</string>
     <string name="donor_intro_title">DONANTE</string>
     <string name="volunteer_intro_tile">VOLUNTARIO</string>
-    <string name="intro_img_contentDescription">Imagen Intro</string>
 
+    <!--    Texts -->
     <string name="logo_intro_description">Esta es una aplicación social a través de la cual puedes donar cosas básicas a una persona que de verdad lo necesita.</string>
     <string name="donor_intro_description">Puedes registrarte como donante y tendrás la oportunidad de ver los perfiles de las personas sin recursos y ayudarlas.</string>
     <string name="volunteer_intro_description">Puedes registrarte como voluntario y ayudar a registrar y administrar los perfiles de las personas que necesitan ayuda.</string>
 
+    <!--    Buttons -->
     <string name="next_button">Siguiente</string>
     <string name="get_started_button">EMPEZAR</string>
+
+    <!--    Images -->
+    <string name="intro_img_contentDescription">Imagen Intro</string>
+
+
+
+
 
     <!--    Login Activity -->
 

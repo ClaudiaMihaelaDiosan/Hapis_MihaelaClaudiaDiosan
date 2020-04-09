@@ -6,9 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -18,20 +16,24 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 
 public class IntroActivity extends AppCompatActivity {
 
-//
+
       private ViewPager screenPager;
       IntroViewPagerAdapter introViewPagerAdapter;
       TabLayout tabIndicator;
+
       Button btnNext;
-      int position = 0;
       Button btnGetStarted;
+
       Animation btnAnim;
+
+      int position = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +41,13 @@ public class IntroActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         //make the activity on full screen
-
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+        Objects.requireNonNull(getSupportActionBar()).hide();
+
 
 //        //when this activity is about to be launch we need to check if is opened before or not
         if (restorePrefData()){
-
             Intent mainActivity = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(mainActivity);
             finish();
@@ -54,24 +55,21 @@ public class IntroActivity extends AppCompatActivity {
 
 
          setContentView(R.layout.activity_intro);
-//
-//        getSupportActionBar().hide();
-//
-//
+
         //init views
         tabIndicator = findViewById(R.id.tab_indicator);
         btnNext = findViewById(R.id.btn_next);
         btnGetStarted = findViewById(R.id.btn_get_started);
         btnAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.button_animation);
-//
-//
-//        //fill list screen
+
+
+       //fill list screen
         final List<ScreenItem> mList = new ArrayList<>();
         mList.add(new ScreenItem(getString(R.string.logo_intro_title), getString(R.string.logo_intro_description), R.drawable.intro_logo ));
         mList.add(new ScreenItem(getString(R.string.donor_intro_title), getString(R.string.donor_intro_description), R.drawable.intro_donor ));
         mList.add(new ScreenItem(getString(R.string.volunteer_intro_tile), getString(R.string.volunteer_intro_description), R.drawable.intro_volunteer ));
 
-//
+
 //        //setup viewpager
         screenPager = findViewById(R.id.screen_viewpager);
         introViewPagerAdapter = new IntroViewPagerAdapter(this, mList);
@@ -99,9 +97,9 @@ public class IntroActivity extends AppCompatActivity {
                 }
             }
         });
-//
-//        //TabLayout and Change Listener
-//
+
+
+        //TabLayout and Change Listener
         tabIndicator.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
@@ -111,7 +109,7 @@ public class IntroActivity extends AppCompatActivity {
 
                 }
             }
-//
+
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
 
@@ -122,15 +120,15 @@ public class IntroActivity extends AppCompatActivity {
 
             }
         });
-//
-//        //Get Started button click Listener
+
+        //Get Started button click Listener
         btnGetStarted.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //open main activity
-                Intent mainActivity = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(mainActivity);
+                //open login activity
+                Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(loginActivity);
 
                 //we need to save a boolean value to storage so next time when the user run the app
                 //we could know that he is already check the intro screen activity
@@ -145,8 +143,7 @@ public class IntroActivity extends AppCompatActivity {
 //
     private boolean restorePrefData() {
         SharedPreferences pref =  getApplicationContext().getSharedPreferences("myPrefs",MODE_PRIVATE);
-        Boolean isIntroActivityOpenBefore = pref.getBoolean("IsIntroOpened",false);
-        return isIntroActivityOpenBefore;
+        return pref.getBoolean("IsIntroOpened",false);
     }
 
     private void savePrefsData() {

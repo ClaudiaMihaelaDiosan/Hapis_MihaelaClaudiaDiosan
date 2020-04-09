@@ -1,59 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="@dimen/left_margin"
-    android:layout_marginEnd="@dimen/right_margin"
+    android:layout_marginEnd="@dimen/end_margin"
+    android:layout_marginStart="@dimen/start_margin"
+    android:layout_marginTop="@dimen/top_margin"
+    android:layout_marginBottom="@dimen/bottom_margin"
+    android:layout_gravity="center"
+    android:orientation="vertical"
     android:background="@color/white">
-
 
     <TextView
         android:id="@+id/intro_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:layout_marginStart="@dimen/start_margin"
+        android:layout_marginTop="@dimen/top_margin"
+        android:layout_marginEnd="@dimen/end_margin"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="@dimen/intro_title"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/intro_img"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.079" />
+        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/intro_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:textColor="@color/grey"
-        android:textAlignment="center"
-        android:textSize="@dimen/intro_description"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/intro_img"
-        android:layout_width="257dp"
-        android:layout_height="166dp"
+        android:layout_width="260dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/intro_img_contentDescription"/>
 
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:contentDescription="@string/intro_img_contentDescription"
-        app:layout_constraintBottom_toTopOf="@+id/intro_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/intro_title"
-        tools:srcCompat="@tools:sample/avatars" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/intro_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:textColor="@color/grey"
+        android:layout_marginStart="@dimen/start_margin"
+        android:layout_marginTop="@dimen/top_margin"
+        android:layout_marginEnd="@dimen/end_margin"
+        android:textSize="@dimen/intro_description" />
+
+</LinearLayout>

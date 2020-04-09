@@ -4,19 +4,29 @@
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCl1fruupMLaDB11EO0hHb2Ahx7rTYzwkA</string>
 
 
-    <!-- Intro Activity-->
+    <!-- ********* Intro Activity********** -->
 
+    <!--    Titles -->
     <string name="logo_intro_title">HAPIS</string>
     <string name="donor_intro_title">DONOR</string>
     <string name="volunteer_intro_tile">VOLUNTEER</string>
-    <string name="intro_img_contentDescription">Intro Image</string>
 
+    <!--    Texts -->
     <string name="logo_intro_description">This is a social app where you can donate resources to someone that really need it.</string>
     <string name="donor_intro_description">Become a donor and you will have the opportunity to see profiles of people in need and help them.</string>
     <string name="volunteer_intro_description">Be a volunteer and help to register and manage the profiles of people that need help.</string>
 
+    <!--    Buttons -->
     <string name="next_button">Next</string>
     <string name="get_started_button">GET STARTED</string>
+
+    <!--    Images -->
+    <string name="intro_img_contentDescription">Intro Image</string>
+
+
+
+
+
 
     <!--    Login Activity -->
 

@@ -1,28 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<!--    Normal margins-->
+    <!--    Normal margins-->
 
     <dimen name="top_margin">16dp</dimen>
     <dimen name="bottom_margin">16dp</dimen>
-    <dimen name="left_margin">16dp</dimen>
-    <dimen name="right_margin">16dp</dimen>
+    <dimen name="start_margin">16dp</dimen>
+    <dimen name="end_margin">16dp</dimen>
 
-<!--    Large margins -->
+    <!--    Large margins -->
     <dimen name="top_margin_large">20dp</dimen>
     <dimen name="bottom_margin_large">20dp</dimen>
-    <dimen name="left_margin_large">20dp</dimen>
+    <dimen name="start_margin_large">20dp</dimen>
+    <dimen name="end_margin_large">20dp</dimen>
+
     <dimen name="right_margin_large">20dp</dimen>
+    <dimen name="left_margin_large">20dp</dimen>
+    <dimen name="right_margin">16dp</dimen>
+    <dimen name="left_margin">16dp</dimen>
+
+    <dimen name="button_large">30sp</dimen>
 
 
-
-    <!--Intro dimensions -->
+    <!-- Intro Activity  -->
     <dimen name="layout_top_viewpager">30dp</dimen>
     <dimen name="intro_title">35sp</dimen>
     <dimen name="intro_title_large">55sp</dimen>
     <dimen name="intro_description">20sp</dimen>
     <dimen name="intro_description_large">40sp</dimen>
-    <dimen name="button_large">30sp</dimen>
+
+
+
+
 
     <!-- Login dimensions -->
     <dimen name="card_view_margins">8dp</dimen>

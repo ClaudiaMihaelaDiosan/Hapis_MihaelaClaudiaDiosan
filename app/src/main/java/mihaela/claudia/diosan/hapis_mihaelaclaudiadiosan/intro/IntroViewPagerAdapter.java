@@ -16,10 +16,10 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
 public class IntroViewPagerAdapter extends PagerAdapter {
 
-    Context mContext;
-    List<ScreenItem> mListScreen;
+    private Context mContext;
+    private List<ScreenItem> mListScreen;
 
-    public IntroViewPagerAdapter(Context mContext, List<ScreenItem> mListScreen) {
+    IntroViewPagerAdapter(Context mContext, List<ScreenItem> mListScreen) {
         this.mContext = mContext;
         this.mListScreen = mListScreen;
     }

@@ -5,7 +5,7 @@ public class ScreenItem {
     private String title, description;
     private int screenImg;
 
-    public ScreenItem(String title, String description, int screenImg) {
+    ScreenItem(String title, String description, int screenImg) {
         this.title = title;
         this.description = description;
         this.screenImg = screenImg;
@@ -15,23 +15,15 @@ public class ScreenItem {
         this.title = title;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setScreenImg(int screenImg) {
-        this.screenImg = screenImg;
-    }
-
     public String getTitle() {
         return title;
     }
 
-    public String getDescription() {
+    String getDescription() {
         return description;
     }
 
-    public int getScreenImg() {
+    int getScreenImg() {
         return screenImg;
     }
 

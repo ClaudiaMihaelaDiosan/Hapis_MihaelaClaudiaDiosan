@@ -9,16 +9,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/top_margin"
-        android:layout_marginStart="@dimen/left_margin"
-        android:layout_marginEnd="@dimen/right_margin"
+        android:layout_marginStart="@dimen/start_margin"
+        android:layout_marginEnd="@dimen/end_margin"
         android:layout_marginBottom="@dimen/bottom_margin">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginEnd="@dimen/right_margin"
-            android:layout_marginStart="@dimen/left_margin"
+            android:layout_marginEnd="@dimen/end_margin"
+            android:layout_marginStart="@dimen/start_margin"
             android:layout_marginTop="@dimen/top_margin"
             android:layout_marginBottom="@dimen/bottom_margin">
 
@@ -57,7 +57,7 @@
                     android:id="@+id/homeless_birthday_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/left_margin"
+                    android:layout_marginStart="@dimen/start_margin"
                     android:textColor="@color/colorPrimaryDark"
                     android:text="@string/birthday"/>
 
@@ -79,7 +79,7 @@
                     android:id="@+id/homeless_lifeHistory_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/left_margin"
+                    android:layout_marginStart="@dimen/start_margin"
                     android:textColor="@color/colorPrimaryDark"
                     android:text="@string/life_history"/>
 
@@ -101,7 +101,7 @@
                     android:id="@+id/homeless_locationAddress_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/left_margin"
+                    android:layout_marginStart="@dimen/start_margin"
                     android:textColor="@color/colorPrimaryDark"
                     android:text="@string/location"/>
 
@@ -122,7 +122,7 @@
                     android:id="@+id/homeless_schedule_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/left_margin"
+                    android:layout_marginStart="@dimen/start_margin"
                     android:textColor="@color/colorPrimaryDark"
                     android:text="@string/schedule"/>
             </LinearLayout>
@@ -143,7 +143,7 @@
                     android:id="@+id/homeless_need_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/left_margin"
+                    android:layout_marginStart="@dimen/start_margin"
                     android:textColor="@color/colorPrimaryDark"
                     android:text="@string/need"/>
 

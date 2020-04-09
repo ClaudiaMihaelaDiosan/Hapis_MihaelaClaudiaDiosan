@@ -56,9 +56,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/left_margin"
+                    android:layout_marginStart="@dimen/start_margin"
                     android:layout_marginTop="@dimen/top_margin"
-                    android:layout_marginEnd="@dimen/right_margin"
+                    android:layout_marginEnd="@dimen/end_margin"
                     android:layout_marginBottom="@dimen/bottom_margin"
                     android:orientation="vertical">
 
@@ -74,8 +74,8 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/left_margin"
-                        android:layout_marginEnd="@dimen/right_margin">
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:layout_marginEnd="@dimen/end_margin">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/donor_username_edit_text"
@@ -90,8 +90,8 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/left_margin"
-                        android:layout_marginEnd="@dimen/right_margin">
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:layout_marginEnd="@dimen/end_margin">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/donor_email_edit_text"
@@ -108,8 +108,8 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/left_margin"
-                        android:layout_marginEnd="@dimen/right_margin"
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:layout_marginEnd="@dimen/end_margin"
                         app:passwordToggleEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
@@ -136,8 +136,8 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/left_margin"
-                        android:layout_marginEnd="@dimen/right_margin">
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:layout_marginEnd="@dimen/end_margin">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/donor_first_name"
@@ -154,8 +154,8 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/left_margin"
-                        android:layout_marginEnd="@dimen/right_margin">
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:layout_marginEnd="@dimen/end_margin">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/donor_last_name"
@@ -173,8 +173,8 @@
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/left_margin"
-                        android:layout_marginEnd="@dimen/right_margin">
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:layout_marginEnd="@dimen/end_margin">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/donor_birthday_edit_text"

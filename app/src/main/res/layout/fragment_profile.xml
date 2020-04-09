@@ -18,8 +18,8 @@
             android:layout_height="match_parent"
             android:layout_marginTop="@dimen/top_margin"
             android:layout_marginBottom="@dimen/bottom_margin"
-            android:layout_marginStart="@dimen/left_margin"
-            android:layout_marginEnd="@dimen/right_margin">
+            android:layout_marginStart="@dimen/start_margin"
+            android:layout_marginEnd="@dimen/end_margin">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -44,8 +44,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/left_margin"
-                    android:layout_marginEnd="@dimen/right_margin"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:layout_marginEnd="@dimen/end_margin"
                     android:layout_marginTop="@dimen/top_margin"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     >
@@ -61,8 +61,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/left_margin"
-                    android:layout_marginEnd="@dimen/right_margin"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:layout_marginEnd="@dimen/end_margin"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     >
 
@@ -77,8 +77,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/left_margin"
-                    android:layout_marginEnd="@dimen/right_margin"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:layout_marginEnd="@dimen/end_margin"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     >
 
@@ -93,8 +93,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/left_margin"
-                    android:layout_marginEnd="@dimen/right_margin"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:layout_marginEnd="@dimen/end_margin"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     >
 
@@ -117,7 +117,7 @@
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/cancelProfileButton"
                             style="?attr/borderlessButtonStyle"
-                            android:layout_marginEnd="@dimen/right_margin"
+                            android:layout_marginEnd="@dimen/end_margin"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/homeless_profile_cancel_button" />
@@ -125,7 +125,7 @@
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/saveSignatureButton"
                             style="?attr/borderlessButtonStyle"
-                            android:layout_marginStart="@dimen/left_margin"
+                            android:layout_marginStart="@dimen/start_margin"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/homeless_profile_save_button" />

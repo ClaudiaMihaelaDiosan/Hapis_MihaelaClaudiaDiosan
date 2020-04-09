@@ -1,85 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="@dimen/left_margin_large"
-    android:layout_marginEnd="@dimen/right_margin_large"
     android:orientation="vertical"
     android:background="@color/white"
     tools:context=".intro.IntroActivity">
 
-
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/screen_viewpager"
-        android:layout_width="636dp"
-        android:layout_height="814dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/tab_indicator"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.384">
-
+        android:layout_width="match_parent"
+        android:layout_height="950dp"
+        android:layout_marginStart="@dimen/start_margin_large"
+        android:layout_marginTop="@dimen/top_margin_large"
+        android:layout_marginEnd="@dimen/end_margin_large"
+        android:layout_marginBottom="@dimen/bottom_margin_large">
     </androidx.viewpager.widget.ViewPager>
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_indicator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="56dp"
-        android:scrollbarSize="@dimen/button_large"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_get_started"
-        app:layout_constraintHorizontal_bias="0.7"
-        app:layout_constraintStart_toStartOf="parent"
-        app:tabBackground="@drawable/indicator_selector">
 
-    </com.google.android.material.tabs.TabLayout>
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_next"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/white"
-        android:textSize="@dimen/button_large"
-        android:drawableEnd="@drawable/arrow_next_intro"
-        android:text="@string/next_button"
-        android:textColor="@color/gradient_start_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.971"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/screen_viewpager"
-        app:layout_constraintVertical_bias="0.844" />
-
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btn_get_started"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="32dp"
         android:backgroundTint="@color/colorPrimary"
+        android:layout_marginStart="@dimen/start_margin_large"
+        android:layout_marginEnd="@dimen/end_margin_large"
         android:text="@string/get_started_button"
-        android:textColor="@color/white"
         android:textSize="@dimen/button_large"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/screen_viewpager"
-        app:layout_constraintVertical_bias="0.796" />
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/start_margin_large"
+        android:layout_marginEnd="@dimen/end_margin_large"
+        android:layout_marginBottom="@dimen/bottom_margin_large"
+        android:orientation="horizontal">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginEnd="@dimen/start_margin_large"
+            app:tabBackground="@drawable/indicator_selector"
+            android:layout_weight="1">
+        </com.google.android.material.tabs.TabLayout>
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_next"
+            android:textColor="@color/colorPrimary"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/start_margin_large"
+            android:layout_marginBottom="@dimen/bottom_margin_large"
+            android:textSize="@dimen/button_large"
+            android:backgroundTint="@color/white"
+            android:drawableEnd="@drawable/arrow_next_intro"
+            android:text="@string/next_button"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</LinearLayout>

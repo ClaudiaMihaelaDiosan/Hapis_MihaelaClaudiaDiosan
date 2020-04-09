@@ -43,7 +43,7 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:18.0.0'
 
     implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'com.google.android.material:material:1.2.0-alpha05'
+    implementation 'com.google.android.material:material:1.2.0-alpha02'
     implementation 'de.hdodenhof:circleimageview:2.1.0'
     implementation 'androidx.preference:preference:1.1.0'
     implementation 'com.braintreepayments:card-form:3.1.1'

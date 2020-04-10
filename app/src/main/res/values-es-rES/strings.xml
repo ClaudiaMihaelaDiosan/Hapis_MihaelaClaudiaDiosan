@@ -63,13 +63,14 @@
     <string name="signup_tex_view">¿No tienes una cuenta aún?</string>
     <string name="sign_up">REGÍSTRATE AHORA</string>
     <string name="statistics">ESTADÍSTICAS</string>
+    <string name="error_login">Comprueba tu usuario o contraseña</string>
 
 
     <!--    Buttons -->
     <string name="login_button">INICIAR SESIÓN</string>
 
     <!--    Edit Texts-->
-    <string name="email_hint">Nombre de Usuario o Correo</string>
+    <string name="email_hint">Nombre de Usuario</string>
     <string name="password_hint">Contraseña</string>
 
     <!--    Images-->
@@ -110,66 +111,57 @@
     <string name="statistics_to_login_button">Volver</string>
 
 
-
-
-    <!--    Register Activity-->
+    <!--*****    Register Activity  *****-->
 
     <string name="register_activity_name">Registro</string>
+
+    <!--    Titles -->
     <string name="donor_cv_title">REGÍSTRATE COMO DONANTE</string>
-    <string name="donor_cv_text">Regístrate como donante</string>
-    <string name="donor_cv_more_button">SABER MÁS</string>
-    <string name="donor_cv_start_button">EMPEZAR</string>
+    <string name="volunteer_cv_title">REGÍSTRATE COMO VOLUNTARIO</string>
+
+    <!--    Buttons -->
+    <string name="cv_more_button">SABER MÁS</string>
+    <string name="cv_start_button">EMPEZAR</string>
+
+    <!--    Images-->
     <string name="content_description_donor_card">Persona pobre abraza una mujer</string>
     <string name="content_description_volunteer_card">Persona pobre recibe una manzada de una niña</string>
 
 
 
-    <string name="volunteer_cv_title">REGÍSTRATE COMO VOLUNTARIO</string>
-    <string name="volunteer_cv_text">Regístrate como voluntario</string>
 
-
-
-    <!--    Register Donor Activity-->
-    <string name="content_description_register_donor_image">Imagen registro donante</string>
+    <!--*****    Register Donor Activity  *****-->
     <string name="register_donor_name">Registro Donante</string>
+
+    <!--    Images -->
+    <string name="content_description_register_donor_image">Imagen registro donante</string>
+
+    <!--    Titles -->
     <string name="register_donor_title">Crea tu cuenta</string>
+    <string name="register_donor_pop_up_title">REGISTRO CORRECTO</string>
+
+    <!--    Texts -->
     <string name="register_donor_login_info">Información de inicio de sesión</string>
+    <string name="register_donor_opional_info">Información Opcional</string>
+    <string name="register_donor_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
+    <string name="register_donor_terms">Acepto las <a href="https://freetexthost.net/YgMgzfo">Condiciones Legales</a> e  <a href="https://freetexthost.net/DRNtHzb">Información basica de privacidad</a></string>
+    <string name="register_donor_terms_error">Primero acepta las condiciones legales!</string>
+
+
+
+    <!--    Edit Texts -->
     <string name="register_donor_username_hint">Nombre de usuario</string>
     <string name="register_donor_email_hint">Correo electrónico</string>
     <string name="register_donor_password_hint">Contraseña</string>
-    <string name="register_donor_opional_info">Información Opcional</string>
     <string name="register_donor_first_name_hint">Nombre</string>
     <string name="register_donor_last_name_hint">Apellido</string>
-    <string name="register_donor_birthday">Fecha de nacimiento</string>
+    <string name="register_donor_phone_hint">Teléfono</string>
+
+    <!--    Buttons -->
     <string name="register_donor_button">REGISTRAR</string>
-    <string name="register_donor_pop_up_title">REGISTRO CORRECTO</string>
-    <string name="register_donor_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
     <string name="register_donor_pop_up_button">OK</string>
-    <string name="register_donor_terms">Acepto las <a href="https://docs.google.com/document/d/1ZIIJa9KbmTksrC9oWBR_fnjPOXYogTASH-KA9LwpCw8/edit?usp=sharing">Condiciones Legales</a> e  <a href="https://docs.google.com/document/d/13UfrKy4JK6U_5hrsPT4h3wWnR7DY_RFeWEhmMIP3w_s/edit?usp=sharing">Información basica de privacidad</a></string>
-    <string name="register_donor_terms_error">Primero acepta las condiciones legales!</string>
-
-    <!--    Register Volunteer Activity-->
-
-    <string name="register_volunteer_name">Registro Voluntario</string>
-    <string name="register_volunteer_title">Crea tu cuenta</string>
-    <string name="register_volunteer_login_info">Información de inicio de sesión</string>
-    <string name="register_volunteer_username_hint">Nombre de usuario</string>
-    <string name="register_volunteer_email_hint">Correo electrónico</string>
-    <string name="register_volunteer_password_hint">Contraseña</string>
-    <string name="register_volunteer_phone_number_hint">Teléfono</string>
-    <string name="register_volunteer_opional_info">Información Opcional</string>
-    <string name="register_volunteer_first_name_hint">Nombre</string>
-    <string name="register_volunteer_last_name_hint">Apellido</string>
-    <string name="register_volunteer_birthday">Fecha de nacimiento</string>
-    <string name="register_volunteer_button">REGISTRAR</string>
-    <string name="register_volunteer_pop_up_title">REGISTRO CORRECTO</string>
-    <string name="register_volunteer_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
-    <string name="register_volunteer_pop_up_button">OK</string>
-    <string name="register_volunteer_terms">Acepto las <a href="https://docs.google.com/document/d/1ZIIJa9KbmTksrC9oWBR_fnjPOXYogTASH-KA9LwpCw8/edit?usp=sharing">Condiciones legales</a> e <a href="https://docs.google.com/document/d/13UfrKy4JK6U_5hrsPT4h3wWnR7DY_RFeWEhmMIP3w_s/edit?usp=sharing">Información basica de privacidad</a></string>
-    <string name="register_volunteer_terms_error">Primero acepta las condiciones legales!</string>
 
     <!--    Know more register donor popup -->
-
     <string name="donor_know_more_title">Que puedes hacer si te registras como donante?</string>
     <string name="donor_know_more_text">1. Puedes ayudar personas que no disponen de recursos tan básicos como comida, alojamiento o ropa \n\n
                                   2. Puedes escojer el perfil de la persona que más te atrae la atención y ayudarla \n\n
@@ -177,13 +169,53 @@
                                   4. Puedes entregar la ayuda personalmente o con la ayuda de un voluntario
                                   </string>
 
-    <!--    Know more register volunteer popup -->
+    <string name="username_error_text">Introduce un nombre de usuario válido</string>
+    <string name="email_error_text">Introduce un email válido   </string>
+    <string name="password_error_text">Introduce una contraseña válida </string>
+    <string name="phone_error_text"> Introduce un teléfono válido</string>
 
+
+
+
+    <!--*****    Register Volunteer Activity  *****-->
+    <string name="register_volunteer_name">Registro Voluntario</string>
+
+    <!--    Titles -->
+    <string name="register_volunteer_title">Crea tu cuenta</string>
+    <string name="register_volunteer_pop_up_title">REGISTRO CORRECTO</string>
+
+    <!--    Texts -->
+    <string name="register_volunteer_login_info">Información de inicio de sesión</string>
+    <string name="register_volunteer_opional_info">Información Opcional</string>
+    <string name="register_volunteer_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
+    <string name="register_volunteer_terms">Acepto las <a href="https://freetexthost.net/YgMgzfo">Condiciones legales</a> e <a href="https://freetexthost.net/DRNtHzb">Información basica de privacidad</a></string>
+    <string name="register_volunteer_terms_error">Primero acepta las condiciones legales!</string>
+
+    <!--    Edit Texts -->
+    <string name="register_volunteer_username_hint">Nombre de usuario</string>
+    <string name="register_volunteer_email_hint">Correo electrónico</string>
+    <string name="register_volunteer_password_hint">Contraseña</string>
+    <string name="register_volunteer_phone_number_hint">Teléfono</string>
+    <string name="register_volunteer_first_name_hint">Nombre</string>
+    <string name="register_volunteer_last_name_hint">Apellido</string>
+
+    <!--    Buttons -->
+    <string name="register_volunteer_button">REGISTRAR</string>
+    <string name="register_volunteer_pop_up_button">OK</string>
+
+    <!--    Know more register volunteer popup -->
     <string name="volunteer_know_more_title">Que puedes hacer si te registras como voluntario?</string>
     <string name="volunteer_know_more_text">1. Puedes conectar con personas sin recursos que necesitan nuestra ayuda \n\n
                                             2. Puedes crear y gestionar perfiles para ellos, ya que ellos no siempre tienen un teléfono móvil conectado a Internet \n\n
                                             3. Puedes ayudar a realizar la entrega de donaciones en caso que los donantes no tienen la posibilidad de realizarla personalmente
-    </string>7
+    </string>
+
+
+
+
+
+
+
 
     <!--    Volunteer Home Activity-->
     <string name="volunteer_home_name">Voluntario</string>

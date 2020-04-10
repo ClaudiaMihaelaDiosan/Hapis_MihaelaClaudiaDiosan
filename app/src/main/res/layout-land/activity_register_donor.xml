@@ -9,7 +9,8 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -113,7 +114,7 @@
                         app:passwordToggleEnabled="true">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/donor_password_text_view"
+                            android:id="@+id/donor_password_edit_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableStart="@drawable/password_drawable"
@@ -140,7 +141,7 @@
                         android:layout_marginEnd="@dimen/end_margin">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/donor_first_name"
+                            android:id="@+id/donor_first_name_edit_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableStart="@drawable/username_drawable"
@@ -158,7 +159,7 @@
                         android:layout_marginEnd="@dimen/end_margin">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/donor_last_name"
+                            android:id="@+id/donor_last_name_edit_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:drawableStart="@drawable/username_drawable"
@@ -169,26 +170,24 @@
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/start_margin"
-                        android:layout_marginEnd="@dimen/end_margin">
+                        android:layout_marginEnd="@dimen/end_margin"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/donor_birthday_edit_text"
+                            android:id="@+id/donor_phone_edit_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:drawableStart="@drawable/birthday_drawable"
+                            android:hint="@string/register_donor_phone_hint"
+                            android:drawableStart="@drawable/phone_drawable"
                             android:drawablePadding="@dimen/drawable_padding"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"
-                            android:hint="@string/register_donor_birthday"
-                            android:inputType="date"
+                            android:inputType="numberDecimal"
 
                             />
                     </com.google.android.material.textfield.TextInputLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"

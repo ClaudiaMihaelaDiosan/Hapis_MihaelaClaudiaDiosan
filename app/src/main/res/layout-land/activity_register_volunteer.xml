@@ -8,7 +8,8 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -34,11 +35,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
@@ -118,7 +114,7 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/volunteer_password_text_view"
+                                android:id="@+id/volunteer_password_edit_text"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/register_volunteer_password_hint"
@@ -146,7 +142,7 @@
                             >
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/volunteer_first_name"
+                                android:id="@+id/volunteer_first_name_edit_text"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/register_volunteer_first_name_hint"
@@ -164,7 +160,7 @@
                             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/volunteer_last_name"
+                                android:id="@+id/volunteer_last_name_edit_text"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:hint="@string/register_volunteer_last_name_hint"
@@ -174,27 +170,6 @@
                                 />
                         </com.google.android.material.textfield.TextInputLayout>
 
-                        <com.google.android.material.textfield.TextInputLayout
-
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="@dimen/start_margin"
-                            android:layout_marginEnd="@dimen/end_margin"
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/volunteer_birthday_edit_text"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/register_volunteer_birthday"
-                                android:drawableStart="@drawable/birthday_drawable"
-                                android:drawablePadding="@dimen/drawable_padding"
-                                android:focusable="false"
-                                android:focusableInTouchMode="false"
-                                android:inputType="date"
-
-                                />
-                        </com.google.android.material.textfield.TextInputLayout>
 
                         <com.google.android.material.textfield.TextInputLayout
 
@@ -248,9 +223,6 @@
 
 
                 </com.google.android.material.card.MaterialCardView>
-
-
-            </LinearLayout>
 
         </LinearLayout>
 

@@ -123,14 +123,8 @@
 
 
 
-
-
-
-
     <!--    Register Activity-->
-
     <dimen name="cv_margin">5dp</dimen>
-
     <dimen name="register_cv_title">20sp</dimen>
     <dimen name="cv_button_margin">8dp</dimen>
     <dimen name="cv_button_text_size">15sp</dimen>
@@ -164,7 +158,6 @@
     <dimen name="register_donor_terms_large">20sp</dimen>
 
 
-
     <!--    Register Donor pop up-->
     <dimen name="rp_close_margin_top">10dp</dimen>
     <dimen name="rp_close_margin_right">10dp</dimen>
@@ -191,7 +184,6 @@
     <dimen name="rp_button_size_large">30sp</dimen>
 
 
-
     <!--    Register Volunteer Activity-->
     <dimen name="create_volunteer_account_title">15sp</dimen>
     <dimen name="register_volunteer_login_info_size">20sp</dimen>
@@ -201,7 +193,6 @@
     <dimen name="register_volunteer_card_view_margins">8dp</dimen>
 
 
-
     <!--    Register Volunteer Activity Large-->
     <dimen name="create_volunteer_account_title_large">20sp</dimen>
     <dimen name="register_volunteer_login_info_size_large">25sp</dimen>
@@ -209,7 +200,6 @@
     <dimen name="register_volunteer_optional_info_large">25sp</dimen>
     <dimen name="register_volunteer_button_large">35sp</dimen>
     <dimen name="register_volunteer_card_view_margins_large">15dp</dimen>
-
 
 
     <!--    Register Volunteer pop up-->
@@ -225,6 +215,7 @@
     <dimen name="rv_button_size">20sp</dimen>
     <dimen name="rv_check_margin_bottom">10dp</dimen>
 
+
     <!--    Register Volunteer pop up Large-->
     <dimen name="rv_card_corner_radius_large">30dp</dimen>
     <dimen name="rv_card_view_elevation_large">30dp</dimen>
@@ -236,7 +227,6 @@
     <dimen name="rv_card_view_title_size_large">30dp</dimen>
     <dimen name="rv_card_view_text_size_large">25sp</dimen>
     <dimen name="rv_button_size_large">30sp</dimen>
-
 
     <!--    Know more  popup -->
     <dimen name="km_card_corner_radius">10dp</dimen>
@@ -250,7 +240,6 @@
     <dimen name="km_card_view_title_size">18sp</dimen>
     <dimen name="km_card_view_text_size">15sp</dimen>
     <dimen name="km_button_size">20sp</dimen>
-
 
 
     <!--    Know more  popup Large -->

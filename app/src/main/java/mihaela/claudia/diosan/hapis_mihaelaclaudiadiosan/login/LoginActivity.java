@@ -3,15 +3,19 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.google.android.material.textfield.TextInputEditText;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor.HomeDonor;
@@ -26,6 +30,15 @@ public class LoginActivity extends AppCompatActivity {
 
     Button loginBtn;
 
+    TextInputEditText loginUsernameEditText;
+    TextInputEditText loginPasswordEditText;
+
+    String loginUsernameValue;
+    String loginPasswordValue;
+
+    SharedPreferences preferences;
+    private AwesomeValidation awesomeValidation;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +51,16 @@ public class LoginActivity extends AppCompatActivity {
         forgotPassword = (TextView) findViewById(R.id.forgot_password_text_view);
         signUp = (TextView) findViewById(R.id.signup);
         statistics = findViewById(R.id.statistics_tv);
+        loginUsernameEditText = findViewById(R.id.login_username_edit_text);
+        loginPasswordEditText = findViewById(R.id.login_password_edit_text);
 
         loginBtn = findViewById(R.id.login_button);
+
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        preferences = getSharedPreferences("userInfo", MODE_PRIVATE);
+
+        awesomeValidation.addValidation(this, R.id.login_username_edit_text, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$", R.string.username_error_text);
+        awesomeValidation.addValidation(this, R.id.login_password_edit_text, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$", R.string.password_error_text);
 
 
         forgotPassword.setOnClickListener(new View.OnClickListener() {
@@ -72,15 +93,44 @@ public class LoginActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent donorActivity = new Intent(LoginActivity.this, HomeDonor.class);
-                startActivity(donorActivity);
+                if (awesomeValidation.validate()){
+                    login();
+                }
+
             }
         });
     }
+
+    public void login(){
+        loginUsernameValue = loginUsernameEditText.getText().toString();
+        loginPasswordValue = loginPasswordEditText.getText().toString();
+
+            String registeredDonorUsername = preferences.getString("donorUsername","");
+            String registeredDonorPassword = preferences.getString("donorPassword", "");
+            String registeredVolunteerUsername = preferences.getString("volunteerUsername","");
+            String registeredVolunteerPassword = preferences.getString("volunteerPassword", "");
+
+            if (loginUsernameValue.equals(registeredDonorUsername) && loginPasswordValue.equals(registeredDonorPassword)){
+                Intent donorIntent = new Intent(LoginActivity.this, HomeDonor.class);
+                startActivity(donorIntent);
+
+            }else if (loginUsernameValue.equals(registeredVolunteerUsername) && loginPasswordValue.equals(registeredVolunteerPassword)){
+                Intent volunteerIntent = new Intent(LoginActivity.this, HomeVolunteer.class);
+                startActivity(volunteerIntent);
+
+            }else{
+                Toast.makeText(LoginActivity.this, getString(R.string.error_login), Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+
 
     @Override
     public void finish(){
         super.finish();
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right );
     }
+
+
 }

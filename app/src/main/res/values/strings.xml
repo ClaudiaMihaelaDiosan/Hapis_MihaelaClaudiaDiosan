@@ -210,8 +210,6 @@
 
 
 
-
-
     <!--    Volunteer Home Activity-->
     <string name="volunteer_home_name">Volunteer</string>
     <string name="volunteer_menu_home">Home</string>
@@ -382,6 +380,10 @@ The second time I became homeless it followed a similar pattern. I had been work
     <string name="donor_menu_configuration">Configuration</string>
     <string name="donor_menu_logout">Logout</string>
 
+    <string name="donor_username_text_view">Username</string>
+    <string name="donor_email_text_view">Email</string>
+    <string name="donor_phone_text_view">Phone Number</string>
+
 
     <string name="donor_menu_contact">Contact</string>
 
@@ -451,5 +453,13 @@ The second time I became homeless it followed a similar pattern. I had been work
     <string name="hcv_schedule">Schedule</string>
     <string name="hcv_need">Need</string>
 
+    <!-- Donor Configuration Fragment -->
+    <string name="donor_configuration_title">CONFIGURATION</string>
+    <string name="donor_personal_info_title">Personal Info</string>
+    <string name="donor_phone_number_title">Phone number</string>
+    <string name="donor_phone_number_summary">Change your existing phone number or add a new one</string>
+    <string name="donor_save_config_button">SAVE</string>
+    <string name="donor_changed_phone_toast">You changed your phone number successfully</string>
+    <string name="d_complete_life_toast">Complete this field</string>
 
 </resources>

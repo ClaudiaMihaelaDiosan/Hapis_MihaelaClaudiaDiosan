@@ -2,9 +2,12 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -75,5 +78,22 @@ public class ContactVolunteerFragment extends Fragment {
     boolean isEmailValid() {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(volunteerEmail.getText().toString()).matches() && !volunteerEmail.getText().toString().isEmpty();
     }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig){
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE || newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            try {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                if (Build.VERSION.SDK_INT >= 26) {
+                    ft.setReorderingAllowed(false);
+                }
+                ft.detach(this).attach(this).commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
 }

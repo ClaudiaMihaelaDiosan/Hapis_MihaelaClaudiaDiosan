@@ -1,11 +1,16 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,13 +20,16 @@ import java.util.ArrayList;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless.Homeless;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class AdapterHome extends RecyclerView.Adapter<AdapterHome.AdapterHomeViewHolder>  {
     private ArrayList<Homeless> mHomelessList;
     private OnItemClickListener mListener;
 
-    public interface OnItemClickListener{
+     public interface OnItemClickListener{
             void onItemClick(int position);
     }
+
 
     public void setOnItemClickListener(OnItemClickListener listener){
         mListener = listener;
@@ -35,7 +43,8 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.AdapterHomeVie
 
 
 
-        public AdapterHomeViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
+
+        public AdapterHomeViewHolder(@NonNull final View itemView, final OnItemClickListener listener) {
             super(itemView);
             profileImageView = itemView.findViewById(R.id.profile_image_donor_card);
             username = itemView.findViewById(R.id.homeless_username_tv_donor_card);
@@ -49,7 +58,7 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.AdapterHomeVie
                         int position = getAdapterPosition();
                         if (position != RecyclerView.NO_POSITION){
                             listener.onItemClick(position);
-                        }
+                         }
                     }
                 }
             });
@@ -66,7 +75,6 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.AdapterHomeVie
     @Override
     public AdapterHomeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.homeless_card_custom_view, parent, false);
-
         return new AdapterHomeViewHolder(view, mListener);
     }
 
@@ -78,12 +86,21 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.AdapterHomeVie
         holder.username.setText(currentItem.getUsername());
         holder.need.setText(currentItem.getNeed());
         holder.locationAddress.setText(currentItem.getLocationAddress());
+
+
+
     }
 
     @Override
     public int getItemCount() {
         return mHomelessList.size();
     }
+
+    @Override
+    public long getItemId(int position) {
+        return super.getItemId(position);
+    }
+
 
 
 }

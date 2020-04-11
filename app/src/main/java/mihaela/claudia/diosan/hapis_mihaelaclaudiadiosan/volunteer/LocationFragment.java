@@ -73,6 +73,7 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_location, container, false);
 
+
         // Get the map and register for the ready callback
         mMapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mMapFragment.getMapAsync(this);
@@ -188,6 +189,8 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
     }
+
+
 
 
 }

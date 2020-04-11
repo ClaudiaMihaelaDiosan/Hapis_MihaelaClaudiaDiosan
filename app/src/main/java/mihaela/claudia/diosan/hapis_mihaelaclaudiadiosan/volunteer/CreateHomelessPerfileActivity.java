@@ -45,6 +45,7 @@ public class CreateHomelessPerfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_homeless_perfile);
 
+
         viewPager = findViewById(R.id.create_homeless_view_pager);
         tabLayout = findViewById(R.id.create_homeless_tab_layout);
 

@@ -77,7 +77,6 @@ public class ProfileFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_profile, container, false);
-        setRetainInstance(true);
 
       homelessProfileImage = view.findViewById(R.id.homeless_profile_image);
       addProfilePhotoBtn = view.findViewById(R.id.add_homeless_profile_photo_button);
@@ -271,5 +270,7 @@ public class ProfileFragment extends Fragment {
             requestPermissions(new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST_CODE);
         }
     }
+
+
 
 }

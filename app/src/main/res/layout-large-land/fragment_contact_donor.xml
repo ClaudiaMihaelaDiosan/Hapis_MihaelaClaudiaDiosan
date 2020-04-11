@@ -5,13 +5,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/gradient_background"
-    tools:context=".volunteer.ContactVolunteerFragment">
+    tools:context=".donor.HomeDonor">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/start_margin"
-        android:layout_marginEnd="@dimen/end_margin"
+        android:layout_marginStart="@dimen/start_margin_large"
+        android:layout_marginEnd="@dimen/end_margin_large"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -27,25 +28,23 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:layout_gravity="center"
                 android:textStyle="bold"
-                android:textSize="@dimen/vcf_title_size"
-                android:text="@string/vcf_title"
-                android:layout_marginTop="@dimen/top_margin"
-                android:layout_marginBottom="@dimen/bottom_margin"/>
+                android:textSize="@dimen/dcf_title_size_large"
+                android:text="@string/dcf_title"
+                android:layout_marginTop="@dimen/top_margin_large"
+                android:layout_marginBottom="@dimen/bottom_margin_large"/>
 
 
             <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
                 android:layout_gravity="center"
-                android:src="@drawable/contact_drawable"
-                android:contentDescription="@string/vcf_image_content_description"/>
+                android:src="@drawable/contact_drawable"/>
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/bottom_margin_large"
             android:orientation="vertical"
             android:layout_weight="2">
 
@@ -54,29 +53,31 @@
                 android:layout_height="match_parent"
                 app:cardCornerRadius="@dimen/cardCornerRadius"
                 app:cardElevation="@dimen/elevation"
-                android:layout_marginTop="@dimen/top_margin"
-                android:layout_marginBottom="@dimen/bottom_margin"
-                android:layout_marginStart="@dimen/start_margin"
-                android:layout_marginEnd="@dimen/end_margin">
+                android:layout_marginTop="@dimen/top_margin_large"
+                android:layout_marginBottom="@dimen/bottom_margin_large"
+                android:layout_marginStart="@dimen/start_margin_large"
+                android:layout_marginEnd="@dimen/end_margin_large">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginStart="@dimen/start_margin"
-                    android:layout_marginEnd="@dimen/end_margin"
+                    android:layout_marginStart="@dimen/start_margin_large"
+                    android:layout_marginEnd="@dimen/end_margin_large"
                     android:orientation="vertical">
 
 
 
                     <com.google.android.material.textfield.TextInputLayout
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/vcf_email_hint"
+                        android:hint="@string/dcf_email_hint"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         >
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/vcf_email"
+                            android:id="@+id/dcf_email"
+                            android:textSize="@dimen/dcf_body_size_large"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             />
@@ -86,59 +87,55 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/vcf_subject_hint"
+                        android:hint="@string/dcf_subject_hint"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         >
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/volunteer_contact_subject"
+                            android:id="@+id/donor_contact_subject"
+                            android:textSize="@dimen/dcf_body_size_large"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/vcf_text_hint"
+                        android:layout_height="@dimen/dcf_edit_text_box_large"
+                        android:hint="@string/dcf_text_hint"
 
                         android:inputType="textMultiLine"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         >
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/form_contact_message_volunteer"
+                            android:id="@+id/form_contact_message_donor"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/vcf_edit_text_box"
+                            android:layout_height="@dimen/dcf_edit_text_box"
+                            android:textSize="@dimen/dcf_body_size_large"
                             android:gravity="top"
                             />
 
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/volunteer_contact_button"
+                        android:id="@+id/donor_contact_button"
                         android:layout_width="wrap_content"
                         android:layout_gravity="center"
                         android:layout_height="wrap_content"
-                        android:text="@string/vcf_button"
+                        android:textSize="@dimen/dcf_body_size_large"
+                        android:text="@string/dcf_button"
                         android:textColor="@color/white"
-                        android:padding="@dimen/padding"
+                        android:padding="@dimen/padding_large"
                         android:backgroundTint="@color/colorPrimary"
-                        android:layout_marginTop="@dimen/top_margin"
-                        android:layout_marginBottom="@dimen/bottom_margin"
+                        android:layout_marginTop="@dimen/top_margin_large"
+                        android:layout_marginBottom="@dimen/bottom_margin_large"
                         />
-
-
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
-
 
         </LinearLayout>
 
     </LinearLayout>
-
-
-
-
 
 </ScrollView>
 

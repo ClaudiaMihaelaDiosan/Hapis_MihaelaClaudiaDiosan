@@ -383,6 +383,10 @@ La segunda vez que me quedé sin hogar, siguió un patrón similar. Estuve traba
     <string name="donor_menu_logout">Salir</string>
     <string name="donor_menu_contact">Contacto</string>
 
+    <string name="donor_username_text_view">Nombre de usuario</string>
+    <string name="donor_email_text_view">Correo electrónico</string>
+    <string name="donor_phone_text_view">Teléfono</string>
+
     <!--    Donor Contact Fragment-->
     <string name="dcf_title">CONTACTA CON NOSOTROS</string>
     <string name="dcf_email_hint">Correo electrónico</string>
@@ -391,11 +395,11 @@ La segunda vez que me quedé sin hogar, siguió un patrón similar. Estuve traba
     <string name="dcf_toast_message">El mensaje se ha enviado correctamente.\n Recibirás una respuesta lo antes posible.</string>
     <string name="dcf_subject_hint">Asunto</string>
 
-    <!--    Volunteer Donate Fragment-->
+    <!--    Donor Donate Fragment-->
     <string name="donor_donate_title">DONA A HAPIS</string>
     <string name="donor_donate_text"> Tu donación proporciona cosas como comida a personas reales y nos ayuda seguir manteniendo esta aplicación.</string>
     <string name="donor_donate_button">DONAR</string>
-    <string name="donor_donate_video">Mira el video para dona 0.40 centimos.</string>
+    <string name="donor_donate_video">Mira el video para donar 0.40 centimos.</string>
 
     <!-- Donor Configuration Fragment -->
     <string name="donor_system_title">Sistema</string>
@@ -445,6 +449,18 @@ La segunda vez que me quedé sin hogar, siguió un patrón similar. Estuve traba
     <string name="hcv_address">Dirrección</string>
     <string name="hcv_schedule">Horario</string>
     <string name="hcv_need">Necesidad</string>
+
+
+
+    <!-- Donor Configuration Fragment -->
+    <string name="donor_configuration_title">CONFIGURACIÓN</string>
+    <string name="donor_personal_info_title">Información Personal</string>
+    <string name="donor_phone_number_title">Número de teléfono</string>
+    <string name="donor_phone_number_summary">Cambia tu número de teléfono existente o añade un número nuevo</string>
+    <string name="donor_save_config_button">GUARDAR</string>
+    <string name="donor_changed_phone_toast">Has cambiado tu número de teléfonoy</string>
+    <string name="d_complete_life_toast">Rellena este campo</string>
+
 
 
 

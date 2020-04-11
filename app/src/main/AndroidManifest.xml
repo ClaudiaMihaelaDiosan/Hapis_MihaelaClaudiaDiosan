@@ -30,10 +30,12 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".volunteer.CreateHomelessPerfileActivity"
+            android:configChanges="orientation|screenSize"
             android:label="@string/create_homeless_profile_name" />
         <activity android:name=".volunteer.PaymentActivity" />
         <activity
             android:name=".volunteer.HomeVolunteer"
+            android:configChanges="orientation|screenSize"
             android:label="@string/volunteer_home_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

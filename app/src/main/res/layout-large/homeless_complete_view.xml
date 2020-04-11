@@ -8,25 +8,25 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/top_margin"
-        android:layout_marginStart="@dimen/start_margin"
-        android:layout_marginEnd="@dimen/end_margin"
-        android:layout_marginBottom="@dimen/bottom_margin">
+        android:layout_marginTop="@dimen/top_margin_large"
+        android:layout_marginStart="@dimen/start_margin_large"
+        android:layout_marginEnd="@dimen/end_margin_large"
+        android:layout_marginBottom="@dimen/bottom_margin_large">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginEnd="@dimen/end_margin"
-            android:layout_marginStart="@dimen/start_margin"
-            android:layout_marginTop="@dimen/top_margin"
-            android:layout_marginBottom="@dimen/bottom_margin">
+            android:layout_marginEnd="@dimen/end_margin_large"
+            android:layout_marginStart="@dimen/start_margin_large"
+            android:layout_marginTop="@dimen/top_margin_large"
+            android:layout_marginBottom="@dimen/bottom_margin_large">
 
 
             <ImageView
                 android:id="@+id/profile_image_donor_cv"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="300dp"
                 android:background="@color/light_blue"
                 android:src="@mipmap/ic_launcher"
                 android:layout_gravity="center" />
@@ -35,8 +35,8 @@
                 android:id="@+id/homeless_username_tv_cv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/top_margin"
-                android:textSize="@dimen/hcompletev_title_body"
+                android:layout_marginTop="@dimen/top_margin_large"
+                android:textSize="@dimen/hcompletev_title_body_large"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 android:text="@string/hcv_username"/>
@@ -45,19 +45,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginTop="@dimen/top_margin_large"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/hcompletev_title_body_large"
                     android:text="@string/birthday"/>
 
                 <TextView
                     android:id="@+id/homeless_birthday_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/start_margin"
+                    android:textSize="@dimen/hcompletev_title_body_large"
+                    android:layout_marginStart="@dimen/start_margin_large"
                     android:textColor="@color/colorPrimaryDark"
                     android:text="@string/birthday"/>
 
@@ -66,19 +68,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginTop="@dimen/top_margin_large"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/hcompletev_title_body_large"
                     android:text="@string/life_history"/>
 
                 <TextView
                     android:id="@+id/homeless_lifeHistory_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/start_margin"
+                    android:textSize="@dimen/hcompletev_title_body_large"
+                    android:layout_marginStart="@dimen/start_margin_large"
                     android:textColor="@color/colorPrimaryDark"
                     android:text="@string/maria_story"/>
 
@@ -88,19 +92,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginTop="@dimen/top_margin_large"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/hcompletev_title_body_large"
                     android:text="@string/location"/>
 
                 <TextView
                     android:id="@+id/homeless_locationAddress_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/start_margin"
+                    android:textSize="@dimen/hcompletev_title_body_large"
+                    android:layout_marginStart="@dimen/start_margin_large"
                     android:textColor="@color/colorPrimaryDark"
                     android:text="@string/location"/>
 
@@ -109,19 +115,21 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginTop="@dimen/top_margin_large"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/hcompletev_title_body_large"
                     android:text="@string/schedule"/>
 
                 <TextView
                     android:id="@+id/homeless_schedule_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/start_margin"
+                    android:textSize="@dimen/hcompletev_title_body_large"
+                    android:layout_marginStart="@dimen/start_margin_large"
                     android:textColor="@color/colorPrimaryDark"
                     android:text="@string/schedule"/>
             </LinearLayout>
@@ -129,20 +137,22 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/bottom_margin"
-                android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginBottom="@dimen/bottom_margin_large"
+                android:layout_marginTop="@dimen/top_margin_large"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/hcompletev_title_body_large"
                     android:text="@string/need"/>
 
                 <TextView
                     android:id="@+id/homeless_need_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/start_margin"
+                    android:textSize="@dimen/hcompletev_title_body_large"
+                    android:layout_marginStart="@dimen/start_margin_large"
                     android:textColor="@color/colorPrimaryDark"
                     android:text="@string/need"/>
 
@@ -154,7 +164,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/help_button"
-                android:layout_marginTop="@dimen/top_margin"
+                android:textSize="@dimen/hcompletev_title_body_large"
+                android:layout_marginTop="@dimen/top_margin_large"
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/green_color"
@@ -165,7 +176,5 @@
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
-
-
 
 </ScrollView>

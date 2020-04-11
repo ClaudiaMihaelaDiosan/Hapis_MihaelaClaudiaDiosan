@@ -2,10 +2,12 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,6 +26,8 @@ import java.util.ArrayList;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless.Homeless;
 
+import static android.content.Context.MODE_PRIVATE;
+
 
 public class HomeVolunteerFragment extends Fragment {
 
@@ -35,6 +39,8 @@ public class HomeVolunteerFragment extends Fragment {
     MaterialButton cancelNotification;
     View view;
 
+    SharedPreferences preferences;
+
 
 
     private RecyclerView mrecyclerView;
@@ -45,13 +51,23 @@ public class HomeVolunteerFragment extends Fragment {
     private View.OnClickListener editHomelessListener;
     private View.OnClickListener deleteHomelessListener;
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home_volunteer, container, false);
+
+        preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
 
 
        floatingActionMenu = view.findViewById(R.id.floatingActionMenu);
@@ -91,8 +107,6 @@ public class HomeVolunteerFragment extends Fragment {
 
             }
         };
-
-
 
         //Recyclerview
         addItems();
@@ -139,6 +153,8 @@ public class HomeVolunteerFragment extends Fragment {
     }
 
 
+
+
     public void addItems(){
          homeless = new ArrayList<>();
          homeless.add(new Homeless(R.drawable.andrew_image,"Andrew","654978369", "12/02/1980", getString(R.string.andrew_story), getString(R.string.andrew_location), getString(R.string.andrew_schedule), getString(R.string.work)));
@@ -146,7 +162,10 @@ public class HomeVolunteerFragment extends Fragment {
          homeless.add(new Homeless(R.drawable.maite_image,"Maite","640125478", "06/03/1985", getString(R.string.maite_story), getString(R.string.maite_location), getString(R.string.maite_schedule), getString(R.string.clothes)));
          homeless.add(new Homeless(R.drawable.luis_image,"Luis","650231478", "07/01/1979",getString(R.string.luis_story) , getString(R.string.luis_location), getString(R.string.luis_schedule), getString(R.string.work)));
          homeless.add(new Homeless(R.drawable.cristina_image,"Cristina","632023125", "09/12/1975",getString(R.string.cristina_story) , getString(R.string.cristina_location), getString(R.string.cristina_schedule), getString(R.string.lodging)));
+
+
     }
+
 
 
 }

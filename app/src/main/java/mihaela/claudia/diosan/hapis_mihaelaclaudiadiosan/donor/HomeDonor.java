@@ -11,9 +11,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -27,6 +29,14 @@ public class HomeDonor extends AppCompatActivity implements NavigationView.OnNav
     private DrawerLayout donorDrawer;
     Toolbar mToolbar;
     BottomNavigationView bottomNavigationView;
+
+    View header;
+
+    TextView donorUsername;
+    TextView donorEmail;
+    TextView donorPhone;
+
+    SharedPreferences preferences;
   //   BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener;
 
 
@@ -37,11 +47,15 @@ public class HomeDonor extends AppCompatActivity implements NavigationView.OnNav
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_donor);
 
+        preferences = getSharedPreferences("userInfo", MODE_PRIVATE);
+
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         mToolbar = findViewById(R.id.donor_toolbar);
         setSupportActionBar(mToolbar);
+
+
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -49,6 +63,12 @@ public class HomeDonor extends AppCompatActivity implements NavigationView.OnNav
         donorDrawer = findViewById(R.id.donor_drawer);
         NavigationView navigationView = findViewById(R.id.nav_view_donor);
         navigationView.setNavigationItemSelectedListener(this);
+
+        header = navigationView.getHeaderView(0);
+
+        donorUsername = header.findViewById(R.id.donor_username_text_view);
+        donorEmail = header.findViewById(R.id.donor_email_text_view);
+        donorPhone = header.findViewById(R.id.donor_phone_text_view);
 
 
 
@@ -62,7 +82,32 @@ public class HomeDonor extends AppCompatActivity implements NavigationView.OnNav
             navigationView.setCheckedItem(R.id.donor_menu_home);
         }
 
+        preferences.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                key = sharedPreferences.getString("donorPhone", "");
+                donorPhone.setText(key);
+            }
+        });
 
+    }
+
+    public void getDonorInfo(){
+        String username = preferences.getString("donorUsername","");
+        String email = preferences.getString("donorUsername","");
+        String phone = preferences.getString("donorPhone","");
+
+
+        donorUsername.setText(username);
+        donorEmail.setText(email);
+        donorPhone.setText(phone);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+       getDonorInfo();
     }
 
 
@@ -150,5 +195,6 @@ public class HomeDonor extends AppCompatActivity implements NavigationView.OnNav
             super.onBackPressed();
         }
     }
+
 
 }

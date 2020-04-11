@@ -1,5 +1,8 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.android.gms.maps.model.LatLng;
 
 public class Homeless {

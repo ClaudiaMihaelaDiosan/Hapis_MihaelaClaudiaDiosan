@@ -306,6 +306,9 @@
 <!--    Fragment location-->
     <dimen name="fl_text_large">25sp</dimen>
 
+<!--    Fragment needs-->
+    <dimen name="fn_text_large">25sp</dimen>
+
 
 <!--    Volunteer Header -->
     <dimen name="volunteer_header">200dp</dimen>
@@ -316,6 +319,53 @@
     <dimen name="volunteer_email_text_view_large">25sp</dimen>
     <dimen name="volunteer_phone_text_view">15sp</dimen>
     <dimen name="volunteer_phone_text_view_large">25sp</dimen>
+
+    <!--    Donor Header -->
+    <dimen name="donor_header">200dp</dimen>
+    <dimen name="donor_header_large">350dp</dimen>
+    <dimen name="donor_username_text_view">20sp</dimen>
+    <dimen name="donor_username_text_view_large">30sp</dimen>
+    <dimen name="donor_email_text_view">15sp</dimen>
+    <dimen name="donor_email_text_view_large">25sp</dimen>
+    <dimen name="donor_phone_text_view">15sp</dimen>
+    <dimen name="donor_phone_text_view_large">25sp</dimen>
+
+    <!--    Donor Contact  Fragment-->
+    <dimen name="dcf_title_size">25sp</dimen>
+    <dimen name="dcf_title_size_large">35sp</dimen>
+    <dimen name="dcf_body_size">20sp</dimen>
+    <dimen name="dcf_body_size_large">30sp</dimen>
+    <dimen name="dcf_edit_text_box">100dp</dimen>
+    <dimen name="dcf_edit_text_box_large">350dp</dimen>
+
+    <!--    Donor Donate Fragment -->
+    <dimen name="ddf_title_size">25sp</dimen>
+    <dimen name="ddf_title_size_large">35sp</dimen>
+    <dimen name="ddf_body_size">20sp</dimen>
+    <dimen name="ddf_body_size_large">30sp</dimen>
+    <dimen name="donor_donate_text">15sp</dimen>
+    <dimen name="donor_donate_text_large">25sp</dimen>
+
+    <!--    Fragment Help -->
+    <dimen name="fh_body_size">15sp</dimen>
+    <dimen name="fh_body_size_large">25sp</dimen>
+
+<!--    Homeless complete view -->
+    <dimen name="hcompletev_title_body">20sp</dimen>
+    <dimen name="hcompletev_title_body_large">30sp</dimen>
+    <dimen name="hcompletev_body_size">15sp</dimen>
+    <dimen name="hcompletev_body_size_large">25sp</dimen>
+
+<!--    List Map Row -->
+    <dimen name="lmr_body_size_large">25sp</dimen>
+
+<!--    Fragment Personally -->
+    <dimen name="fpersonally_body_size_large">25sp</dimen>
+
+<!--    Fragment Through Volunteer -->
+    <dimen name="fthv_body_size_large">25sp</dimen>
+
+
 
 
 

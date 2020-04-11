@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/donor_header"
+    android:layout_height="@dimen/donor_header_large"
     android:background="@drawable/volunteer_header"
     android:orientation="horizontal"
     android:gravity="bottom">
@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/start_margin"
+        android:layout_marginStart="@dimen/start_margin_large"
         android:orientation="vertical">
 
 
@@ -22,7 +22,7 @@
             android:text="@string/donor_username_text_view"
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/donor_username_text_view"/>
+            android:textSize="@dimen/donor_username_text_view_large"/>
 
         <TextView
             android:id="@+id/donor_email_text_view"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:text="@string/donor_email_text_view"
             android:textStyle="bold"
-            android:textSize="@dimen/donor_email_text_view"
+            android:textSize="@dimen/donor_email_text_view_large"
             android:textColor="@color/colorPrimaryDark"/>
 
         <TextView
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:text="@string/donor_phone_text_view"
             android:textStyle="bold"
-            android:textSize="@dimen/donor_phone_text_view"
+            android:textSize="@dimen/donor_phone_text_view_large"
             android:textColor="@color/colorPrimaryDark"/>
     </LinearLayout>
 

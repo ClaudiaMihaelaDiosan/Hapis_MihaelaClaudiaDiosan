@@ -1,8 +1,11 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
+import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
@@ -21,6 +25,8 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 public class ContactDonorFragment extends Fragment {
 
     View view;
+
+    private TextInputEditText donorEmail;
 
     public ContactDonorFragment() {
         // Required empty public constructor
@@ -34,12 +40,17 @@ public class ContactDonorFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_contact_donor, container, false);
 
         MaterialButton donorContactButton = view.findViewById(R.id.donor_contact_button);
+        donorEmail = view.findViewById(R.id.dcf_email);
 
 
         donorContactButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showToast();
+                if (isEmailValid()){
+                    showToast();
+                }else{
+                    Toast.makeText(view.getContext(), getString(R.string.email_error_text), Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -62,5 +73,25 @@ public class ContactDonorFragment extends Fragment {
         toast.setDuration(Toast.LENGTH_LONG); // set the duration for the Toast
         toast.setView(layout); // set the inflated layout
         toast.show(); // display the custom Toast
+    }
+
+    boolean isEmailValid() {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(donorEmail.getText().toString()).matches() && !donorEmail.getText().toString().isEmpty();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig){
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE || newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            try {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                if (Build.VERSION.SDK_INT >= 26) {
+                    ft.setReorderingAllowed(false);
+                }
+                ft.detach(this).attach(this).commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

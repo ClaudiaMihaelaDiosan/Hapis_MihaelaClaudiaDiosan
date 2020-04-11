@@ -85,7 +85,6 @@
 
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/volunteer_contact_subject"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/vcf_subject_hint"
@@ -93,13 +92,13 @@
                         >
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/volunteer_contact_subject"
                             android:textSize="@dimen/vcf_body_size_large"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/form_contact_message_volunteer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/vcf_text_hint"
@@ -108,6 +107,7 @@
                         >
 
                         <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/form_contact_message_volunteer"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/vcf_edit_text_box"
                             android:textSize="@dimen/vcf_body_size_large"

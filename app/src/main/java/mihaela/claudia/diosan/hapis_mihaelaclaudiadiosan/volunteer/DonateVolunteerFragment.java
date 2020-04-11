@@ -2,11 +2,14 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,6 +41,7 @@ public class DonateVolunteerFragment extends Fragment {
         donateBtn = view.findViewById(R.id.volunteer_donate_button);
 
 
+
         final VideoView videoView = (VideoView) view.findViewById(R.id.videoView);
         String videoPath = "android.resource://" + getContext().getPackageName() + "/" + R.raw.homeless_video;
         Uri uri = Uri.parse(videoPath);
@@ -58,6 +62,24 @@ public class DonateVolunteerFragment extends Fragment {
 
         return view;
     }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig){
+        super.onConfigurationChanged(newConfig);
+        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE || newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+            try {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                if (Build.VERSION.SDK_INT >= 26) {
+                    ft.setReorderingAllowed(false);
+                }
+                ft.detach(this).attach(this).commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
 
 
 }

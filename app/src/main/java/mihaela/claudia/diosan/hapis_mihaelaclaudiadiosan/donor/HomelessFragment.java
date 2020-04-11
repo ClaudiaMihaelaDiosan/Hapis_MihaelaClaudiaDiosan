@@ -45,7 +45,7 @@ public class HomelessFragment extends Fragment {
 
     private AdapterHome mAdapter;
     ArrayList<Homeless> homelessList;
-    String username;
+
 
 
     public HomelessFragment() {

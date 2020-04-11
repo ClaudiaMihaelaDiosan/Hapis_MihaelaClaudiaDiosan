@@ -3,16 +3,15 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
@@ -21,14 +20,20 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 
-import java.io.IOException;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.util.Calendar;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class ProfileFragment extends Fragment {
 
@@ -43,6 +48,23 @@ public class ProfileFragment extends Fragment {
     ImageView homelessProfileImage;
     ImageButton addProfilePhotoBtn;
     View view;
+
+    TextInputEditText homelessUsername;
+    TextInputEditText homelessPhoneNumber;
+    TextInputEditText homelessBirthday;
+    TextInputEditText homelessLifeHistory;
+
+    String homelessUsernameValue;
+    String homelessPhoneNumberValue;
+    String homelessBirthdayValue;
+    String homelessLifeHistoryValue;
+
+    MaterialButton cancelBtn;
+    MaterialButton saveBtn;
+
+    SharedPreferences preferences;
+
+    DatePickerDialog.OnDateSetListener setListener;
 
 
     public ProfileFragment() {
@@ -60,6 +82,18 @@ public class ProfileFragment extends Fragment {
       homelessProfileImage = view.findViewById(R.id.homeless_profile_image);
       addProfilePhotoBtn = view.findViewById(R.id.add_homeless_profile_photo_button);
 
+      homelessUsername = view.findViewById(R.id.homeless_username_editText);
+      homelessPhoneNumber = view.findViewById(R.id.homeless_phone_number_editText);
+      homelessBirthday = view.findViewById(R.id.homeless_birthday_editText);
+      homelessLifeHistory = view.findViewById(R.id.homeless_life_history_editText);
+
+      cancelBtn = view.findViewById(R.id.cancelProfileButton);
+      saveBtn = view.findViewById(R.id.saveProfileButton);
+
+
+      preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
+
+
       addProfilePhotoBtn.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
@@ -68,8 +102,102 @@ public class ProfileFragment extends Fragment {
           }
       });
 
+      homelessBirthday.setOnClickListener(new View.OnClickListener() {
+          @Override
+          public void onClick(View v) {
+              selectDate();
+          }
+      });
+
+        setTextDateListener();
+
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent homeIntent = new Intent(getActivity(),HomeVolunteer.class );
+                startActivity(homeIntent);
+            }
+        });
+
+
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                validate();
+                if (isValidPhoneNumber(homelessPhoneNumber.getText().toString())){
+                    getInfo();
+                    Toast.makeText(getActivity(), getString(R.string.toast_save_btn), Toast.LENGTH_SHORT).show();
+                }else if (!isValidPhoneNumber(homelessPhoneNumber.getText().toString())) {
+                    Toast.makeText(getActivity(), getString(R.string.phone_error_text), Toast.LENGTH_SHORT).show();
+                }
+                }
+        });
+
       return view;
     }
+
+
+    public void getInfo(){
+        homelessUsernameValue = homelessUsername.getText().toString();
+        homelessPhoneNumberValue = homelessPhoneNumber.getText().toString();
+        homelessBirthdayValue = homelessBirthday.getText().toString();
+        homelessLifeHistoryValue = homelessLifeHistory.getText().toString();
+
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("homelessUsername", homelessUsernameValue);
+        editor.putString("homelessPhoneNumber", homelessPhoneNumberValue);
+        editor.putString("homelessBirthday", homelessBirthdayValue);
+        editor.putString("homelessLifeHistory", homelessLifeHistoryValue);
+        editor.apply();
+
+    }
+
+
+    public void validate(){
+         if (homelessUsername.getText().toString().isEmpty()){
+             homelessUsername.setError(getString(R.string.username_error_text));
+
+         }
+
+         if (homelessLifeHistory.getText().toString().isEmpty()){
+             homelessLifeHistory.setError(getString(R.string.complete_life_toast));
+
+         }
+    }
+
+    public  boolean isValidPhoneNumber(CharSequence target) {
+        if (target.length() == 0){
+            return true;
+        }else if (target== null || target.length() < 6 || target.length() > 13) {
+            return false;
+        } else {
+            return android.util.Patterns.PHONE.matcher(target).matches();
+        }
+    }
+
+    public void selectDate(){
+        Calendar calendar = Calendar.getInstance();
+        final int year = calendar.get(Calendar.YEAR);
+        final int month = calendar.get(Calendar.MONTH);
+        final int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(), setListener, year, month, day);
+        datePickerDialog.show();
+
+    }
+
+
+    public void setTextDateListener(){
+        setListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month = month + 1;
+                String date = dayOfMonth + "/" + month + "/" + year;
+                homelessBirthday.setText(date);
+            }
+        };
+    }
+
 
 
         private void selectImage(){

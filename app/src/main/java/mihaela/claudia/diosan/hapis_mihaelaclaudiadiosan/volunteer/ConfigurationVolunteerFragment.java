@@ -1,72 +1,85 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
 
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputEditText;
+
 import java.util.Locale;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
-public class ConfigurationVolunteerFragment extends PreferenceFragmentCompat{
+import static android.content.Context.MODE_PRIVATE;
 
-    private static final String PREF_PHONE = "change_phone_key";
-    private static final String PREF_LANGUAGE ="language_pref";
-    private Locale locale = null;
+public class ConfigurationVolunteerFragment extends Fragment {
 
+
+    SharedPreferences preferences;
+    TextInputEditText phoneNumber;
+    MaterialButton saveConfigBtn;
+    View view;
 
 
     @Override
-    public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        setPreferencesFromResource(R.xml.volunteer_configuration_preference, rootKey);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-        androidx.preference.EditTextPreference editTextPreference = getPreferenceManager().findPreference(PREF_PHONE);
-        editTextPreference.setOnBindEditTextListener(new androidx.preference.EditTextPreference.OnBindEditTextListener() {
+        view = inflater.inflate(R.layout.volunteer_configuration_fragment, container, false);
+
+        preferences = getActivity().getSharedPreferences("userInfo", MODE_PRIVATE);
+
+        phoneNumber = view.findViewById(R.id.configuration_phone_number);
+        saveConfigBtn = view.findViewById(R.id.configuration_button_save);
+
+
+        saveConfigBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onBindEditText(@NonNull EditText editText) {
-                editText.setInputType(InputType.TYPE_CLASS_PHONE);
-            }
-        });
-
-
-
-        androidx.preference.ListPreference listPreference = getPreferenceManager().findPreference(PREF_LANGUAGE);
-        listPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                // Get selected language
-                String selectedLanguage = newValue.toString();
-                preference.setSummary(selectedLanguage);
-
-                // Change language
-                Locale locale;
-                if (selectedLanguage.equals("English")) {
-                    locale = new Locale("es");
-                } else {
-                    locale = new Locale("en");
+            public void onClick(View v) {
+                if (isValidPhoneNumber(phoneNumber.getText().toString())){
+                    changePhone();
+                    Toast.makeText(getActivity(), getString(R.string.changed_phone_toast), Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getActivity(), getString(R.string.phone_error_text), Toast.LENGTH_SHORT).show();
                 }
-                Locale.setDefault(locale);
-                Configuration config = new Configuration();
-                config.locale = locale;
-                getActivity().getApplicationContext().getResources().updateConfiguration(config, null);
 
-                // Refresh fragment
-                getFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, new ConfigurationVolunteerFragment())
-                        .commit();
-                return true;
             }
         });
 
+
+        return view;
+    }
+
+    public void changePhone(){
+        String phoneNumberValue = phoneNumber.getText().toString();
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("volunteerPhone", phoneNumberValue);
+        editor.apply();
+    }
+
+    public  boolean isValidPhoneNumber(CharSequence target) {
+        if (target== null || target.length() < 6 || target.length() > 13) {
+            return false;
+        } else {
+            return android.util.Patterns.PHONE.matcher(target).matches();
+        }
     }
 
 }

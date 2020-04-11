@@ -8,18 +8,18 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/card_corner_radius"
-        android:elevation="@dimen/cardCornerRadius"
+        app:cardCornerRadius="@dimen/card_corner_radius_large"
+        android:elevation="@dimen/cardCornerRadius_large"
         android:backgroundTint="@color/white">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/start_margin"
-            android:layout_marginEnd="@dimen/end_margin"
-            android:layout_marginTop="@dimen/top_margin"
-            android:layout_marginBottom="@dimen/bottom_margin"
+            android:layout_marginStart="@dimen/start_margin_large"
+            android:layout_marginEnd="@dimen/end_margin_large"
+            android:layout_marginTop="@dimen/top_margin_large"
+            android:layout_marginBottom="@dimen/bottom_margin_large"
             android:orientation="vertical">
 
 
@@ -30,8 +30,8 @@
 
 
                 <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="200dp"
+                    android:layout_width="200dp"
+                    android:layout_height="300dp"
                     android:src="@drawable/delivery_notification_icon"
                     android:contentDescription="@string/content_description_thinking_boy"/>
 
@@ -42,9 +42,9 @@
                     android:text="@string/delivery_notification_title"
                     android:layout_gravity="center"
                     android:textColor="@color/colorPrimaryDark"
-                    android:textSize="@dimen/sdn_text_size"
+                    android:textSize="@dimen/sdn_text_size_large"
                     android:gravity="center"
-                    android:layout_marginBottom="@dimen/bottom_margin" />
+                    android:layout_marginBottom="@dimen/bottom_margin_large" />
 
             </LinearLayout>
 
@@ -61,6 +61,7 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/sdn_text_size_large"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -76,33 +77,36 @@
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/sdn_text_size_large"
                     />
 
             </com.google.android.material.textfield.TextInputLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/delivery_close_button"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/top_margin"
-                android:text="@string/delivery_cancel_button"
-                style="?attr/borderlessButtonStyle" />
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/send_notification_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/top_margin"
-                android:drawableEnd="@drawable/ic_send_blue"
-                style="?attr/borderlessButtonStyle" />
-        </LinearLayout>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/delivery_close_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/top_margin_large"
+                    android:text="@string/delivery_cancel_button"
+                    android:textSize="@dimen/sdn_text_size_large"
+                    style="?attr/borderlessButtonStyle" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/send_notification_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/sdn_text_size_large"
+                    android:layout_marginTop="@dimen/top_margin_large"
+                    android:drawableEnd="@drawable/ic_send_blue"
+                    style="?attr/borderlessButtonStyle" />
+            </LinearLayout>
 
         </LinearLayout>
 

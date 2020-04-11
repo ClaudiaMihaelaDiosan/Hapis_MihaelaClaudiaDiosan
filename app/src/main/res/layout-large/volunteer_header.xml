@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="@dimen/volunteer_header_large"
     android:background="@drawable/volunteer_header"
     android:orientation="horizontal"
     android:gravity="bottom">
@@ -11,33 +11,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/start_margin"
+        android:layout_gravity="center"
         android:orientation="vertical">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/volunteer_profile_photo"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
-            android:src="@drawable/login_foto" />
-
 
         <TextView
-            android:id="@+id/donor_username_text_view"
+            android:id="@+id/volunteer_username_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Username"
+            android:text="@string/volunteer_username_text_view"
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp"/>
+            android:textSize="@dimen/volunteer_username_text_view_large"/>
 
         <TextView
-            android:id="@+id/donor_email_text_view"
+            android:id="@+id/volunteer_email_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email"
+            android:text="@string/volunteer_email_text_view"
             android:textStyle="bold"
-            android:textSize="15sp"
+            android:textSize="@dimen/volunteer_email_text_view_large"
+            android:textColor="@color/colorPrimaryDark"/>
+
+        <TextView
+            android:id="@+id/volunteer_phone_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vounteer_phone_text_view"
+            android:textStyle="bold"
+            android:textSize="@dimen/volunteer_phone_text_view_large"
             android:textColor="@color/colorPrimaryDark"/>
 
     </LinearLayout>

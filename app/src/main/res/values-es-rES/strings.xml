@@ -244,16 +244,17 @@
     <string name="vcf_button">ENVIAR MENSAJE</string>
     <string name="contact_toast_message">El mensaje se ha enviado correctamente.\n Recibirás una respuesta lo antes posible.</string>
     <string name="vcf_subject_hint">Asunto</string>
+    <string name="vcf_image_content_description">Imagen Correo</string>
 
     <!-- Volunteer Configuration Fragment -->
     <string name="volunteer_personal_info_title">Información Personal</string>
+    <string name="configuration_title">CONFIGURACIÓN</string>
     <string name="volunteer_phone_number_title">Número de teléfono</string>
     <string name="volunteer_phone_number_summary">Cambia tu número de teléfono existente o añade un número nuevo</string>
-    <string name="volunteer_system_title">Sistema</string>
-    <string name="volunteer_change_language_title">Idioma</string>
-    <string name="volunteer_change_language_summary">Cambia el idioma de la aplicación</string>
-    <string name="volunteer_change_language_dialog_title">Escoje idioma</string>
     <string name="vounteer_phone_text_view">Número de teléfono</string>
+    <string name="save_config_button">GUARDAR</string>
+    <string name="changed_phone_toast">Has cambiado tu número de teléfono</string>
+    <string name="complete_life_toast">Rellena este campo</string>
 
     <!--    Volunteer Donate Fragment-->
     <string name="volunteer_donate_title">DONA A HAPIS</string>
@@ -265,6 +266,7 @@
     <string name="payment_activity_name">Donar </string>
     <string name="payment_title">Introduce el importe de la donación:</string>
    <string name="payment_card_credit">Introduce los datos de tu tarjeta:</string>
+    <string name="currency_hint">0,00 €</string>
     <string name="payment_donate_button">DONAR</string>
     <string name="payment_confirm_title">Confirma los datos antes de pagar</string>
     <string name="payment_confirm_button">Confirmar</string>
@@ -310,8 +312,8 @@
     <!--    Create profile fragment-->
     <string name="photo">Add your photo here</string>
     <string name="homeless_profile_fragment_username_hint">Nombre de usuario</string>
-    <string name="homeless_profile_fragment_phone_number">Teléfono</string>
-    <string name="homeless_profile_fragment_birthday_hint">Fecha de nacimiento</string>
+    <string name="homeless_profile_fragment_phone_number">Teléfono (opcional)</string>
+    <string name="homeless_profile_fragment_birthday_hint">Fecha de nacimiento (opcional)</string>
     <string name="homeless_profile_fragment_life_history_hint">Escribe algo sobre ti y tus experiencias</string>
     <string name="homeless_profile_cancel_button">CANCELAR</string>
     <string name="homeless_profile_save_button">GUARDAR</string>
@@ -321,10 +323,12 @@
     <string name="chooser_cancel">Cancelar</string>
     <string name="dialog_add_image">Añadir Imagen</string>
     <string name="dialog_select_file">Seleccionar Archivo</string>
+    <string name="toast_save_btn">Información guardada correctamente!</string>
 
     <!--    Location Fragment -->
     <string name="location_fragment_title">A continuación, busca y selecciona una ubicación donde los donantes podrán encontrar a la persona necesitada </string>
     <string name="selected_location">Has seleccionado la siguiente ubicación:</string>
+    <string name="location_error_toast">Tienes que seleccionar una ubicación</string>
 
     <!--    Needs Fragment -->
     <string name="schedule_text">Escribe cuando puede ser encontrada la persona necesitada en la ubicación seleccionada anteriormente:</string>
@@ -336,6 +340,8 @@
     <string name="chip_lodging">Alojamiento</string>
     <string name="chip_hygiene_products">Higiene personal</string>
     <string name="most_important_need_tv">La necesidad más importante seleccionada es: </string>
+    <string name="complete_schedule_toast">Tienes que rellenar el horario</string>
+    <string name="complete_need_toast">Tienes que elegir tu necesidad más importante</string>
 
     <!--    Volunteer home fragment-->
     <string name="edit_button_toast">Con este botón el voluntario podrá editar los campos que aparecen para la persona necesitada</string>
@@ -430,5 +436,19 @@ La segunda vez que me quedé sin hogar, siguió un patrón similar. Estuve traba
 
     <string name="linear">Linear</string>
     <string name="grid">Cuadrícula</string>
+
+    <!--    Homeless custom view -->
+    <string name="hcv_username">Usuario</string>
+    <string name="hcv_phone">Teléfono</string>
+    <string name="hcv_birthday">Fecha de nacimiento</string>
+    <string name="hcv_life_history">Historia</string>
+    <string name="hcv_address">Dirrección</string>
+    <string name="hcv_schedule">Horario</string>
+    <string name="hcv_need">Necesidad</string>
+
+
+
+
+
 
 </resources>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".volunteer.PaymentActivity"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/top_margin_large"
+            android:layout_marginBottom="@dimen/bottom_margin_large"
+            android:layout_marginStart="@dimen/start_margin_large"
+            android:backgroundTint="@color/white"
+            android:layout_marginEnd="@dimen/end_margin_large">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/start_margin_large"
+                android:layout_marginEnd="@dimen/end_margin_large"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="@dimen/top_margin_large"
+                        android:layout_marginStart="@dimen/start_margin_large"
+                        android:src="@drawable/donate_icon"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/payment_title"
+                        android:layout_marginTop="@dimen/top_margin"
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/payment_text_large"/>
+
+                </LinearLayout>
+
+                <me.abhinay.input.CurrencyEditText
+                    android:id="@+id/etInput"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="@string/currency_hint"
+                    android:inputType="number"
+                    android:textSize="@dimen/currency_et_large" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_marginTop="@dimen/top_margin_large"
+                        android:layout_marginStart="@dimen/start_margin_large"
+                        android:src="@drawable/credit_card_icon"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/payment_card_credit"
+                        android:layout_marginStart="@dimen/start_margin_large"
+                        android:layout_marginTop="@dimen/top_margin_large"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/payment_text_large"/>
+
+                </LinearLayout>
+
+
+                <com.braintreepayments.cardform.view.CardForm
+                    android:id="@+id/card_form"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+
+
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_pay"
+                    android:layout_marginStart="@dimen/start_margin_large"
+                    app:icon="@drawable/donate_left_drawable"
+                    app:iconTint="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="@dimen/payment_text_large"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/colorPrimary"
+                    android:text="@string/payment_donate_button"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>
+
+</ScrollView>

@@ -33,7 +33,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     TextInputEditText forgotPasswordEmail;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,7 +102,6 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         super.finish();
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right );
     }
-
 
     boolean isEmailValid() {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(forgotPasswordEmail.getText().toString()).matches() && !forgotPasswordEmail.getText().toString().isEmpty();

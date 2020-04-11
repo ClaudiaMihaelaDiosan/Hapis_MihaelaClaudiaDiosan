@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/gradient_background"
+    android:orientation="vertical"
+    tools:context=".volunteer.HomeVolunteer">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/cardCornerRadius_large"
+        app:cardElevation="@dimen/elevation_large"
+        android:layout_marginTop="@dimen/top_margin_large"
+        android:layout_marginBottom="@dimen/bottom_margin_large"
+        android:layout_marginStart="@dimen/start_margin_large"
+        android:layout_marginEnd="@dimen/end_margin_large">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/start_margin_large"
+            android:layout_marginEnd="@dimen/end_margin_large"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:textSize="@dimen/config_title_size_large"
+                android:text="@string/configuration_title"
+                android:layout_marginTop="@dimen/top_margin_large"
+                android:layout_marginBottom="@dimen/bottom_margin_large"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/config_body_size_large"
+                android:text="@string/volunteer_personal_info_title"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_marginTop="@dimen/top_margin_large"
+                android:textSize="@dimen/config_body_size_large"
+                android:text="@string/volunteer_phone_number_summary"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/volunteer_phone_number_title"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/configuration_phone_number"
+                    android:textSize="@dimen/config_body_size_large"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/configuration_button_save"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content"
+                android:text="@string/save_config_button"
+                android:textSize="@dimen/config_body_size_large"
+                android:textColor="@color/colorPrimary"
+                android:padding="@dimen/padding_large"
+                android:backgroundTint="@color/white"
+                android:layout_marginTop="@dimen/top_margin_large"
+                android:layout_marginBottom="@dimen/bottom_margin_large"
+                />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+</FrameLayout>
+
+
+
+
+
+
+

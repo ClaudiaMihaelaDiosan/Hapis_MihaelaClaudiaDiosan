@@ -44,9 +44,7 @@
         app:menu="@menu/volunteer_menu"
         app:headerLayout="@layout/volunteer_header"
         android:layout_gravity="start">
-
     </com.google.android.material.navigation.NavigationView>
-
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

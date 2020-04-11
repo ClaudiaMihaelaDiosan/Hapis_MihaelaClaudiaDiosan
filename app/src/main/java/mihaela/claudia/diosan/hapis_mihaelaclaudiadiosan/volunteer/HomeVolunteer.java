@@ -1,26 +1,50 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.preference.PreferenceManager;
 
+import android.Manifest;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 
 public class HomeVolunteer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
+
     private DrawerLayout volunteerDrawer;
     Toolbar mToolbar;
+
+    TextView volunteerUsername;
+    TextView volunteerEmail;
+    TextView volunteerPhone;
+
+    SharedPreferences preferences;
+    View header;
 
 
 
@@ -28,8 +52,11 @@ public class HomeVolunteer extends AppCompatActivity implements NavigationView.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         setContentView(R.layout.activity_home_volunteer);
+
+        preferences = getSharedPreferences("userInfo", MODE_PRIVATE);
+
+
 
         mToolbar = findViewById(R.id.volunteer_toolbar);
         setSupportActionBar(mToolbar);
@@ -41,6 +68,11 @@ public class HomeVolunteer extends AppCompatActivity implements NavigationView.O
         NavigationView navigationView = findViewById(R.id.nav_view_volunteer);
         navigationView.setNavigationItemSelectedListener(this);
 
+        header = navigationView.getHeaderView(0);
+
+        volunteerUsername = header.findViewById(R.id.volunteer_username_text_view);
+        volunteerEmail = header.findViewById(R.id.volunteer_email_text_view);
+        volunteerPhone = header.findViewById(R.id.volunteer_phone_text_view);
 
 
         ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(this, volunteerDrawer, R.string.open_navigation_drawer, R.string.close_navigation_drawer);
@@ -52,6 +84,33 @@ public class HomeVolunteer extends AppCompatActivity implements NavigationView.O
             navigationView.setCheckedItem(R.id.volunteer_menu_home);
         }
 
+        preferences.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
+            @Override
+            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+                key = sharedPreferences.getString("volunteerPhone", "");
+                volunteerPhone.setText(key);
+            }
+        });
+
+    }
+
+    public void getVolunteerInfo(){
+        String username = preferences.getString("volunteerUsername","");
+        String email = preferences.getString("volunteerEmail","");
+        String phone = preferences.getString("volunteerPhone","");
+
+
+        volunteerUsername.setText(username);
+        volunteerEmail.setText(email);
+        volunteerPhone.setText(phone);
+
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getVolunteerInfo();
     }
 
     @Override
@@ -100,6 +159,7 @@ public class HomeVolunteer extends AppCompatActivity implements NavigationView.O
             super.onBackPressed();
         }
     }
+
 
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -10,24 +10,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/top_margin"
-            android:layout_marginBottom="@dimen/bottom_margin"
-            android:layout_marginStart="@dimen/start_margin"
-            android:layout_marginEnd="@dimen/end_margin">
+            android:layout_marginTop="@dimen/top_margin_large"
+            android:layout_marginBottom="@dimen/bottom_margin_large"
+            android:layout_marginStart="@dimen/start_margin_large"
+            android:layout_marginEnd="@dimen/end_margin_large">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/top_margin"
-                android:layout_marginStart="@dimen/start_margin"
-                android:layout_marginBottom="@dimen/bottom_margin"
-                android:layout_marginEnd="@dimen/end_margin"
+                android:layout_marginTop="@dimen/top_margin_large"
+                android:layout_marginStart="@dimen/start_margin_large"
+                android:layout_marginBottom="@dimen/bottom_margin_large"
+                android:layout_marginEnd="@dimen/end_margin_large"
                 android:orientation="vertical">
 
                 <TextView
@@ -35,7 +35,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:textStyle="bold"
-                     android:layout_marginBottom="@dimen/bottom_margin"
+                    android:layout_marginBottom="@dimen/bottom_margin_large"
+                    android:textSize="@dimen/fl_text_large"
                     android:textColor="@color/grey"
                     android:text="@string/location_fragment_title"/>
 
@@ -43,8 +44,8 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/top_margin"
-                    android:layout_marginBottom="@dimen/bottom_margin"
+                    android:layout_marginTop="@dimen/top_margin_large"
+                    android:layout_marginBottom="@dimen/bottom_margin_large"
                     android:backgroundTint="@color/light_blue"
                     android:orientation="vertical">
 
@@ -62,21 +63,23 @@
                 <TextView
                     android:id="@+id/selected_location_text"
                     android:visibility="invisible"
+                    android:textSize="@dimen/fl_text_large"
                     android:text="@string/selected_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/top_margin"
-                    android:layout_marginBottom="@dimen/bottom_margin"
+                    android:layout_marginTop="@dimen/top_margin_large"
+                    android:layout_marginBottom="@dimen/bottom_margin_large"
                     />
 
                 <TextView
                     android:id="@+id/selected_location_tv"
                     android:textStyle="bold"
-                    android:layout_marginTop="@dimen/top_margin"
-                    android:layout_marginBottom="@dimen/bottom_margin"
+                    android:layout_marginTop="@dimen/top_margin_large"
+                    android:layout_marginBottom="@dimen/bottom_margin_large"
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/fl_text_large"
                     />
 
                 <!-- MapFragment with lite mode enabled -->
@@ -84,22 +87,23 @@
                     android:id="@+id/map"
                     class="com.google.android.gms.maps.SupportMapFragment"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginBottom="@dimen/bottom_margin"
+                    android:layout_height="400dp"
+                    android:layout_marginBottom="@dimen/bottom_margin_large"
                     map:liteMode="true" />
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/top_margin"
+                    android:layout_marginTop="@dimen/top_margin_large"
                     android:gravity="center"
                     android:orientation="horizontal">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/cancelLocationBtn"
                         style="?attr/borderlessButtonStyle"
-                        android:layout_marginEnd="@dimen/end_margin"
+                        android:textSize="@dimen/fl_text_large"
+                        android:layout_marginEnd="@dimen/end_margin_large"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/homeless_profile_cancel_button" />
@@ -107,7 +111,8 @@
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/saveLocationButton"
                         style="?attr/borderlessButtonStyle"
-                        android:layout_marginStart="@dimen/start_margin"
+                        android:textSize="@dimen/fl_text_large"
+                        android:layout_marginStart="@dimen/start_margin_large"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/homeless_profile_save_button" />
@@ -121,4 +126,4 @@
     </LinearLayout>
 
 
-</FrameLayout>
+</ScrollView>

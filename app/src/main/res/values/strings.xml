@@ -171,6 +171,7 @@
     <string name="email_error_text"> Enter a valid email address   </string>
     <string name="password_error_text">Enter a valid password </string>
     <string name="phone_error_text"> Enter a valid phone number</string>
+    <string name="complete_life_toast">You have to fill this field</string>
 
 
     <!--*****    Register Volunteer Activity  *****-->
@@ -240,15 +241,16 @@
     <string name="vcf_text_hint">Write your message here</string>
     <string name="vcf_button">SEND MESSAGE</string>
     <string name="contact_toast_message">You have successfully sent your message.\n We\'ll revert back to you as soon as possible.</string>
+    <string name="vcf_image_content_description">Email Image</string>
 
     <!-- Volunteer Configuration Fragment -->
+    <string name="configuration_title">CONFIGURATION</string>
     <string name="volunteer_personal_info_title">Personal Info</string>
     <string name="volunteer_phone_number_title">Phone number</string>
     <string name="volunteer_phone_number_summary">Change your existing phone number or add a new one</string>
-    <string name="volunteer_system_title">System</string>
-    <string name="volunteer_change_language_title">Language</string>
-    <string name="volunteer_change_language_summary">Change the app\'s system language</string>
-    <string name="volunteer_change_language_dialog_title">Choose language</string>
+    <string name="save_config_button">SAVE</string>
+    <string name="changed_phone_toast">You changed your phone number successfully</string>
+
 
     <!--    Volunteer Donate Fragment-->
     <string name="volunteer_donate_title">DONATE TO HAPIS</string>
@@ -260,6 +262,7 @@
     <string name="payment_activity_name">Donate </string>
     <string name="payment_title">Introduce the donation amount:</string>
     <string name="payment_card_credit">Introduce your credit card data:</string>
+    <string name="currency_hint">0,00 €</string>
     <string name="payment_donate_button">DONATE</string>
     <string name="payment_confirm_title">Confirm Before Purchase</string>
     <string name="payment_confirm_button">Confirm</string>
@@ -306,8 +309,8 @@
     <!--    Create profile fragment-->
     <string name="photo">Add your photo here</string>
     <string name="homeless_profile_fragment_username_hint">Username</string>
-    <string name="homeless_profile_fragment_phone_number">Phone number</string>
-    <string name="homeless_profile_fragment_birthday_hint">Birthday</string>
+    <string name="homeless_profile_fragment_phone_number">Phone number (optional)</string>
+    <string name="homeless_profile_fragment_birthday_hint">Birthday (optional) </string>
     <string name="homeless_profile_fragment_life_history_hint">Write something about you and your life experiences</string>
     <string name="homeless_profile_cancel_button">CANCEL</string>
     <string name="homeless_profile_save_button">SAVE</string>
@@ -317,10 +320,12 @@
     <string name="chooser_cancel">Cancel</string>
     <string name="dialog_add_image">Add Image</string>
     <string name="dialog_select_file">Select File</string>
+    <string name="toast_save_btn">Your information saved correctly!</string>
 
     <!--    Location Fragment -->
     <string name="location_fragment_title">Next, search and select the location where the donors can find the homeless person </string>
     <string name="selected_location">You have selected the next location:</string>
+    <string name="location_error_toast">You have to select a location</string>
 
 
     <!--    Needs Fragment -->
@@ -333,6 +338,9 @@
     <string name="chip_lodging">Lodging</string>
     <string name="chip_hygiene_products">Hygiene products</string>
     <string name="most_important_need_tv">The  most important need selected is: </string>
+    <string name="complete_schedule_toast">You have to complete the schedule</string>
+    <string name="complete_need_toast">You have to chose your most important need</string>
+
 
 
     <!--    Volunteer home fragment-->
@@ -432,6 +440,16 @@ The second time I became homeless it followed a similar pattern. I had been work
 
     <string name="linear">Linear</string>
     <string name="grid">Grid</string>
+
+
+    <!--    Homeless custom view -->
+    <string name="hcv_username">Username</string>
+    <string name="hcv_phone">Phone</string>
+    <string name="hcv_birthday">Birthday</string>
+    <string name="hcv_life_history">LifeHistory</string>
+    <string name="hcv_address">Address</string>
+    <string name="hcv_schedule">Schedule</string>
+    <string name="hcv_need">Need</string>
 
 
 </resources>

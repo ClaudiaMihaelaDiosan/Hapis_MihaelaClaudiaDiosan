@@ -1,5 +1,7 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -24,12 +26,15 @@ import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
+import com.google.android.material.button.MaterialButton;
 
 import java.util.Arrays;
 import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.maps.OnMapAndViewReadyListener;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -50,6 +55,11 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
     Double longitude;
     LatLng MARKER;
 
+    SharedPreferences preferences;
+
+    MaterialButton cancelBtn;
+    MaterialButton saveBtn;
+
 
 
     public LocationFragment() {
@@ -69,9 +79,36 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
 
         selectedLocationTV = view.findViewById(R.id.selected_location_tv);
         textLocation = view.findViewById(R.id.selected_location_text);
+        cancelBtn = view.findViewById(R.id.cancelLocationBtn);
+        saveBtn = view.findViewById(R.id.saveLocationButton);
+
+
+
+
+        preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
 
         initPlaces();
         setupPlaceAutoComplete();
+
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent homeIntent = new Intent(getActivity(),HomeVolunteer.class );
+                startActivity(homeIntent);
+            }
+        });
+
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!selectedLocationTV.getText().toString().isEmpty()){
+                    Toast.makeText(getActivity(), getString(R.string.toast_save_btn), Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(getActivity(), getString(R.string.location_error_toast), Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
 
         return view;
     }
@@ -95,6 +132,16 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
                     latitude = place.getLatLng().latitude;
                     longitude = place.getLatLng().longitude;
                     String name = place.getName();
+
+                    String homelessAddress = place.getAddress();
+                    String homelessLatitude = latitude.toString();
+                    String homelessLongitude = longitude.toString();
+
+                    SharedPreferences.Editor editor = preferences.edit();
+                    editor.putString("homelessAddress", homelessAddress);
+                    editor.putString("homelessLatitude", homelessLatitude);
+                    editor.putString("homelessLongitude",homelessLongitude );
+                    editor.apply();
 
                     selectedLocationTV.setText(place.getAddress());
                     // Creating a marker

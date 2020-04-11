@@ -30,10 +30,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.OutputStreamWriter;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register.RegisterDonorActivity;
 
 public class TermsFragment extends Fragment {
 
@@ -59,6 +57,7 @@ public class TermsFragment extends Fragment {
 
         termsTV = view.findViewById(R.id.terms_textView);
         termsTV.setMovementMethod(new ScrollingMovementMethod());
+
 
         signaturePad = view.findViewById(R.id.signature_pad);
         signaturePad.setOnSignedListener(new SignaturePad.OnSignedListener() {
@@ -116,6 +115,7 @@ public class TermsFragment extends Fragment {
 
         return view;
     }
+
 
     public void showSignatureToast(){
         Toast toast = Toast.makeText(getActivity(), getString(R.string.have_to_sign), Toast.LENGTH_LONG);

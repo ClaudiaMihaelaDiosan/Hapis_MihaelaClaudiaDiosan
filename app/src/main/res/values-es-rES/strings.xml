@@ -2,6 +2,8 @@
     <string name="app_name">Hapis_MihaelaClaudiaDiosan</string>
     <string name="name">HAPIS</string>
 
+    <string name="no_network_operating">No hay conexión a Internet!</string>
+
     <!--    Errors -->
     <string name="is_email_valid_error">El Email no es válido o el campo esta vacio</string>
 
@@ -434,6 +436,9 @@ La segunda vez que me quedé sin hogar, siguió un patrón similar. Estuve traba
     <string name="fr_tv_hour">Hora seleccionada</string>
     <string name="fr_tv_confirm_button">CONFIRMAR</string>
     <string name="fr_tv_confirm_toast"> Gracias por tu ayuda! El voluntario recibirá estos datos y contactará contigo</string>
+    <string name="date_error_toast">Tienes que seleccionar una fecha!</string>
+    <string name="time_error_toast">Tienes que seleccionar una hora!</string>
+    <string name="fthv_location_error_toast">Tienes que seleccionar una ubicación!</string>
 
     <string name="map_not_ready">El mapa no esta listo aun</string>
     <string name="here">En esta ubicación</string>

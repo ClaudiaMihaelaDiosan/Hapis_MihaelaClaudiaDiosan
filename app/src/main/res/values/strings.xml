@@ -3,6 +3,7 @@
     <string name="name">HAPIS</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCl1fruupMLaDB11EO0hHb2Ahx7rTYzwkA</string>
 
+    <string name="no_network_operating">No Network Operating!</string>
 
     <!--    Errors -->
     <string name="is_email_valid_error">The email field is not valid or is empty</string>
@@ -436,6 +437,9 @@ The second time I became homeless it followed a similar pattern. I had been work
     <string name="fr_tv_hour">Selected hour</string>
     <string name="fr_tv_confirm_button">CONFIRM</string>
     <string name="fr_tv_confirm_toast">Thank you for your help! The volunteer will receive this data and will contact you</string>
+    <string name="date_error_toast">You have to select a date!</string>
+    <string name="time_error_toast">You have to select an hour!</string>
+    <string name="fthv_location_error_toast">You have to select the location!</string>
 
     <string name="map_not_ready">Map is not ready yet</string>
     <string name="here">In this location</string>

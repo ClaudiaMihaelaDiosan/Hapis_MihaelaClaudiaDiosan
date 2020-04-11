@@ -8,9 +8,14 @@
     tools:context=".volunteer.ProfileFragment">
 
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginTop="@dimen/top_margin"
             android:layout_marginBottom="@dimen/bottom_margin"
             android:layout_marginStart="@dimen/start_margin"
@@ -18,150 +23,123 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/bottom_margin"
-                android:layout_marginTop="@dimen/top_margin"
-                android:layout_marginStart="@dimen/start_margin"
-                android:layout_marginEnd="@dimen/end_margin"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/homeless_profile_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@color/light_blue"
+                    android:layout_gravity="center" />
 
-
-                <LinearLayout
+                <ImageButton
+                    android:id="@+id/add_homeless_profile_photo_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
-                    android:orientation="vertical">
+                    android:src="@drawable/ic_add_a_photo_black_24dp"/>
 
-                    <ImageView
-                        android:id="@+id/homeless_profile_image"
-                        android:layout_width="match_parent"
-                        android:layout_height="150dp"
-                        android:background="@color/light_blue"
-                        android:layout_gravity="center" />
 
-                    <ImageButton
-                        android:id="@+id/add_homeless_profile_photo_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:src="@drawable/ic_add_a_photo_black_24dp"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/start_margin"
-                        android:layout_marginEnd="@dimen/end_margin"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        >
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/homeless_username_editText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/homeless_profile_fragment_username_hint"
-                            />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/start_margin"
-                        android:layout_marginEnd="@dimen/end_margin"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        >
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/homeless_phone_number_editText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:inputType="numberDecimal"
-                            android:hint="@string/homeless_profile_fragment_phone_number"
-                            />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/start_margin"
-                        android:layout_marginEnd="@dimen/end_margin"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        >
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/homeless_birthday_editText"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/homeless_profile_fragment_birthday_hint"
-                            android:focusable="false"
-                            android:focusableInTouchMode="false"
-                            />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/start_margin"
-                        android:layout_marginEnd="@dimen/end_margin"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        >
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/homeless_life_history_editText"
-                            android:layout_width="match_parent"
-                            android:gravity="top"
-                            android:layout_height="150dp"
-                            android:inputType="textMultiLine"
-                            android:layout_marginBottom="@dimen/bottom_margin"
-                            android:hint="@string/homeless_profile_fragment_life_history_hint"
-                            />
-
-
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/cancelProfileButton"
-                    style="?attr/borderlessButtonStyle"
-                    android:layout_marginEnd="@dimen/end_margin"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/homeless_profile_cancel_button" />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/saveProfileButton"
-                    style="?attr/borderlessButtonStyle"
                     android:layout_marginStart="@dimen/start_margin"
-                    android:layout_width="wrap_content"
+                    android:layout_marginEnd="@dimen/end_margin"
+                    android:layout_marginTop="@dimen/top_margin"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/homeless_username_editText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/homeless_profile_fragment_username_hint"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/homeless_profile_save_button" />
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:layout_marginEnd="@dimen/end_margin"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    >
 
-            </LinearLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/homeless_phone_number_editText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:hint="@string/homeless_profile_fragment_phone_number"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
 
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:layout_marginEnd="@dimen/end_margin"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/homeless_birthday_editText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/homeless_profile_fragment_birthday_hint"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:layout_marginEnd="@dimen/end_margin"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/homeless_life_history_editText"
+                        android:layout_width="match_parent"
+                        android:gravity="top"
+                        android:layout_height="150dp"
+                        android:inputType="textMultiLine"
+                        android:layout_marginBottom="@dimen/bottom_margin"
+                        android:hint="@string/homeless_profile_fragment_life_history_hint"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/cancelProfileButton"
+                            style="?attr/borderlessButtonStyle"
+                            android:layout_marginEnd="@dimen/end_margin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/homeless_profile_cancel_button" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/saveProfileButton"
+                            style="?attr/borderlessButtonStyle"
+                            android:layout_marginStart="@dimen/start_margin"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/homeless_profile_save_button" />
+
+                    </LinearLayout>
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
+
+
+    </LinearLayout>
 
 </ScrollView>

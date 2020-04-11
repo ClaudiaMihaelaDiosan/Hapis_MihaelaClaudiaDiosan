@@ -2,11 +2,13 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -43,6 +45,7 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register.RegisterDonorA
  */
 public class ThroughVolunteerFragment extends Fragment {
 
+
     View view;
     PlacesClient placesClient;
     List<Place.Field> placeFields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
@@ -70,6 +73,7 @@ public class ThroughVolunteerFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_through_volunteer, container, false);
 
+
         locationDonor = view.findViewById(R.id.selected_location_donor);
         datePickerBtn = view.findViewById(R.id.date_picker_donor);
         timePickerBtn = view.findViewById(R.id.time_picker_donor);
@@ -82,30 +86,42 @@ public class ThroughVolunteerFragment extends Fragment {
         initPlaces();
         setupPlaceAutoComplete();
 
-        datePickerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectDate();
+            datePickerBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    selectDate();
 
-            }
+                }
 
-        });
+            });
 
-        setTextDateListener();
+            setTextDateListener();
 
-        timePickerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectTime();
-            }
-        });
+            timePickerBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    selectTime();
+                }
+            });
 
-        confirmBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(view.getContext(), getString(R.string.fr_tv_confirm_toast), Toast.LENGTH_SHORT).show();
-            }
-        });
+            confirmBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if (selectedDateDonor.getText().toString().equals(getString(R.string.fr_tv_date))){
+                        Toast.makeText(view.getContext(), getString(R.string.date_error_toast), Toast.LENGTH_SHORT).show();
+                    }else if (selectedTimeDonor.getText().toString().equals(getString(R.string.fr_tv_hour))){
+                        Toast.makeText(view.getContext(), getString(R.string.time_error_toast), Toast.LENGTH_SHORT).show();
+                    }else if (locationDonor.getText().toString().equals(getString(R.string.fr_tv_location))){
+                        Toast.makeText(view.getContext(), getString(R.string.location_error_toast), Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(view.getContext(), getString(R.string.fr_tv_confirm_toast), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+
+
+
 
         return view;
     }
@@ -176,5 +192,8 @@ public class ThroughVolunteerFragment extends Fragment {
        }, hour, minute, false);
         timePickerDialog.show();
     }
+
+
+
 
 }

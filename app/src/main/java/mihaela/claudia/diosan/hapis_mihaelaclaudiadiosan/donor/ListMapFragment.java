@@ -2,6 +2,8 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -224,6 +226,16 @@ public class ListMapFragment extends Fragment  {
             new NamedLocation("LUIS", new LatLng(41.620809, 0.628363)),
             new NamedLocation("CRISTINA", new LatLng(41.617109, 0.613393))
     };
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
 
 }

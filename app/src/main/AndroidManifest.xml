@@ -33,7 +33,7 @@
             android:name=".donor.HomeDonor"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".volunteer.CreateHomelessPerfileActivity"
+            android:name=".volunteer.CreateHomelessProfileActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/create_homeless_profile_name" />
         <activity android:name=".volunteer.PaymentActivity" />

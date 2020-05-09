@@ -126,7 +126,6 @@ public class ThroughVolunteerFragment extends Fragment {
         return view;
     }
 
-
     private void initPlaces() {
         Places.initialize(view.getContext(), getString(R.string.google_maps_key));
         placesClient = Places.createClient(view.getContext());

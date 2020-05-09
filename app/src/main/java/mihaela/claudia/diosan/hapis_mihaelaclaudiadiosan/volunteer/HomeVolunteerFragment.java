@@ -80,7 +80,7 @@ public class HomeVolunteerFragment extends Fragment {
         newHomelessProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent createAccountIntent = new Intent(getActivity(), CreateHomelessPerfileActivity.class);
+                Intent createAccountIntent = new Intent(getActivity(), CreateHomelessProfileActivity.class);
                 startActivity(createAccountIntent);
             }
         });

@@ -37,10 +37,11 @@ import android.widget.Toast;
 import com.google.android.material.navigation.NavigationView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 
-public class HomeVolunteer extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener  {
+public class HomeVolunteer extends MainActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
 
     private DrawerLayout volunteerDrawer;
@@ -60,7 +61,7 @@ public class HomeVolunteer extends AppCompatActivity implements NavigationView.O
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_home_volunteer);
-        checkConection();
+
 
         preferences = getSharedPreferences("userInfo", MODE_PRIVATE);
 
@@ -168,22 +169,6 @@ public class HomeVolunteer extends AppCompatActivity implements NavigationView.O
         }
     }
 
-    public void checkConection(){
-        ConnectivityManager manager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
-
-        if (networkInfo != null
-                && networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
-            //Toast.makeText(getApplicationContext(), R.string.wifi_connected, Toast.LENGTH_SHORT).show();
-
-        } else if (networkInfo != null && networkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
-            //Toast.makeText(getApplicationContext(), R.string.mobile_connected, Toast.LENGTH_SHORT).show();
-
-        } else {
-            Toast.makeText(getApplicationContext(), R.string.no_network_operating, Toast.LENGTH_SHORT).show();
-
-        }
-    }
 
 }
 

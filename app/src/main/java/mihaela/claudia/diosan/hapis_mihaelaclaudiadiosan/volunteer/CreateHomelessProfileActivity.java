@@ -29,10 +29,11 @@ import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
 
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.intro.IntroViewPagerAdapter;
 
-public class CreateHomelessPerfileActivity extends AppCompatActivity {
+public class CreateHomelessProfileActivity extends MainActivity {
 
     ViewPager viewPager;
     TabLayout tabLayout;
@@ -48,7 +49,6 @@ public class CreateHomelessPerfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_homeless_perfile);
-        checkConection();
 
 
         viewPager = findViewById(R.id.create_homeless_view_pager);
@@ -114,25 +114,6 @@ public class CreateHomelessPerfileActivity extends AppCompatActivity {
         super.onSaveInstanceState(oldInstanceState);
         oldInstanceState.clear();
     }
-
-    public void checkConection(){
-        ConnectivityManager manager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
-
-        if (networkInfo != null
-                && networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
-            //Toast.makeText(getApplicationContext(), R.string.wifi_connected, Toast.LENGTH_SHORT).show();
-
-        } else if (networkInfo != null && networkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
-            //Toast.makeText(getApplicationContext(), R.string.mobile_connected, Toast.LENGTH_SHORT).show();
-
-        } else {
-            Toast.makeText(getApplicationContext(), R.string.no_network_operating, Toast.LENGTH_SHORT).show();
-
-        }
-    }
-
-
 
 
 }

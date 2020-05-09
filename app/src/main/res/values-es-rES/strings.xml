@@ -2,7 +2,12 @@
     <string name="app_name">Hapis_MihaelaClaudiaDiosan</string>
     <string name="name">HAPIS</string>
 
+    <string name="mobile_connected">Red Móvil Conectada!</string>
+    <string name="wifi_connected">Wifi Conectado!</string>
     <string name="no_network_operating">No hay conexión a Internet!</string>
+    <string name="option_network">Quieres cerrar la aplicación? </string>
+    <string name="positive_button_network">CERRAR</string>
+    <string name="negative_button_network">ESPERAR</string>
 
     <!--    Errors -->
     <string name="is_email_valid_error">El Email no es válido o el campo esta vacio</string>

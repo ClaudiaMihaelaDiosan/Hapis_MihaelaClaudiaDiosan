@@ -3,7 +3,12 @@
     <string name="name">HAPIS</string>
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCl1fruupMLaDB11EO0hHb2Ahx7rTYzwkA</string>
 
+    <string name="mobile_connected">Mobile Connected!</string>
+    <string name="wifi_connected">Wifi Connected!</string>
     <string name="no_network_operating">No Network Operating!</string>
+    <string name="option_network">Do you want to close the application? </string>
+    <string name="positive_button_network">CLOSE</string>
+    <string name="negative_button_network">WAIT</string>
 
     <!--    Errors -->
     <string name="is_email_valid_error">The email field is not valid or is empty</string>

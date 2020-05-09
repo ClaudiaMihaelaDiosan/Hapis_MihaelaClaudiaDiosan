@@ -26,11 +26,12 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 
 
-public class HomeDonor extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeDonor extends MainActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout donorDrawer;
     Toolbar mToolbar;

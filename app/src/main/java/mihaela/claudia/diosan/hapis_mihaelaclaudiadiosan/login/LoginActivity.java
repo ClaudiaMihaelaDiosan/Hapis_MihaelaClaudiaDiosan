@@ -1,15 +1,8 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -28,19 +21,24 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer.HomeVolunteer
 
 public class LoginActivity extends MainActivity {
 
+    /*TextViews*/
     TextView forgotPassword;
     TextView signUp;
     TextView statistics;
 
+    /*Buttons*/
     Button loginBtn;
 
+    /*EditTexts*/
     TextInputEditText loginUsernameEditText;
     TextInputEditText loginPasswordEditText;
 
+    /*Preferences*/
+    SharedPreferences preferences;
     String loginUsernameValue;
     String loginPasswordValue;
 
-    SharedPreferences preferences;
+    /*Validation*/
     private AwesomeValidation awesomeValidation;
 
     @Override
@@ -48,25 +46,39 @@ public class LoginActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        preferences = getSharedPreferences("userInfo", MODE_PRIVATE);
+
+        makeFullscreenActivity();
+        initViews();
+        fieldsValidation();
+        onClickButtons();
+    }
+
+
+
+    private void makeFullscreenActivity() {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
+    }
 
+    private void initViews() {
         forgotPassword = (TextView) findViewById(R.id.forgot_password_text_view);
         signUp = (TextView) findViewById(R.id.signup);
         statistics = findViewById(R.id.statistics_tv);
         loginUsernameEditText = findViewById(R.id.login_username_edit_text);
         loginPasswordEditText = findViewById(R.id.login_password_edit_text);
-
         loginBtn = findViewById(R.id.login_button);
+    }
 
+    private void fieldsValidation() {
         awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
-        preferences = getSharedPreferences("userInfo", MODE_PRIVATE);
-
         awesomeValidation.addValidation(this, R.id.login_username_edit_text, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$", R.string.username_error_text);
         awesomeValidation.addValidation(this, R.id.login_password_edit_text, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$", R.string.password_error_text);
 
+    }
 
+    private void onClickButtons() {
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,6 +117,7 @@ public class LoginActivity extends MainActivity {
         });
     }
 
+
     public void login(){
         loginUsernameValue = loginUsernameEditText.getText().toString();
         loginPasswordValue = loginPasswordEditText.getText().toString();
@@ -129,13 +142,10 @@ public class LoginActivity extends MainActivity {
         }
 
 
-
     @Override
     public void finish(){
         super.finish();
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right );
     }
-
-
 
 }

@@ -39,7 +39,7 @@
                         android:adjustViewBounds="true"
                         android:scaleType="fitXY"
                         android:src="@drawable/login_foto"
-                        android:contentDescription="@string/login_foto_content_description"/>
+                        android:contentDescription="@string/content_description"/>
 
                 </LinearLayout>
 
@@ -54,10 +54,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_gravity="center"
-            android:layout_marginTop="@dimen/top_margin"
-            android:layout_marginBottom="@dimen/bottom_margin"
-            android:layout_marginEnd="@dimen/end_margin"
-            android:layout_marginStart="@dimen/start_margin"
+            android:layout_margin="@dimen/margins"
             android:layout_weight="2">
 
 
@@ -66,20 +63,14 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="@dimen/cardCornerRadius"
                 app:cardElevation="@dimen/elevation"
-                android:layout_marginTop="@dimen/top_margin"
-                android:layout_marginBottom="@dimen/bottom_margin"
-                android:layout_marginEnd="@dimen/end_margin"
-                android:layout_marginStart="@dimen/start_margin"
+                android:layout_margin="@dimen/margins"
                 >
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginStart="@dimen/card_view_margins"
-                    android:layout_marginEnd="@dimen/card_view_margins"
-                    android:layout_marginTop="@dimen/card_view_margins"
-                    android:layout_marginBottom="@dimen/card_view_margins"
+                    android:layout_margin="@dimen/cv_margins"
                     android:layout_gravity="center">
 
                     <LinearLayout
@@ -96,7 +87,7 @@
                             android:layout_height="wrap_content"
                             android:text="@string/login_title"
                             android:textColor="@color/grey"
-                            android:textSize="@dimen/login_text_size"
+                            android:textSize="@dimen/body"
                             android:layout_marginBottom="@dimen/bottom_margin"
                             android:gravity="center"/>
 
@@ -138,7 +129,7 @@
                                 android:layout_marginBottom="@dimen/bottom_margin"
                                 android:text="@string/forgot_password"
                                 android:textColor="@color/grey"
-                                android:textSize="@dimen/forgot_password_size" />
+                                android:textSize="@dimen/body" />
 
                         </com.google.android.material.textfield.TextInputLayout>
 
@@ -151,7 +142,7 @@
                             android:backgroundTint="@color/colorPrimary"
                             android:text="@string/login_button"
                             android:textColor="@color/white"
-                            android:textSize="@dimen/login_button" />
+                            android:textSize="@dimen/title" />
 
                     </LinearLayout>
 
@@ -173,7 +164,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="@dimen/start_margin"
-                            android:layout_marginTop="@dimen/google_top_margin"
+                            android:layout_marginTop="@dimen/top_margin"
                             android:layout_marginEnd="@dimen/end_margin"
                             android:orientation="vertical">
 
@@ -186,7 +177,7 @@
                                 android:gravity="center"
                                 android:text="@string/google_text_view"
                                 android:textColor="@color/grey"
-                                android:textSize="@dimen/google_text_view_size" />
+                                android:textSize="@dimen/body" />
 
 
                             <com.google.android.gms.common.SignInButton
@@ -202,10 +193,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom"
-                            android:layout_marginStart="@dimen/start_margin"
-                            android:layout_marginTop="@dimen/signup_top_margin"
-                            android:layout_marginEnd="@dimen/end_margin"
-                            android:layout_marginBottom="@dimen/bottom_margin"
+                            android:layout_margin="@dimen/margins"
                             android:orientation="vertical">
 
 
@@ -217,7 +205,7 @@
                                 android:gravity="center"
                                 android:text="@string/signup_tex_view"
                                 android:textColor="@color/grey"
-                                android:textSize="@dimen/google_text_view_size" />
+                                android:textSize="@dimen/body" />
 
                             <TextView
                                 android:id="@+id/signup"
@@ -228,7 +216,7 @@
                                 android:gravity="center"
                                 android:text="@string/sign_up"
                                 android:textColor="@color/colorPrimary"
-                                android:textSize="@dimen/signup_size"
+                                android:textSize="@dimen/title"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -241,7 +229,7 @@
                                 android:text="@string/statistics"
                                 android:textColor="@color/amber"
                                 android:drawableStart="@drawable/statistics_drawable"
-                                android:textSize="@dimen/statistics_size"
+                                android:textSize="@dimen/title"
                                 android:textStyle="bold" />
 
                         </LinearLayout>

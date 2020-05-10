@@ -49,7 +49,7 @@
 
     <!--    Buttons -->
     <string name="fp_button">RECUPERAR CONTRASEÑA</string>
-    <string name="pop_up_button">VOLVER AL LOGIN</string>
+    <string name="pop_up_button">OK</string>
 
     <!--    Edit Texts -->
     <string name="fp_email_hint">Correo electrónico</string>

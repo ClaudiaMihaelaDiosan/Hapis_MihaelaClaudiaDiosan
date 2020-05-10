@@ -51,7 +51,7 @@
 
     <!--    Buttons -->
     <string name="fp_button">RECOVER PASSWORD</string>
-    <string name="pop_up_button">GO TO LOGIN</string>
+    <string name="pop_up_button">OK</string>
 
     <!--    Edit Texts -->
     <string name="fp_email_hint">Email</string>

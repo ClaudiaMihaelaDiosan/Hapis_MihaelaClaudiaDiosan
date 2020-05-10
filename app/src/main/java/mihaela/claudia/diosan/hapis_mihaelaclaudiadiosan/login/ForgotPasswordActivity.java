@@ -3,6 +3,7 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -15,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
@@ -22,15 +24,11 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
 public class ForgotPasswordActivity extends MainActivity {
 
-    //Pop Up
-    Dialog successRecoverDialog;
 
-    TextView messageTV;
-    ImageView closePopUp;
-
-    Button goLoginBtn;
+    /*Buttons*/
     Button recoverPassword;
 
+    /*EditTexts*/
     TextInputEditText forgotPasswordEmail;
 
 
@@ -39,25 +37,36 @@ public class ForgotPasswordActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
+        makeFullscreenActivity();
+        initViews();
+        onClickButtons();
 
+    }
+
+
+
+    private void initViews(){
         recoverPassword = findViewById(R.id.recover_password_button);
-        successRecoverDialog = new Dialog(this);
         forgotPasswordEmail = findViewById(R.id.forgot_password_email);
+    }
 
+    private void onClickButtons(){
         recoverPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (isEmailValid()){
                     showPopUpDialog();
-                   }else{
-                   showErrorToast();
+                }else{
+                    showErrorToast();
                 }
             }
         });
+    }
 
+    private void makeFullscreenActivity() {
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
     }
 
     public void showErrorToast(){
@@ -73,29 +82,20 @@ public class ForgotPasswordActivity extends MainActivity {
         toast.show();
     }
 
-    public void showPopUpDialog(){
-        successRecoverDialog.setContentView(R.layout.forgot_password_popup);
-        closePopUp =  successRecoverDialog.findViewById(R.id.close_pop_up);
-        goLoginBtn =  successRecoverDialog.findViewById(R.id.go_login_button);
-        messageTV =   successRecoverDialog.findViewById(R.id.message_pop_up);
 
-        closePopUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                successRecoverDialog.dismiss();
-            }
-        });
+    private void showPopUpDialog(){
+            new MaterialAlertDialogBuilder(this)
+                    .setIcon(R.drawable.ic_check_circle_black_24dp)
+                    .setMessage(getString(R.string.pop_up_message))
+                    .setPositiveButton(getString(R.string.pop_up_button), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent goLogin = new Intent(ForgotPasswordActivity.this, LoginActivity.class);
+                            startActivity(goLogin);
+                        }
+                    })
+                    .show();
 
-        successRecoverDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        successRecoverDialog.show();
-
-        goLoginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goLogin = new Intent(ForgotPasswordActivity.this, LoginActivity.class);
-                startActivity(goLogin);
-            }
-        });
     }
 
     @Override

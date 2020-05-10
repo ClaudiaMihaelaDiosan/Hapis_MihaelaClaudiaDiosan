@@ -45,8 +45,14 @@ public class MainActivity extends AppCompatActivity implements ConnectivityRecei
 
 
     @Override
-    public void onNetworkConnectionChanged(String status) {
+    protected void onPause() {
+        super.onPause();
+        ConnectivityReceiver.connectivityReceiverListener = (ConnectivityReceiver.ConnectivityReceiverListener) this;
+        unregisterReceiver(connectivityReceiver);
+    }
 
+    @Override
+    public void onNetworkConnectionChanged(String status) {
 
         if (status.equals(getResources().getString(R.string.wifi_connected))){
          //   Toast.makeText(getApplicationContext(), R.string.wifi_connected, Toast.LENGTH_SHORT).show();

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="top_margin">16dp</dimen>
+    <dimen name="bottom_margin">16dp</dimen>
+    <dimen name="start_margin">16dp</dimen>
+    <dimen name="end_margin">16dp</dimen>
+    <dimen name="margins">16dp</dimen>
+
+    <dimen name="padding">15dp</dimen>
+
+    <!--    Cards-->
+    <dimen name="cardCornerRadius">8dp</dimen>
+    <dimen name="elevation">8dp</dimen>
+    <dimen name="cv_margins">10dp</dimen>
+
+    <!--    Text -->
+    <dimen name="title">40sp</dimen>
+    <dimen name="body">30sp</dimen>
+
+
+    <!--    Images -->
+    <dimen name="check_size">60dp</dimen>
+
+</resources>

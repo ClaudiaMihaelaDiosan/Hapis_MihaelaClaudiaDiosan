@@ -6,10 +6,10 @@
     android:background="@drawable/gradient_background"
     android:orientation="vertical">
 
-
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -18,107 +18,106 @@
             android:layout_weight="1">
 
             <ImageView
+                android:id="@+id/register_user_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
-                android:src="@drawable/donor_card_view_image"
-                android:contentDescription="@string/content_description_register_donor_image"
+                android:src="@drawable/volunteer_card_view_image"
+                android:contentDescription="@string/content_description"
                 />
+
 
         </LinearLayout>
 
-
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_gravity="center"
-            android:orientation="vertical">
+            android:layout_weight="1">
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/register_donor_card_view_margins_large"
-                app:cardCornerRadius="@dimen/cardCornerRadius_large"
-                app:cardElevation="@dimen/elevation_large">
+                app:cardCornerRadius="@dimen/cardCornerRadius"
+                app:cardElevation="@dimen/elevation"
+                android:layout_margin="@dimen/margins">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/bottom_margin_large"
-                    android:gravity="center"
-                    android:text="@string/register_donor_title"
+                    android:text="@string/register_user_title"
+                    android:layout_marginBottom="@dimen/bottom_margin"
                     android:textColor="@color/grey"
-                    android:textSize="@dimen/create_donor_account_title_large" />
+                    android:textSize="@dimen/body"
+                    android:gravity="center"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/left_margin_large"
-                    android:layout_marginTop="@dimen/top_margin_large"
-                    android:layout_marginEnd="@dimen/right_margin_large"
-                    android:layout_marginBottom="@dimen/bottom_margin_large"
+                    android:layout_margin="@dimen/margins"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/top_margin_large"
-                        android:text="@string/register_donor_login_info"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/register_donor_login_info_size_large" />
+                        android:layout_marginTop="@dimen/top_margin"
+                        android:text="@string/register_user_login_info"
+                        android:textSize="@dimen/title"
+                        android:textColor="@color/colorPrimary" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/left_margin_large"
-                        android:layout_marginEnd="@dimen/right_margin_large">
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:layout_marginEnd="@dimen/end_margin"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        >
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/donor_username_edit_text"
+                            android:id="@+id/user_username_edit_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:hint="@string/register_user_username_hint"
                             android:drawableStart="@drawable/username_drawable"
-                            android:drawablePadding="@dimen/drawable_padding_large"
-                            android:hint="@string/register_donor_username_hint" />
+                            android:drawablePadding="@dimen/padding"
+                            />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/left_margin_large"
-                        android:layout_marginEnd="@dimen/right_margin_large">
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:layout_marginEnd="@dimen/end_margin"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/donor_email_edit_text"
+                            android:id="@+id/user_email_edit_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:hint="@string/register_user_email_hint"
                             android:drawableStart="@drawable/email_drawable"
-                            android:drawablePadding="@dimen/drawable_padding_large"
-                            android:hint="@string/register_donor_email_hint"
+                            android:drawablePadding="@dimen/padding"
 
                             />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/left_margin_large"
-                        android:layout_marginEnd="@dimen/right_margin_large"
-                        app:passwordToggleEnabled="true">
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:layout_marginEnd="@dimen/end_margin"
+                        app:passwordToggleEnabled="true"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/donor_password_edit_text"
+                            android:id="@+id/user_password_edit_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:hint="@string/register_user_password_hint"
                             android:drawableStart="@drawable/password_drawable"
-                            android:drawablePadding="@dimen/drawable_padding_large"
-                            android:hint="@string/register_donor_password_hint"
+                            android:drawablePadding="@dimen/padding"
                             android:inputType="textPassword"
 
                             />
@@ -127,107 +126,102 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/top_margin_large"
-                        android:text="@string/register_donor_opional_info"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/register_donor_optional_info_large" />
+                        android:text="@string/register_user_optional_info"
+                        android:textSize="@dimen/title"
+                        android:layout_marginTop="@dimen/top_margin"
+                        android:textColor="@color/colorPrimary" />
 
                     <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/left_margin_large"
-                        android:layout_marginEnd="@dimen/right_margin_large">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/donor_first_name_edit_text"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:drawableStart="@drawable/username_drawable"
-                            android:drawablePadding="@dimen/drawable_padding_large"
-                            android:hint="@string/register_donor_first_name_hint"
-
-                            />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:layout_marginEnd="@dimen/end_margin"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="@dimen/left_margin_large"
-                        android:layout_marginEnd="@dimen/right_margin_large">
+                        >
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/donor_last_name_edit_text"
+                            android:id="@+id/user_first_name_edit_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:hint="@string/register_user_first_name_hint"
                             android:drawableStart="@drawable/username_drawable"
-                            android:drawablePadding="@dimen/drawable_padding_large"
-                            android:hint="@string/register_donor_last_name_hint"
+                            android:drawablePadding="@dimen/padding"
 
                             />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/start_margin_large"
-                        android:layout_marginEnd="@dimen/end_margin_large"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:layout_marginEnd="@dimen/end_margin"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/donor_phone_edit_text"
+                            android:id="@+id/user_last_name_edit_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:hint="@string/register_donor_phone_hint"
-                            android:drawableStart="@drawable/phone_drawable"
-                            android:drawablePadding="@dimen/drawable_padding_large"
-                            android:inputType="numberDecimal"
-
+                            android:hint="@string/register_user_last_name_hint"
+                            android:drawableStart="@drawable/username_drawable"
+                            android:drawablePadding="@dimen/padding"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
 
+
+                    <com.google.android.material.textfield.TextInputLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:layout_marginEnd="@dimen/end_margin"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/user_phone_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/register_user_phone_number_hint"
+                            android:drawableStart="@drawable/phone_drawable"
+                            android:drawablePadding="@dimen/padding"
+                            android:inputType="phone"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
                         <CheckBox
-                            android:id="@+id/donor_terms_checkbox"
+                            android:id="@+id/user_terms_checkbox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:checked="false" />
+                            android:checked="false"/>
 
                         <TextView
                             android:id="@+id/accept_terms_text_view"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/bottom_margin_large"
-                            android:text="@string/register_donor_terms"
-                            android:textSize="@dimen/register_donor_terms_large"/>
+                            android:layout_marginBottom="@dimen/bottom_margin"
+                            android:text="@string/register_user_terms" />
 
                     </LinearLayout>
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/register_donor_button"
+                        android:id="@+id/register_user_button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/top_margin_large"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:text="@string/register_donor_button"
+                        android:layout_marginTop="@dimen/top_margin"
+                        android:background="@drawable/btn_gradient_style"
+                        android:text="@string/register_user_button"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/register_donor_button_large" />
+                        android:textSize="@dimen/title" />
                 </LinearLayout>
-
 
             </com.google.android.material.card.MaterialCardView>
 
-
         </LinearLayout>
 
-
     </LinearLayout>
-
 
 </ScrollView>

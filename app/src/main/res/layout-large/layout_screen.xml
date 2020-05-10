@@ -3,34 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginEnd="@dimen/end_margin_large"
-    android:layout_marginStart="@dimen/start_margin_large"
+    android:layout_margin="@dimen/margins"
     android:layout_gravity="center"
     android:orientation="vertical"
     android:background="@color/white">
 
 
-
     <ImageView
         android:id="@+id/intro_img"
-        android:layout_width="470dp"
-        android:layout_height="685dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
         android:layout_gravity="center"
-        android:layout_marginStart="@dimen/start_margin_large"
-        android:layout_marginEnd="@dimen/start_margin_large"
+        android:layout_marginStart="@dimen/start_margin"
+        android:layout_marginEnd="@dimen/end_margin"
         tools:srcCompat="@tools:sample/avatars"
-        android:contentDescription="@string/intro_img_contentDescription"/>
+        android:contentDescription="@string/content_description"/>
 
     <TextView
         android:id="@+id/intro_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_marginStart="@dimen/start_margin_large"
-        android:layout_marginTop="@dimen/top_margin_large"
-        android:layout_marginEnd="@dimen/end_margin_large"
+        android:layout_margin="@dimen/margins"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="@dimen/intro_title_large"
+        android:textSize="@dimen/title"
         android:textStyle="bold" />
 
     <TextView
@@ -40,9 +36,8 @@
         android:gravity="center"
         android:layout_gravity="center"
         android:textColor="@color/grey"
-        android:layout_marginStart="@dimen/start_margin_large"
-        android:layout_marginTop="@dimen/top_margin_large"
-        android:layout_marginEnd="@dimen/end_margin_large"
-        android:textSize="@dimen/intro_description_large" />
+        android:layout_marginStart="@dimen/start_margin"
+        android:layout_marginEnd="@dimen/end_margin"
+        android:textSize="@dimen/body" />
 
 </LinearLayout>

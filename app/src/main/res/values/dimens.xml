@@ -7,6 +7,30 @@
     <dimen name="bottom_margin">16dp</dimen>
     <dimen name="start_margin">16dp</dimen>
     <dimen name="end_margin">16dp</dimen>
+    <dimen name="margins">16dp</dimen>
+
+
+    <dimen name="padding">10dp</dimen>
+
+
+    <!--    Cards-->
+    <dimen name="cardCornerRadius">5dp</dimen>
+    <dimen name="elevation">5dp</dimen>
+    <dimen name="cv_margins">8dp</dimen>
+
+    <!--    Text -->
+    <dimen name="title">20sp</dimen>
+    <dimen name="body">15sp</dimen>
+
+
+    <!--    Images -->
+    <dimen name="check_size">50dp</dimen>
+
+
+
+
+
+
 
     <!--    Large margins -->
     <dimen name="top_margin_large">20dp</dimen>
@@ -19,12 +43,6 @@
     <dimen name="right_margin">16dp</dimen>
     <dimen name="left_margin">16dp</dimen>
 
-
-    <dimen name="padding">10dp</dimen>
-
-    <!--    Cards-->
-    <dimen name="cardCornerRadius">5dp</dimen>
-    <dimen name="elevation">5dp</dimen>
 
 
 
@@ -64,7 +82,7 @@
     <dimen name="card_view_text_size">15sp</dimen>
     <dimen name="button_margin">20dp</dimen>
     <dimen name="go_to_login_button">25sp</dimen>
-    <dimen name="check_size">50dp</dimen>
+
     <dimen name="check_margin_bottom">10dp</dimen>
 
     <!--    Forgot Password pop up large-->

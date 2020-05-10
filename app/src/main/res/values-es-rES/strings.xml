@@ -134,23 +134,74 @@
     <string name="content_description_donor_card">Persona pobre abraza una mujer</string>
     <string name="content_description_volunteer_card">Persona pobre recibe una manzada de una niña</string>
 
+    <!--    Know more register donor popup -->
+    <string name="donor_know_more_title">Que puedes hacer si te registras como donante?</string>
+    <string name="donor_know_more_text">1. Puedes ayudar personas que no disponen de recursos tan básicos como comida, alojamiento o ropa \n\n
+                                  2. Puedes escojer el perfil de la persona que más te atrae la atención y ayudarla \n\n
+                                  3. Puedes donar comida, ropa, alojamiento, trabajo o productos de higiene personal \n\n
+                                  4. Puedes entregar la ayuda personalmente o con la ayuda de un voluntario
+                                  </string>
+
+    <!--    Know more register volunteer popup -->
+    <string name="volunteer_know_more_title">Que puedes hacer si te registras como voluntario?</string>
+    <string name="volunteer_know_more_text">1. Puedes conectar con personas sin recursos que necesitan nuestra ayuda \n\n
+                                            2. Puedes crear y gestionar perfiles para ellos, ya que ellos no siempre tienen un teléfono móvil conectado a Internet \n\n
+                                            3. Puedes ayudar a realizar la entrega de donaciones en caso que los donantes no tienen la posibilidad de realizarla personalmente
+    </string>
+
+    <!--*****    Register User Activity  *****-->
+    <string name="register_volunteer_name">Register Volunteer</string>
+    <string name="register_donor_name">Register Donor</string>
+    <string name="content_description_register_user_image">Imagen registro usuario</string>
+
+
+    <!--    Titles -->
+    <string name="register_user_title">Crea tu cuenta</string>
+    <string name="register_user_pop_up_title">REGISTRO CORRECTO</string>
+
+    <!--    Texts -->
+    <string name="register_user_login_info">Información de inicio de sesión</string>
+    <string name="register_user_optional_info">Información Opcional</string>
+    <string name="register_user_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
+    <string name="register_user_terms">Acepto las <a href="https://freetexthost.net/YgMgzfo">Condiciones Legales</a> e  <a href="https://freetexthost.net/DRNtHzb">Información basica de privacidad</a></string>
+    <string name="register_user_terms_error">Primero acepta las condiciones legales!</string>
+
+    <!--    Edit Texts -->
+    <string name="register_user_username_hint">Nombre de usuario</string>
+    <string name="register_user_email_hint">Correo electrónico</string>
+    <string name="register_user_password_hint">Contraseña</string>
+    <string name="register_user_first_name_hint">Nombre</string>
+    <string name="register_user_last_name_hint">Apellido</string>
+    <string name="register_user_phone_number_hint">Teléfono</string>
+
+    <!--    Buttons -->
+    <string name="register_user_button">REGISTRAR</string>
+    <string name="register_user_pop_up_button">OK</string>
+
+
+
+    <string name="username_error_text">Introduce un nombre de usuario válido</string>
+    <string name="email_error_text">Introduce un email válido   </string>
+    <string name="password_error_text">Introduce una contraseña válida </string>
+    <string name="phone_error_text"> Introduce un teléfono válido</string>
 
 
 
     <!--*****    Register Donor Activity  *****-->
-    <string name="register_donor_name">Registro Donante</string>
 
     <!--    Images -->
     <string name="content_description_register_donor_image">Imagen registro donante</string>
 
+
+
     <!--    Titles -->
     <string name="register_donor_title">Crea tu cuenta</string>
-    <string name="register_donor_pop_up_title">REGISTRO CORRECTO</string>
+    <string name="register_pop_up_title">REGISTRO CORRECTO</string>
 
     <!--    Texts -->
     <string name="register_donor_login_info">Información de inicio de sesión</string>
     <string name="register_donor_opional_info">Información Opcional</string>
-    <string name="register_donor_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
+    <string name="register_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
     <string name="register_donor_terms">Acepto las <a href="https://freetexthost.net/YgMgzfo">Condiciones Legales</a> e  <a href="https://freetexthost.net/DRNtHzb">Información basica de privacidad</a></string>
     <string name="register_donor_terms_error">Primero acepta las condiciones legales!</string>
 
@@ -167,25 +218,14 @@
     <!--    Buttons -->
     <string name="register_donor_button">REGISTRAR</string>
     <string name="register_donor_pop_up_button">OK</string>
+    <string name="register_pop_up_button">OK</string>
 
-    <!--    Know more register donor popup -->
-    <string name="donor_know_more_title">Que puedes hacer si te registras como donante?</string>
-    <string name="donor_know_more_text">1. Puedes ayudar personas que no disponen de recursos tan básicos como comida, alojamiento o ropa \n\n
-                                  2. Puedes escojer el perfil de la persona que más te atrae la atención y ayudarla \n\n
-                                  3. Puedes donar comida, ropa, alojamiento, trabajo o productos de higiene personal \n\n
-                                  4. Puedes entregar la ayuda personalmente o con la ayuda de un voluntario
-                                  </string>
 
-    <string name="username_error_text">Introduce un nombre de usuario válido</string>
-    <string name="email_error_text">Introduce un email válido   </string>
-    <string name="password_error_text">Introduce una contraseña válida </string>
-    <string name="phone_error_text"> Introduce un teléfono válido</string>
 
 
 
 
     <!--*****    Register Volunteer Activity  *****-->
-    <string name="register_volunteer_name">Registro Voluntario</string>
 
     <!--    Titles -->
     <string name="register_volunteer_title">Crea tu cuenta</string>
@@ -209,16 +249,6 @@
     <!--    Buttons -->
     <string name="register_volunteer_button">REGISTRAR</string>
     <string name="register_volunteer_pop_up_button">OK</string>
-
-    <!--    Know more register volunteer popup -->
-    <string name="volunteer_know_more_title">Que puedes hacer si te registras como voluntario?</string>
-    <string name="volunteer_know_more_text">1. Puedes conectar con personas sin recursos que necesitan nuestra ayuda \n\n
-                                            2. Puedes crear y gestionar perfiles para ellos, ya que ellos no siempre tienen un teléfono móvil conectado a Internet \n\n
-                                            3. Puedes ayudar a realizar la entrega de donaciones en caso que los donantes no tienen la posibilidad de realizarla personalmente
-    </string>
-
-
-
 
 
 

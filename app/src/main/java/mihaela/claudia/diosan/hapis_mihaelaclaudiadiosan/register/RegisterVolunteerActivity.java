@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +27,7 @@ import android.widget.Toast;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.Calendar;
@@ -36,15 +39,28 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 
 public class RegisterVolunteerActivity extends MainActivity {
 
-    Dialog succesRegisterDialog;
-    MaterialButton registerVolunteerBtn;
-    ImageView rvClosePopUp;
-    MaterialButton rvOKBtn;
-    TextView rvPopupMessage;
-    TextView rvPopupTitle;
-    TextView rvAcceptTerms;
-    CheckBox rvAcceptTermsCheckbox;
+    /* ImageView */
+    ImageView regUserImg;
+    ImageView closePopUpImg;
 
+    /* Buttons */
+    MaterialButton registerVolunteerBtn;
+    MaterialButton popUpBtn;
+
+    /* Alert Dialogs */
+    Dialog succesRegisterDialog;
+
+    /* TextViews */
+    TextView acceptTermsTV;
+
+
+    /* Validate */
+    private AwesomeValidation awesomeValidation;
+
+    /* Check Box */
+    CheckBox acceptTermsCheckbox;
+
+    /* EditTexts*/
     TextInputEditText volunteerUsernameEditText;
     TextInputEditText volunteerEmailEditText;
     TextInputEditText volunteerPasswordEditText;
@@ -52,6 +68,8 @@ public class RegisterVolunteerActivity extends MainActivity {
     TextInputEditText volunteerLastNameEditText;
     TextInputEditText volunteerPhoneEditText;
 
+    /* SharedPreferences*/
+    SharedPreferences preferences;
     String volunteerUsernameValue;
     String volunteerEmailValue;
     String volunteerPasswordValue;
@@ -59,70 +77,68 @@ public class RegisterVolunteerActivity extends MainActivity {
     String volunteerLastNameValue;
     String volunteerPhoneValue;
 
-    SharedPreferences preferences;
-    private AwesomeValidation awesomeValidation;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_volunteer);
-
-        registerVolunteerBtn = findViewById(R.id.register_volunteer_button);
-        succesRegisterDialog = new Dialog(this);
-        rvAcceptTerms = findViewById(R.id.volunteer_accept_terms_text_view);
-        rvAcceptTerms.setMovementMethod(LinkMovementMethod.getInstance());
-
-        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
-
-        rvAcceptTermsCheckbox = findViewById(R.id.volunteer_terms_checkbox);
-
-        volunteerUsernameEditText = findViewById(R.id.volunteer_username_edit_text);
-        volunteerEmailEditText = findViewById(R.id.volunteer_email_edit_text);
-        volunteerPasswordEditText = findViewById(R.id.volunteer_password_edit_text);
-        volunteerFirstNameEditText = findViewById(R.id.volunteer_first_name_edit_text);
-        volunteerLastNameEditText = findViewById(R.id.volunteer_last_name_edit_text);
-        volunteerPhoneEditText = findViewById(R.id.volunteer_phone_edit_text);
+        setContentView(R.layout.activity_register_user);
 
         preferences = getSharedPreferences("userInfo", MODE_PRIVATE);
 
-        awesomeValidation.addValidation(this, R.id.volunteer_username_edit_text, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$", R.string.username_error_text);
-        awesomeValidation.addValidation(this, R.id.volunteer_email_edit_text, Patterns.EMAIL_ADDRESS, R.string.email_error_text);
-        awesomeValidation.addValidation(this, R.id.volunteer_password_edit_text, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$", R.string.password_error_text);
+        findViews();
+        setAwesomeValidation();
 
-
-
-        rvAcceptTerms.setOnClickListener(new View.OnClickListener() {
+        acceptTermsCheckbox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (rvAcceptTermsCheckbox.isChecked()){
-                    rvAcceptTermsCheckbox.setTextColor(getResources().getColor(R.color.colorAccent));
+                if (acceptTermsCheckbox.isChecked()){
+                    acceptTermsCheckbox.setTextColor(getResources().getColor(R.color.colorAccent));
                 }else {
-                    rvAcceptTermsCheckbox.setTextColor(getResources().getColor(R.color.grey));
+                    acceptTermsCheckbox.setTextColor(getResources().getColor(R.color.grey));
                 }
             }
         });
-
 
 
         //Register volunteer button
         registerVolunteerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (rvAcceptTermsCheckbox.isChecked() && awesomeValidation.validate() && isValidPhoneNumber(volunteerPhoneEditText.getText().toString())) {
-                    getInfo();
-                    showPopUpDialog();
-                }else if (!rvAcceptTermsCheckbox.isChecked()){
-                    showToast();
-                }else if (!isValidPhoneNumber(volunteerPhoneEditText.getText().toString())){
-                    Toast.makeText(RegisterVolunteerActivity.this, getString(R.string.phone_error_text), Toast.LENGTH_SHORT).show();
-                }
-
-
+                registerUserBtn();
             }
         });
 
     }
 
+    public void setAwesomeValidation(){
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        awesomeValidation.addValidation(this, R.id.user_username_edit_text, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$", R.string.username_error_text);
+        awesomeValidation.addValidation(this, R.id.user_email_edit_text, Patterns.EMAIL_ADDRESS, R.string.email_error_text);
+        awesomeValidation.addValidation(this, R.id.user_password_edit_text, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$", R.string.password_error_text);
+
+    }
+
+    public void findViews(){
+        regUserImg = findViewById(R.id.register_user_image);
+        regUserImg.setImageResource(R.drawable.volunteer_card_view_image);
+
+
+        registerVolunteerBtn = findViewById(R.id.register_user_button);
+        succesRegisterDialog = new Dialog(this);
+
+        acceptTermsTV = findViewById(R.id.accept_terms_text_view);
+        acceptTermsTV.setMovementMethod(LinkMovementMethod.getInstance());
+
+        acceptTermsCheckbox = findViewById(R.id.user_terms_checkbox);
+
+        volunteerUsernameEditText = findViewById(R.id.user_username_edit_text);
+        volunteerEmailEditText = findViewById(R.id.user_email_edit_text);
+        volunteerPasswordEditText = findViewById(R.id.user_password_edit_text);
+        volunteerFirstNameEditText = findViewById(R.id.user_first_name_edit_text);
+        volunteerLastNameEditText = findViewById(R.id.user_last_name_edit_text);
+        volunteerPhoneEditText = findViewById(R.id.user_phone_edit_text);
+    }
     public  boolean isValidPhoneNumber(CharSequence target) {
         if (target.length() == 0){
             return true;
@@ -130,6 +146,19 @@ public class RegisterVolunteerActivity extends MainActivity {
             return false;
         } else {
             return android.util.Patterns.PHONE.matcher(target).matches();
+        }
+    }
+
+
+    public void registerUserBtn(){
+        if (acceptTermsCheckbox.isChecked() && awesomeValidation.validate() && isValidPhoneNumber(volunteerPhoneEditText.getText().toString())) {
+            getInfo();
+            showPopUp();
+        }else if (!acceptTermsCheckbox.isChecked()){
+            showToast();
+        }else if (!isValidPhoneNumber(volunteerPhoneEditText.getText().toString())){
+            volunteerPhoneEditText.setError(getString(R.string.phone_error_text));
+          //  Toast.makeText(RegisterVolunteerActivity.this, getString(R.string.phone_error_text), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -164,33 +193,22 @@ public class RegisterVolunteerActivity extends MainActivity {
         toast.show();
     }
 
-    public void showPopUpDialog(){
-        succesRegisterDialog.setContentView(R.layout.register_volunteer_popup);
-        rvClosePopUp =  succesRegisterDialog.findViewById(R.id.rv_close_pop_up);
-        rvOKBtn =  succesRegisterDialog.findViewById(R.id.rv_ok_button);
-        rvPopupTitle =  succesRegisterDialog.findViewById(R.id.rv_title_popup);
-        rvPopupMessage =  succesRegisterDialog.findViewById(R.id.rv_message_pop_up);
+    public void showPopUp(){
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(getString(R.string.register_pop_up_title))
+                .setMessage(getString(R.string.register_pop_up_message))
+                .setIcon(R.drawable.ic_check_circle_black_24dp)
+                .setPositiveButton(getString(R.string.register_pop_up_button), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent goLogin = new Intent(RegisterVolunteerActivity.this, LoginActivity.class);
+                        startActivity(goLogin);
+                    }
+                })
 
-
-
-        rvClosePopUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                succesRegisterDialog.dismiss();
-            }
-        });
-
-        Objects.requireNonNull(succesRegisterDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        succesRegisterDialog.show();
-
-        rvOKBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent goLogin = new Intent(RegisterVolunteerActivity.this, LoginActivity.class);
-                startActivity(goLogin);
-            }
-        });
+                .show();
     }
+
 
     @Override
     public void finish(){

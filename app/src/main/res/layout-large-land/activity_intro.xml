@@ -4,34 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="@dimen/start_margin_large"
-    android:layout_marginEnd="@dimen/end_margin_large"
-    android:layout_marginTop="@dimen/top_margin_large"
-    android:layout_marginBottom="@dimen/bottom_margin_large"
+    android:layout_margin="@dimen/margins"
     android:orientation="horizontal"
     android:background="@color/white"
-    tools:context=".intro.IntroActivity"
-    android:baselineAligned="false">
+    tools:context=".intro.IntroActivity">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1">
 
-        <androidx.viewpager.widget.ViewPager
-            android:id="@+id/screen_viewpager"
-            android:layout_width="580dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/end_margin_large">
-        </androidx.viewpager.widget.ViewPager>
-
-    </LinearLayout>
-
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/screen_viewpager"
+        android:layout_width="700dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="@dimen/end_margin">
+    </androidx.viewpager.widget.ViewPager>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_gravity="end"
         android:orientation="vertical">
 
         <LinearLayout
@@ -44,8 +33,9 @@
                 android:id="@+id/tab_indicator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/top_margin_large"
-                android:layout_marginStart="@dimen/start_margin_large"
+                android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginStart="@dimen/start_margin"
+                android:scrollbarSize="@dimen/body"
                 app:tabBackground="@drawable/indicator_selector">
             </com.google.android.material.tabs.TabLayout>
 
@@ -61,14 +51,13 @@
                 android:id="@+id/btn_get_started"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/top_margin_large"
-                android:layout_marginStart="@dimen/start_margin_large"
+                android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginStart="@dimen/start_margin"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/get_started_button"
                 android:textColor="@color/white"
-                android:textSize="@dimen/forgot_password_popup_button_large"
+                android:textSize="@dimen/body"
                 android:visibility="invisible" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -82,11 +71,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
-                android:layout_marginTop="@dimen/top_margin_large"
-                android:layout_marginStart="@dimen/start_margin_large"
+                android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginStart="@dimen/start_margin"
                 android:drawableEnd="@drawable/arrow_next_intro"
-                android:textSize="@dimen/forgot_password_popup_button_large"
                 android:text="@string/next_button"
+                android:textSize="@dimen/body"
                 android:textColor="@color/colorPrimary" />
 
         </LinearLayout>

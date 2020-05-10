@@ -28,48 +28,60 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 
 public class IntroActivity extends MainActivity {
 
+    /*View Pager*/
+    private ViewPager screenPager;
+    IntroViewPagerAdapter introViewPagerAdapter;
+    TabLayout tabIndicator;
 
-      private ViewPager screenPager;
-      IntroViewPagerAdapter introViewPagerAdapter;
-      TabLayout tabIndicator;
+    /*Buttons*/
+    Button btnNext;
+    Button btnGetStarted;
+    Animation btnAnim;
 
-      Button btnNext;
-      Button btnGetStarted;
-
-      Animation btnAnim;
-
-      int position = 0;
+    /*Variables*/
+    int position = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
 
+        fullScreenActivity();
+        checkFirstTimeOpenedApp();
 
-        //make the activity on full screen
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        Objects.requireNonNull(getSupportActionBar()).hide();
+        setContentView(R.layout.activity_intro);
+
+        initViews();
+        setupViewPager();
+    }
 
 
-//        //when this activity is about to be launch we need to check if is opened before or not
+    private void checkFirstTimeOpenedApp() {
+        //when this activity is about to be launch we need to check if is opened before or not
         if (restorePrefData()){
             Intent mainActivity = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(mainActivity);
             finish();
         }
+    }
 
+    private void fullScreenActivity() {
+        //make the activity on full screen
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        Objects.requireNonNull(getSupportActionBar()).hide();
+    }
 
-         setContentView(R.layout.activity_intro);
-
+    private void initViews() {
         //init views
         tabIndicator = findViewById(R.id.tab_indicator);
         btnNext = findViewById(R.id.btn_next);
         btnGetStarted = findViewById(R.id.btn_get_started);
         btnAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.button_animation);
+    }
 
-
-       //fill list screen
+    private void setupViewPager() {
+        //fill list screen
         final List<ScreenItem> mList = new ArrayList<>();
         mList.add(new ScreenItem(getString(R.string.logo_intro_title), getString(R.string.logo_intro_description), R.drawable.intro_logo ));
         mList.add(new ScreenItem(getString(R.string.donor_intro_title), getString(R.string.donor_intro_description), R.drawable.intro_donor ));
@@ -144,9 +156,12 @@ public class IntroActivity extends MainActivity {
                 finish();
             }
         });
-
     }
-//
+
+
+
+
+    //
     private boolean restorePrefData() {
         SharedPreferences pref =  getApplicationContext().getSharedPreferences("myPrefs",MODE_PRIVATE);
         return pref.getBoolean("IsIntroOpened",false);
@@ -158,7 +173,7 @@ public class IntroActivity extends MainActivity {
         editor.putBoolean("IsIntroOpened",true);
         editor.apply();
     }
-//
+    //
 //    //show the GETSTARTED Button and hide the indicator and the next button
     private void loadLastScreen(){
         btnNext.setVisibility(View.INVISIBLE);
@@ -168,6 +183,6 @@ public class IntroActivity extends MainActivity {
         //setup animaion
         btnGetStarted.setAnimation(btnAnim);
 
-   }
+    }
 
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,65 +8,71 @@
     android:background="@color/white"
     tools:context=".intro.IntroActivity">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/screen_viewpager"
-        android:layout_width="match_parent"
-        android:layout_height="950dp"
-        android:layout_marginStart="@dimen/start_margin_large"
-        android:layout_marginTop="@dimen/top_margin_large"
-        android:layout_marginEnd="@dimen/end_margin_large"
-        android:layout_marginBottom="@dimen/bottom_margin_large">
-    </androidx.viewpager.widget.ViewPager>
-
-
-    <Button
-        android:id="@+id/btn_get_started"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/colorPrimary"
-        android:layout_marginStart="@dimen/start_margin_large"
-        android:layout_marginEnd="@dimen/end_margin_large"
-        android:text="@string/get_started_button"
-        android:textSize="@dimen/forgot_password_popup_button_large"
-        android:layout_gravity="center"
-        android:textColor="@color/white"
-        android:visibility="invisible"
-        />
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/start_margin_large"
-        android:layout_marginEnd="@dimen/end_margin_large"
-        android:layout_marginBottom="@dimen/bottom_margin_large"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_indicator"
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/screen_viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="600dp"
+            android:layout_marginStart="@dimen/start_margin"
+            android:layout_marginTop="@dimen/top_margin"
+            android:layout_marginEnd="@dimen/end_margin"
+            android:layout_marginBottom="150dp">
+        </androidx.viewpager.widget.ViewPager>
+
+
+        <Button
+            android:id="@+id/btn_get_started"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:layout_marginEnd="@dimen/start_margin_large"
-            app:tabBackground="@drawable/indicator_selector"
-            android:layout_weight="1">
-        </com.google.android.material.tabs.TabLayout>
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_marginStart="@dimen/start_margin"
+            android:layout_marginEnd="@dimen/end_margin"
+            android:text="@string/get_started_button"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/body"
+            android:visibility="invisible"
+            />
 
 
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_next"
-            android:textColor="@color/colorPrimary"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/start_margin_large"
-            android:layout_marginBottom="@dimen/bottom_margin_large"
-            android:textSize="@dimen/forgot_password_popup_button_large"
-            android:backgroundTint="@color/white"
-            android:drawableEnd="@drawable/arrow_next_intro"
-            android:text="@string/next_button"
-            android:layout_weight="1"/>
+            android:layout_marginStart="@dimen/start_margin"
+            android:layout_marginEnd="@dimen/end_margin"
+            android:layout_marginBottom="@dimen/bottom_margin"
+            android:orientation="horizontal">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tab_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginEnd="@dimen/start_margin"
+                app:tabBackground="@drawable/indicator_selector"
+                android:scrollbarSize="@dimen/body"
+                android:layout_weight="1">
+            </com.google.android.material.tabs.TabLayout>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_next"
+                android:textColor="@color/colorPrimary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/start_margin"
+                android:layout_marginBottom="@dimen/bottom_margin"
+                android:backgroundTint="@color/white"
+                android:drawableEnd="@drawable/arrow_next_intro"
+                android:text="@string/next_button"
+                android:textSize="@dimen/body"
+                android:layout_weight="1"/>
+        </LinearLayout>
 
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

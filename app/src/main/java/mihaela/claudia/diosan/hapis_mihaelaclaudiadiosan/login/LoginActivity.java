@@ -63,8 +63,8 @@ public class LoginActivity extends MainActivity {
     }
 
     private void initViews() {
-        forgotPassword = (TextView) findViewById(R.id.forgot_password_text_view);
-        signUp = (TextView) findViewById(R.id.signup);
+        forgotPassword = findViewById(R.id.forgot_password_text_view);
+        signUp = findViewById(R.id.signup);
         statistics = findViewById(R.id.statistics_tv);
         loginUsernameEditText = findViewById(R.id.login_username_edit_text);
         loginPasswordEditText = findViewById(R.id.login_password_edit_text);

@@ -13,7 +13,8 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 card_view:cardBackgroundColor="@color/white"
-                android:layout_margin="@dimen/cv_margin_large">
+                android:layout_margin="@dimen/cv_margins">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -40,7 +41,7 @@
                         android:scaleType="fitXY"
                         android:adjustViewBounds="true"
                         android:src="@drawable/register_donor_img"
-                        android:contentDescription="@string/content_description_donor_card"
+                        android:contentDescription="@string/content_description"
 
                         />
 
@@ -56,7 +57,7 @@
                             android:text="@string/donor_cv_title"
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold"
-                            android:textSize="@dimen/register_cv_title_large"
+                            android:textSize="@dimen/body"
                             android:layout_gravity="center"
                             android:textAppearance="?attr/textAppearanceHeadline6"
                             />
@@ -72,9 +73,9 @@
                                 android:id="@+id/know_more_donor_button"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="@dimen/cv_button_margin_large"
+                                android:layout_marginEnd="@dimen/cv_margins"
                                 android:text="@string/cv_more_button"
-                                android:textSize="@dimen/cv_button_text_size_large"
+                                android:textSize="@dimen/body"
                                 style="?attr/borderlessButtonStyle"
                                 />
 
@@ -82,13 +83,11 @@
                                 android:id="@+id/start_register_donor"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="@dimen/cv_button_margin_large"
+                                android:layout_marginEnd="@dimen/cv_margins"
                                 android:text="@string/cv_start_button"
-                                android:textSize="@dimen/cv_button_text_size_large"
+                                android:textSize="@dimen/body"
                                 />
                         </LinearLayout>
-
-
 
                     </LinearLayout>
 
@@ -109,7 +108,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 card_view:cardBackgroundColor="@color/white"
-                android:layout_margin="@dimen/cv_margin_large">
+                android:layout_margin="@dimen/cv_margins">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -124,8 +123,7 @@
                         android:scaleType="fitXY"
                         android:adjustViewBounds="true"
                         android:src="@drawable/register_volunteer_img"
-                        android:contentDescription="@string/content_description_volunteer_card"
-
+                        android:contentDescription="@string/content_description"
                         />
 
                     <LinearLayout
@@ -140,7 +138,7 @@
                             android:text="@string/volunteer_cv_title"
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold"
-                            android:textSize="@dimen/register_cv_title_large"
+                            android:textSize="@dimen/body"
                             android:layout_gravity="center"
                             android:textAppearance="?attr/textAppearanceHeadline6"
                             />
@@ -156,9 +154,9 @@
                                 android:id="@+id/know_more_volunteer_button"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="@dimen/cv_button_margin_large"
+                                android:layout_marginEnd="@dimen/cv_margins"
                                 android:text="@string/cv_more_button"
-                                android:textSize="@dimen/cv_button_text_size_large"
+                                android:textSize="@dimen/body"
                                 style="?attr/borderlessButtonStyle"
                                 />
 
@@ -166,9 +164,9 @@
                                 android:id="@+id/start_register_volunteer"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="@dimen/cv_button_margin_large"
+                                android:layout_marginEnd="@dimen/cv_margins"
                                 android:text="@string/cv_start_button"
-                                android:textSize="@dimen/cv_button_text_size_large"
+                                android:textSize="@dimen/body"
                                 />
                         </LinearLayout>
 
@@ -178,13 +176,8 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-
         </LinearLayout>
 
-
-
     </LinearLayout>
-
-
 
 </ScrollView>

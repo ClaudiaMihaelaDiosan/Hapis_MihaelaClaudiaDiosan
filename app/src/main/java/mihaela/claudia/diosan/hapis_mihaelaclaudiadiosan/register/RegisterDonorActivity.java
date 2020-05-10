@@ -71,35 +71,14 @@ public class RegisterDonorActivity extends MainActivity {
         setContentView(R.layout.activity_register_user);
 
         preferences = getSharedPreferences("userInfo", MODE_PRIVATE);
-        findViews();
-
-        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
+        initViews();
         setAwesomeValidation();
-
-        /*Accept Terms Checkbox*/
-        acceptTermsCheckbox.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (acceptTermsCheckbox.isChecked()){
-                    acceptTermsCheckbox.setTextColor(getResources().getColor(R.color.colorAccent));
-                }else {
-                    acceptTermsCheckbox.setTextColor(getResources().getColor(R.color.grey));
-                }
-            }
-        });
-
-        /*Register button*/
-        registerDonorBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                registerBtn();
-            }
-
-        });
+        onClickButtons();
 
     }
 
-    public void findViews(){
+
+    public void initViews(){
         regUserImg = findViewById(R.id.register_user_image);
         regUserImg.setImageResource(R.drawable.donor_card_view_image);
 
@@ -121,8 +100,32 @@ public class RegisterDonorActivity extends MainActivity {
         donorPhoneEditText = findViewById(R.id.user_phone_edit_text);
     }
 
+    private void onClickButtons(){
+        /*Accept Terms Checkbox*/
+        acceptTermsCheckbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (acceptTermsCheckbox.isChecked()){
+                    acceptTermsCheckbox.setTextColor(getResources().getColor(R.color.colorAccent));
+                }else {
+                    acceptTermsCheckbox.setTextColor(getResources().getColor(R.color.grey));
+                }
+            }
+        });
+
+        /*Register button*/
+        registerDonorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                registerBtn();
+            }
+
+        });
+    }
+
 
     public void setAwesomeValidation(){
+        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
         awesomeValidation.addValidation(this, R.id.user_username_edit_text, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$", R.string.username_error_text);
         awesomeValidation.addValidation(this, R.id.user_email_edit_text, Patterns.EMAIL_ADDRESS, R.string.email_error_text);
         awesomeValidation.addValidation(this, R.id.user_password_edit_text, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$", R.string.password_error_text);

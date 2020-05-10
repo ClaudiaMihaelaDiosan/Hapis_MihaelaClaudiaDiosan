@@ -1,40 +1,27 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register;
 
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
-
-import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
 import java.util.Objects;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
+
 public class RegisterActivity extends MainActivity {
 
-    Dialog knowMoreDonorDialog;
-    Dialog knowMoreVolunteerDialog;
 
-    ImageView closePopUpDonor;
-    ImageView closePopUpVolunteer;
-
+    /*Buttons*/
     MaterialButton knowMoreDonorBtn;
-    MaterialButton knowMoreDonorOkBtn;
     MaterialButton knowMoreVolunteerBtn;
-    MaterialButton knowMoreVolunteerOkBtn;
     MaterialButton startRegisterDonorBtn;
     MaterialButton startRegisterVolunteerBtn;
 
@@ -44,34 +31,41 @@ public class RegisterActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
+        makeActivityFullScreen();
+        initViews();
+        onClickButtons();
+
+    }
+
+
+
+    private void makeActivityFullScreen() {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         Objects.requireNonNull(getSupportActionBar()).hide();
+    }
 
+    private void initViews() {
+        knowMoreDonorBtn =  findViewById(R.id.know_more_donor_button);
+        startRegisterDonorBtn = findViewById(R.id.start_register_donor);
+        knowMoreVolunteerBtn =  findViewById(R.id.know_more_volunteer_button);
+        startRegisterVolunteerBtn = findViewById(R.id.start_register_volunteer);
+    }
 
-          knowMoreDonorDialog =  new Dialog(this);
-          knowMoreDonorBtn =  findViewById(R.id.know_more_donor_button);
-          startRegisterDonorBtn = findViewById(R.id.start_register_donor);
+    private void onClickButtons() {
+        knowMoreDonorBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDonorPopUpDialog();
+            }
+        });
 
-          knowMoreVolunteerDialog =  new Dialog(this);
-          knowMoreVolunteerBtn =  findViewById(R.id.know_more_volunteer_button);
-          startRegisterVolunteerBtn = findViewById(R.id.start_register_volunteer);
-
-
-
-          knowMoreDonorBtn.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  showDonorPopUpDialog();
-              }
-          });
-
-          knowMoreVolunteerBtn.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  showVolunteerPopUpDialog();
-              }
-          });
+        knowMoreVolunteerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showVolunteerPopUpDialog();
+            }
+        });
 //
 
         startRegisterDonorBtn.setOnClickListener(new View.OnClickListener() {
@@ -91,55 +85,33 @@ public class RegisterActivity extends MainActivity {
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
             }
         });
-
-    }
-
-    private void showVolunteerPopUpDialog() {
-
-        knowMoreVolunteerDialog.setContentView(R.layout.volunteer_know_more_popup);
-        closePopUpVolunteer = knowMoreVolunteerDialog.findViewById(R.id.know_more_volunteer_popup_close);
-        knowMoreVolunteerOkBtn =  knowMoreVolunteerDialog.findViewById(R.id.volunteer_know_more_ok_button);
-
-        closePopUpVolunteer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                knowMoreVolunteerDialog.dismiss();
-            }
-        });
-
-        Objects.requireNonNull(knowMoreVolunteerDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        knowMoreVolunteerDialog.show();
-
-        knowMoreVolunteerOkBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                knowMoreVolunteerDialog.dismiss();
-            }
-        });
     }
 
 
-    public void showDonorPopUpDialog(){
-        knowMoreDonorDialog.setContentView(R.layout.donor_know_more_popup);
-        closePopUpDonor =  knowMoreDonorDialog.findViewById(R.id.know_more_donor_popup_close);
-        knowMoreDonorOkBtn = knowMoreDonorDialog.findViewById(R.id.know_more_donor_ok_button);
+    private void showVolunteerPopUpDialog(){
+            new MaterialAlertDialogBuilder(this)
+                    .setTitle(getString(R.string.volunteer_know_more_title))
+                    .setMessage(getString(R.string.volunteer_know_more_text))
+                    .setPositiveButton(getString(R.string.register_pop_up_button), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                           dialog.dismiss();
+                        }
+                    })
+                    .show();
+    }
 
-        closePopUpDonor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                knowMoreDonorDialog.dismiss();
-            }
-        });
-
-        Objects.requireNonNull(knowMoreDonorDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        knowMoreDonorDialog.show();
-
-        knowMoreDonorOkBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                knowMoreDonorDialog.dismiss();
-            }
-        });
+    private void showDonorPopUpDialog(){
+        new MaterialAlertDialogBuilder(this)
+                .setTitle(getString(R.string.donor_know_more_title))
+                .setMessage(getString(R.string.donor_know_more_text))
+                .setPositiveButton(getString(R.string.register_pop_up_button), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
     }
 
 

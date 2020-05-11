@@ -1,5 +1,7 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -25,6 +27,7 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 public class ForgotPasswordActivity extends MainActivity {
 
 
+    AlertDialog dialogBuilder;
     /*Buttons*/
     Button recoverPassword;
 
@@ -84,7 +87,7 @@ public class ForgotPasswordActivity extends MainActivity {
 
 
     private void showPopUpDialog(){
-            new MaterialAlertDialogBuilder(this)
+            dialogBuilder = new MaterialAlertDialogBuilder(this)
                     .setIcon(R.drawable.ic_check_circle_black_24dp)
                     .setMessage(getString(R.string.pop_up_message))
                     .setPositiveButton(getString(R.string.pop_up_button), new DialogInterface.OnClickListener() {
@@ -97,6 +100,8 @@ public class ForgotPasswordActivity extends MainActivity {
                     .show();
 
     }
+
+
 
     @Override
     public void finish(){

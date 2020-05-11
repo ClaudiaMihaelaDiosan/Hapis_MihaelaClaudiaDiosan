@@ -13,10 +13,7 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/cardCornerRadius"
         app:cardElevation="@dimen/elevation"
-        android:layout_marginTop="@dimen/top_margin"
-        android:layout_marginBottom="@dimen/bottom_margin"
-        android:layout_marginStart="@dimen/start_margin"
-        android:layout_marginEnd="@dimen/end_margin">
+        android:layout_margin="@dimen/margins">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,7 +28,7 @@
                 android:textColor="@color/amber"
                 android:layout_gravity="center"
                 android:textStyle="bold"
-                android:textSize="@dimen/title_statistics"
+                android:textSize="@dimen/title"
                 android:text="@string/statistics_title"
                 android:layout_marginTop="@dimen/top_margin"
                 android:layout_marginBottom="@dimen/bottom_margin"/>
@@ -40,7 +37,8 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:src="@drawable/statistics_img"/>
+                android:src="@drawable/statistics_img"
+                android:contentDescription="@string/content_description"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -53,15 +51,17 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/grey"
                     android:textStyle="bold"
+                    android:textSize="@dimen/body"
                     android:text="@string/statistics_homeless_text" />
 
                 <TextView
+                    android:id="@+id/homeless_number_statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_marginStart="@dimen/start_margin"
                     android:textStyle="bold"
-                    android:text="@string/statistics_homeless_number" />
+                    android:textSize="@dimen/body" />
 
 
             </LinearLayout>
@@ -76,15 +76,17 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/grey"
                     android:textStyle="bold"
+                    android:textSize="@dimen/body"
                     android:text="@string/statistics_donor_text" />
 
                 <TextView
+                    android:id="@+id/donor_number_statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_marginStart="@dimen/start_margin"
                     android:textStyle="bold"
-                    android:text="@string/statistics_donor_number" />
+                    android:textSize="@dimen/body" />
 
             </LinearLayout>
             <LinearLayout
@@ -97,15 +99,17 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/grey"
                     android:textStyle="bold"
+                    android:textSize="@dimen/body"
                     android:text="@string/statistics_volunteers_text" />
 
                 <TextView
+                    android:id="@+id/volunteer_number_statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_marginStart="@dimen/start_margin"
                     android:textStyle="bold"
-                    android:text="@string/statistics_volunteers_number" />
+                    android:textSize="@dimen/body" />
 
             </LinearLayout>
 
@@ -116,7 +120,7 @@
                 android:textColor="@color/amber"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/top_margin"
-                android:textSize="@dimen/text_statistics"
+                android:textSize="@dimen/title"
                 android:text="@string/donations_title" />
 
             <LinearLayout
@@ -130,15 +134,17 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/grey"
                     android:textStyle="bold"
+                    android:textSize="@dimen/body"
                     android:text="@string/statistics_food_help" />
 
                 <TextView
+                    android:id="@+id/food_statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_marginStart="@dimen/start_margin"
                     android:textStyle="bold"
-                    android:text="@string/statistics_food_help_number" />
+                    android:textSize="@dimen/body" />
 
             </LinearLayout>
 
@@ -154,15 +160,17 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/grey"
                     android:textStyle="bold"
+                    android:textSize="@dimen/body"
                     android:text="@string/statistics_clothes_help" />
 
                 <TextView
+                    android:id="@+id/clothes_statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"
-                    android:layout_marginStart="@dimen/start_margin"
-                    android:text="@string/statistics_clothes_help_number" />
+                    android:textSize="@dimen/body"
+                    android:layout_marginStart="@dimen/start_margin" />
 
             </LinearLayout>
 
@@ -178,17 +186,19 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/grey"
                     android:textStyle="bold"
+                    android:textSize="@dimen/body"
                     android:text="@string/statistics_work_help" />
+
                 <TextView
+                    android:id="@+id/work_statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"
-                    android:layout_marginStart="@dimen/start_margin"
-                    android:text="@string/statistics_work_help_number" />
+                    android:textSize="@dimen/body"
+                    android:layout_marginStart="@dimen/start_margin" />
 
             </LinearLayout>
-
 
 
             <LinearLayout
@@ -201,15 +211,17 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/grey"
                     android:textStyle="bold"
+                    android:textSize="@dimen/body"
                     android:text="@string/statistics_lodging_help" />
 
                 <TextView
+                    android:id="@+id/lodgind_statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"
-                    android:layout_marginStart="@dimen/start_margin"
-                    android:text="@string/statistics_lodging_number" />
+                    android:textSize="@dimen/body"
+                    android:layout_marginStart="@dimen/start_margin" />
 
 
             </LinearLayout>
@@ -226,15 +238,17 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/grey"
                     android:textStyle="bold"
+                    android:textSize="@dimen/body"
                     android:text="@string/statistics_hygiene_products_help" />
 
                 <TextView
+                    android:id="@+id/hygiene_products_statistics"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"
-                    android:layout_marginStart="@dimen/start_margin"
-                    android:text="@string/statistics_hygiene_products_help_number" />
+                    android:textSize="@dimen/body"
+                    android:layout_marginStart="@dimen/start_margin" />
 
             </LinearLayout>
 
@@ -246,7 +260,7 @@
                 android:textColor="@color/amber"
                 android:textStyle="bold"
                 android:layout_marginTop="@dimen/top_margin"
-                android:textSize="@dimen/text_statistics"
+                android:textSize="@dimen/title"
                 android:text="@string/statistics_help_type" />
 
             <LinearLayout
@@ -260,15 +274,17 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/grey"
                     android:textStyle="bold"
+                    android:textSize="@dimen/body"
                     android:text="@string/statistics_personal_help" />
 
                 <TextView
+                    android:id="@+id/statistics_personal_help"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"
                     android:layout_marginStart="@dimen/start_margin"
-                    android:text="@string/statistics_personal_help_number" />
+                    android:textSize="@dimen/body" />
 
             </LinearLayout>
 
@@ -283,25 +299,20 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/grey"
                     android:textStyle="bold"
+                    android:textSize="@dimen/body"
                     android:text="@string/statistics_volunteer_help" />
 
                 <TextView
+                    android:id="@+id/statistics_volunteer_help"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
                     android:textStyle="bold"
+                    android:textSize="@dimen/body"
                     android:layout_marginStart="@dimen/start_margin"
-                    android:layout_marginBottom="@dimen/bottom_margin"
-                    android:text="@string/statistics_volunteer_help_number" />
-
+                    android:layout_marginBottom="@dimen/bottom_margin" />
 
             </LinearLayout>
-
-
-
-
-
-
 
 
             <com.google.android.material.button.MaterialButton
@@ -310,7 +321,7 @@
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:text="@string/statistics_to_login_button"
-                android:textSize="@dimen/statistics_back_button"
+                android:textSize="@dimen/body"
                 android:layout_marginTop="@dimen/top_margin"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"

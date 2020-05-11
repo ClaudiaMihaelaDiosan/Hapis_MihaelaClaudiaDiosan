@@ -11,13 +11,9 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         app:cardCornerRadius="@dimen/cardCornerRadius"
         app:cardElevation="@dimen/elevation"
-        android:layout_marginTop="@dimen/top_margin_large"
-        android:layout_marginBottom="@dimen/bottom_margin_large"
-        android:layout_marginStart="@dimen/start_margin_large"
-        android:layout_marginEnd="@dimen/end_margin_large">
+        android:layout_margin="@dimen/margins">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,7 +26,7 @@
                 android:textColor="@color/amber"
                 android:layout_gravity="center"
                 android:textStyle="bold"
-                android:textSize="@dimen/title_statistics_large"
+                android:textSize="@dimen/title"
                 android:text="@string/statistics_title" />
 
             <LinearLayout
@@ -38,43 +34,44 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:layout_marginTop="@dimen/top_margin_large"
-                android:layout_marginStart="@dimen/start_margin_large"
-                android:layout_marginEnd="@dimen/end_margin_large"
-                android:orientation="horizontal">
+                android:layout_margin="@dimen/margins"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:layout_marginTop="@dimen/top_margin_large"
-                    android:layout_marginEnd="@dimen/end_margin_large"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:layout_marginEnd="@dimen/end_margin"
                     android:layout_weight="1">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/top_margin_large"
+                        android:layout_marginTop="@dimen/top_margin"
                         android:orientation="horizontal">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/grey"
-                            android:textSize="@dimen/text_statistics"
                             android:textStyle="bold"
+                            android:textSize="@dimen/body"
                             android:text="@string/statistics_homeless_text" />
 
                         <TextView
+                            android:id="@+id/homeless_number_statistics"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorPrimaryDark"
-                           android:layout_marginStart="@dimen/start_margin_large"
-                            android:textSize="@dimen/text_statistics"
+                            android:layout_marginStart="@dimen/start_margin"
                             android:textStyle="bold"
-                            android:text="@string/statistics_homeless_number" />
+                            android:textSize="@dimen/body" />
+
 
                     </LinearLayout>
+
 
 
                     <LinearLayout
@@ -87,20 +84,19 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/grey"
                             android:textStyle="bold"
-                            android:textSize="@dimen/text_statistics"
+                            android:textSize="@dimen/body"
                             android:text="@string/statistics_donor_text" />
 
                         <TextView
+                            android:id="@+id/donor_number_statistics"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorPrimaryDark"
+                            android:layout_marginStart="@dimen/start_margin"
                             android:textStyle="bold"
-                            android:layout_marginStart="@dimen/start_margin_large"
-                            android:textSize="@dimen/text_statistics"
-                            android:text="@string/statistics_donor_number" />
+                            android:textSize="@dimen/body" />
 
                     </LinearLayout>
-
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -112,26 +108,27 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/grey"
                             android:textStyle="bold"
-                            android:textSize="@dimen/text_statistics"
+                            android:textSize="@dimen/body"
                             android:text="@string/statistics_volunteers_text" />
 
                         <TextView
+                            android:id="@+id/volunteer_number_statistics"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorPrimaryDark"
+                            android:layout_marginStart="@dimen/start_margin"
                             android:textStyle="bold"
-                            android:layout_marginStart="@dimen/start_margin_large"
-                            android:textSize="@dimen/text_statistics"
-                            android:text="@string/statistics_volunteers_number" />
+                            android:textSize="@dimen/body" />
 
                     </LinearLayout>
 
 
                     <ImageView
-                        android:layout_width="250dp"
-                        android:layout_height="250dp"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
                         android:layout_gravity="start"
-                        android:src="@drawable/statistics_img"/>
+                        android:src="@drawable/statistics_img"
+                        android:contentDescription="@string/content_description"/>
 
                 </LinearLayout>
 
@@ -139,8 +136,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:layout_marginStart="@dimen/start_margin_large"
-                    android:layout_marginEnd="@dimen/end_margin_large"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:layout_marginEnd="@dimen/end_margin"
                     android:layout_weight="1">
 
                     <TextView
@@ -148,13 +145,13 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/amber"
                         android:textStyle="bold"
-                        android:textSize="@dimen/text_statistics_large"
+                        android:textSize="@dimen/title"
                         android:text="@string/donations_title" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/top_margin_large"
+                        android:layout_marginTop="@dimen/top_margin"
                         android:orientation="horizontal">
 
                         <TextView
@@ -162,17 +159,17 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/grey"
                             android:textStyle="bold"
-                            android:textSize="@dimen/text_statistics"
+                            android:textSize="@dimen/body"
                             android:text="@string/statistics_food_help" />
 
                         <TextView
+                            android:id="@+id/food_statistics"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorPrimaryDark"
+                            android:layout_marginStart="@dimen/start_margin"
                             android:textStyle="bold"
-                            android:layout_marginStart="@dimen/start_margin_large"
-                            android:textSize="@dimen/text_statistics"
-                            android:text="@string/statistics_food_help_number" />
+                            android:textSize="@dimen/body" />
 
                     </LinearLayout>
 
@@ -187,17 +184,17 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/grey"
                             android:textStyle="bold"
-                            android:textSize="@dimen/text_statistics"
+                            android:textSize="@dimen/body"
                             android:text="@string/statistics_clothes_help" />
 
                         <TextView
+                            android:id="@+id/clothes_statistics"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold"
-                            android:layout_marginStart="@dimen/start_margin_large"
-                            android:textSize="@dimen/text_statistics"
-                            android:text="@string/statistics_clothes_help_number" />
+                            android:textSize="@dimen/body"
+                            android:layout_marginStart="@dimen/start_margin" />
 
                     </LinearLayout>
 
@@ -213,20 +210,19 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/grey"
                             android:textStyle="bold"
-                            android:textSize="@dimen/text_statistics"
+                            android:textSize="@dimen/body"
                             android:text="@string/statistics_work_help" />
 
                         <TextView
+                            android:id="@+id/work_statistics"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold"
-                            android:layout_marginStart="@dimen/start_margin_large"
-                            android:textSize="@dimen/text_statistics"
-                            android:text="@string/statistics_work_help_number" />
+                            android:textSize="@dimen/body"
+                            android:layout_marginStart="@dimen/start_margin" />
 
                     </LinearLayout>
-
 
 
                     <LinearLayout
@@ -239,21 +235,20 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/grey"
                             android:textStyle="bold"
-                            android:textSize="@dimen/text_statistics"
+                            android:textSize="@dimen/body"
                             android:text="@string/statistics_lodging_help" />
 
                         <TextView
+                            android:id="@+id/lodgind_statistics"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold"
-                            android:layout_marginStart="@dimen/start_margin_large"
-                            android:textSize="@dimen/text_statistics"
-                            android:text="@string/statistics_lodging_number" />
+                            android:textSize="@dimen/body"
+                            android:layout_marginStart="@dimen/start_margin" />
+
 
                     </LinearLayout>
-
-
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -265,21 +260,36 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/grey"
                             android:textStyle="bold"
-                            android:textSize="@dimen/text_statistics"
+                            android:textSize="@dimen/body"
                             android:text="@string/statistics_hygiene_products_help" />
 
-
                         <TextView
+                            android:id="@+id/hygiene_products_statistics"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold"
-                            android:layout_marginStart="@dimen/start_margin_large"
-                            android:textSize="@dimen/text_statistics"
-                            android:text="@string/statistics_hygiene_products_help_number" />
+                            android:textSize="@dimen/body"
+                            android:layout_marginStart="@dimen/start_margin" />
 
                     </LinearLayout>
 
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/statistics_back_login"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_height="wrap_content"
+                        android:text="@string/statistics_to_login_button"
+                        android:textSize="@dimen/body"
+                        android:layout_marginTop="@dimen/top_margin"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/white"
+                        app:icon="@drawable/back_arrow"
+                        app:iconTint="@color/colorPrimary"
+                        android:layout_marginBottom="@dimen/bottom_margin"
+                        />
 
                 </LinearLayout>
 
@@ -288,7 +298,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:layout_marginStart="@dimen/start_margin_large"
+                    android:layout_marginStart="@dimen/start_margin"
                     android:layout_weight="1">
 
                     <TextView
@@ -296,13 +306,13 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/amber"
                         android:textStyle="bold"
-                        android:textSize="@dimen/text_statistics_large"
+                        android:textSize="@dimen/title"
                         android:text="@string/statistics_help_type" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/top_margin_large"
+                        android:layout_marginTop="@dimen/top_margin"
                         android:orientation="horizontal">
 
                         <TextView
@@ -310,25 +320,25 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/grey"
                             android:textStyle="bold"
-                            android:textSize="@dimen/text_statistics"
+                            android:textSize="@dimen/body"
                             android:text="@string/statistics_personal_help" />
 
                         <TextView
+                            android:id="@+id/statistics_personal_help"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold"
-                            android:layout_marginStart="@dimen/start_margin_large"
-                            android:textSize="@dimen/text_statistics"
-                            android:text="@string/statistics_personal_help_number" />
+                            android:layout_marginStart="@dimen/start_margin"
+                            android:textSize="@dimen/body" />
 
                     </LinearLayout>
-
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/bottom_margin"
                         android:orientation="horizontal">
 
                         <TextView
@@ -336,40 +346,24 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/grey"
                             android:textStyle="bold"
-                            android:textSize="@dimen/text_statistics"
+                            android:textSize="@dimen/body"
                             android:text="@string/statistics_volunteer_help" />
 
                         <TextView
+                            android:id="@+id/statistics_volunteer_help"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold"
-                            android:layout_marginStart="@dimen/start_margin_large"
-                            android:textSize="@dimen/text_statistics"
-                            android:text="@string/statistics_volunteer_help_number" />
+                            android:textSize="@dimen/body"
+                            android:layout_marginStart="@dimen/start_margin"
+                            android:layout_marginBottom="@dimen/bottom_margin" />
 
                     </LinearLayout>
-
 
                 </LinearLayout>
 
             </LinearLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/statistics_back_login"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center"
-                android:layout_height="wrap_content"
-                android:text="@string/statistics_to_login_button"
-                android:textSize="@dimen/statistics_back_button_large"
-                android:layout_marginTop="@dimen/top_margin_large"
-                android:textColor="@color/colorPrimary"
-                android:textStyle="bold"
-                android:backgroundTint="@color/white"
-                app:icon="@drawable/back_arrow"
-                app:iconTint="@color/colorPrimary"
-                android:layout_marginBottom="@dimen/bottom_margin_large"
-                />
 
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>

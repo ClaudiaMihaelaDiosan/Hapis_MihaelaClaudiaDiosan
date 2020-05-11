@@ -26,31 +26,22 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
 public class DonateVolunteerFragment extends Fragment {
 
-    View view;
-    VideoView vid;
-    MediaController mediaController;
-    MaterialButton donateBtn;
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_donate_volunteer, container, false);
+        /*Video*/
+        View view = inflater.inflate(R.layout.fragment_donate, container, false);
 
-        donateBtn = view.findViewById(R.id.volunteer_donate_button);
+        donate(view);
+        setVideo(view);
 
+        return view;
+    }
 
-
-        final VideoView videoView = (VideoView) view.findViewById(R.id.videoView);
-        String videoPath = "android.resource://" + getContext().getPackageName() + "/" + R.raw.homeless_video;
-        Uri uri = Uri.parse(videoPath);
-        videoView.setVideoURI(uri);
-
-
-        mediaController = new MediaController(getContext());
-        videoView.setMediaController(mediaController);
-        mediaController.setAnchorView(videoView);
+    private void donate(View view){
+        MaterialButton donateBtn = view.findViewById(R.id.donate_button);
 
         donateBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,27 +50,18 @@ public class DonateVolunteerFragment extends Fragment {
                 startActivity(paymentIntent);
             }
         });
-
-        return view;
     }
 
-    @Override
-    public void onConfigurationChanged(Configuration newConfig){
-        super.onConfigurationChanged(newConfig);
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE || newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-            try {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                if (Build.VERSION.SDK_INT >= 26) {
-                    ft.setReorderingAllowed(false);
-                }
-                ft.detach(this).attach(this).commit();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+    private void setVideo(View view){
+        VideoView videoView = view.findViewById(R.id.videoView);
+        String videoPath = "android.resource://" + getContext().getPackageName() + "/" + R.raw.homeless_video;
+        Uri uri = Uri.parse(videoPath);
+        videoView.setVideoURI(uri);
+
+
+        MediaController mediaController = new MediaController(getContext());
+        videoView.setMediaController(mediaController);
+        mediaController.setAnchorView(videoView);
     }
-
-
-
 
 }

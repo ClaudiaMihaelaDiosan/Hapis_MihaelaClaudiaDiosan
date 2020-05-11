@@ -303,10 +303,10 @@
 
 
     <!--    Volunteer Donate Fragment-->
-    <string name="volunteer_donate_title">DONATE TO HAPIS</string>
-    <string name="volunteer_donate_text">Your generous support provide real people with things like food and helps us to continue with this application.</string>
-    <string name="volunteer_donate_button">DONATE</string>
-    <string name="volunteer_donate_video"> Watch the video to donate 0.40 Euro.</string>
+    <string name="donate_title">DONATE TO HAPIS</string>
+    <string name="donate_text">Your generous support provide real people with things like food and helps us to continue with this application.</string>
+    <string name="donate_button">DONATE</string>
+    <string name="donate_video"> Watch the video to donate 0.40 Euro.</string>
 
     <!--    Payment activity-->
     <string name="payment_activity_name">Donate </string>

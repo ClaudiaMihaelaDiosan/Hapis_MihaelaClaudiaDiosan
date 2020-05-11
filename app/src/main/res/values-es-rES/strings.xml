@@ -294,10 +294,10 @@
     <string name="complete_life_toast">Rellena este campo</string>
 
     <!--    Volunteer Donate Fragment-->
-    <string name="volunteer_donate_title">DONA A HAPIS</string>
-    <string name="volunteer_donate_text"> Tu donación proporciona cosas como comida a personas reales y nos ayuda seguir manteniendo esta aplicación.</string>
-    <string name="volunteer_donate_button">DONAR</string>
-    <string name="volunteer_donate_video">Mira el video para dona 0.40 centimos.</string>
+    <string name="donate_title">DONA A HAPIS</string>
+    <string name="donate_text"> Tu donación proporciona cosas como comida a personas reales y nos ayuda seguir manteniendo esta aplicación.</string>
+    <string name="donate_button">DONAR</string>
+    <string name="donate_video">Mira el video para dona 0.40 centimos.</string>
 
     <!--    Payment activity-->
     <string name="payment_activity_name">Donar </string>

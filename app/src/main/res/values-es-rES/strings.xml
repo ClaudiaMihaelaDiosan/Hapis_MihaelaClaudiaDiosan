@@ -494,9 +494,9 @@ La segunda vez que me quedé sin hogar, siguió un patrón similar. Estuve traba
 
     <!-- Donor Configuration Fragment -->
     <string name="donor_configuration_title">CONFIGURACIÓN</string>
-    <string name="donor_personal_info_title">Información Personal</string>
-    <string name="donor_phone_number_title">Número de teléfono</string>
-    <string name="donor_phone_number_summary">Cambia tu número de teléfono existente o añade un número nuevo</string>
+    <string name="config_personal_info_title">Información Personal</string>
+    <string name="config_phone_number_hint">Número de teléfono</string>
+    <string name="config_phone_number_summary">Cambia tu número de teléfono existente o añade un número nuevo</string>
     <string name="donor_save_config_button">GUARDAR</string>
     <string name="donor_changed_phone_toast">Has cambiado tu número de teléfonoy</string>
     <string name="d_complete_life_toast">Rellena este campo</string>

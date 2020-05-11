@@ -44,55 +44,41 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 public class HomeVolunteer extends MainActivity implements NavigationView.OnNavigationItemSelectedListener  {
 
 
+    /*Navigation Elements*/
     private DrawerLayout volunteerDrawer;
+    NavigationView navigationView;
     Toolbar mToolbar;
+    View header;
 
+    /*TextViews*/
     TextView volunteerUsername;
     TextView volunteerEmail;
     TextView volunteerPhone;
 
+    /*Preferences*/
     SharedPreferences preferences;
-    View header;
+
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_home_volunteer);
 
-
-        preferences = getSharedPreferences("userInfo", MODE_PRIVATE);
-
-
-
-        mToolbar = findViewById(R.id.volunteer_toolbar);
-        setSupportActionBar(mToolbar);
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
-        volunteerDrawer = findViewById(R.id.volunteer_drawer);
-        NavigationView navigationView = findViewById(R.id.nav_view_volunteer);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        header = navigationView.getHeaderView(0);
-
-        volunteerUsername = header.findViewById(R.id.volunteer_username_text_view);
-        volunteerEmail = header.findViewById(R.id.volunteer_email_text_view);
-        volunteerPhone = header.findViewById(R.id.volunteer_phone_text_view);
-
-
-        ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(this, volunteerDrawer, R.string.open_navigation_drawer, R.string.close_navigation_drawer);
-        volunteerDrawer.addDrawerListener(mToggle);
-        mToggle.syncState();
+        initViews();
+        setNavigationElements();
+        setSharedPreferences();
 
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeVolunteerFragment()).commit();
             navigationView.setCheckedItem(R.id.volunteer_menu_home);
         }
+    }
 
+
+    private void setSharedPreferences() {
+        preferences = getSharedPreferences("userInfo", MODE_PRIVATE);
         preferences.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
             @Override
             public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
@@ -101,6 +87,32 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
             }
         });
 
+    }
+
+
+    private void initViews() {
+        mToolbar = findViewById(R.id.volunteer_toolbar);
+        volunteerDrawer = findViewById(R.id.volunteer_drawer);
+        navigationView = findViewById(R.id.nav_view_volunteer);
+    }
+
+    private void setNavigationElements() {
+        setSupportActionBar(mToolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        navigationView.setNavigationItemSelectedListener(this);
+        header = navigationView.getHeaderView(0);
+
+        volunteerUsername = header.findViewById(R.id.user_username_text_view);
+        volunteerEmail = header.findViewById(R.id.user_email_text_view);
+        volunteerPhone = header.findViewById(R.id.user_phone_text_view);
+
+
+        ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(this, volunteerDrawer, R.string.open_navigation_drawer, R.string.close_navigation_drawer);
+        volunteerDrawer.addDrawerListener(mToggle);
+        mToggle.syncState();
     }
 
     public void getVolunteerInfo(){

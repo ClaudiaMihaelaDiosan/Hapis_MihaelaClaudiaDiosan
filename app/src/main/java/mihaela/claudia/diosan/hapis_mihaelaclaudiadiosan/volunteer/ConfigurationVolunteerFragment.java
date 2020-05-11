@@ -34,26 +34,33 @@ import static android.content.Context.MODE_PRIVATE;
 public class ConfigurationVolunteerFragment extends Fragment {
 
 
-    SharedPreferences preferences;
-    TextInputEditText phoneNumber;
-    MaterialButton saveConfigBtn;
-    View view;
+    /*Preferences*/
+    private SharedPreferences preferences;
+
+    /*EditText*/
+    private TextInputEditText phoneNumber;
+
+    /*Buttons */
+    private MaterialButton saveConfigBtn;
+
+    /*View fragment*/
+    private View view;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.volunteer_configuration_fragment, container, false);
-
-
+        view = inflater.inflate(R.layout.configuration_fragment, container, false);
 
         preferences = getActivity().getSharedPreferences("userInfo", MODE_PRIVATE);
+        initViews();
+        saveButton();
 
-        phoneNumber = view.findViewById(R.id.configuration_phone_number);
-        saveConfigBtn = view.findViewById(R.id.configuration_button_save);
+        return view;
+    }
 
-
+    private void saveButton() {
         saveConfigBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,9 +73,11 @@ public class ConfigurationVolunteerFragment extends Fragment {
 
             }
         });
+    }
 
-
-        return view;
+    private void initViews() {
+        phoneNumber = view.findViewById(R.id.configuration_phone_number);
+        saveConfigBtn = view.findViewById(R.id.config_configuration_button_save);
     }
 
     public void changePhone(){

@@ -510,9 +510,9 @@ The second time I became homeless it followed a similar pattern. I had been work
 
     <!-- Donor Configuration Fragment -->
     <string name="donor_configuration_title">CONFIGURATION</string>
-    <string name="donor_personal_info_title">Personal Info</string>
-    <string name="donor_phone_number_title">Phone number</string>
-    <string name="donor_phone_number_summary">Change your existing phone number or add a new one</string>
+    <string name="config_personal_info_title">Personal Info</string>
+    <string name="config_phone_number_hint">Phone number</string>
+    <string name="config_phone_number_summary">Change your existing phone number or add a new one</string>
     <string name="donor_save_config_button">SAVE</string>
     <string name="donor_changed_phone_toast">You changed your phone number successfully</string>
     <string name="d_complete_life_toast">Complete this field</string>

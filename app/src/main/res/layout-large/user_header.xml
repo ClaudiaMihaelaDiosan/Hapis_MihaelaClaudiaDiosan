@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/donor_header_large"
+    android:layout_height="@dimen/donor_header"
     android:background="@drawable/volunteer_header"
     android:orientation="horizontal"
     android:gravity="bottom">
@@ -11,35 +11,35 @@
         android:layout_width="match_parent"
         android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/start_margin_large"
+        android:layout_marginStart="@dimen/start_margin"
         android:orientation="vertical">
 
 
         <TextView
-            android:id="@+id/donor_username_text_view"
+            android:id="@+id/user_username_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/donor_username_text_view"
+            android:text="@string/text"
             android:textStyle="bold"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="@dimen/donor_username_text_view_large"/>
+            android:textSize="@dimen/title"/>
 
         <TextView
-            android:id="@+id/donor_email_text_view"
+            android:id="@+id/user_email_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/donor_email_text_view"
+            android:text="@string/text"
             android:textStyle="bold"
-            android:textSize="@dimen/donor_email_text_view_large"
+            android:textSize="@dimen/body"
             android:textColor="@color/colorPrimaryDark"/>
 
         <TextView
-            android:id="@+id/donor_phone_text_view"
+            android:id="@+id/user_phone_text_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/donor_phone_text_view"
+            android:text="@string/text"
             android:textStyle="bold"
-            android:textSize="@dimen/donor_phone_text_view_large"
+            android:textSize="@dimen/body"
             android:textColor="@color/colorPrimaryDark"/>
     </LinearLayout>
 

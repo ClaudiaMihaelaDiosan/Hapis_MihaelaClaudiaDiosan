@@ -9,23 +9,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceFragmentCompat;
 
-import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.util.Locale;
-
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer.ConfigurationVolunteerFragment;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -34,25 +27,40 @@ import static android.content.Context.MODE_PRIVATE;
  */
 public class ConfigurationDonorFragment extends Fragment {
 
-    SharedPreferences preferences;
-    TextInputEditText phoneNumber;
-    MaterialButton saveConfigBtn;
-    View view;
+    /*Preferences*/
+    private SharedPreferences preferences;
+
+    /*EditText*/
+    private TextInputEditText phoneNumber;
+
+    /*Buttons */
+    private MaterialButton saveConfigBtn;
+
+    /*View fragment*/
+    private View view;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = inflater.inflate(R.layout.donor_configuration_fragment, container, false);
-
-
+        view = inflater.inflate(R.layout.configuration_fragment, container, false);
 
         preferences = getActivity().getSharedPreferences("userInfo", MODE_PRIVATE);
 
-        phoneNumber = view.findViewById(R.id.donor_configuration_phone_number);
-        saveConfigBtn = view.findViewById(R.id.donor_configuration_button_save);
+        initViews();
+        saveButton();
+
+        return view;
+    }
 
 
+    private void initViews(){
+        phoneNumber = view.findViewById(R.id.configuration_phone_number);
+        saveConfigBtn = view.findViewById(R.id.config_configuration_button_save);
+    }
+
+    private void saveButton(){
         saveConfigBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,9 +73,6 @@ public class ConfigurationDonorFragment extends Fragment {
 
             }
         });
-
-
-        return view;
     }
 
     public void changePhone(){
@@ -106,8 +111,4 @@ public class ConfigurationDonorFragment extends Fragment {
         super.onSaveInstanceState(outState);
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 }

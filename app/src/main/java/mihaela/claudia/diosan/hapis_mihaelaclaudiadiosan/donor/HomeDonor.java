@@ -3,25 +3,17 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
@@ -33,62 +25,65 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 
 public class HomeDonor extends MainActivity implements NavigationView.OnNavigationItemSelectedListener {
 
+    /*Navigation Elements*/
     private DrawerLayout donorDrawer;
+    NavigationView navigationView;
     Toolbar mToolbar;
     BottomNavigationView bottomNavigationView;
-
     View header;
 
+    /*TextViews*/
     TextView donorUsername;
     TextView donorEmail;
     TextView donorPhone;
 
+    /*Preferences*/
     SharedPreferences preferences;
-  //   BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener;
-
-
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_donor);
-        checkConection();
-
-        preferences = getSharedPreferences("userInfo", MODE_PRIVATE);
-
-        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
-        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-        mToolbar = findViewById(R.id.donor_toolbar);
-        setSupportActionBar(mToolbar);
-
-
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
-        donorDrawer = findViewById(R.id.donor_drawer);
-        NavigationView navigationView = findViewById(R.id.nav_view_donor);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        header = navigationView.getHeaderView(0);
-
-        donorUsername = header.findViewById(R.id.donor_username_text_view);
-        donorEmail = header.findViewById(R.id.donor_email_text_view);
-        donorPhone = header.findViewById(R.id.donor_phone_text_view);
-
-
-
-        ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(this, donorDrawer, R.string.open_navigation_drawer, R.string.close_navigation_drawer);
-        donorDrawer.addDrawerListener(mToggle);
-        mToggle.syncState();
-
+        initViews();
+        setNavigationElements();
+        setSharedPreferences();
 
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, new HomeDonorFragment()).commit();
             navigationView.setCheckedItem(R.id.donor_menu_home);
         }
+    }
+
+
+    private void initViews() {
+        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        mToolbar = findViewById(R.id.donor_toolbar);
+        donorDrawer = findViewById(R.id.donor_drawer);
+        navigationView = findViewById(R.id.nav_view_donor);
+    }
+
+    private void setNavigationElements() {
+        setSupportActionBar(mToolbar);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        navigationView.setNavigationItemSelectedListener(this);
+        header = navigationView.getHeaderView(0);
+
+        donorUsername = header.findViewById(R.id.user_username_text_view);
+        donorEmail = header.findViewById(R.id.user_email_text_view);
+        donorPhone = header.findViewById(R.id.user_phone_text_view);
+
+        ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(this, donorDrawer, R.string.open_navigation_drawer, R.string.close_navigation_drawer);
+        donorDrawer.addDrawerListener(mToggle);
+        mToggle.syncState();
+    }
+
+    private void setSharedPreferences() {
+        preferences = getSharedPreferences("userInfo", MODE_PRIVATE);
 
         preferences.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
             @Override
@@ -97,14 +92,14 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
                 donorPhone.setText(key);
             }
         });
-
     }
+
+
 
     public void getDonorInfo(){
         String username = preferences.getString("donorUsername","");
         String email = preferences.getString("donorUsername","");
         String phone = preferences.getString("donorPhone","");
-
 
         donorUsername.setText(username);
         donorEmail.setText(email);
@@ -142,7 +137,6 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
                 break;
 
             }
-
             getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, fragment).commit();
             return true;
 
@@ -159,7 +153,6 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
                 donorDrawer.openDrawer(GravityCompat.START);
                 return true;
         }
-
 
         return super.onOptionsItemSelected(item);
     }
@@ -205,20 +198,4 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
         }
     }
 
-    public void checkConection(){
-        ConnectivityManager manager = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
-
-        if (networkInfo != null
-                && networkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
-            //Toast.makeText(getApplicationContext(), R.string.wifi_connected, Toast.LENGTH_SHORT).show();
-
-        } else if (networkInfo != null && networkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
-            //Toast.makeText(getApplicationContext(), R.string.mobile_connected, Toast.LENGTH_SHORT).show();
-
-        } else {
-            Toast.makeText(getApplicationContext(), R.string.no_network_operating, Toast.LENGTH_SHORT).show();
-
-        }
-    }
 }

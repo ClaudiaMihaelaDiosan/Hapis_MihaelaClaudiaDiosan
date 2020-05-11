@@ -17,10 +17,7 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/top_margin_large"
-            android:layout_marginBottom="@dimen/bottom_margin_large"
-            android:layout_marginStart="@dimen/start_margin_large"
-            android:layout_marginEnd="@dimen/end_margin_large">
+            android:layout_margin="@dimen/margins">
 
 
             <LinearLayout
@@ -31,14 +28,14 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/top_margin_large"
-                    android:layout_marginBottom="@dimen/bottom_margin_large"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:layout_marginBottom="@dimen/bottom_margin"
+                    android:textSize="@dimen/body"
                     android:text="@string/schedule_text"
                     android:layout_gravity="start"
                     android:textStyle="bold"
-                    android:layout_marginStart="@dimen/start_margin_large"
-                    android:layout_marginEnd="@dimen/end_margin_large"
-                    android:textSize="@dimen/fn_text_large"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:layout_marginEnd="@dimen/end_margin"
                     android:textColor="@color/grey" />
 
 
@@ -46,8 +43,8 @@
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/start_margin_large"
-                    android:layout_marginEnd="@dimen/end_margin_large"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:layout_marginEnd="@dimen/end_margin"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     >
 
@@ -55,11 +52,10 @@
                         android:id="@+id/homeless_schedule_edit_text"
                         android:layout_width="match_parent"
                         android:gravity="top"
-                        android:layout_height="300dp"
+                        android:layout_height="150dp"
                         android:inputType="textMultiLine"
-                        android:layout_marginBottom="@dimen/bottom_margin_large"
+                        android:layout_marginBottom="@dimen/bottom_margin"
                         android:hint="@string/schedule_edit_text"
-                        android:textSize="@dimen/fn_text_large"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,14 +66,11 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/top_margin_large"
-                    android:layout_marginBottom="@dimen/bottom_margin_large"
+                    android:layout_margin="@dimen/margins"
                     android:text="@string/needs_text"
                     android:layout_gravity="start"
                     android:textStyle="bold"
-                    android:layout_marginStart="@dimen/start_margin_large"
-                    android:layout_marginEnd="@dimen/end_margin_large"
-                    android:textSize="@dimen/fn_text_large"
+                    android:textSize="@dimen/body"
                     android:textColor="@color/grey" />
 
                 <com.google.android.material.chip.ChipGroup
@@ -85,10 +78,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginStart="@dimen/start_margin_large"
-                    android:layout_marginEnd="@dimen/end_margin_large"
-                    android:layout_marginTop="@dimen/top_margin_large"
-                    android:layout_marginBottom="@dimen/bottom_margin_large"
+                    android:layout_margin="@dimen/margins"
                     app:singleSelection="true">
 
                     <com.google.android.material.chip.Chip
@@ -98,8 +88,8 @@
                         app:chipBackgroundColor="@color/light_red"
                         android:textColor="@color/black"
                         android:text="@string/chip_food"
+                        android:textSize="@dimen/body"
                         app:chipIcon="@drawable/food_icon"
-                        android:textSize="@dimen/fn_text_large"
                         app:chipIconEnabled="true"
                         style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
@@ -110,8 +100,8 @@
                         app:chipBackgroundColor="@color/blue_light"
                         android:textColor="@color/black"
                         android:text="@string/chip_clothes"
+                        android:textSize="@dimen/body"
                         app:chipIcon="@drawable/clothes_icon"
-                        android:textSize="@dimen/fn_text_large"
                         app:chipIconEnabled="true"
                         style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
@@ -122,8 +112,8 @@
                         app:chipBackgroundColor="@color/lila_color"
                         android:textColor="@color/black"
                         android:text="@string/chip_work"
+                        android:textSize="@dimen/body"
                         app:chipIcon="@drawable/work_icon"
-                        android:textSize="@dimen/fn_text_large"
                         app:chipIconEnabled="true"
                         style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
@@ -134,8 +124,8 @@
                         app:chipBackgroundColor="@color/green_color"
                         android:textColor="@color/black"
                         android:text="@string/chip_lodging"
+                        android:textSize="@dimen/body"
                         app:chipIcon="@drawable/lodging_icon"
-                        android:textSize="@dimen/fn_text_large"
                         app:chipIconEnabled="true"
                         style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
@@ -146,8 +136,8 @@
                         app:chipBackgroundColor="@color/yellow_color"
                         android:textColor="@color/black"
                         android:text="@string/chip_hygiene_products"
+                        android:textSize="@dimen/body"
                         app:chipIcon="@drawable/hygiene_icon"
-                        android:textSize="@dimen/fn_text_large"
                         app:chipIconEnabled="true"
                         style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
@@ -158,20 +148,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/most_important_need_tv"
+                    android:textSize="@dimen/body"
                     android:layout_gravity="start"
                     android:visibility="invisible"
-                    android:textSize="@dimen/fn_text_large"
-                    android:layout_marginStart="@dimen/start_margin_large"
-                    android:layout_marginEnd="@dimen/end_margin_large"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:layout_marginEnd="@dimen/end_margin"
                     android:textColor="@color/grey" />
 
                 <TextView
                     android:id="@+id/most_important_need"
                     android:textStyle="bold"
-                    android:layout_marginTop="@dimen/top_margin_large"
-                    android:layout_marginStart="@dimen/start_margin_large"
-                    android:layout_marginBottom="@dimen/bottom_margin_large"
-                    android:textSize="@dimen/fn_text_large"
+                    android:layout_margin="@dimen/margins"
+                    android:textSize="@dimen/body"
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -187,17 +175,17 @@
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/cancelScheduleButton"
                         style="?attr/borderlessButtonStyle"
-                        android:layout_marginEnd="@dimen/end_margin_large"
+                        android:layout_marginEnd="@dimen/end_margin"
+                        android:textSize="@dimen/body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/fn_text_large"
                         android:text="@string/homeless_profile_cancel_button" />
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/saveScheduleButton"
                         style="?attr/borderlessButtonStyle"
-                        android:layout_marginStart="@dimen/start_margin_large"
-                        android:textSize="@dimen/fn_text_large"
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:textSize="@dimen/body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/homeless_profile_save_button" />
@@ -206,7 +194,6 @@
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
-
 
     </LinearLayout>
 

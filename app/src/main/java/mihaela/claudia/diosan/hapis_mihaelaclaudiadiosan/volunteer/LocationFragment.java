@@ -42,24 +42,16 @@ import static android.content.Context.MODE_PRIVATE;
 public class LocationFragment extends Fragment  implements  OnMapAndViewReadyListener.OnGlobalLayoutAndMapReadyListener, OnMapReadyCallback {
 
 
-    View view;
-    PlacesClient placesClient;
-    List<Place.Field> placeFields = Arrays.asList(Place.Field.ID,Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
-    AutocompleteSupportFragment autocompleteSupportFragment;
-    TextView selectedLocationTV;
-    TextView textLocation;
+    private View view;
+    private List<Place.Field> placeFields = Arrays.asList(Place.Field.ID,Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
+    private TextView selectedLocationTV;
+    private TextView textLocation;
 
-    GoogleMap mGoogleMap;
-    SupportMapFragment mMapFragment;
-    Double latitude;
-    Double longitude;
-    LatLng MARKER;
+    private GoogleMap mGoogleMap;
+    private Double latitude;
+    private Double longitude;
 
-    SharedPreferences preferences;
-
-    MaterialButton cancelBtn;
-    MaterialButton saveBtn;
-
+    private SharedPreferences preferences;
 
 
     public LocationFragment() {
@@ -75,13 +67,13 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
 
 
         // Get the map and register for the ready callback
-        mMapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+        SupportMapFragment mMapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mMapFragment.getMapAsync(this);
 
         selectedLocationTV = view.findViewById(R.id.selected_location_tv);
         textLocation = view.findViewById(R.id.selected_location_text);
-        cancelBtn = view.findViewById(R.id.cancelLocationBtn);
-        saveBtn = view.findViewById(R.id.saveLocationButton);
+        MaterialButton cancelBtn = view.findViewById(R.id.cancelLocationBtn);
+        MaterialButton saveBtn = view.findViewById(R.id.saveLocationButton);
 
 
 
@@ -117,11 +109,11 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
 
     private void initPlaces    (){
         Places.initialize(view.getContext(), getString(R.string.google_maps_key));
-        placesClient = Places.createClient(view.getContext());
+        PlacesClient placesClient = Places.createClient(view.getContext());
     }
 
     public void setupPlaceAutoComplete(){
-        autocompleteSupportFragment = (AutocompleteSupportFragment) getChildFragmentManager().findFragmentById(R.id.autocomplete_fragment);
+        AutocompleteSupportFragment autocompleteSupportFragment = (AutocompleteSupportFragment) getChildFragmentManager().findFragmentById(R.id.autocomplete_fragment);
         assert autocompleteSupportFragment != null;
         autocompleteSupportFragment.setPlaceFields(placeFields);
         autocompleteSupportFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {

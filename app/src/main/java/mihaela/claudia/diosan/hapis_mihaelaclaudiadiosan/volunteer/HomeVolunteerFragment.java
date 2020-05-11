@@ -31,35 +31,14 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class HomeVolunteerFragment extends Fragment {
 
-    FloatingActionMenu floatingActionMenu;
-    FloatingActionButton newHomelessProfile;
-    FloatingActionButton sendDeliveryNotification;
-    Dialog notificationDialog;
-    MaterialButton sendNotification;
-    MaterialButton cancelNotification;
-    View view;
 
-    SharedPreferences preferences;
+    private Dialog notificationDialog;
+    private View view;
 
-
-
-    private RecyclerView mrecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
-
-    ArrayList<Homeless> homeless;
+    private ArrayList<Homeless> homeless;
     private View.OnClickListener editHomelessListener;
     private View.OnClickListener deleteHomelessListener;
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -67,14 +46,13 @@ public class HomeVolunteerFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home_volunteer, container, false);
 
-        preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
+        SharedPreferences preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
 
+        notificationDialog = new Dialog(getActivity());
 
-       floatingActionMenu = view.findViewById(R.id.floatingActionMenu);
-       newHomelessProfile = view.findViewById(R.id.new_homeless_profile);
-       sendDeliveryNotification = view.findViewById(R.id.send_delivery_notification);
-
-       notificationDialog = new Dialog(getActivity());
+        FloatingActionMenu floatingActionMenu = view.findViewById(R.id.floatingActionMenu);
+        FloatingActionButton newHomelessProfile = view.findViewById(R.id.new_homeless_profile);
+        FloatingActionButton sendDeliveryNotification = view.findViewById(R.id.send_delivery_notification);
 
 
         newHomelessProfile.setOnClickListener(new View.OnClickListener() {
@@ -116,12 +94,15 @@ public class HomeVolunteerFragment extends Fragment {
     }
 
 
+    private void floatingActionBtn(){
+
+    }
 
 
-    public void sendNotificationDialog(){
+    private void sendNotificationDialog(){
         notificationDialog.setContentView(R.layout.send_delivery_notification);
-        cancelNotification = (MaterialButton) notificationDialog.findViewById(R.id.delivery_close_button);
-        sendNotification = (MaterialButton) notificationDialog.findViewById(R.id.send_notification_button);
+        MaterialButton cancelNotification = (MaterialButton) notificationDialog.findViewById(R.id.delivery_close_button);
+        MaterialButton sendNotification = (MaterialButton) notificationDialog.findViewById(R.id.send_notification_button);
 
         cancelNotification.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -142,10 +123,10 @@ public class HomeVolunteerFragment extends Fragment {
     }
 
     public void buildRecyclerView(){
-        mrecyclerView = view.findViewById(R.id.recycler_view);
+        RecyclerView mrecyclerView = view.findViewById(R.id.recycler_view);
         mrecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(view.getContext());
-        mAdapter = new HomelessAdapter(homeless, editHomelessListener, deleteHomelessListener);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(view.getContext());
+        RecyclerView.Adapter mAdapter = new HomelessAdapter(homeless, editHomelessListener, deleteHomelessListener);
 
         mrecyclerView.setLayoutManager(mLayoutManager);
         mrecyclerView.setAdapter(mAdapter);

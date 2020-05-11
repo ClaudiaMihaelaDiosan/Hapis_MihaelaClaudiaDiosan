@@ -38,26 +38,24 @@ public class CreateHomelessProfileActivity extends MainActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
 
-    private TermsFragment termsFragment;
-    private ProfileFragment profileFragment;
-    private NeedsFragment needsFragment;
-    private LocationFragment locationFragment;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_homeless_perfile);
 
+        setUpViewPager();
 
+    }
+
+    private void setUpViewPager() {
         viewPager = findViewById(R.id.create_homeless_view_pager);
         tabLayout = findViewById(R.id.create_homeless_tab_layout);
 
-        termsFragment = new TermsFragment();
-        profileFragment = new ProfileFragment();
-        needsFragment = new NeedsFragment();
-        locationFragment = new LocationFragment();
+        TermsFragment termsFragment = new TermsFragment();
+        ProfileFragment profileFragment = new ProfileFragment();
+        NeedsFragment needsFragment = new NeedsFragment();
+        LocationFragment locationFragment = new LocationFragment();
 
         tabLayout.setupWithViewPager(viewPager);
 
@@ -72,8 +70,6 @@ public class CreateHomelessProfileActivity extends MainActivity {
         tabLayout.getTabAt(1).setIcon(R.drawable.create_homeless_profile);
         tabLayout.getTabAt(2).setIcon(R.drawable.create_homeless_location);
         tabLayout.getTabAt(3).setIcon(R.drawable.create_homeless_needs);
-
-
     }
 
     private static class ViewPagerAdapter extends FragmentPagerAdapter {

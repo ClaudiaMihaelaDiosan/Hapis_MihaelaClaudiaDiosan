@@ -11,17 +11,15 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/top_margin_large"
-        android:layout_marginBottom="@dimen/bottom_margin_large"
-        android:layout_marginStart="@dimen/start_margin_large"
+        android:layout_margin="@dimen/margins"
         android:backgroundTint="@color/white"
-        android:layout_marginEnd="@dimen/end_margin_large">
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="@dimen/start_margin_large"
-            android:layout_marginEnd="@dimen/end_margin_large"
+            android:layout_marginStart="@dimen/start_margin"
+            android:layout_marginEnd="@dimen/end_margin"
             android:orientation="vertical">
 
             <LinearLayout
@@ -32,18 +30,19 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginTop="@dimen/top_margin_large"
-                    android:layout_marginStart="@dimen/start_margin_large"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:contentDescription="@string/content_description"
                     android:src="@drawable/donate_icon"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/payment_title"
-                    android:layout_marginTop="@dimen/top_margin_large"
-                    android:layout_marginStart="@dimen/start_margin_large"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:layout_marginStart="@dimen/start_margin"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/payment_text_large"/>
+                    android:textSize="@dimen/body"/>
 
             </LinearLayout>
 
@@ -54,7 +53,7 @@
                 android:layout_gravity="center"
                 android:hint="@string/currency_hint"
                 android:inputType="number"
-                android:textSize="@dimen/currency_et_large" />
+                android:textSize="@dimen/title" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -64,18 +63,19 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_marginTop="@dimen/top_margin_large"
-                    android:layout_marginStart="@dimen/start_margin_large"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:contentDescription="@string/content_description"
                     android:src="@drawable/credit_card_icon"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/payment_card_credit"
-                    android:layout_marginStart="@dimen/start_margin_large"
-                    android:layout_marginTop="@dimen/top_margin_large"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:layout_marginTop="@dimen/top_margin"
                     android:textColor="@color/black"
-                    android:textSize="@dimen/payment_text_large"/>
+                    android:textSize="@dimen/body"/>
 
             </LinearLayout>
 
@@ -92,8 +92,8 @@
                 app:iconTint="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
+                android:textSize="@dimen/body"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/payment_text_large"
                 android:backgroundTint="@color/colorPrimary"
                 android:text="@string/payment_donate_button"/>
 

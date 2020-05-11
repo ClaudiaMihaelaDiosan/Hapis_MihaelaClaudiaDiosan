@@ -29,18 +29,13 @@ import static android.content.Context.MODE_PRIVATE;
  */
 public class NeedsFragment extends Fragment {
 
-    View view;
-    TextView needTV;
-    TextView needText;
+    private View view;
+    private TextView needTV;
+    private TextView needText;
 
-    SharedPreferences preferences;
+    private SharedPreferences preferences;
 
-    TextInputEditText scheduleEditText;
-    MaterialButton cancelScheduleBtn;
-    MaterialButton saveScheduleBtn;
-
-    String homelessSchedule;
-    String homelessNeed;
+    private TextInputEditText scheduleEditText;
 
 
     public NeedsFragment() {
@@ -58,8 +53,8 @@ public class NeedsFragment extends Fragment {
 
         needTV = view.findViewById(R.id.most_important_neev_tv);
         needText = view.findViewById(R.id.most_important_need);
-        cancelScheduleBtn = view.findViewById(R.id.cancelScheduleButton);
-        saveScheduleBtn = view.findViewById(R.id.saveScheduleButton);
+        MaterialButton cancelScheduleBtn = view.findViewById(R.id.cancelScheduleButton);
+        MaterialButton saveScheduleBtn = view.findViewById(R.id.saveScheduleButton);
 
         final ChipGroup chipGroup = (ChipGroup) view.findViewById(R.id.chip_group);
 
@@ -111,8 +106,8 @@ public class NeedsFragment extends Fragment {
     }
 
     public void getInfo(){
-        homelessSchedule = scheduleEditText.getText().toString();
-        homelessNeed = needText.getText().toString();
+        String homelessSchedule = scheduleEditText.getText().toString();
+        String homelessNeed = needText.getText().toString();
 
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("homelessSchedule", homelessSchedule);

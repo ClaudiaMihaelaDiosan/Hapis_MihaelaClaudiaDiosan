@@ -11,10 +11,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/top_margin_large"
-        android:layout_marginBottom="@dimen/bottom_margin_large"
-        android:layout_marginStart="@dimen/start_margin_large"
-        android:layout_marginEnd="@dimen/end_margin_large">
+        android:layout_margin="@dimen/margins">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,36 +21,32 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/top_margin_large"
+                android:layout_margin="@dimen/margins"
                 android:text="@string/fragment_terms_title"
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textAlignment="center"
-                android:layout_marginStart="@dimen/start_margin_large"
-                android:layout_marginEnd="@dimen/end_margin_large"
                 android:textColor="@color/red"
-                android:textSize="@dimen/ft_text_size_large"
+                android:textSize="@dimen/body"
                 />
 
             <TextView
                 android:id="@+id/terms_textView"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:layout_marginTop="@dimen/top_margin_large"
+                android:layout_height="200dp"
+                android:layout_margin="@dimen/margins"
                 android:text="@string/fragment_terms_text"
                 android:layout_gravity="start"
-                android:layout_marginStart="@dimen/start_margin_large"
-                android:layout_marginEnd="@dimen/end_margin_large"
                 android:textColor="@color/grey"
                 android:scrollbars="vertical"
-                android:textSize="@dimen/ft_conditions_large"
+                android:textSize="@dimen/body"
                 />
 
             <com.github.gcacace.signaturepad.views.SignaturePad
                 android:id="@+id/signature_pad"
                 android:layout_width="match_parent"
-                android:layout_marginTop="@dimen/top_margin_large"
-                android:layout_height="300dp"
+                android:layout_marginTop="@dimen/top_margin"
+                android:layout_height="100dp"
                 app:penColor="@android:color/black"
                 />
 
@@ -61,18 +54,18 @@
                 android:id="@+id/signature_pad_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/body"
                 android:textColor="@android:color/darker_gray"
                 android:layout_gravity="bottom|center"
-                android:textSize="@dimen/ft_text_size_large"
                 android:text="@string/agreement" />
 
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="@android:color/darker_gray"
-                android:layout_marginStart="@dimen/start_margin_large"
-                android:layout_marginEnd="@dimen/end_margin_large"
-                android:layout_marginBottom="@dimen/ft_margin_signature_large" />
+                android:layout_marginStart="@dimen/start_margin"
+                android:layout_marginEnd="@dimen/end_margin"
+                android:layout_marginBottom="@dimen/cv_margins" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -84,17 +77,17 @@
                     android:id="@+id/clearSignatureButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/top_margin_large"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:textSize="@dimen/body"
                     android:text="@string/clear_signature_button"
-                    android:textSize="@dimen/ft_text_size_large"
                     style="?attr/borderlessButtonStyle" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/saveSignatureButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/ft_text_size_large"
-                    android:layout_marginTop="@dimen/top_margin_large"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:textSize="@dimen/body"
                     android:text="@string/save_signature_button"
                     style="?attr/borderlessButtonStyle" />
 

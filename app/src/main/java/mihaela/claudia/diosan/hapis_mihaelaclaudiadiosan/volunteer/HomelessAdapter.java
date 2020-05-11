@@ -23,16 +23,16 @@ public class HomelessAdapter extends RecyclerView.Adapter<HomelessAdapter.Homele
 
 
     public static class HomelessViewHolder extends RecyclerView.ViewHolder{
-        public ImageView profileImageView;
-        public TextView username;
-        public TextView phone;
-        public TextView birthday;
-        public TextView lifeHistory;
-        public TextView locationAddress;
-        public TextView schedule;
-        public TextView need;
-        public ImageButton editHomelessBtn;
-        public ImageButton deleteHomelessBtn;
+        ImageView profileImageView;
+        TextView username;
+        TextView phone;
+        TextView birthday;
+        TextView lifeHistory;
+        TextView locationAddress;
+        TextView schedule;
+        TextView need;
+        ImageButton editHomelessBtn;
+        ImageButton deleteHomelessBtn;
 
 
         public HomelessViewHolder(@NonNull View itemView, View.OnClickListener editHomelessListener, View.OnClickListener deleteHomelessListener) {

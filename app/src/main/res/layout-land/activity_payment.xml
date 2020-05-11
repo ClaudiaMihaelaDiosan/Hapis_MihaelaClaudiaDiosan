@@ -18,11 +18,8 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/top_margin"
-            android:layout_marginBottom="@dimen/bottom_margin"
-            android:layout_marginStart="@dimen/start_margin"
-            android:backgroundTint="@color/white"
-            android:layout_marginEnd="@dimen/end_margin">
+            android:layout_margin="@dimen/margins"
+            android:backgroundTint="@color/white">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -49,7 +46,7 @@
                         android:layout_marginTop="@dimen/top_margin"
                         android:layout_marginStart="@dimen/start_margin"
                         android:textColor="@color/black"
-                        android:textSize="20sp"/>
+                        android:textSize="@dimen/body"/>
 
                 </LinearLayout>
 
@@ -60,7 +57,7 @@
                     android:layout_gravity="center"
                     android:hint="@string/currency_hint"
                     android:inputType="number"
-                    android:textSize="24sp" />
+                    android:textSize="@dimen/title" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -81,7 +78,7 @@
                         android:layout_marginStart="@dimen/start_margin"
                         android:layout_marginTop="@dimen/top_margin"
                         android:textColor="@color/black"
-                        android:textSize="20sp"/>
+                        android:textSize="@dimen/body"/>
 
                 </LinearLayout>
 
@@ -97,6 +94,7 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_pay"
                     android:layout_marginStart="@dimen/start_margin"
+                    android:textSize="@dimen/body"
                     android:drawableLeft="@drawable/donate_left_drawable"
                     android:layout_width="wrap_content"
                     android:layout_gravity="center"

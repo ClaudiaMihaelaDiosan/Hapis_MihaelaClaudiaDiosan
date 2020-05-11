@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/donatefragment"
     android:background="@drawable/gradient_background"
-    tools:context=".volunteer.DonateVolunteerFragment"
     >
 
     <LinearLayout
@@ -19,10 +16,7 @@
             android:layout_height="match_parent"
             app:cardCornerRadius="@dimen/cardCornerRadius"
             app:cardElevation="@dimen/elevation"
-            android:layout_marginTop="@dimen/top_margin"
-            android:layout_marginBottom="@dimen/bottom_margin"
-            android:layout_marginStart="@dimen/start_margin"
-            android:layout_marginEnd="@dimen/end_margin">
+            android:layout_margin="@dimen/margins">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -37,8 +31,8 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_gravity="center"
                     android:textStyle="bold"
-                    android:textSize="@dimen/vdf_title_size"
-                    android:text="@string/volunteer_donate_title"
+                    android:textSize="@dimen/title"
+                    android:text="@string/donate_title"
                     android:layout_marginTop="@dimen/top_margin"
                     android:layout_marginBottom="@dimen/bottom_margin"/>
 
@@ -47,7 +41,8 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/donate_drawable"/>
+                    android:src="@drawable/donate_drawable"
+                    android:contentDescription="@string/content_description"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -55,19 +50,20 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_gravity="center"
                     android:textStyle="bold"
-                    android:textSize="@dimen/volunteer_donate_text"
-                    android:text="@string/volunteer_donate_text"
+                    android:textSize="@dimen/body"
+                    android:text="@string/donate_text"
                     android:layout_marginTop="@dimen/top_margin"
                     android:layout_marginBottom="@dimen/bottom_margin"/>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/volunteer_donate_button"
+                    android:id="@+id/donate_button"
                     android:layout_width="match_parent"
                     android:layout_gravity="center"
                     android:layout_height="wrap_content"
-                    android:text="@string/volunteer_donate_button"
+                    android:text="@string/donate_button"
                     android:textColor="@color/white"
                     android:padding="@dimen/padding"
+                    android:textSize="@dimen/body"
                     android:backgroundTint="@color/colorPrimary"
                     android:layout_marginTop="@dimen/top_margin"
                     android:layout_marginBottom="@dimen/bottom_margin"
@@ -83,8 +79,8 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_gravity="center"
                     android:textStyle="bold"
-                    android:textSize="@dimen/vdf_body_size"
-                    android:text="@string/volunteer_donate_video"
+                    android:textSize="@dimen/body"
+                    android:text="@string/donate_video"
                     android:layout_marginTop="@dimen/top_margin"
                     android:layout_marginBottom="@dimen/bottom_margin"/>
 

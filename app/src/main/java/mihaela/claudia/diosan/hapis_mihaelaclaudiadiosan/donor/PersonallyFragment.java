@@ -25,17 +25,20 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class PersonallyFragment extends Fragment implements OnMapReadyCallback {
 
-    SharedPreferences preferences;
-    View view;
-    TextView homelessLocation;
-    TextView homelessSchedule;
-    GoogleMap mGoogleMap;
-    SupportMapFragment mMapFragment;
+    private SharedPreferences preferences;
+
+    private View view;
+
+    /*TextViews*/
+    private TextView homelessLocation;
+    private TextView homelessSchedule;
+
+    /*Maps*/
+    private GoogleMap mGoogleMap;
 
     public PersonallyFragment() {
         // Required empty public constructor
     }
-
 
 
     @Override
@@ -46,13 +49,18 @@ public class PersonallyFragment extends Fragment implements OnMapReadyCallback {
 
         preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
 
-        homelessLocation = view.findViewById(R.id.homeless_location);
-        homelessSchedule = view.findViewById(R.id.homeless_schedule_text);
-        mMapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.homeless_location_map);
+        initViews(view);
+
+        SupportMapFragment mMapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.homeless_location_map);
         mMapFragment.getMapAsync(this);
 
-
         return view;
+    }
+
+    private void initViews(View view){
+        homelessLocation = view.findViewById(R.id.homeless_location);
+        homelessSchedule = view.findViewById(R.id.homeless_schedule_text);
+
     }
 
     public void getInfo(){

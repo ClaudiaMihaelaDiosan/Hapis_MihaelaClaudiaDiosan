@@ -32,21 +32,20 @@ import static android.content.Context.MODE_PRIVATE;
  */
 public class HomelessFragment extends Fragment {
 
-    MaterialButton wantHelpBtn;
-    View view;
+    private MaterialButton wantHelpBtn;
+    private View view;
 
-    SharedPreferences preferences;
+    private SharedPreferences preferences;
 
-    ImageView profileImage;
-    TextView homelessUsername;
-    TextView homelessBirthday;
-    TextView homelessLifeHistory;
-    TextView homelessAddress;
-    TextView homelessSchedule;
-    TextView homelessNeed;
+    private ImageView profileImage;
+    private TextView homelessUsername;
+    private TextView homelessBirthday;
+    private TextView homelessLifeHistory;
+    private TextView homelessAddress;
+    private TextView homelessSchedule;
+    private TextView homelessNeed;
 
-    private AdapterHome mAdapter;
-    ArrayList<Homeless> homelessList;
+    private ArrayList<Homeless> homelessList;
 
 
 
@@ -60,20 +59,10 @@ public class HomelessFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_homeless, container, false);
-        mAdapter = new AdapterHome(homelessList);
-
+        AdapterHome mAdapter = new AdapterHome(homelessList);
         preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
 
-        profileImage = view.findViewById(R.id.profile_image_donor_cv);
-        homelessUsername = view.findViewById(R.id.homeless_username_tv_cv);
-        homelessBirthday =  view.findViewById(R.id.homeless_birthday_tv);
-        homelessLifeHistory =view.findViewById(R.id.homeless_lifeHistory_tv);
-        homelessAddress = view.findViewById(R.id.homeless_locationAddress_tv);
-        homelessSchedule = view.findViewById(R.id.homeless_schedule_tv);
-        homelessNeed = view.findViewById(R.id.homeless_need_tv);
-
-
-        wantHelpBtn = view.findViewById(R.id.want_help_button);
+        initViews(view);
 
 
         wantHelpBtn.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +78,18 @@ public class HomelessFragment extends Fragment {
         return view;
     }
 
-    public void getInfo(){
+    private void initViews(View view){
+        profileImage = view.findViewById(R.id.profile_image_donor_cv);
+        homelessUsername = view.findViewById(R.id.homeless_username_tv_cv);
+        homelessBirthday =  view.findViewById(R.id.homeless_birthday_tv);
+        homelessLifeHistory =view.findViewById(R.id.homeless_lifeHistory_tv);
+        homelessAddress = view.findViewById(R.id.homeless_locationAddress_tv);
+        homelessSchedule = view.findViewById(R.id.homeless_schedule_tv);
+        homelessNeed = view.findViewById(R.id.homeless_need_tv);
+        wantHelpBtn = view.findViewById(R.id.want_help_button);
+    }
+
+    private void getInfo(){
         Integer position = preferences.getInt("position", 0);
 
         if (position.equals(0)){
@@ -180,19 +180,5 @@ public class HomelessFragment extends Fragment {
         super.onResume();
         getInfo();
     }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-
-
-
 
 }

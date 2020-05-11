@@ -11,25 +11,21 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/top_margin_large"
-        android:layout_marginStart="@dimen/start_margin_large"
-        android:layout_marginEnd="@dimen/end_margin_large"
-        android:layout_marginBottom="@dimen/bottom_margin_large">
+        android:layout_margin="@dimen/margins">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginEnd="@dimen/end_margin_large"
-            android:layout_marginStart="@dimen/start_margin_large"
-            android:layout_marginBottom="@dimen/bottom_margin_large">
+            android:layout_margin="@dimen/margins"
+            android:orientation="vertical">
 
 
             <ImageView
                 android:layout_width="400dp"
                 android:layout_height="400dp"
                 android:src="@drawable/img_donate"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:contentDescription="@string/content_description"/>
 
 
             <TextView
@@ -37,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textSize="@dimen/fh_body_size_large"
+                android:textSize="@dimen/body"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 android:text="@string/donation_type"/>
@@ -47,8 +43,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/top_margin_large"
-                android:layout_marginBottom="@dimen/bottom_margin_large"
+                android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginBottom="@dimen/bottom_margin"
                 app:singleSelection="true">
 
                 <com.google.android.material.chip.Chip
@@ -58,8 +54,8 @@
                     app:chipBackgroundColor="@drawable/chip_selector"
                     android:textColor="@color/black"
                     android:text="@string/chip_food"
-                    android:textSize="@dimen/fh_body_size_large"
                     app:chipIcon="@drawable/food_icon"
+                    android:textSize="@dimen/body"
                     app:chipIconEnabled="true"
                     style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
@@ -68,9 +64,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:chipBackgroundColor="@drawable/chip_selector"
-                    android:textSize="@dimen/fh_body_size_large"
                     android:textColor="@color/black"
                     android:text="@string/chip_clothes"
+                    android:textSize="@dimen/body"
                     app:chipIcon="@drawable/clothes_icon"
                     app:chipIconEnabled="true"
                     style="@style/Widget.MaterialComponents.Chip.Choice"/>
@@ -82,7 +78,7 @@
                     app:chipBackgroundColor="@drawable/chip_selector"
                     android:textColor="@color/black"
                     android:text="@string/chip_work"
-                    android:textSize="@dimen/fh_body_size_large"
+                    android:textSize="@dimen/body"
                     app:chipIcon="@drawable/work_icon"
                     app:chipIconEnabled="true"
                     style="@style/Widget.MaterialComponents.Chip.Choice"/>
@@ -94,7 +90,7 @@
                     app:chipBackgroundColor="@drawable/chip_selector"
                     android:textColor="@color/black"
                     android:text="@string/chip_lodging"
-                    android:textSize="@dimen/fh_body_size_large"
+                    android:textSize="@dimen/body"
                     app:chipIcon="@drawable/lodging_icon"
                     app:chipIconEnabled="true"
                     style="@style/Widget.MaterialComponents.Chip.Choice"/>
@@ -106,8 +102,8 @@
                     app:chipBackgroundColor="@drawable/chip_selector"
                     android:textColor="@color/black"
                     android:text="@string/chip_hygiene_products"
+                    android:textSize="@dimen/body"
                     app:chipIcon="@drawable/hygiene_icon"
-                    android:textSize="@dimen/fh_body_size_large"
                     app:chipIconEnabled="true"
                     style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
@@ -117,21 +113,21 @@
                 android:id="@+id/help_type"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/top_margin_large"
-                android:layout_marginBottom="@dimen/bottom_margin_large"
+                android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginBottom="@dimen/bottom_margin"
                 android:gravity="center"
-                android:textSize="@dimen/fh_body_size_large"
+                android:textSize="@dimen/body"
                 android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
                 android:text="@string/help_type"/>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/personally_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/fh_body_size_large"
                 android:text="@string/personally_button"
                 android:layout_marginTop="@dimen/top_margin"
+                android:textSize="@dimen/body"
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/blue_light"
@@ -142,13 +138,13 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/through_volunteer_button"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/fh_body_size_large"
                 android:text="@string/through_volunteer_button"
                 android:layout_marginBottom="@dimen/bottom_margin"
                 android:layout_gravity="center"
                 android:textColor="@color/black"
+                android:textSize="@dimen/body"
                 android:backgroundTint="@color/lila_color"
                 app:icon="@drawable/volunteer_icon"
                 app:iconTint="@color/black"

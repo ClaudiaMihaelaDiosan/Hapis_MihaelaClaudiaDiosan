@@ -10,18 +10,13 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/top_margin"
-        android:layout_marginStart="@dimen/start_margin"
-        android:layout_marginEnd="@dimen/end_margin"
-        android:layout_marginBottom="@dimen/bottom_margin">
+        android:layout_margin="@dimen/margins">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_marginEnd="@dimen/end_margin"
-            android:layout_marginStart="@dimen/start_margin"
-            android:layout_marginBottom="@dimen/bottom_margin">
+            android:layout_margin="@dimen/margins">
 
 
             <LinearLayout
@@ -34,6 +29,7 @@
                     android:id="@+id/homeless_location_text"
                     android:text="@string/fr_tv_title"
                     android:gravity="start"
+                    android:textSize="@dimen/body"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
@@ -74,6 +70,7 @@
                         android:textColor="@color/amber"
                         app:icon="@drawable/date_icon"
                         app:iconTint="@color/amber"
+                        android:textSize="@dimen/body"
                         android:text="@string/pick_date_button"
                         style="?attr/borderlessButtonStyle"/>
 
@@ -84,6 +81,7 @@
                         app:icon="@drawable/time_icon"
                         android:textColor="@color/amber"
                         app:iconTint="@color/amber"
+                        android:textSize="@dimen/body"
                         android:layout_marginStart="@dimen/start_margin"
                         style="?attr/borderlessButtonStyle"
                         android:text="@string/pick_time_button"/>
@@ -105,13 +103,15 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/through_volunteer_img"/>
+                    android:src="@drawable/through_volunteer_img"
+                    android:contentDescription="@string/content_description"/>
 
                 <TextView
                     android:id="@+id/selected_location_donor"
                     android:layout_marginStart="@dimen/start_margin"
                     android:textStyle="bold"
                     android:gravity="center"
+                    android:textSize="@dimen/body"
                     android:layout_marginBottom="@dimen/bottom_margin"
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_width="match_parent"
@@ -130,6 +130,7 @@
                         android:textStyle="bold"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_marginEnd="@dimen/end_margin"
+                        android:textSize="@dimen/body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/fr_tv_date"
@@ -142,6 +143,7 @@
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textSize="@dimen/body"
                         android:text="@string/fr_tv_hour"
                         />
 
@@ -153,6 +155,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:textSize="@dimen/body"
                     android:layout_marginTop="@dimen/top_margin"
                     app:icon="@drawable/confirm_icon"
                     app:iconTint="@color/white"

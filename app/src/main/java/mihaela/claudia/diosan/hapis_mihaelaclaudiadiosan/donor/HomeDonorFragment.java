@@ -24,15 +24,11 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class HomeDonorFragment extends Fragment {
 
-    View view;
+    private View view;
 
-    private RecyclerView mrecyclerView;
-    private AdapterHome mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
+    private ArrayList<Homeless> homelessList;
 
-    ArrayList<Homeless> homelessList;
-
-    SharedPreferences preferences;
+    private SharedPreferences preferences;
 
     public HomeDonorFragment() {
         // Required empty public constructor
@@ -55,10 +51,10 @@ public class HomeDonorFragment extends Fragment {
     }
 
     public void buildRecyclerView(){
-        mrecyclerView = view.findViewById(R.id.recycler_view_donor);
+        RecyclerView mrecyclerView = view.findViewById(R.id.recycler_view_donor);
         mrecyclerView.setHasFixedSize(true);
-        mLayoutManager = new LinearLayoutManager(view.getContext());
-        mAdapter = new AdapterHome(homelessList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(view.getContext());
+        AdapterHome mAdapter = new AdapterHome(homelessList);
 
         mrecyclerView.setLayoutManager(mLayoutManager);
         mrecyclerView.setAdapter(mAdapter);

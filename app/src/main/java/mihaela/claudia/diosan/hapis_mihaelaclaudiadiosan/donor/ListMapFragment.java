@@ -51,18 +51,22 @@ public class ListMapFragment extends Fragment  {
         view = inflater.inflate(R.layout.fragment_list_map, container, false);
 
         setHasOptionsMenu(true);
+        setupRecyclerView(view);
 
+
+        return view;
+    }
+
+    private void setupRecyclerView(View view){
+        // Set up the RecyclerView
         mGridLayoutManager = new GridLayoutManager(view.getContext(), 2);
         mLinearLayoutManager = new LinearLayoutManager(view.getContext());
 
-        // Set up the RecyclerView
         mRecyclerView = view.findViewById(R.id.recycler_view_list_map);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         mRecyclerView.setAdapter(new MapAdapter(LIST_LOCATIONS));
         mRecyclerView.setRecyclerListener(mRecycleListener);
-
-        return view;
     }
 
     /** Create a menu to switch between Linear and Grid LayoutManager. */
@@ -226,16 +230,6 @@ public class ListMapFragment extends Fragment  {
             new NamedLocation("LUIS", new LatLng(41.620809, 0.628363)),
             new NamedLocation("CRISTINA", new LatLng(41.617109, 0.613393))
     };
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
 
 }

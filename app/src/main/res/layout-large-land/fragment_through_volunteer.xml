@@ -10,18 +10,14 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/top_margin_large"
-        android:layout_marginStart="@dimen/start_margin_large"
-        android:layout_marginEnd="@dimen/end_margin_large"
-        android:layout_marginBottom="@dimen/bottom_margin_large">
+        android:layout_margin="@dimen/margins">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:layout_marginEnd="@dimen/end_margin_large"
-            android:layout_marginStart="@dimen/start_margin_large"
-            android:layout_marginBottom="@dimen/bottom_margin_large">
+            android:layout_margin="@dimen/margins"
+            android:baselineAligned="false">
 
 
             <LinearLayout
@@ -34,19 +30,19 @@
                     android:id="@+id/homeless_location_text"
                     android:text="@string/fr_tv_title"
                     android:gravity="start"
-                    android:textSize="@dimen/fthv_body_size_large"
+                    android:textSize="@dimen/body"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/colorPrimaryDark"
-                    android:layout_marginTop="@dimen/top_margin_large"
+                    android:layout_marginTop="@dimen/top_margin"
                     />
 
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/top_margin_large"
-                    android:layout_marginBottom="@dimen/bottom_margin_large"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:layout_marginBottom="@dimen/bottom_margin"
                     android:backgroundTint="@color/yellow_color"
                     android:orientation="vertical">
 
@@ -63,7 +59,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/top_margin_large"
+                    android:layout_marginTop="@dimen/top_margin"
                     android:gravity="center"
                     android:orientation="horizontal">
 
@@ -71,8 +67,8 @@
                         android:id="@+id/date_picker_donor"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/fthv_body_size_large"
-                        android:layout_marginEnd="@dimen/end_margin_large"
+                        android:textSize="@dimen/body"
+                        android:layout_marginEnd="@dimen/end_margin"
                         android:textColor="@color/amber"
                         app:icon="@drawable/date_icon"
                         app:iconTint="@color/amber"
@@ -85,9 +81,9 @@
                         android:layout_height="wrap_content"
                         app:icon="@drawable/time_icon"
                         android:textColor="@color/amber"
-                        android:textSize="@dimen/fthv_body_size_large"
+                        android:textSize="@dimen/body"
                         app:iconTint="@color/amber"
-                        android:layout_marginStart="@dimen/start_margin_large"
+                        android:layout_marginStart="@dimen/start_margin"
                         style="?attr/borderlessButtonStyle"
                         android:text="@string/pick_time_button"/>
 
@@ -106,13 +102,13 @@
 
                 <TextView
                     android:id="@+id/selected_location_donor"
-                    android:layout_marginStart="@dimen/start_margin_large"
+                    android:layout_marginStart="@dimen/start_margin"
                     android:textStyle="bold"
                     android:gravity="center"
-                    android:layout_marginBottom="@dimen/bottom_margin_large"
+                    android:layout_marginBottom="@dimen/bottom_margin"
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_width="match_parent"
-                    android:textSize="@dimen/fthv_body_size_large"
+                    android:textSize="@dimen/body"
                     android:layout_height="wrap_content"
                     android:text="@string/fr_tv_location"
                     />
@@ -127,8 +123,8 @@
                         android:id="@+id/selected_date_donor"
                         android:textStyle="bold"
                         android:textColor="@color/colorPrimaryDark"
-                        android:layout_marginEnd="@dimen/end_margin_large"
-                        android:textSize="@dimen/fthv_body_size_large"
+                        android:layout_marginEnd="@dimen/end_margin"
+                        android:textSize="@dimen/body"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/fr_tv_date"
@@ -137,8 +133,8 @@
                     <TextView
                         android:id="@+id/selected_time_donor"
                         android:textStyle="bold"
-                        android:textSize="@dimen/fthv_body_size_large"
-                        android:layout_marginStart="@dimen/start_margin_large"
+                        android:textSize="@dimen/body"
+                        android:layout_marginStart="@dimen/start_margin"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -153,8 +149,8 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:textSize="@dimen/fthv_body_size_large"
-                    android:layout_marginTop="@dimen/top_margin_large"
+                    android:textSize="@dimen/body"
+                    android:layout_marginTop="@dimen/top_margin"
                     app:icon="@drawable/confirm_icon"
                     app:iconTint="@color/white"
                     android:backgroundTint="@color/amber"
@@ -164,7 +160,8 @@
                     android:layout_width="200dp"
                     android:layout_height="200dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/through_volunteer_img"/>
+                    android:src="@drawable/through_volunteer_img"
+                    android:contentDescription="@string/content_description"/>
 
 
             </LinearLayout>

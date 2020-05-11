@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:map="http://schemas.android.com/apk/res-auto"
     android:layout_marginBottom="60dp"
     tools:context=".donor.PersonallyFragment">
 
@@ -11,24 +10,20 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/top_margin"
-        android:layout_marginStart="@dimen/start_margin"
-        android:layout_marginEnd="@dimen/end_margin"
-        android:layout_marginBottom="@dimen/bottom_margin">
+        android:layout_margin="@dimen/margins">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginEnd="@dimen/end_margin"
-            android:layout_marginStart="@dimen/start_margin"
-            android:layout_marginBottom="@dimen/bottom_margin">
+            android:layout_margin="@dimen/margins">
 
 
             <TextView
                 android:id="@+id/homeless_location_text"
                 android:text="@string/location_text_personally"
                 android:gravity="start"
+                android:textSize="@dimen/body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/top_margin"
@@ -38,7 +33,8 @@
                 android:id="@+id/homeless_location"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Cronista Muntaner, 18, Lleida"
+                android:text="@string/text"
+                android:textSize="@dimen/body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />
@@ -48,6 +44,7 @@
                 android:text="@string/schedule_text_personally"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textSize="@dimen/body"
                 android:layout_marginTop="@dimen/top_margin"
                 />
 
@@ -56,7 +53,8 @@
                 android:textStyle="bold"
                 android:layout_marginBottom="@dimen/bottom_margin"
                 android:textColor="@color/colorPrimaryDark"
-                android:text="Cada dia por la mañana"
+                android:text="@string/text"
+                android:textSize="@dimen/body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 />

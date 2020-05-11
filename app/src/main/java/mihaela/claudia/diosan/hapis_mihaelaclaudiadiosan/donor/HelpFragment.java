@@ -23,11 +23,6 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
  */
 public class HelpFragment extends Fragment {
 
-    View view;
-    MaterialButton personallyBtn;
-    MaterialButton throughVolunteerBtn;
-
-
 
     public HelpFragment() {
         // Required empty public constructor
@@ -38,25 +33,36 @@ public class HelpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_help, container, false);
+        View view = inflater.inflate(R.layout.fragment_help, container, false);
 
-        final ChipGroup chipGroup = (ChipGroup) view.findViewById(R.id.chip_group_donation);
+        chipGroup(view);
+        onClickButtons(view);
 
-        personallyBtn = view.findViewById(R.id.personally_button);
-        throughVolunteerBtn = view.findViewById(R.id.through_volunteer_button);
+        return view;
+    }
 
-        chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(ChipGroup group, @IdRes int checkedId) {
-                // Handle the checked chip change.
-                Chip chip = chipGroup.findViewById(checkedId);
-                if(chip != null){
-                    Toast.makeText(view.getContext(), getString(R.string.chip_text1) + "  " + chip.getText().toString() + "  " + getString(R.string.chip_text2),Toast.LENGTH_SHORT).show();
 
-                }
 
-            }
-        });
+    private void chipGroup(final View view){
+       final ChipGroup chipGroup = (ChipGroup) view.findViewById(R.id.chip_group_donation);
+       chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+           @Override
+           public void onCheckedChanged(ChipGroup group, @IdRes int checkedId) {
+               // Handle the checked chip change.
+               Chip chip = chipGroup.findViewById(checkedId);
+               if(chip != null){
+                   Toast.makeText(view.getContext(), getString(R.string.chip_text1) + "  " + chip.getText().toString() + "  " + getString(R.string.chip_text2),Toast.LENGTH_SHORT).show();
+
+               }
+
+           }
+       });
+   }
+
+    private void onClickButtons(View view) {
+        /*Buttons*/
+        MaterialButton personallyBtn = view.findViewById(R.id.personally_button);
+        MaterialButton throughVolunteerBtn = view.findViewById(R.id.through_volunteer_button);
 
         personallyBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,17 +81,5 @@ public class HelpFragment extends Fragment {
                         .addToBackStack(null).commit();
             }
         });
-
-        return view;
-    }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
     }
 }

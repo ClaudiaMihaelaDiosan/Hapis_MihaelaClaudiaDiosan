@@ -46,21 +46,22 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register.RegisterDonorA
 public class ThroughVolunteerFragment extends Fragment {
 
 
-    View view;
-    PlacesClient placesClient;
-    List<Place.Field> placeFields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
-    AutocompleteSupportFragment autocompleteSupportFragment;
-    TextView locationDonor;
+    private View view;
+    private PlacesClient placesClient;
+    private List<Place.Field> placeFields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
+    private AutocompleteSupportFragment autocompleteSupportFragment;
 
-    MaterialButton datePickerBtn;
-    MaterialButton timePickerBtn;
 
-    TextView selectedDateDonor;
-    TextView selectedTimeDonor;
+    private TextView selectedDateDonor;
+    private TextView selectedTimeDonor;
+    private TextView locationDonor;
 
-    DatePickerDialog.OnDateSetListener setListener;
+    private MaterialButton datePickerBtn;
+    private MaterialButton timePickerBtn;
+    private MaterialButton confirmBtn;
 
-    MaterialButton confirmBtn;
+
+    private DatePickerDialog.OnDateSetListener setListener;
 
     public ThroughVolunteerFragment() {
         // Required empty public constructor
@@ -73,7 +74,17 @@ public class ThroughVolunteerFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_through_volunteer, container, false);
 
+        initViews(view);
 
+        initPlaces();
+        setupPlaceAutoComplete();
+        onClickButtons(view);
+        setTextDateListener();
+
+        return view;
+    }
+
+    private void initViews(View view) {
         locationDonor = view.findViewById(R.id.selected_location_donor);
         datePickerBtn = view.findViewById(R.id.date_picker_donor);
         timePickerBtn = view.findViewById(R.id.time_picker_donor);
@@ -82,48 +93,42 @@ public class ThroughVolunteerFragment extends Fragment {
         selectedTimeDonor = view.findViewById(R.id.selected_time_donor);
 
         confirmBtn = view.findViewById(R.id.donor_confirm_button);
+    }
 
-        initPlaces();
-        setupPlaceAutoComplete();
+    private void onClickButtons(final View view){
 
-            datePickerBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    selectDate();
+        datePickerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectDate();
 
+            }
+
+        });
+
+
+        timePickerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectTime();
+            }
+        });
+
+        confirmBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (selectedDateDonor.getText().toString().equals(getString(R.string.fr_tv_date))){
+                    Toast.makeText(view.getContext(), getString(R.string.date_error_toast), Toast.LENGTH_SHORT).show();
+                }else if (selectedTimeDonor.getText().toString().equals(getString(R.string.fr_tv_hour))){
+                    Toast.makeText(view.getContext(), getString(R.string.time_error_toast), Toast.LENGTH_SHORT).show();
+                }else if (locationDonor.getText().toString().equals(getString(R.string.fr_tv_location))){
+                    Toast.makeText(view.getContext(), getString(R.string.location_error_toast), Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(view.getContext(), getString(R.string.fr_tv_confirm_toast), Toast.LENGTH_SHORT).show();
                 }
-
-            });
-
-            setTextDateListener();
-
-            timePickerBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    selectTime();
-                }
-            });
-
-            confirmBtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                    if (selectedDateDonor.getText().toString().equals(getString(R.string.fr_tv_date))){
-                        Toast.makeText(view.getContext(), getString(R.string.date_error_toast), Toast.LENGTH_SHORT).show();
-                    }else if (selectedTimeDonor.getText().toString().equals(getString(R.string.fr_tv_hour))){
-                        Toast.makeText(view.getContext(), getString(R.string.time_error_toast), Toast.LENGTH_SHORT).show();
-                    }else if (locationDonor.getText().toString().equals(getString(R.string.fr_tv_location))){
-                        Toast.makeText(view.getContext(), getString(R.string.location_error_toast), Toast.LENGTH_SHORT).show();
-                    }else{
-                        Toast.makeText(view.getContext(), getString(R.string.fr_tv_confirm_toast), Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-
-
-
-
-        return view;
+            }
+        });
     }
 
     private void initPlaces() {
@@ -131,7 +136,7 @@ public class ThroughVolunteerFragment extends Fragment {
         placesClient = Places.createClient(view.getContext());
     }
 
-    public void setupPlaceAutoComplete(){
+    private void setupPlaceAutoComplete(){
         autocompleteSupportFragment = (AutocompleteSupportFragment) getChildFragmentManager().findFragmentById(R.id.autocomplete_fragment_donor);
         assert autocompleteSupportFragment != null;
         autocompleteSupportFragment.setPlaceFields(placeFields);
@@ -153,7 +158,7 @@ public class ThroughVolunteerFragment extends Fragment {
         });
     }
 
-    public void selectDate(){
+    private void selectDate(){
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
@@ -166,7 +171,7 @@ public class ThroughVolunteerFragment extends Fragment {
     }
 
 
-    public void setTextDateListener(){
+    private void setTextDateListener(){
         setListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -177,7 +182,7 @@ public class ThroughVolunteerFragment extends Fragment {
         };
     }
 
-    public void selectTime(){
+    private void selectTime(){
        final Calendar calendar = Calendar.getInstance();
        final int hour = calendar.get(Calendar.HOUR_OF_DAY);
        final int minute = calendar.get(Calendar.MINUTE);
@@ -191,8 +196,4 @@ public class ThroughVolunteerFragment extends Fragment {
        }, hour, minute, false);
         timePickerDialog.show();
     }
-
-
-
-
 }

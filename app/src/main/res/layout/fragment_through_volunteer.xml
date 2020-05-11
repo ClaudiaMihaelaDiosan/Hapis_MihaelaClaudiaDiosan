@@ -10,18 +10,13 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/top_margin"
-        android:layout_marginStart="@dimen/start_margin"
-        android:layout_marginEnd="@dimen/end_margin"
-        android:layout_marginBottom="@dimen/bottom_margin">
+        android:layout_margin="@dimen/margins">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:layout_marginEnd="@dimen/end_margin"
-            android:layout_marginStart="@dimen/start_margin"
-            android:layout_marginBottom="@dimen/bottom_margin">
+            android:layout_margin="@dimen/margins">
 
 
             <TextView
@@ -31,6 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/body"
                 android:layout_marginTop="@dimen/top_margin"
                 />
 
@@ -64,6 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="@dimen/end_margin"
+                    android:textSize="@dimen/body"
                     android:textColor="@color/amber"
                     app:icon="@drawable/date_icon"
                     app:iconTint="@color/amber"
@@ -77,6 +74,7 @@
                     app:icon="@drawable/time_icon"
                     android:textColor="@color/amber"
                     app:iconTint="@color/amber"
+                    android:textSize="@dimen/body"
                     android:layout_marginStart="@dimen/start_margin"
                     style="?attr/borderlessButtonStyle"
                     android:text="@string/pick_time_button"/>
@@ -87,10 +85,10 @@
 
             <TextView
                 android:id="@+id/selected_location_donor"
+                android:layout_margin="@dimen/margins"
                 android:layout_marginStart="@dimen/start_margin"
                 android:textStyle="bold"
-                android:layout_marginTop="@dimen/top_margin"
-                android:layout_marginBottom="@dimen/bottom_margin"
+                android:textSize="@dimen/body"
                 android:textColor="@color/colorPrimaryDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -108,6 +106,7 @@
                     android:textStyle="bold"
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_marginEnd="@dimen/end_margin"
+                    android:textSize="@dimen/body"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/fr_tv_date"
@@ -120,6 +119,7 @@
                     android:textColor="@color/colorPrimaryDark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textSize="@dimen/body"
                     android:text="@string/fr_tv_hour"
                     />
 
@@ -131,6 +131,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
+                android:textSize="@dimen/body"
                 android:layout_marginTop="@dimen/top_margin"
                 app:icon="@drawable/confirm_icon"
                 app:iconTint="@color/white"
@@ -140,7 +141,8 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/through_volunteer_img"/>
+                android:src="@drawable/through_volunteer_img"
+                android:contentDescription="@string/content_description"/>
 
         </LinearLayout>
 

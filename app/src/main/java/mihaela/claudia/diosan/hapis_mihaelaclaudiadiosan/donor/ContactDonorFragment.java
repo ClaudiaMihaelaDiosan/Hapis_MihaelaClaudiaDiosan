@@ -1,5 +1,7 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,35 +19,54 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.basgeekball.awesomevalidation.AwesomeValidation;
+import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register.RegisterDonorActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class ContactDonorFragment extends Fragment {
 
-    View view;
 
     private TextInputEditText donorEmail;
+    private TextInputEditText message;
+
+
+
+    private View view;
+
+    private MaterialButton donorContactButton;
 
     public ContactDonorFragment() {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_contact_donor, container, false);
+       view = inflater.inflate(R.layout.fragment_contact, container, false);
 
-        MaterialButton donorContactButton = view.findViewById(R.id.donor_contact_button);
-        donorEmail = view.findViewById(R.id.dcf_email);
+        initViews(view);
+        sendMessage(view);
 
+        return view;
+    }
 
+    private void initViews(View view){
+        donorContactButton = view.findViewById(R.id.contact_send_button);
+        donorEmail = view.findViewById(R.id.contact_subject_hint);
+        message = view.findViewById(R.id.form_contact_message_hint);
+    }
+
+    private void sendMessage(final View view){
         donorContactButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,9 +77,14 @@ public class ContactDonorFragment extends Fragment {
                 }
             }
         });
-
-        return view;
     }
+
+
+    boolean isEmailValid() {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(donorEmail.getText().toString()).matches() && !donorEmail.getText().toString().isEmpty();
+    }
+
+
 
     public void showToast(){
         LayoutInflater inflater = getLayoutInflater();
@@ -77,9 +104,7 @@ public class ContactDonorFragment extends Fragment {
         toast.show(); // display the custom Toast
     }
 
-    boolean isEmailValid() {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(donorEmail.getText().toString()).matches() && !donorEmail.getText().toString().isEmpty();
-    }
+
 
     @Override
     public void onConfigurationChanged(Configuration newConfig){
@@ -97,13 +122,4 @@ public class ContactDonorFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 }

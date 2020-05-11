@@ -29,19 +29,33 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 public class ContactVolunteerFragment extends Fragment {
 
     private TextInputEditText volunteerEmail;
+    private TextInputEditText message;
 
+    MaterialButton volunteerContactBtn;
+
+
+    View view;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final View view = inflater.inflate(R.layout.fragment_contact_volunteer, container, false);
+        view = inflater.inflate(R.layout.fragment_contact, container, false);
 
-        MaterialButton volunteerContactBtn = view.findViewById(R.id.volunteer_contact_button);
-        volunteerEmail = view.findViewById(R.id.vcf_email);
+        initViews(view);
+        sendMessage(view);
 
+         return view;
+    }
 
+    private void initViews(View view) {
+        volunteerContactBtn = view.findViewById(R.id.contact_send_button);
+        volunteerEmail = view.findViewById(R.id.contact_subject_hint);
+        message = view.findViewById(R.id.form_contact_message_hint);
+    }
+
+    private void sendMessage(final View view){
         volunteerContactBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,11 +64,15 @@ public class ContactVolunteerFragment extends Fragment {
                 }else{
                     Toast.makeText(view.getContext(), getString(R.string.email_error_text), Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
-        return view;
     }
+
+
+    private boolean isEmailValid() {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(volunteerEmail.getText().toString()).matches() && !volunteerEmail.getText().toString().isEmpty();
+    }
+
 
 
     public void showToast(){
@@ -73,10 +91,6 @@ public class ContactVolunteerFragment extends Fragment {
         toast.setDuration(Toast.LENGTH_LONG); // set the duration for the Toast
         toast.setView(layout); // set the inflated layout
         toast.show(); // display the custom Toast
-    }
-
-    boolean isEmailValid() {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(volunteerEmail.getText().toString()).matches() && !volunteerEmail.getText().toString().isEmpty();
     }
 
     @Override

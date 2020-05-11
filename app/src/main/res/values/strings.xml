@@ -440,12 +440,12 @@ The second time I became homeless it followed a similar pattern. I had been work
     <string name="donor_menu_contact">Contact</string>
 
     <!--    Donor Contact Fragment-->
-    <string name="dcf_title">CONTACT US</string>
-    <string name="dcf_email_hint">Email</string>
-    <string name="dcf_subject_hint">Subject</string>
-    <string name="dcf_text_hint">Write your message here</string>
-    <string name="dcf_button">SEND MESSAGE</string>
-    <string name="dcf_toast_message">You have successfully sent your message.\n We\'ll revert back to you as soon as possible.</string>
+    <string name="contact_title">CONTACT US</string>
+    <string name="contact_email_hint">Email</string>
+    <string name="contact_subject_hint">Subject</string>
+    <string name="contact_text_hint">Write your message here</string>
+    <string name="contact_send_button">SEND MESSAGE</string>
+    <string name="contact_sended_toast_message">You have successfully sent your message.\n We\'ll revert back to you as soon as possible.</string>
 
     <!--    Donor Donate Fragment-->
     <string name="donor_donate_title">DONATE TO HAPIS</string>

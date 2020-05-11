@@ -29,7 +29,7 @@
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textSize="@dimen/dcf_title_size_large"
-                android:text="@string/dcf_title"
+                android:text="@string/contact_title"
                 android:layout_marginTop="@dimen/top_margin_large"
                 android:layout_marginBottom="@dimen/bottom_margin_large"/>
 
@@ -71,7 +71,7 @@
 
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/dcf_email_hint"
+                        android:hint="@string/contact_email_hint"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         >
 
@@ -87,7 +87,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="@string/dcf_subject_hint"
+                        android:hint="@string/contact_subject_hint"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         >
 
@@ -101,7 +101,7 @@
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/dcf_edit_text_box_large"
-                        android:hint="@string/dcf_text_hint"
+                        android:hint="@string/contact_text_hint"
 
                         android:inputType="textMultiLine"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -110,7 +110,7 @@
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/form_contact_message_donor"
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/dcf_edit_text_box"
+                            android:layout_height="@dimen/contact_edit_text_box"
                             android:textSize="@dimen/dcf_body_size_large"
                             android:gravity="top"
                             />
@@ -123,7 +123,7 @@
                         android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:textSize="@dimen/dcf_body_size_large"
-                        android:text="@string/dcf_button"
+                        android:text="@string/contact_send_button"
                         android:textColor="@color/white"
                         android:padding="@dimen/padding_large"
                         android:backgroundTint="@color/colorPrimary"

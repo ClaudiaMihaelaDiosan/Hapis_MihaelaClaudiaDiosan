@@ -22,4 +22,6 @@
     <!--    Images -->
     <dimen name="check_size">60dp</dimen>
 
+    <dimen name="contact_edit_text_box">200dp</dimen>
+
 </resources>

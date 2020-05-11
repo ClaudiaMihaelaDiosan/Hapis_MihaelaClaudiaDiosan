@@ -425,12 +425,12 @@ La segunda vez que me quedé sin hogar, siguió un patrón similar. Estuve traba
     <string name="donor_phone_text_view">Teléfono</string>
 
     <!--    Donor Contact Fragment-->
-    <string name="dcf_title">CONTACTA CON NOSOTROS</string>
-    <string name="dcf_email_hint">Correo electrónico</string>
-    <string name="dcf_text_hint">Escribe tu mensaje aquí</string>
-    <string name="dcf_button">ENVIAR MENSAJE</string>
-    <string name="dcf_toast_message">El mensaje se ha enviado correctamente.\n Recibirás una respuesta lo antes posible.</string>
-    <string name="dcf_subject_hint">Asunto</string>
+    <string name="contact_title">CONTACTA CON NOSOTROS</string>
+    <string name="contact_email_hint">Correo electrónico</string>
+    <string name="contact_text_hint">Escribe tu mensaje aquí</string>
+    <string name="contact_send_button">ENVIAR MENSAJE</string>
+    <string name="contact_sended_toast_message">El mensaje se ha enviado correctamente.\n Recibirás una respuesta lo antes posible.</string>
+    <string name="contact_subject_hint">Asunto</string>
 
     <!--    Donor Donate Fragment-->
     <string name="donor_donate_title">DONA A HAPIS</string>

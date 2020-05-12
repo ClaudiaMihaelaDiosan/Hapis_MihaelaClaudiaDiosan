@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textStyle="bold"
-        android:textSize="@dimen/lmr_body_size_large"
+        android:textSize="@dimen/title"
         android:textColor="@color/colorPrimaryDark"
         android:text="TEXT"
         android:textAppearance="?android:attr/textAppearanceMedium" />
@@ -22,7 +22,7 @@
     <com.google.android.gms.maps.MapView
         android:id="@+id/lite_list_row_map"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="@dimen/lite_list_row_map"
         map:liteMode="true"
         map:mapType="none" />
 

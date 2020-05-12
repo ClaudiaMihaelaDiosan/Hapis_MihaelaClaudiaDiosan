@@ -100,7 +100,7 @@
                         android:id="@+id/homeless_life_history_editText"
                         android:layout_width="match_parent"
                         android:gravity="top"
-                        android:layout_height="150dp"
+                        android:layout_height="@dimen/profile_edit_text_box"
                         android:inputType="textMultiLine"
                         android:layout_marginBottom="@dimen/bottom_margin"
                         android:hint="@string/homeless_profile_fragment_life_history_hint"

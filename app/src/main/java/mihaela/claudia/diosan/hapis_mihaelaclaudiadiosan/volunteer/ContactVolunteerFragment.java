@@ -29,19 +29,15 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 public class ContactVolunteerFragment extends Fragment {
 
     private TextInputEditText volunteerEmail;
-    private TextInputEditText message;
 
-    MaterialButton volunteerContactBtn;
-
-
-    View view;
+    private MaterialButton volunteerContactBtn;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_contact, container, false);
+        View view = inflater.inflate(R.layout.fragment_contact, container, false);
 
         initViews(view);
         sendMessage(view);
@@ -52,7 +48,7 @@ public class ContactVolunteerFragment extends Fragment {
     private void initViews(View view) {
         volunteerContactBtn = view.findViewById(R.id.contact_send_button);
         volunteerEmail = view.findViewById(R.id.contact_subject_hint);
-        message = view.findViewById(R.id.form_contact_message_hint);
+        TextInputEditText message = view.findViewById(R.id.form_contact_message_hint);
     }
 
     private void sendMessage(final View view){
@@ -91,22 +87,6 @@ public class ContactVolunteerFragment extends Fragment {
         toast.setDuration(Toast.LENGTH_LONG); // set the duration for the Toast
         toast.setView(layout); // set the inflated layout
         toast.show(); // display the custom Toast
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig){
-        super.onConfigurationChanged(newConfig);
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE || newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-            try {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                if (Build.VERSION.SDK_INT >= 26) {
-                    ft.setReorderingAllowed(false);
-                }
-                ft.detach(this).attach(this).commit();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
     }
 
 

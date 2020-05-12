@@ -51,7 +51,7 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
 
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, new HomeDonorFragment()).commit();
-            navigationView.setCheckedItem(R.id.donor_menu_home);
+            navigationView.setCheckedItem(R.id.user_menu_home);
         }
     }
 
@@ -161,24 +161,24 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.donor_menu_home:
+            case R.id.user_menu_home:
                 bottomNavigationView.setVisibility(View.VISIBLE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new HomeDonorFragment()).commit();
                 break;
-            case R.id.donor_menu_donate:
+            case R.id.user_menu_donate:
                 bottomNavigationView.setVisibility(View.GONE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new DonateDonorFragment()).commit();
                 break;
-            case R.id.donor_menu_configuration:
+            case R.id.user_menu_configuration:
                 bottomNavigationView.setVisibility(View.GONE);
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, new ConfigurationDonorFragment()).commit();
                 break;
-            case R.id.donor_menu_logout:
+            case R.id.user_menu_logout:
                 Intent loginIntent = new Intent(HomeDonor.this, LoginActivity.class);
                 startActivity(loginIntent);
                 break;
-            case R.id.donor_menu_contact:
+            case R.id.user_menu_contact:
                 bottomNavigationView.setVisibility(View.GONE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new ContactDonorFragment()).commit();
                 break;

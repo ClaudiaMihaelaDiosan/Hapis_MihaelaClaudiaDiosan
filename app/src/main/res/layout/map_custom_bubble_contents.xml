@@ -12,16 +12,17 @@
         android:ellipsize="end"
         android:singleLine="true"
         android:textColor="#ff000000"
-        android:textSize="14dp"
+        android:textSize="@dimen/body"
         android:textStyle="bold" />
 
 
         <ImageView
             android:id="@+id/badge"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/map_bubble"
+            android:layout_height="@dimen/map_bubble"
             android:layout_gravity="center"
-            android:layout_marginRight="5dp"
+            android:layout_marginEnd="@dimen/cv_margins"
+            android:contentDescription="@string/content_description"
             android:adjustViewBounds="true"/>
 
             <TextView
@@ -30,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:textColor="#ff7f7f7f"
-                android:textSize="14dp" />
+                android:textSize="@dimen/body" />
 
 </LinearLayout>
 

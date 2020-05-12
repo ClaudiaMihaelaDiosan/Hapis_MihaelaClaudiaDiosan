@@ -155,7 +155,7 @@ public class RegisterDonorActivity extends MainActivity {
 
 
     public void showToast(){
-        Toast toast = Toast.makeText(RegisterDonorActivity.this, getString(R.string.register_donor_terms_error), Toast.LENGTH_LONG);
+        Toast toast = Toast.makeText(RegisterDonorActivity.this, getString(R.string.register_user_terms_error), Toast.LENGTH_LONG);
         View view =toast.getView();
         view.setBackgroundColor(Color.WHITE);
         TextView toastMessage =  toast.getView().findViewById(android.R.id.message);

@@ -12,7 +12,7 @@
     <ImageView
         android:id="@+id/intro_img"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="@dimen/intro_image"
         android:layout_gravity="center"
         android:layout_marginStart="@dimen/start_margin"
         android:layout_marginEnd="@dimen/end_margin"

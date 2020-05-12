@@ -19,7 +19,6 @@
 
 
     <application
-        android:allowBackup="true"
         android:configChanges="locale"
         android:icon="@mipmap/hapis_icon"
         android:label="@string/name"
@@ -39,7 +38,7 @@
         <activity android:name=".volunteer.PaymentActivity" />
         <activity
             android:name=".volunteer.HomeVolunteer"
-            android:label="@string/volunteer_home_name"
+            android:label="@string/user_home_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".register.RegisterVolunteerActivity"

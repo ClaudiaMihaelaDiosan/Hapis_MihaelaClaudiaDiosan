@@ -32,8 +32,8 @@
                 android:layout_marginBottom="@dimen/bottom_margin"/>
 
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/contact_image"
+                android:layout_height="@dimen/contact_image"
                 android:layout_gravity="center"
                 android:src="@drawable/contact_drawable"
                 android:contentDescription="@string/content_description"/>

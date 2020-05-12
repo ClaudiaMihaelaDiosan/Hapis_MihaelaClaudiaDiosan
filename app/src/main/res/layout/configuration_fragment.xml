@@ -28,7 +28,7 @@
                 android:layout_gravity="center"
                 android:textStyle="bold"
                 android:textSize="@dimen/title"
-                android:text="@string/donor_configuration_title"
+                android:text="@string/configuration_title"
                 android:layout_marginTop="@dimen/top_margin"
                 android:layout_marginBottom="@dimen/bottom_margin"/>
 
@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
-                android:text="@string/donor_save_config_button"
+                android:text="@string/save_configuration_button"
                 android:textColor="@color/colorPrimary"
                 android:padding="@dimen/padding"
                 android:backgroundTint="@color/white"

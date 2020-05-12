@@ -5,13 +5,13 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/volunteer_menu_home"
-            android:title="@string/volunteer_menu_home"
+            android:id="@+id/user_menu_home"
+            android:title="@string/user_menu_home"
             android:icon="@drawable/menu_home_icon"/>
 
         <item
-            android:id="@+id/volunteer_menu_donate"
-            android:title="@string/volunteer_menu_donate"
+            android:id="@+id/user_menu_donate"
+            android:title="@string/user_menu_donate"
             android:icon="@drawable/menu_donate_icon"/>
 
     </group>
@@ -21,13 +21,13 @@
         <menu>
             <group android:checkableBehavior="single">
             <item
-                android:id="@+id/volunteer_menu_configuration"
-                android:title="@string/volunteer_menu_configuration"
+                android:id="@+id/user_menu_configuration"
+                android:title="@string/user_menu_configuration"
                 android:icon="@drawable/menu_configuration_icon"/>
 
             <item
-                android:id="@+id/volunteer_menu_logout"
-                android:title="@string/volunteer_menu_logout"
+                android:id="@+id/user_menu_logout"
+                android:title="@string/user_menu_logout"
                 android:icon="@drawable/menu_logout_icon"/>
             </group>
         </menu>
@@ -41,8 +41,8 @@
 
             <group android:checkableBehavior="single">
             <item
-                android:id="@+id/volunteer_menu_contact"
-                android:title="@string/volunteer_menu_contact"
+                android:id="@+id/user_menu_contact"
+                android:title="@string/user_menu_contact"
                 android:icon="@drawable/menu_contact_icon"/>
             </group>
         </menu>

@@ -52,7 +52,7 @@
                         android:id="@+id/homeless_schedule_edit_text"
                         android:layout_width="match_parent"
                         android:gravity="top"
-                        android:layout_height="150dp"
+                        android:layout_height="@dimen/needs_edit_text_box"
                         android:inputType="textMultiLine"
                         android:layout_marginBottom="@dimen/bottom_margin"
                         android:hint="@string/schedule_edit_text"

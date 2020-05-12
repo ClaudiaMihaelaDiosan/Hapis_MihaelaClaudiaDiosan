@@ -53,7 +53,7 @@
         android:background="@color/white"
         app:itemTextColor="@color/darkGrey"
         app:itemIconTint="@color/colorPrimary"
-        app:menu="@menu/donor_menu"
+        app:menu="@menu/user_menu"
         app:headerLayout="@layout/user_header"
         android:layout_gravity="start">
 

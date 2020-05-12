@@ -6,7 +6,6 @@ import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -66,7 +65,7 @@ public class ConfigurationDonorFragment extends Fragment {
             public void onClick(View v) {
                 if (isValidPhoneNumber(phoneNumber.getText().toString())){
                     changePhone();
-                    Toast.makeText(getActivity(), getString(R.string.changed_phone_toast), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getString(R.string.config_changed_phone_toast), Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(getActivity(), getString(R.string.phone_error_text), Toast.LENGTH_SHORT).show();
                 }
@@ -104,11 +103,6 @@ public class ConfigurationDonorFragment extends Fragment {
                 e.printStackTrace();
             }
         }
-    }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
     }
 
 }

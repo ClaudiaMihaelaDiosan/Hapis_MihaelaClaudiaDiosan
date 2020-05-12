@@ -12,7 +12,7 @@
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/screen_viewpager"
-        android:layout_width="400dp"
+        android:layout_width="@dimen/intro_view_pager"
         android:layout_height="match_parent"
         android:layout_marginEnd="@dimen/end_margin">
     </androidx.viewpager.widget.ViewPager>

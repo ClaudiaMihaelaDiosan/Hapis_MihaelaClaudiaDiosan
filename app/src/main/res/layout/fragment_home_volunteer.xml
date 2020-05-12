@@ -16,7 +16,7 @@
         android:layout_margin="16dp"
         app:menu_showShadow="true"
         app:menu_fab_label=""
-        android:elevation="4dp"
+        android:elevation="@dimen/elevation"
         app:menu_openDirection="up"
         app:menu_labels_colorNormal="@color/colorPrimaryDark"
         app:menu_labels_textColor="@color/white"

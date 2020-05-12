@@ -21,9 +21,10 @@
             <ImageView
                 android:id="@+id/profile_image_donor_cv"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="@dimen/homeless_cv_image"
                 android:background="@color/light_blue"
                 android:src="@mipmap/ic_launcher"
+                android:contentDescription="@string/content_description"
                 android:layout_gravity="center" />
 
             <TextView

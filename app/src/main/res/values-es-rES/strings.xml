@@ -2,138 +2,79 @@
     <string name="app_name">Hapis_MihaelaClaudiaDiosan</string>
     <string name="name">HAPIS</string>
 
+    <!--General-->
+    <string name="phone_error_text"> Introduce un teléfono válido</string>
     <string name="mobile_connected">Red Móvil Conectada!</string>
     <string name="wifi_connected">Wifi Conectado!</string>
     <string name="no_network_operating">No hay conexión a Internet!</string>
     <string name="option_network">Quieres cerrar la aplicación? </string>
     <string name="positive_button_network">CERRAR</string>
     <string name="negative_button_network">ESPERAR</string>
-
-    <!--    Errors -->
-    <string name="is_email_valid_error">El Email no es válido o el campo esta vacio</string>
+    <string name="open_navigation_drawer">Abrir navigation drawer</string>
+    <string name="close_navigation_drawer">Cerrar navigation drawer</string>
 
 
     <!-- ********* Intro Activity********** -->
-
-    <!--    Titles -->
     <string name="logo_intro_title">HAPIS</string>
     <string name="donor_intro_title">DONANTE</string>
     <string name="volunteer_intro_tile">VOLUNTARIO</string>
-
-    <!--    Texts -->
     <string name="logo_intro_description">Esta es una aplicación social a través de la cual puedes donar cosas básicas a una persona que de verdad lo necesita.</string>
     <string name="donor_intro_description">Puedes registrarte como donante y tendrás la oportunidad de ver los perfiles de las personas sin recursos y ayudarlas.</string>
     <string name="volunteer_intro_description">Puedes registrarte como voluntario y ayudar a registrar y administrar los perfiles de las personas que necesitan ayuda.</string>
-
-    <!--    Buttons -->
     <string name="next_button">Siguiente</string>
     <string name="get_started_button">EMPEZAR</string>
 
-    <!--    Images -->
-    <string name="intro_img_contentDescription">Imagen Intro</string>
-
-
-
-
-
     <!--******  Forgot password activity  *******-->
-
+    <string name="is_email_valid_error">El Email no es válido o el campo esta vacio</string>
     <string name="forgot_password_name">Contraseña olvidada</string>
-
-    <!--    Titles -->
     <string name="fp_title">¿Has olvidado tu contraseña?</string>
-
-    <!--    Texts -->
     <string name="fp_body">Para restablecer tu contraseña, introduce tu correo electrónico que utilizas para iniciar sesión en HAPIS.</string>
     <string name="pop_up_message"> Un correo ha sido enviado al email facilitado.Sigue las instrucciones para restablecer tu contraseña.</string>
-
-    <!--    Buttons -->
     <string name="fp_button">RECUPERAR CONTRASEÑA</string>
     <string name="pop_up_button">OK</string>
-
-    <!--    Edit Texts -->
     <string name="fp_email_hint">Correo electrónico</string>
 
-    <!--   Images -->
-    <string name="content_description_check">Icono éxito</string>
-    <string name="content_description_close_popup">Icono cerrar</string>
-    <string name="content_description_thinking_boy">Dibujo de un niño que piensa</string>
-
     <!--******  Login activity  *******-->
-
-    <!--    Titles -->
     <string name="login_title">Inicia sesión para continuar</string>
-
-    <!--    Texts -->
     <string name="forgot_password">¿Has olvidado tu contraseña?</string>
     <string name="google_text_view">También puedes continuar con la cuenta de Google:</string>
     <string name="signup_tex_view">¿No tienes una cuenta aún?</string>
     <string name="sign_up">REGÍSTRATE AHORA</string>
     <string name="statistics">ESTADÍSTICAS</string>
     <string name="error_login">Comprueba tu usuario o contraseña</string>
-
-
-    <!--    Buttons -->
     <string name="login_button">INICIAR SESIÓN</string>
-
-    <!--    Edit Texts-->
     <string name="email_hint">Nombre de Usuario</string>
     <string name="password_hint">Contraseña</string>
-
-    <!--    Images-->
-    <string name="login_foto_content_description">Logo de Hapis </string>
-
+    <string name="username_error_text">Introduce un nombre de usuario válido</string>
+    <string name="password_error_text">Introduce una contraseña válida </string>
+    <string name="complete_life_toast">Rellena este campo</string>
 
     <!--*****    Statistics Activity  *****-->
     <string name="statistics_name">Estadísticas Hapis</string>
-
-    <!--    Titles -->
     <string name="statistics_title">ESTADÍSTICAS</string>
     <string name="donations_title">DONACIONES</string>
     <string name="statistics_help_type">TIPO DE AYUDA</string>
-
-    <!--    Texts -->
     <string name="statistics_homeless_text">Total personas que necesitan ayuda:</string>
-    <string name="statistics_homeless_number">50</string>
     <string name="statistics_donor_text">Total Donantes:</string>
-    <string name="statistics_donor_number">35</string>
     <string name="statistics_volunteers_text">Total Voluntarios:</string>
-    <string name="statistics_volunteers_number">29</string>
     <string name="statistics_food_help">Comida:</string>
-    <string name="statistics_food_help_number">20</string>
     <string name="statistics_clothes_help">Ropa:</string>
-    <string name="statistics_clothes_help_number">4</string>
     <string name="statistics_work_help">Trabajo:</string>
-    <string name="statistics_work_help_number">3</string>
     <string name="statistics_lodging_help">Alojamiento:</string>
-    <string name="statistics_lodging_number">5</string>
     <string name="statistics_hygiene_products_help">Productos de higiene personal:</string>
-    <string name="statistics_hygiene_products_help_number">3</string>
     <string name="statistics_personal_help">Han ofrecido ayuda personalmente: </string>
-    <string name="statistics_personal_help_number">20</string>
     <string name="statistics_volunteer_help">Han ofrecido ayuda a través de un voluntario:</string>
-    <string name="statistics_volunteer_help_number">15</string>
-
-    <!--    Buttons -->
     <string name="statistics_to_login_button">Volver</string>
 
-
     <!--*****    Register Activity  *****-->
-
     <string name="register_activity_name">Registro</string>
-
-    <!--    Titles -->
     <string name="donor_cv_title">REGÍSTRATE COMO DONANTE</string>
     <string name="volunteer_cv_title">REGÍSTRATE COMO VOLUNTARIO</string>
-
-    <!--    Buttons -->
     <string name="cv_more_button">SABER MÁS</string>
     <string name="cv_start_button">EMPEZAR</string>
-
-    <!--    Images-->
     <string name="content_description_donor_card">Persona pobre abraza una mujer</string>
     <string name="content_description_volunteer_card">Persona pobre recibe una manzada de una niña</string>
-
+    <string name="register_pop_up_button">OK</string>
     <!--    Know more register donor popup -->
     <string name="donor_know_more_title">Que puedes hacer si te registras como donante?</string>
     <string name="donor_know_more_text">1. Puedes ayudar personas que no disponen de recursos tan básicos como comida, alojamiento o ropa \n\n
@@ -141,7 +82,6 @@
                                   3. Puedes donar comida, ropa, alojamiento, trabajo o productos de higiene personal \n\n
                                   4. Puedes entregar la ayuda personalmente o con la ayuda de un voluntario
                                   </string>
-
     <!--    Know more register volunteer popup -->
     <string name="volunteer_know_more_title">Que puedes hacer si te registras como voluntario?</string>
     <string name="volunteer_know_more_text">1. Puedes conectar con personas sin recursos que necesitan nuestra ayuda \n\n
@@ -149,160 +89,90 @@
                                             3. Puedes ayudar a realizar la entrega de donaciones en caso que los donantes no tienen la posibilidad de realizarla personalmente
     </string>
 
+
     <!--*****    Register User Activity  *****-->
     <string name="register_volunteer_name">Register Volunteer</string>
     <string name="register_donor_name">Register Donor</string>
-    <string name="content_description_register_user_image">Imagen registro usuario</string>
-
-
-    <!--    Titles -->
     <string name="register_user_title">Crea tu cuenta</string>
     <string name="register_user_pop_up_title">REGISTRO CORRECTO</string>
-
-    <!--    Texts -->
     <string name="register_user_login_info">Información de inicio de sesión</string>
     <string name="register_user_optional_info">Información Opcional</string>
     <string name="register_user_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
     <string name="register_user_terms">Acepto las <a href="https://freetexthost.net/YgMgzfo">Condiciones Legales</a> e  <a href="https://freetexthost.net/DRNtHzb">Información basica de privacidad</a></string>
     <string name="register_user_terms_error">Primero acepta las condiciones legales!</string>
-
-    <!--    Edit Texts -->
     <string name="register_user_username_hint">Nombre de usuario</string>
     <string name="register_user_email_hint">Correo electrónico</string>
     <string name="register_user_password_hint">Contraseña</string>
     <string name="register_user_first_name_hint">Nombre</string>
     <string name="register_user_last_name_hint">Apellido</string>
     <string name="register_user_phone_number_hint">Teléfono</string>
-
-    <!--    Buttons -->
     <string name="register_user_button">REGISTRAR</string>
     <string name="register_user_pop_up_button">OK</string>
-
-
-
-    <string name="username_error_text">Introduce un nombre de usuario válido</string>
-    <string name="email_error_text">Introduce un email válido   </string>
-    <string name="password_error_text">Introduce una contraseña válida </string>
-    <string name="phone_error_text"> Introduce un teléfono válido</string>
-
-
-
-    <!--*****    Register Donor Activity  *****-->
-
-    <!--    Images -->
-    <string name="content_description_register_donor_image">Imagen registro donante</string>
-
-
-
-    <!--    Titles -->
-    <string name="register_donor_title">Crea tu cuenta</string>
     <string name="register_pop_up_title">REGISTRO CORRECTO</string>
-
-    <!--    Texts -->
-    <string name="register_donor_login_info">Información de inicio de sesión</string>
-    <string name="register_donor_opional_info">Información Opcional</string>
     <string name="register_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
-    <string name="register_donor_terms">Acepto las <a href="https://freetexthost.net/YgMgzfo">Condiciones Legales</a> e  <a href="https://freetexthost.net/DRNtHzb">Información basica de privacidad</a></string>
-    <string name="register_donor_terms_error">Primero acepta las condiciones legales!</string>
 
-
-
-    <!--    Edit Texts -->
-    <string name="register_donor_username_hint">Nombre de usuario</string>
-    <string name="register_donor_email_hint">Correo electrónico</string>
-    <string name="register_donor_password_hint">Contraseña</string>
-    <string name="register_donor_first_name_hint">Nombre</string>
-    <string name="register_donor_last_name_hint">Apellido</string>
-    <string name="register_donor_phone_hint">Teléfono</string>
-
-    <!--    Buttons -->
-    <string name="register_donor_button">REGISTRAR</string>
-    <string name="register_donor_pop_up_button">OK</string>
-    <string name="register_pop_up_button">OK</string>
-
-
-
-
-
-
-    <!--*****    Register Volunteer Activity  *****-->
-
-    <!--    Titles -->
-    <string name="register_volunteer_title">Crea tu cuenta</string>
-    <string name="register_volunteer_pop_up_title">REGISTRO CORRECTO</string>
-
-    <!--    Texts -->
-    <string name="register_volunteer_login_info">Información de inicio de sesión</string>
-    <string name="register_volunteer_opional_info">Información Opcional</string>
-    <string name="register_volunteer_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
-    <string name="register_volunteer_terms">Acepto las <a href="https://freetexthost.net/YgMgzfo">Condiciones legales</a> e <a href="https://freetexthost.net/DRNtHzb">Información basica de privacidad</a></string>
-    <string name="register_volunteer_terms_error">Primero acepta las condiciones legales!</string>
-
-    <!--    Edit Texts -->
-    <string name="register_volunteer_username_hint">Nombre de usuario</string>
-    <string name="register_volunteer_email_hint">Correo electrónico</string>
-    <string name="register_volunteer_password_hint">Contraseña</string>
-    <string name="register_volunteer_phone_number_hint">Teléfono</string>
-    <string name="register_volunteer_first_name_hint">Nombre</string>
-    <string name="register_volunteer_last_name_hint">Apellido</string>
-
-    <!--    Buttons -->
-    <string name="register_volunteer_button">REGISTRAR</string>
-    <string name="register_volunteer_pop_up_button">OK</string>
-
-
-
-
-
-    <!--    Volunteer Home Activity-->
-    <string name="volunteer_home_name">Voluntario</string>
-    <string name="volunteer_menu_home">Inicio</string>
-    <string name="volunteer_menu_donate">Donar</string>
-
-    <string name="volunteer_menu_profile">Perfil</string>
-    <string name="volunteer_menu_configuration">Configuración</string>
-    <string name="volunteer_menu_logout">Salir</string>
-
-
-    <string name="volunteer_menu_contact">Contacto</string>
-
-    <string name="volunteer_username_text_view">Nombre de usuario</string>
-    <string name="volunteer_email_text_view">Correo electrónico</string>
-
-    <string name="open_navigation_drawer">Abrir navigation drawer</string>
-    <string name="close_navigation_drawer">Cerrar navigation drawer</string>
-
+    <!--*****   User Home  *****-->
+    <string name="user_home_name">Voluntario</string>
+    <string name="user_menu_home">Inicio</string>
+    <string name="user_menu_donate">Donar</string>
+    <string name="user_menu_profile">Perfil</string>
+    <string name="user_menu_configuration">Configuración</string>
+    <string name="user_menu_logout">Salir</string>
+    <string name="user_menu_contact">Contacto</string>
+    <string name="user_username_text_view">Nombre de usuario</string>
+    <string name="user_email_text_view">Correo electrónico</string>
     <string name="configuration_menu">Configuración</string>
     <string name="contact_menu">Contacto</string>
+    <string name="user_phone_text_view">Número de teléfono</string>
+    <string name="bottom_nav_home">Inicio</string>
+    <string name="bottom_nav_map">Mapa</string>
+    <string name="bottom_nav_list_map">Lista de Mapas</string>
 
-    <string name="vcf_title">CONTACTA CON NOSOTROS</string>
-    <string name="vcf_email_hint">Correo electrónico</string>
-    <string name="vcf_text_hint">Escribe tu mensaje aquí</string>
-    <string name="vcf_button">ENVIAR MENSAJE</string>
-    <string name="contact_toast_message">El mensaje se ha enviado correctamente.\n Recibirás una respuesta lo antes posible.</string>
-    <string name="vcf_subject_hint">Asunto</string>
-    <string name="vcf_image_content_description">Imagen Correo</string>
+    <!--    Volunteer home fragment-->
+    <string name="edit_button_toast">Con este botón el voluntario podrá editar los campos que aparecen para la persona necesitada</string>
+    <string name="delete_button_toast">Con este botón se borrará el perfil de la persona necesitada</string>
+    <!--Floating Action Menu -->
+    <string name="new_homeless_profile">Nuevo perfil persona necesitada</string>
+    <string name="send_delivery_notification">Enviar notification de entrega al donante</string>
+    <string name="delivery_notification_title">Notificatión de entrega</string>
+    <string name="delivery_donor_username">Nombre usuario Donante</string>
+    <string name="delivery_homeless_username">Nombre usuario persona necesitada</string>
+    <string name="delivery_cancel_button">Cancelar</string>
+    <string name="delivery_send_toast">El donante recibirá una notificación push como en el ejemplo siguiente: \nAsunto: Donación entregada correctamente \nMensaje: El voluntario ha realizado la entrega de tu donación a la persona necesitada.</string>
 
-    <!-- Volunteer Configuration Fragment -->
-    <string name="volunteer_personal_info_title">Información Personal</string>
-    <string name="configuration_title">CONFIGURACIÓN</string>
-    <string name="volunteer_phone_number_title">Número de teléfono</string>
-    <string name="volunteer_phone_number_summary">Cambia tu número de teléfono existente o añade un número nuevo</string>
-    <string name="vounteer_phone_text_view">Número de teléfono</string>
-    <string name="save_config_button">GUARDAR</string>
-    <string name="changed_phone_toast">Has cambiado tu número de teléfono</string>
-    <string name="complete_life_toast">Rellena este campo</string>
+    <!--    Location Fragment -->
+    <string name="location_fragment_title">A continuación, busca y selecciona una ubicación donde los donantes podrán encontrar a la persona necesitada </string>
+    <string name="selected_location">Has seleccionado la siguiente ubicación:</string>
+    <string name="location_error_toast">Tienes que seleccionar una ubicación</string>
+    <string name="toast_save_btn">Información guardada correctamente!</string>
 
-    <!--    Volunteer Donate Fragment-->
-    <string name="donate_title">DONA A HAPIS</string>
-    <string name="donate_text"> Tu donación proporciona cosas como comida a personas reales y nos ayuda seguir manteniendo esta aplicación.</string>
-    <string name="donate_button">DONAR</string>
-    <string name="donate_video">Mira el video para dona 0.40 centimos.</string>
+    <!--    Create profile fragment-->
+    <string name="photo">Add your photo here</string>
+    <string name="homeless_profile_fragment_username_hint">Nombre de usuario</string>
+    <string name="homeless_profile_fragment_phone_number">Teléfono (opcional)</string>
+    <string name="homeless_profile_fragment_birthday_hint">Fecha de nacimiento (opcional)</string>
+    <string name="homeless_profile_fragment_life_history_hint">Escribe algo sobre ti y tus experiencias</string>
+    <string name="homeless_profile_cancel_button">CANCELAR</string>
+    <string name="homeless_profile_save_button">GUARDAR</string>
+    <string name="homeless_profile_add_photo">Añadir foto de perfil</string>
+    <string name="chooser_gallery">Galería</string>
+    <string name="chooser_camera">Cámara</string>
+    <string name="chooser_cancel">Cancelar</string>
+    <string name="dialog_add_image">Añadir Imagen</string>
+    <string name="dialog_select_file">Seleccionar Archivo</string>
+
+    <!--    Needs Fragment -->
+    <string name="schedule_text">Escribe cuando puede ser encontrada la persona necesitada en la ubicación seleccionada anteriormente:</string>
+    <string name="schedule_edit_text">Días y horas disponibles </string>
+    <string name="needs_text">A continuación, selecciona la necesidad más imporante que tiene la persona necesitada en este momento:</string>
+    <string name="most_important_need_tv">La necesidad más importante seleccionada es: </string>
+    <string name="complete_schedule_toast">Tienes que rellenar el horario</string>
+    <string name="complete_need_toast">Tienes que elegir tu necesidad más importante</string>
 
     <!--    Payment activity-->
     <string name="payment_activity_name">Donar </string>
     <string name="payment_title">Introduce el importe de la donación:</string>
-   <string name="payment_card_credit">Introduce los datos de tu tarjeta:</string>
+    <string name="payment_card_credit">Introduce los datos de tu tarjeta:</string>
     <string name="currency_hint">0,00 €</string>
     <string name="payment_donate_button">DONAR</string>
     <string name="payment_confirm_title">Confirma los datos antes de pagar</string>
@@ -316,16 +186,6 @@
     <string name="payment_phone_number">Número de teléfono: </string>
     <string name="payment_toast_success">Gracias por tu donación!</string>
     <string name="payment_toast_fail">Por favor, rellena el formulario</string>
-
-
-    <!--Floating Action Menu -->
-    <string name="new_homeless_profile">Nuevo perfil persona necesitada</string>
-    <string name="send_delivery_notification">Enviar notification de entrega al donante</string>
-    <string name="delivery_notification_title">Notificatión de entrega</string>
-    <string name="delivery_donor_username">Nombre usuario Donante</string>
-    <string name="delivery_homeless_username">Nombre usuario persona necesitada</string>
-    <string name="delivery_cancel_button">Cancelar</string>
-    <string name="delivery_send_toast">El donante recibirá una notificación push como en el ejemplo siguiente: \nAsunto: Donación entregada correctamente \nMensaje: El voluntario ha realizado la entrega de tu donación a la persona necesitada.</string>
 
     <!--  Create homeless profile  -->
     <string name="create_homeless_profile_name">Crear perfil</string>
@@ -345,120 +205,68 @@
     <string name="agreement">Acepto los tèrminos y las condiciones</string>
     <string name="have_to_sign">Tienes que firmar antes!</string>
 
+    <!--Configuration Fragment-->
+    <string name="configuration_title">CONFIGURACIÓN</string>
+    <string name="config_personal_info_title">Información Personal</string>
+    <string name="config_phone_number_hint">Número de teléfono</string>
+    <string name="config_phone_number_summary">Cambia tu número de teléfono existente o añade un número nuevo</string>
+    <string name="save_configuration_button">GUARDAR</string>
+    <string name="config_changed_phone_toast">Has cambiado tu número de teléfono</string>
 
-    <!--    Create profile fragment-->
-    <string name="photo">Add your photo here</string>
-    <string name="homeless_profile_fragment_username_hint">Nombre de usuario</string>
-    <string name="homeless_profile_fragment_phone_number">Teléfono (opcional)</string>
-    <string name="homeless_profile_fragment_birthday_hint">Fecha de nacimiento (opcional)</string>
-    <string name="homeless_profile_fragment_life_history_hint">Escribe algo sobre ti y tus experiencias</string>
-    <string name="homeless_profile_cancel_button">CANCELAR</string>
-    <string name="homeless_profile_save_button">GUARDAR</string>
-    <string name="homeless_profile_add_photo">Añadir foto de perfil</string>
-    <string name="chooser_gallery">Galería</string>
-    <string name="chooser_camera">Cámara</string>
-    <string name="chooser_cancel">Cancelar</string>
-    <string name="dialog_add_image">Añadir Imagen</string>
-    <string name="dialog_select_file">Seleccionar Archivo</string>
-    <string name="toast_save_btn">Información guardada correctamente!</string>
-
-    <!--    Location Fragment -->
-    <string name="location_fragment_title">A continuación, busca y selecciona una ubicación donde los donantes podrán encontrar a la persona necesitada </string>
-    <string name="selected_location">Has seleccionado la siguiente ubicación:</string>
-    <string name="location_error_toast">Tienes que seleccionar una ubicación</string>
-
-    <!--    Needs Fragment -->
-    <string name="schedule_text">Escribe cuando puede ser encontrada la persona necesitada en la ubicación seleccionada anteriormente:</string>
-    <string name="schedule_edit_text">Días y horas disponibles </string>
-    <string name="needs_text">A continuación, selecciona la necesidad más imporante que tiene la persona necesitada en este momento:</string>
-    <string name="chip_food">Comida</string>
-    <string name="chip_clothes">Ropa</string>
-    <string name="chip_work">Trabajo</string>
-    <string name="chip_lodging">Alojamiento</string>
-    <string name="chip_hygiene_products">Higiene personal</string>
-    <string name="most_important_need_tv">La necesidad más importante seleccionada es: </string>
-    <string name="complete_schedule_toast">Tienes que rellenar el horario</string>
-    <string name="complete_need_toast">Tienes que elegir tu necesidad más importante</string>
-
-    <!--    Volunteer home fragment-->
-    <string name="edit_button_toast">Con este botón el voluntario podrá editar los campos que aparecen para la persona necesitada</string>
-    <string name="delete_button_toast">Con este botón se borrará el perfil de la persona necesitada</string>
-
-    <string name="andrew_story">Cometí un error cuando era más joven y me descubrieron tomando droga. Terminé teniendo que cumplir una breve pena de prisión.
-Terminé sin hogar en las calles  durante unas semanas o un mes. Serví algunas condenas en prisión, pero generalmente terminaba en las calles nuevamente, ya que cuando salía no tenía dónde vivir.</string>
-    <string name="maria_story">He estado sin hogar dos veces, una vez cuando tenía 45 años y ahora. Ambas veces se debió a problemas de salud mental.
-La primera vez que sucedió, dejé mi trabajo porque no estaba bien. Fui a quedarme con mis padres, pero no funcionó y mi padre me pidió que me fuera. Luego fui a quedarme con amigos.
-La segunda vez que me quedé sin hogar, siguió un patrón similar. Estuve trabajando a tiempo parcial en una tienda pero terminé saliendo. Entonces no tenía trabajo y tenia una hippoteca para pagar.</string>
-    <string name="maite_story">Mi marido y yo nos separamos en 2014 después de que fue arrestado por maltratarme. Solo trabajaba a tiempo parcial y no tenía dónde quedarme con los niños, solo algunas veces con mi madre.Al final vivimos de alquiler e intento darles lo mejor con la ayuda que tenemos.</string>
-    <string name="luis_story">Tenemos una casa, pero nos resulta muy difícil pasar el mes, debido a nuestros trabajos. Estoy trabajando a tiempo parcial y mi esposa no está trabajando en este momento.</string>
-    <string name="cristina_story">He tenido a mi hija con un hombre que no la quiere y que me dejo en la calle cuando se ha enterado que estaba embarazada.Ahora estamos las dos viviendo en lugares de acogida mientras encuentro un trabajo.</string>
-
-    <string name="food">Comida</string>
-    <string name="clothes">Ropa</string>
-    <string name="work">Trabajo</string>
-    <string name="lodging">Alojamiento</string>
-
-    <string name="andrew_schedule">Cada día por las mañanas</string>
-    <string name="maria_schedule">Lunes por la tarde y Miercoles por la mañana</string>
-    <string name="maite_schedule">De lunes a viernes por las tardes</string>
-    <string name="luis_schedule">Los fines de semana todo el día</string>
-    <string name="cristina_schedule">Cada día por las mañanas</string>
-
-    <string name="andrew_location">Av. de Madrid, 3, 25002 Lleida</string>
-    <string name="maria_location">Avinguda de València, 21, 25001 Lleida</string>
-    <string name="maite_location">Av. de les Garrigues, 38, 25001 Lleida</string>
-    <string name="luis_location">Plaça Mossèn Jacint Verdaguer, 4, 25004 Lleida</string>
-    <string name="cristina_location">Gran Passeig de Ronda, 63, 25006 Lleida</string>
-
-
-    <!--    Donor Home Activity-->
-    <string name="donor_menu_home">Inicio</string>
-    <string name="donor_menu_donate">Donar</string>
-
-    <string name="donor_menu_profile">Perfil</string>
-    <string name="donor_menu_configuration">Configuración</string>
-    <string name="donor_menu_logout">Salir</string>
-    <string name="donor_menu_contact">Contacto</string>
-
-    <string name="donor_username_text_view">Nombre de usuario</string>
-    <string name="donor_email_text_view">Correo electrónico</string>
-    <string name="donor_phone_text_view">Teléfono</string>
-
-    <!--    Donor Contact Fragment-->
+    <!--  Contact Fragment-->
     <string name="contact_title">CONTACTA CON NOSOTROS</string>
     <string name="contact_email_hint">Correo electrónico</string>
     <string name="contact_text_hint">Escribe tu mensaje aquí</string>
     <string name="contact_send_button">ENVIAR MENSAJE</string>
     <string name="contact_sended_toast_message">El mensaje se ha enviado correctamente.\n Recibirás una respuesta lo antes posible.</string>
     <string name="contact_subject_hint">Asunto</string>
+    <string name="contact_toast_message">El mensaje se ha enviado correctamente.\n Recibirás una respuesta lo antes posible.</string>
+    <string name="email_error_text">Introduce un email válido   </string>
 
-    <!--    Donor Donate Fragment-->
-    <string name="donor_donate_title">DONA A HAPIS</string>
-    <string name="donor_donate_text"> Tu donación proporciona cosas como comida a personas reales y nos ayuda seguir manteniendo esta aplicación.</string>
-    <string name="donor_donate_button">DONAR</string>
-    <string name="donor_donate_video">Mira el video para donar 0.40 centimos.</string>
+    <!--  Donate Fragment-->
+    <string name="donate_title">DONA A HAPIS</string>
+    <string name="donate_text"> Tu donación proporciona cosas como comida a personas reales y nos ayuda seguir manteniendo esta aplicación.</string>
+    <string name="donate_button">DONAR</string>
+    <string name="donate_video">Mira el video para dona 0.40 centimos.</string>
 
-    <!-- Donor Configuration Fragment -->
-    <string name="donor_system_title">Sistema</string>
-    <string name="donor_change_language_title">Idioma</string>
-    <string name="donor_change_language_summary">Cambia el idioma de la aplicación</string>
-    <string name="donor_change_language_dialog_title">Escoje idioma</string>
-
-    <!-- Donor Home Fragment-->
-    <string name="need_tv">Necesita:  </string>
-    <string name="help_button">QUIERO AYUDAR</string>
-    <string name="birthday">Cumpleaños: </string>
-    <string name="life_history">Mi historia: </string>
-    <string name="location">Ubicación</string>
-    <string name="schedule">En esta ubicación: </string>
-    <string name="need">Lo que más necesito:  </string>
+    <!--  Help Fragment-->
     <string name="donation_type">Selecciona  que quieres donar</string>
+    <string name="chip_food">Comida</string>
+    <string name="chip_clothes">Ropa</string>
+    <string name="chip_work">Trabajo</string>
+    <string name="chip_lodging">Alojamiento</string>
+    <string name="chip_hygiene_products">Higiene personal</string>
     <string name="help_type">Selecciona como quieres realizar tu donación</string>
     <string name="personally_button">PERSONALMENTE</string>
     <string name="through_volunteer_button">A TRAVÉS DE UN VOLUNTARIO</string>
     <string name="chip_text1">Tu donación de </string>
     <string name="chip_text2">será añadida a nuestras estadísticas</string>
 
+    <!--    Homeless custom view -->
+    <string name="hcv_username">Usuario</string>
+    <string name="hcv_phone">Teléfono</string>
+    <string name="hcv_birthday">Fecha de nacimiento</string>
+    <string name="hcv_life_history">Historia</string>
+    <string name="hcv_address">Dirrección</string>
+    <string name="hcv_schedule">Horario</string>
+    <string name="hcv_need">Necesidad</string>
+    <string name="need_tv">Necesita:  </string>
+
+    <!--Homeless complete view-->
+    <string name="birthday">Cumpleaños: </string>
+    <string name="life_history">Mi historia: </string>
+    <string name="location">Ubicación</string>
+    <string name="schedule">En esta ubicación: </string>
+    <string name="need">Lo que más necesito:  </string>
+    <string name="help_button">QUIERO AYUDAR</string>
+
+    <!--Map Fragment-->
+    <string name="here">En esta ubicación</string>
+    <string name="map_not_ready">El mapa no esta listo aun</string>
+    <string name="list_map">Linear</string>
+    <string name="grid_map">Grid</string>
+
+    <!-- Personally Fragment-->
     <string name="location_text_personally">La persona que necesita tu ayuda estará en la siguiente ubicación para que puedas dejarle tu donación</string>
     <string name="schedule_text_personally">Podrás encontrarla en el siguiente horario</string>
 
@@ -475,36 +283,32 @@ La segunda vez que me quedé sin hogar, siguió un patrón similar. Estuve traba
     <string name="time_error_toast">Tienes que seleccionar una hora!</string>
     <string name="fthv_location_error_toast">Tienes que seleccionar una ubicación!</string>
 
-    <string name="map_not_ready">El mapa no esta listo aun</string>
-    <string name="here">En esta ubicación</string>
 
-    <string name="linear">Linear</string>
-    <string name="grid">Cuadrícula</string>
+    <!--Preferences-->
+    <string name="food">Comida</string>
+    <string name="clothes">Ropa</string>
+    <string name="work">Trabajo</string>
+    <string name="lodging">Alojamiento</string>
 
-    <!--    Homeless custom view -->
-    <string name="hcv_username">Usuario</string>
-    <string name="hcv_phone">Teléfono</string>
-    <string name="hcv_birthday">Fecha de nacimiento</string>
-    <string name="hcv_life_history">Historia</string>
-    <string name="hcv_address">Dirrección</string>
-    <string name="hcv_schedule">Horario</string>
-    <string name="hcv_need">Necesidad</string>
+    <string name="andrew_location">Av. de Madrid, 3, 25002 Lleida</string>
+    <string name="maria_location">Avinguda de València, 21, 25001 Lleida</string>
+    <string name="maite_location">Av. de les Garrigues, 38, 25001 Lleida</string>
+    <string name="luis_location">Plaça Mossèn Jacint Verdaguer, 4, 25004 Lleida</string>
+    <string name="cristina_location">Gran Passeig de Ronda, 63, 25006 Lleida</string>
 
+    <string name="andrew_story">Cometí un error cuando era más joven y me descubrieron tomando droga. Terminé teniendo que cumplir una breve pena de prisión.
+Terminé sin hogar en las calles  durante unas semanas o un mes. Serví algunas condenas en prisión, pero generalmente terminaba en las calles nuevamente, ya que cuando salía no tenía dónde vivir.</string>
+    <string name="maria_story">He estado sin hogar dos veces, una vez cuando tenía 45 años y ahora. Ambas veces se debió a problemas de salud mental.
+La primera vez que sucedió, dejé mi trabajo porque no estaba bien. Fui a quedarme con mis padres, pero no funcionó y mi padre me pidió que me fuera. Luego fui a quedarme con amigos.
+La segunda vez que me quedé sin hogar, siguió un patrón similar. Estuve trabajando a tiempo parcial en una tienda pero terminé saliendo. Entonces no tenía trabajo y tenia una hippoteca para pagar.</string>
+    <string name="maite_story">Mi marido y yo nos separamos en 2014 después de que fue arrestado por maltratarme. Solo trabajaba a tiempo parcial y no tenía dónde quedarme con los niños, solo algunas veces con mi madre.Al final vivimos de alquiler e intento darles lo mejor con la ayuda que tenemos.</string>
+    <string name="luis_story">Tenemos una casa, pero nos resulta muy difícil pasar el mes, debido a nuestros trabajos. Estoy trabajando a tiempo parcial y mi esposa no está trabajando en este momento.</string>
+    <string name="cristina_story">He tenido a mi hija con un hombre que no la quiere y que me dejo en la calle cuando se ha enterado que estaba embarazada.Ahora estamos las dos viviendo en lugares de acogida mientras encuentro un trabajo.</string>
 
-
-    <!-- Donor Configuration Fragment -->
-    <string name="donor_configuration_title">CONFIGURACIÓN</string>
-    <string name="config_personal_info_title">Información Personal</string>
-    <string name="config_phone_number_hint">Número de teléfono</string>
-    <string name="config_phone_number_summary">Cambia tu número de teléfono existente o añade un número nuevo</string>
-    <string name="donor_save_config_button">GUARDAR</string>
-    <string name="donor_changed_phone_toast">Has cambiado tu número de teléfonoy</string>
-    <string name="d_complete_life_toast">Rellena este campo</string>
-
-
-
-
-
-
+    <string name="andrew_schedule">Cada día por las mañanas</string>
+    <string name="maria_schedule">Lunes por la tarde y Miercoles por la mañana</string>
+    <string name="maite_schedule">De lunes a viernes por las tardes</string>
+    <string name="luis_schedule">Los fines de semana todo el día</string>
+    <string name="cristina_schedule">Cada día por las mañanas</string>
 
 </resources>

@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:background="@color/colorPrimaryDark"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:padding="@dimen/padding">
 
     <!-- ImageVView and TextView for custom Toast -->
     <ImageView
@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/message_toast"
-        android:layout_marginRight="8dp" />
+        android:layout_marginEnd="@dimen/cv_margins" />
 
     <TextView
         android:id="@+id/toastTextView"

@@ -34,8 +34,8 @@
                 android:layout_marginBottom="@dimen/bottom_margin"/>
 
             <ImageView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="@dimen/statistics_image"
+                android:layout_height="@dimen/statistics_image"
                 android:layout_gravity="center"
                 android:src="@drawable/statistics_img"
                 android:contentDescription="@string/content_description"/>

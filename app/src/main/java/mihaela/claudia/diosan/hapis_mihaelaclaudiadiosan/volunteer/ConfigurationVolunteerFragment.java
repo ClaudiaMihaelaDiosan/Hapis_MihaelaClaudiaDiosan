@@ -4,28 +4,17 @@ import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.InputType;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.preference.EditTextPreference;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceManager;
 
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
-
-import java.util.Locale;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
@@ -66,7 +55,7 @@ public class ConfigurationVolunteerFragment extends Fragment {
             public void onClick(View v) {
                 if (isValidPhoneNumber(phoneNumber.getText().toString())){
                     changePhone();
-                    Toast.makeText(getActivity(), getString(R.string.changed_phone_toast), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), getString(R.string.config_changed_phone_toast), Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(getActivity(), getString(R.string.phone_error_text), Toast.LENGTH_SHORT).show();
                 }
@@ -94,23 +83,6 @@ public class ConfigurationVolunteerFragment extends Fragment {
             return android.util.Patterns.PHONE.matcher(target).matches();
         }
     }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig){
-        super.onConfigurationChanged(newConfig);
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE || newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-            try {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                if (Build.VERSION.SDK_INT >= 26) {
-                    ft.setReorderingAllowed(false);
-                }
-                ft.detach(this).attach(this).commit();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
 
 
 }

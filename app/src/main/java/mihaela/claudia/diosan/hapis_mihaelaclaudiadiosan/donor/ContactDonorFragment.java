@@ -34,14 +34,10 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register.RegisterDonorA
  */
 public class ContactDonorFragment extends Fragment {
 
-
+    /*EdiText*/
     private TextInputEditText donorEmail;
-    private TextInputEditText message;
 
-
-
-    private View view;
-
+    /*Buttons*/
     private MaterialButton donorContactButton;
 
     public ContactDonorFragment() {
@@ -52,7 +48,7 @@ public class ContactDonorFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-       view = inflater.inflate(R.layout.fragment_contact, container, false);
+        View view = inflater.inflate(R.layout.fragment_contact, container, false);
 
         initViews(view);
         sendMessage(view);
@@ -63,7 +59,7 @@ public class ContactDonorFragment extends Fragment {
     private void initViews(View view){
         donorContactButton = view.findViewById(R.id.contact_send_button);
         donorEmail = view.findViewById(R.id.contact_subject_hint);
-        message = view.findViewById(R.id.form_contact_message_hint);
+        TextInputEditText message = view.findViewById(R.id.form_contact_message_hint);
     }
 
     private void sendMessage(final View view){
@@ -80,7 +76,7 @@ public class ContactDonorFragment extends Fragment {
     }
 
 
-    boolean isEmailValid() {
+    private boolean isEmailValid() {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(donorEmail.getText().toString()).matches() && !donorEmail.getText().toString().isEmpty();
     }
 
@@ -102,24 +98,6 @@ public class ContactDonorFragment extends Fragment {
         toast.setDuration(Toast.LENGTH_LONG); // set the duration for the Toast
         toast.setView(layout); // set the inflated layout
         toast.show(); // display the custom Toast
-    }
-
-
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig){
-        super.onConfigurationChanged(newConfig);
-        if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE || newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
-            try {
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                if (Build.VERSION.SDK_INT >= 26) {
-                    ft.setReorderingAllowed(false);
-                }
-                ft.detach(this).attach(this).commit();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
     }
 
 }

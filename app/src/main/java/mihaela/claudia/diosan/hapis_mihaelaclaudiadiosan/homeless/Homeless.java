@@ -14,7 +14,6 @@ public class Homeless {
     private String locationAddress;
     private String schedule;
     private String need;
-    private LatLng locationCoordinates;
 
     public Homeless(int profileImageResource, String username, String phone, String birthday, String lifeHistory, String locationAddress, String schedule, String need){
         this.profileImageResource = profileImageResource;
@@ -38,7 +37,6 @@ public class Homeless {
 
     public Homeless(String username, LatLng locationCoordinates){
         this.username = username;
-        this.locationCoordinates = locationCoordinates;
     }
 
     public int getProfileImageResource(){

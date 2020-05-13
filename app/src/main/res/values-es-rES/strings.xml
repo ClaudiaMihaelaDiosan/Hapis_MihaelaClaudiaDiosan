@@ -42,12 +42,14 @@
     <string name="sign_up">REGÍSTRATE AHORA</string>
     <string name="statistics">ESTADÍSTICAS</string>
     <string name="error_login">Comprueba tu usuario o contraseña</string>
+    <string name="user_exists">Este usuario ya existe!</string>
     <string name="login_button">INICIAR SESIÓN</string>
     <string name="email_hint">Correo electronico</string>
     <string name="password_hint">Contraseña</string>
     <string name="username_error_text">Introduce un nombre de usuario válido</string>
     <string name="password_error_text">La contrasña tiene que tener al menos 6 caràcteres </string>
     <string name="complete_life_toast">Rellena este campo</string>
+    <string name="progress_login">Iniciando sesión…</string>
 
     <!--*****    Statistics Activity  *****-->
     <string name="statistics_name">Estadísticas Hapis</string>

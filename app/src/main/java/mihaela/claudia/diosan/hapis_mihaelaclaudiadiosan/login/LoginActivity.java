@@ -1,5 +1,7 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,10 +9,12 @@ import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
@@ -61,7 +65,6 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
 
         mAuth = FirebaseAuth.getInstance();
         mFirestore = FirebaseFirestore.getInstance();
-
 
         makeFullscreenActivity();
         initViews();
@@ -121,6 +124,7 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
         loginEmailEditText = findViewById(R.id.login_email_edit_text);
         loginPasswordEditText = findViewById(R.id.login_password_edit_text);
         loginBtn = findViewById(R.id.login_button);
+
     }
 
 
@@ -128,11 +132,13 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
         loginEmailValue = loginEmailEditText.getText().toString();
         loginPasswordValue = loginPasswordEditText.getText().toString();
 
+        setDialog(true);
         mAuth.signInWithEmailAndPassword(loginEmailValue, loginPasswordValue)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+
 
                             isDonor(loginEmailValue);
                             isVolunteer(loginEmailValue);
@@ -141,6 +147,7 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
 
                         } else {
                             // If sign in fails, display a message to the user.
+
                             Toast.makeText(LoginActivity.this, getString(R.string.error_login),
                                     Toast.LENGTH_SHORT).show();
                         }
@@ -190,6 +197,15 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
         if (loginPasswordEditText.getText().toString().isEmpty()){
             loginPasswordEditText.setError(getString(R.string.password_error_text));
         }
+    }
+
+    private void setDialog(boolean show){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //View view = getLayoutInflater().inflate(R.layout.progress);
+        builder.setView(R.layout.progress);
+        Dialog dialog = builder.create();
+        if (show)dialog.show();
+        else dialog.dismiss();
     }
 
 

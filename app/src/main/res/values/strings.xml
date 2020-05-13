@@ -45,12 +45,14 @@
     <string name="sign_up">REGISTER NOW</string>
     <string name="statistics">STATISTICS</string>
     <string name="error_login">Check your username or password</string>
+    <string name="user_exists">This user already exists!</string>
     <string name="login_button">LOGIN</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="username_error_text">Enter a valid username</string>
     <string name="password_error_text">Password must have at least 6 characters </string>
     <string name="complete_life_toast">You have to fill this field</string>
+    <string name="progress_login">Starting session…</string>
 
 
     <!--*****    Statistics Activity  *****-->

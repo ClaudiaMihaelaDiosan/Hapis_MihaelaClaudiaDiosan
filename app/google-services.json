@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "298377284069",
+    "firebase_url": "https://hapis-273119.firebaseio.com",
+    "project_id": "hapis-273119",
+    "storage_bucket": "hapis-273119.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298377284069:android:07a3e75ac98cf86308c70c",
+        "android_client_info": {
+          "package_name": "mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "298377284069-bqi9ll73gms0brm01k67ncc4ofm2q679.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan",
+            "certificate_hash": "e301cd8ba8646f1f2788ac74cf26436ec720cd41"
+          }
+        },
+        {
+          "client_id": "298377284069-rfi1353p1vfmtnqobheu422v7q0k6nuj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCX2UDdk-axLe1c0gsxn45ONF331eGqvgg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "298377284069-rfi1353p1vfmtnqobheu422v7q0k6nuj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

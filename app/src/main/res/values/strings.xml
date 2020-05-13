@@ -46,11 +46,12 @@
     <string name="statistics">STATISTICS</string>
     <string name="error_login">Check your username or password</string>
     <string name="login_button">LOGIN</string>
-    <string name="email_hint">Username</string>
+    <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="username_error_text">Enter a valid username</string>
-    <string name="password_error_text">Enter a valid password </string>
+    <string name="password_error_text">Password must have at least 6 characters </string>
     <string name="complete_life_toast">You have to fill this field</string>
+
 
     <!--*****    Statistics Activity  *****-->
     <string name="statistics_name">Statistics Hapis</string>
@@ -112,6 +113,7 @@
     <string name="register_user_pop_up_button">OK</string>
     <string name="register_pop_up_title">REGISTRATION SUCCESS</string>
     <string name="register_pop_up_message">Thank you. Please check your email to activate your account.</string>
+    <string name="register_error">"Something went wrong!</string>
 
     <!--    User Home Activity-->
     <string name="user_home_name">Volunteer</string>

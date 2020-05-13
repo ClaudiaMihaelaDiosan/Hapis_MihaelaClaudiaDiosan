@@ -43,10 +43,10 @@
     <string name="statistics">ESTADÍSTICAS</string>
     <string name="error_login">Comprueba tu usuario o contraseña</string>
     <string name="login_button">INICIAR SESIÓN</string>
-    <string name="email_hint">Nombre de Usuario</string>
+    <string name="email_hint">Correo electronico</string>
     <string name="password_hint">Contraseña</string>
     <string name="username_error_text">Introduce un nombre de usuario válido</string>
-    <string name="password_error_text">Introduce una contraseña válida </string>
+    <string name="password_error_text">La contrasña tiene que tener al menos 6 caràcteres </string>
     <string name="complete_life_toast">Rellena este campo</string>
 
     <!--*****    Statistics Activity  *****-->
@@ -110,6 +110,7 @@
     <string name="register_user_pop_up_button">OK</string>
     <string name="register_pop_up_title">REGISTRO CORRECTO</string>
     <string name="register_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
+    <string name="register_error">"Algo ha ido mal!</string>
 
     <!--*****   User Home  *****-->
     <string name="user_home_name">Voluntario</string>

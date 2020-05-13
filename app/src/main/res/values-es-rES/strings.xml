@@ -29,10 +29,12 @@
     <string name="forgot_password_name">Contraseña olvidada</string>
     <string name="fp_title">¿Has olvidado tu contraseña?</string>
     <string name="fp_body">Para restablecer tu contraseña, introduce tu correo electrónico que utilizas para iniciar sesión en HAPIS.</string>
-    <string name="pop_up_message"> Un correo ha sido enviado al email facilitado.Sigue las instrucciones para restablecer tu contraseña.</string>
+    <string name="pop_up_message"> Un correo ha sido enviado al email facilitado.\nSigue las instrucciones para restablecer tu contraseña.</string>
+    <string name="pop_up_title">CORREO EVIADO</string>
     <string name="fp_button">RECUPERAR CONTRASEÑA</string>
     <string name="pop_up_button">OK</string>
     <string name="fp_email_hint">Correo electrónico</string>
+    <string name="fp_recover_failed">Error al enviar el correo para restablecer la contraseña!</string>
 
     <!--******  Login activity  *******-->
     <string name="login_title">Inicia sesión para continuar</string>
@@ -46,8 +48,8 @@
     <string name="login_button">INICIAR SESIÓN</string>
     <string name="email_hint">Correo electronico</string>
     <string name="password_hint">Contraseña</string>
-    <string name="username_error_text">Introduce un nombre de usuario válido</string>
-    <string name="password_error_text">La contrasña tiene que tener al menos 6 caràcteres </string>
+    <string name="username_error_text">Introduce un nombre de usuario válido.El usuario tiene que tener al menos 4 caràcteres</string>
+    <string name="password_error_text">Introduce una contraseña valida.La contrasña tiene que tener al menos 6 caràcteres </string>
     <string name="complete_life_toast">Rellena este campo</string>
     <string name="progress_login">Iniciando sesión…</string>
 

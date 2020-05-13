@@ -13,8 +13,19 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
@@ -34,20 +45,24 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
     TextView volunteerEmail;
     TextView volunteerPhone;
 
-    /*Preferences*/
-    SharedPreferences preferences;
-
+    FirebaseUser user;
+    FirebaseFirestore mFirestore;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_home_volunteer);
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        mFirestore = FirebaseFirestore.getInstance();
 
         initViews();
         setNavigationElements();
-        setSharedPreferences();
+        setUserData();
+
 
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeVolunteerFragment()).commit();
@@ -56,17 +71,29 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
     }
 
 
-    private void setSharedPreferences() {
-        preferences = getSharedPreferences("userInfo", MODE_PRIVATE);
-        preferences.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
+
+ private void setUserData(){
+  DocumentReference documentReference = mFirestore.collection("volunteers").document(user.getEmail());
+
+     if (user != null){
+        volunteerEmail.setText(user.getEmail());
+
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                key = sharedPreferences.getString("volunteerPhone", "");
-                volunteerPhone.setText(key);
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+                    DocumentSnapshot documentSnapshot = task.getResult();
+                    if (documentSnapshot != null){
+                        String username = documentSnapshot.getString("volunteerUsername");
+                        String phone = documentSnapshot.getString("volunteerPhone");
+                        volunteerUsername.setText(username);
+                        volunteerPhone.setText(phone);
+                    }
+                }
             }
         });
-
-    }
+     }
+ }
 
 
     private void initViews() {
@@ -94,24 +121,6 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
         mToggle.syncState();
     }
 
-    public void getVolunteerInfo(){
-        String username = preferences.getString("volunteerUsername","");
-        String email = preferences.getString("volunteerEmail","");
-        String phone = preferences.getString("volunteerPhone","");
-
-
-        volunteerUsername.setText(username);
-        volunteerEmail.setText(email);
-        volunteerPhone.setText(phone);
-
-    }
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        getVolunteerInfo();
-    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

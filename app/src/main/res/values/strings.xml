@@ -32,10 +32,12 @@
     <string name="is_email_valid_error">The email field is not valid or is empty</string>
     <string name="fp_title">Forgot your password?</string>
     <string name="fp_body">To reset your password, enter the email address you use to login to HAPIS.</string>
-    <string name="pop_up_message">An email has been sent to the supplied email address.Follow the instructions in the email to reset your password.</string>
+    <string name="pop_up_title">EMAIL SENT</string>
+    <string name="pop_up_message">An email has been sent to the supplied email address.\nFollow the instructions in the email to reset your password.</string>
     <string name="fp_button">RECOVER PASSWORD</string>
     <string name="pop_up_button">OK</string>
     <string name="fp_email_hint">Email</string>
+    <string name="fp_recover_failed">Fail to send reset password email!</string>
 
     <!--******  Login activity  *******-->
     <string name="login_title">Login to continue</string>
@@ -49,8 +51,8 @@
     <string name="login_button">LOGIN</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
-    <string name="username_error_text">Enter a valid username</string>
-    <string name="password_error_text">Password must have at least 6 characters </string>
+    <string name="username_error_text">Enter a valid username. Username must have at least 4 characters</string>
+    <string name="password_error_text">Introduce a valid password.Password must have at least 6 characters </string>
     <string name="complete_life_toast">You have to fill this field</string>
     <string name="progress_login">Starting session…</string>
 

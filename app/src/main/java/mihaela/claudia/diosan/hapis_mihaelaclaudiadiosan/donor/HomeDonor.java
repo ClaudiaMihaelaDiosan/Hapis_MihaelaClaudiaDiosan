@@ -15,8 +15,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
@@ -37,21 +44,48 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
     TextView donorEmail;
     TextView donorPhone;
 
-    /*Preferences*/
-    SharedPreferences preferences;
-
+    FirebaseUser user;
+    FirebaseFirestore mFirestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_donor);
+
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        mFirestore = FirebaseFirestore.getInstance();
+
         initViews();
         setNavigationElements();
-        setSharedPreferences();
+        setDataUser();
+
 
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, new HomeDonorFragment()).commit();
             navigationView.setCheckedItem(R.id.user_menu_home);
+        }
+    }
+
+    private void setDataUser(){
+        DocumentReference documentReference = mFirestore.collection("donors").document(user.getEmail());
+
+        if (user != null){
+            donorEmail.setText(user.getEmail());
+
+            documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()){
+                        DocumentSnapshot documentSnapshot = task.getResult();
+                        if (documentSnapshot != null){
+                            String username = documentSnapshot.getString("donorUsername");
+                            String phone = documentSnapshot.getString("donorPhone");
+                            donorUsername.setText(username);
+                            donorPhone.setText(phone);
+                        }
+                    }
+                }
+            });
         }
     }
 
@@ -82,36 +116,6 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
         mToggle.syncState();
     }
 
-    private void setSharedPreferences() {
-        preferences = getSharedPreferences("userInfo", MODE_PRIVATE);
-
-        preferences.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
-            @Override
-            public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-                key = sharedPreferences.getString("donorPhone", "");
-                donorPhone.setText(key);
-            }
-        });
-    }
-
-
-
-    public void getDonorInfo(){
-        String username = preferences.getString("donorUsername","");
-        String email = preferences.getString("donorUsername","");
-        String phone = preferences.getString("donorPhone","");
-
-        donorUsername.setText(username);
-        donorEmail.setText(email);
-        donorPhone.setText(phone);
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-       getDonorInfo();
-    }
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

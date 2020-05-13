@@ -54,10 +54,6 @@ public class RegisterVolunteerActivity extends MainActivity implements View.OnCl
     /* TextViews */
     TextView acceptTermsTV;
 
-
-    /* Validate */
-    private AwesomeValidation awesomeValidation;
-
     /* Check Box */
     CheckBox acceptTermsCheckbox;
 
@@ -88,7 +84,6 @@ public class RegisterVolunteerActivity extends MainActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
 
-        awesomeValidation();
         initViews();
 
         mAuth = FirebaseAuth.getInstance();
@@ -217,8 +212,10 @@ public class RegisterVolunteerActivity extends MainActivity implements View.OnCl
             volunteerPhoneEditText.setError(getString(R.string.phone_error_text));
         }else if (!isPasswordValid(volunteerPasswordEditText.getText().toString())){
             volunteerPasswordEditText.setError(getString(R.string.password_error_text));
+        }else if (!isUsernameValid(volunteerUsernameEditText.getText().toString())){
+            volunteerUsernameEditText.setError(getString(R.string.username_error_text));
         }
-        return awesomeValidation.validate() && isValidPhoneNumber(volunteerPhoneEditText.getText().toString()) && isPasswordValid(volunteerPasswordEditText.getText().toString());
+        return isUsernameValid(volunteerUsernameEditText.getText().toString()) && isValidPhoneNumber(volunteerPhoneEditText.getText().toString()) && isPasswordValid(volunteerPasswordEditText.getText().toString());
     }
 
     public  boolean isValidPhoneNumber(CharSequence target) {
@@ -232,15 +229,17 @@ public class RegisterVolunteerActivity extends MainActivity implements View.OnCl
     }
 
     private boolean isPasswordValid(CharSequence password){
-        if (password.length() > 6) {
+        if (password.length() > 5) {
             return true;
         }
         return false;
     }
 
-    public void awesomeValidation() {
-        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
-        awesomeValidation.addValidation(this, R.id.user_username_edit_text, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$", R.string.username_error_text);
+    private boolean isUsernameValid(CharSequence username){
+        if (username.length() > 3) {
+            return true;
+        }
+        return false;
     }
 
 

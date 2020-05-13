@@ -54,9 +54,6 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
     /* TextViews */
     TextView acceptTermsTV;
 
-    /* Validate */
-   private AwesomeValidation awesomeValidation;
-
     /* Check Box */
     CheckBox acceptTermsCheckbox;
 
@@ -89,7 +86,7 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
 
-        awesomeValidation();
+
         initViews();
 
         mAuth = FirebaseAuth.getInstance();
@@ -217,13 +214,10 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
             donorPhoneEditText.setError(getString(R.string.phone_error_text));
         }else if (!isPasswordValid(donorPasswordEditText.getText().toString())){
             donorPasswordEditText.setError(getString(R.string.password_error_text));
+        }else if (!isUsernameValid(donorUsernameEditText.getText().toString())){
+            donorUsernameEditText.setError(getString(R.string.username_error_text));
         }
-        return  awesomeValidation.validate() && isValidPhoneNumber(donorPhoneEditText.getText().toString()) && isPasswordValid(donorPasswordEditText.getText().toString());
-    }
-
-    public void awesomeValidation() {
-        awesomeValidation = new AwesomeValidation(ValidationStyle.BASIC);
-        awesomeValidation.addValidation(this, R.id.user_username_edit_text, "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$", R.string.username_error_text);
+        return  isUsernameValid(donorUsernameEditText.getText().toString()) && isValidPhoneNumber(donorPhoneEditText.getText().toString()) && isPasswordValid(donorPasswordEditText.getText().toString());
     }
 
 
@@ -238,7 +232,14 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
     }
 
     private boolean isPasswordValid(CharSequence password){
-        if (password.length() > 6) {
+        if (password.length() > 5) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isUsernameValid(CharSequence username){
+        if (username.length() > 3) {
             return true;
         }
         return false;

@@ -3,9 +3,11 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Patterns;
+import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -19,6 +21,7 @@ import androidx.appcompat.app.AlertDialog;
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
@@ -35,6 +38,7 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor.HomeDonor;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register.RegisterActivity;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register.RegisterDonorActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer.HomeVolunteer;
 
 public class LoginActivity extends MainActivity implements View.OnClickListener{
@@ -132,60 +136,72 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
         loginEmailValue = loginEmailEditText.getText().toString();
         loginPasswordValue = loginPasswordEditText.getText().toString();
 
+        if (loginEmailValue.isEmpty() || loginPasswordValue.isEmpty()){
+            loginEmailEditText.setError(getString(R.string.email_error_text));
+        }else{
+            mAuth.signInWithEmailAndPassword(loginEmailValue, loginPasswordValue)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                setDialog(true);
+                                isDonor(loginEmailValue);
+                                isVolunteer(loginEmailValue);
 
-        mAuth.signInWithEmailAndPassword(loginEmailValue, loginPasswordValue)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            setDialog(true);
-                            isDonor(loginEmailValue);
-                            isVolunteer(loginEmailValue);
+                                FirebaseUser user = mAuth.getCurrentUser();
+                            } else {
+                                showErrorToast(getString(R.string.error_login));
+                            }
 
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-
-                            Toast.makeText(LoginActivity.this, getString(R.string.error_login),
-                                    Toast.LENGTH_SHORT).show();
                         }
+                    });
+        }
 
-                    }
-                });
     }
 
     private void isDonor(String email){
         DocumentReference donorsDocument = mFirestore.collection("donors").document(email);
-        donorsDocument.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()){
-                    DocumentSnapshot documentSnapshot = task.getResult();
-                    if (documentSnapshot.exists()){
-                        Intent donorIntent = new Intent(LoginActivity.this, HomeDonor.class);
-                        startActivity(donorIntent);
+
+        if (email.isEmpty()){
+            loginEmailEditText.setError(getString(R.string.email_error_text));
+        }else{
+            donorsDocument.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()){
+                        DocumentSnapshot documentSnapshot = task.getResult();
+                        if (documentSnapshot.exists()){
+                            Intent donorIntent = new Intent(LoginActivity.this, HomeDonor.class);
+                            startActivity(donorIntent);
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
+
     }
 
 
     private void isVolunteer(String email){
         DocumentReference volunteersDocument = mFirestore.collection("volunteers").document(email);
-        volunteersDocument.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()){
-                    DocumentSnapshot documentSnapshot = task.getResult();
-                    if (documentSnapshot.exists()){
-                        Intent volunteerIntent = new Intent(LoginActivity.this, HomeVolunteer.class);
-                        startActivity(volunteerIntent);
+
+        if (email.isEmpty()){
+            loginEmailEditText.setError(getString(R.string.email_error_text));
+        }else{
+            volunteersDocument.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()){
+                        DocumentSnapshot documentSnapshot = task.getResult();
+                        if (documentSnapshot.exists()){
+                            Intent volunteerIntent = new Intent(LoginActivity.this, HomeVolunteer.class);
+                            startActivity(volunteerIntent);
+                        }
                     }
                 }
-            }
-        });
+            });
+        }
+
     }
 
     private void validateForm(){
@@ -200,11 +216,23 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
 
     private void setDialog(boolean show){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        //View view = getLayoutInflater().inflate(R.layout.progress);
         builder.setView(R.layout.progress);
         Dialog dialog = builder.create();
         if (show)dialog.show();
         else dialog.dismiss();
+    }
+
+    public void showErrorToast(String message){
+        Toast toast = Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG);
+        View view =toast.getView();
+        view.setBackgroundColor(Color.WHITE);
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        toastMessage.setTextColor(Color.RED);
+        toastMessage.setGravity(Gravity.CENTER);
+        toastMessage.setTextSize(15);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
+        toastMessage.setPadding(10,10,10,10);
+        toast.show();
     }
 
 

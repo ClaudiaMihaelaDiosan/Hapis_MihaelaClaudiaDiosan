@@ -123,7 +123,6 @@ public class ForgotPasswordActivity extends MainActivity implements View.OnClick
                 .show();
     }
 
-
     @Override
     public void finish(){
         super.finish();

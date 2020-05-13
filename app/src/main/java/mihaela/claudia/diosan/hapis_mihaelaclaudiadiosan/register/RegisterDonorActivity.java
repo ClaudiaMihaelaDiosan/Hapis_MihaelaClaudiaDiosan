@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
-import android.util.Patterns;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
@@ -14,10 +14,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-
-import com.basgeekball.awesomevalidation.AwesomeValidation;
-import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -29,7 +25,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -129,7 +124,7 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
             createEmailPasswordAccount(donorEmailEditText.getText().toString(), donorPasswordEditText.getText().toString());
 
         }else if (!acceptTermsCheckbox.isChecked()){
-            showTermsErrorToast();
+            showErrorToast(getString(R.string.register_user_terms_error));
         }
     }
 
@@ -145,11 +140,9 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
                             FirebaseUser user = mAuth.getCurrentUser();
                         } else {
                             if (task.getException() instanceof FirebaseAuthUserCollisionException){
-                                Toast.makeText(RegisterDonorActivity.this, getString(R.string.user_exists),
-                                        Toast.LENGTH_SHORT).show();
+                                showErrorToast(getString(R.string.user_exists));
                             }else{
-                                Toast.makeText(RegisterDonorActivity.this, getString(R.string.error_login),
-                                        Toast.LENGTH_SHORT).show();
+                                showErrorToast(getString(R.string.error_login));
                             }
                         }
                     }
@@ -170,22 +163,25 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
         user.put("donorLastName", donorLastNameValue);
         user.put("donorPhone", donorPhoneValue);
 
-        mFirestore.collection("donors").document(donorEmailValue).set(user)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                      //  Toast.makeText(RegisterDonorActivity.this, "Donor data recorded", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        String error = e.getMessage();
-                        Toast.makeText(RegisterDonorActivity.this, "Error " + error, Toast.LENGTH_SHORT).show();
+        if (donorEmailValue.isEmpty()){
+            donorEmailEditText.setError(getString(R.string.email_error_text));
+        }else{
+            mFirestore.collection("donors").document(donorEmailValue).set(user)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            //  Toast.makeText(RegisterDonorActivity.this, "Donor data recorded", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            String error = e.getMessage();
+                            showErrorToast("Error " + error);
 
-                    }
-                });
-
+                        }
+                    });
+        }
     }
 
     public void initViews(){
@@ -245,14 +241,6 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
         return false;
     }
 
-    public void showTermsErrorToast(){
-        Toast toast = Toast.makeText(RegisterDonorActivity.this, getString(R.string.register_user_terms_error), Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.RED);
-        toast.show();
-    }
 
     public void showPopUp(){
         new MaterialAlertDialogBuilder(this)
@@ -270,12 +258,23 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
                 .show();
     }
 
+    public void showErrorToast(String message){
+        Toast toast = Toast.makeText(RegisterDonorActivity.this, message, Toast.LENGTH_LONG);
+        View view =toast.getView();
+        view.setBackgroundColor(Color.WHITE);
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        toastMessage.setTextColor(Color.RED);
+        toastMessage.setGravity(Gravity.CENTER);
+        toastMessage.setTextSize(15);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
+        toastMessage.setPadding(10,10,10,10);
+        toast.show();
+    }
 
     @Override
     public void finish(){
         super.finish();
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right );
     }
-
 
 }

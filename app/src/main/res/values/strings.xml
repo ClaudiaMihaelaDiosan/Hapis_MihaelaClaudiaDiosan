@@ -37,7 +37,7 @@
     <string name="fp_button">RECOVER PASSWORD</string>
     <string name="pop_up_button">OK</string>
     <string name="fp_email_hint">Email</string>
-    <string name="fp_recover_failed">Fail to send reset password email!</string>
+    <string name="fp_recover_failed">Fail to send reset password email!\Check that the email is correct</string>
 
     <!--******  Login activity  *******-->
     <string name="login_title">Login to continue</string>

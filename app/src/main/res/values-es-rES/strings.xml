@@ -34,7 +34,7 @@
     <string name="fp_button">RECUPERAR CONTRASEÑA</string>
     <string name="pop_up_button">OK</string>
     <string name="fp_email_hint">Correo electrónico</string>
-    <string name="fp_recover_failed">Error al enviar el correo para restablecer la contraseña!</string>
+    <string name="fp_recover_failed">Error al enviar el correo para restablecer la contraseña!\nComprueba que el correo es correcto</string>
 
     <!--******  Login activity  *******-->
     <string name="login_title">Inicia sesión para continuar</string>

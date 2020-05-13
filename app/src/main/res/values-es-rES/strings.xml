@@ -221,7 +221,7 @@
     <string name="config_phone_number_hint">Número de teléfono</string>
     <string name="config_phone_number_summary">Cambia tu número de teléfono existente o añade un número nuevo</string>
     <string name="save_configuration_button">GUARDAR</string>
-    <string name="config_changed_phone_toast">Has cambiado tu número de teléfono</string>
+    <string name="config_changed_phone_toast">Has cambiado tu número de teléfono correctamente. La próxima vez que entras en la aplicación podrás ver tu nuevo teléfono en tu información de perfil.</string>
 
     <!--  Contact Fragment-->
     <string name="contact_title">CONTACTA CON NOSOTROS</string>

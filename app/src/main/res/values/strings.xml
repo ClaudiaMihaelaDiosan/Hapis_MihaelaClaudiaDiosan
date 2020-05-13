@@ -224,7 +224,7 @@
     <string name="config_phone_number_hint">Phone number</string>
     <string name="config_phone_number_summary">Change your existing phone number or add a new one</string>
     <string name="save_configuration_button">SAVE</string>
-    <string name="config_changed_phone_toast">You changed your phone number successfully</string>
+    <string name="config_changed_phone_toast">You changed your phone number successfully. Next time you login you can see your new phone number on your profile info.</string>
 
     <!-- Contact Fragment-->
     <string name="contact_title">CONTACT US</string>

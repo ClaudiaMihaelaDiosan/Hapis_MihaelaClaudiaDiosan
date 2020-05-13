@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -43,6 +44,8 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
     TextView donorUsername;
     TextView donorEmail;
     TextView donorPhone;
+    TextView donorFirstName;
+    TextView donorLastName;
 
     FirebaseUser user;
     FirebaseFirestore mFirestore;
@@ -80,15 +83,19 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
                         if (documentSnapshot != null){
                             String username = documentSnapshot.getString("donorUsername");
                             String phone = documentSnapshot.getString("donorPhone");
+                            String firstName = documentSnapshot.getString("donorFirstName");
+                            String lastName = documentSnapshot.getString("donorLastName");
                             donorUsername.setText(username);
                             donorPhone.setText(phone);
+                           // Toast.makeText(HomeDonor.this, firstName + lastName, Toast.LENGTH_SHORT).show();
+                           donorFirstName.setText(firstName);
+                           donorLastName.setText(lastName);
                         }
                     }
                 }
             });
         }
     }
-
 
     private void initViews() {
         bottomNavigationView = findViewById(R.id.bottom_navigation_view);
@@ -110,6 +117,8 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
         donorUsername = header.findViewById(R.id.user_username_text_view);
         donorEmail = header.findViewById(R.id.user_email_text_view);
         donorPhone = header.findViewById(R.id.user_phone_text_view);
+        donorFirstName = header.findViewById(R.id.user_first_name);
+        donorLastName = header.findViewById(R.id.user_last_name);
 
         ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(this, donorDrawer, R.string.open_navigation_drawer, R.string.close_navigation_drawer);
         donorDrawer.addDrawerListener(mToggle);

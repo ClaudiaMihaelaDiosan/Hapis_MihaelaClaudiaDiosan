@@ -44,10 +44,11 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
     TextView volunteerUsername;
     TextView volunteerEmail;
     TextView volunteerPhone;
+    TextView volunteerFirstName;
+    TextView volunteerLastName;
 
     FirebaseUser user;
     FirebaseFirestore mFirestore;
-
 
 
     @Override
@@ -86,15 +87,18 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
                     if (documentSnapshot != null){
                         String username = documentSnapshot.getString("volunteerUsername");
                         String phone = documentSnapshot.getString("volunteerPhone");
+                        String firstName = documentSnapshot.getString("volunteerFirstName");
+                        String lastName = documentSnapshot.getString("volunteerLastName");
                         volunteerUsername.setText(username);
                         volunteerPhone.setText(phone);
+                        volunteerFirstName.setText(firstName);
+                        volunteerLastName.setText(lastName);
                     }
                 }
             }
         });
      }
  }
-
 
     private void initViews() {
         mToolbar = findViewById(R.id.volunteer_toolbar);
@@ -114,6 +118,8 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
         volunteerUsername = header.findViewById(R.id.user_username_text_view);
         volunteerEmail = header.findViewById(R.id.user_email_text_view);
         volunteerPhone = header.findViewById(R.id.user_phone_text_view);
+        volunteerFirstName = header.findViewById(R.id.user_first_name);
+        volunteerLastName = header.findViewById(R.id.user_last_name);
 
 
         ActionBarDrawerToggle mToggle = new ActionBarDrawerToggle(this, volunteerDrawer, R.string.open_navigation_drawer, R.string.close_navigation_drawer);

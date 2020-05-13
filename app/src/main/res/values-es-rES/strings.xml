@@ -52,6 +52,8 @@
     <string name="password_error_text">Introduce una contraseña valida.La contrasña tiene que tener al menos 6 caràcteres </string>
     <string name="complete_life_toast">Rellena este campo</string>
     <string name="progress_login">Iniciando sesión…</string>
+    <string name="email_error_text">Introduce un correo valido</string>
+
 
     <!--*****    Statistics Activity  *****-->
     <string name="statistics_name">Estadísticas Hapis</string>
@@ -133,6 +135,8 @@
     <string name="bottom_nav_home">Inicio</string>
     <string name="bottom_nav_map">Mapa</string>
     <string name="bottom_nav_list_map">Lista de Mapas</string>
+    <string name="welcome_user">BIENVENID@,</string>
+    <string name="user_profile_info">INFORMACIÓN DE PERFIL :</string>
 
     <!--    Volunteer home fragment-->
     <string name="edit_button_toast">Con este botón el voluntario podrá editar los campos que aparecen para la persona necesitada</string>
@@ -221,13 +225,12 @@
 
     <!--  Contact Fragment-->
     <string name="contact_title">CONTACTA CON NOSOTROS</string>
-    <string name="contact_email_hint">Correo electrónico</string>
     <string name="contact_text_hint">Escribe tu mensaje aquí</string>
     <string name="contact_send_button">ENVIAR MENSAJE</string>
     <string name="contact_sended_toast_message">El mensaje se ha enviado correctamente.\n Recibirás una respuesta lo antes posible.</string>
     <string name="contact_subject_hint">Asunto</string>
-    <string name="contact_toast_message">El mensaje se ha enviado correctamente.\n Recibirás una respuesta lo antes posible.</string>
-    <string name="email_error_text">Introduce un email válido   </string>
+    <string name="contact_toast_message">El mensaje se ha enviado correctamente.\n Recibirás una respuesta lo antes posible en el correo con el que has registrado la cuenta.</string>
+    <string name="empty_field_error">Este campo no puede estar vacío!</string>
 
     <!--  Donate Fragment-->
     <string name="donate_title">DONA A HAPIS</string>

@@ -1,37 +1,46 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.content.res.Configuration;
-import android.os.Build;
+import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.util.Patterns;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.basgeekball.awesomevalidation.AwesomeValidation;
-import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
 
-public class ContactVolunteerFragment extends Fragment {
+public class ContactVolunteerFragment extends Fragment implements View.OnClickListener{
 
-    private TextInputEditText volunteerEmail;
+    private TextInputEditText subjectEditText;
+    private TextInputEditText messageEditText;
 
     private MaterialButton volunteerContactBtn;
 
+    /*Firebase*/
+    private FirebaseFirestore mFirestore;
+    FirebaseUser user;
+
+    private Map<String,String> contactFromData = new HashMap<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,39 +48,81 @@ public class ContactVolunteerFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_contact, container, false);
 
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        mFirestore = FirebaseFirestore.getInstance();
+
         initViews(view);
-        sendMessage(view);
 
          return view;
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        volunteerContactBtn.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        if (v.getId() == R.id.contact_send_button){
+            sendContactFormData();
+            successSentToast();
+        }
+    }
+
+    private void sendContactFormData(){
+        String subject = subjectEditText.getText().toString();
+        String message = subjectEditText.getText().toString();
+
+        contactFromData.put("contactSubject", subject);
+        contactFromData.put("contactMessage",message);
+
+        if (subject.isEmpty() || message.isEmpty()){
+            showErrorToast(getString(R.string.empty_field_error));
+        }else{
+            mFirestore.collection("volunteersContactForm").document(user.getEmail() + "\n" +  subject).set(contactFromData)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            //  Toast.makeText(RegisterDonorActivity.this, "Donor data recorded", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            String error = e.getMessage();
+                            showErrorToast("Error " + error);
+
+                        }
+                    });
+        }
+    }
+
     private void initViews(View view) {
         volunteerContactBtn = view.findViewById(R.id.contact_send_button);
-        volunteerEmail = view.findViewById(R.id.contact_subject_hint);
-        TextInputEditText message = view.findViewById(R.id.form_contact_message_hint);
-    }
-
-    private void sendMessage(final View view){
-        volunteerContactBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isEmailValid()){
-                    showToast();
-                }else{
-                    Toast.makeText(view.getContext(), getString(R.string.email_error_text), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-
-
-    private boolean isEmailValid() {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(volunteerEmail.getText().toString()).matches() && !volunteerEmail.getText().toString().isEmpty();
+        subjectEditText = view.findViewById(R.id.contact_subject_hint);
+        messageEditText = view.findViewById(R.id.form_contact_message_hint);
     }
 
 
 
-    public void showToast(){
+    public void showErrorToast(String message){
+        Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_LONG);
+        View view =toast.getView();
+        view.setBackgroundColor(Color.WHITE);
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        toastMessage.setTextColor(Color.RED);
+        toastMessage.setGravity(Gravity.CENTER);
+        toastMessage.setTextSize(15);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
+        toastMessage.setPadding(10,10,10,10);
+        toast.show();
+    }
+
+
+    public void successSentToast(){
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.contact_custom_toast,
                 (ViewGroup) getActivity().findViewById(R.id.toast_layout_root));
@@ -88,6 +139,7 @@ public class ContactVolunteerFragment extends Fragment {
         toast.setView(layout); // set the inflated layout
         toast.show(); // display the custom Toast
     }
+
 
 
 }

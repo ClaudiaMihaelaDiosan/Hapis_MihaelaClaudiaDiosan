@@ -8,9 +8,10 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/cardCornerRadius"
         app:cardElevation="@dimen/elevation"
+        android:layout_gravity="center_vertical"
         android:layout_margin="@dimen/margins">
 
         <LinearLayout
@@ -37,21 +38,6 @@
                 android:layout_gravity="center"
                 android:src="@drawable/contact_drawable"
                 android:contentDescription="@string/content_description"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/contact_email_hint"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/contact_email_hint"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    />
-            </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout

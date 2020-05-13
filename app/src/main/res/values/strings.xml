@@ -55,6 +55,7 @@
     <string name="password_error_text">Introduce a valid password.Password must have at least 6 characters </string>
     <string name="complete_life_toast">You have to fill this field</string>
     <string name="progress_login">Starting session…</string>
+    <string name="email_error_text">Enter a valid email</string>
 
 
     <!--*****    Statistics Activity  *****-->
@@ -136,6 +137,8 @@
     <string name="bottom_nav_home">Home</string>
     <string name="bottom_nav_map">Map</string>
     <string name="bottom_nav_list_map">List Map</string>
+    <string name="welcome_user">WELCOME,</string>
+    <string name="user_profile_info">PROFILE INFO:</string>
 
     <!--    Volunteer home fragment-->
     <string name="edit_button_toast">This button will let the volunteer edit the shown fields of the homeless</string>
@@ -225,13 +228,12 @@
 
     <!-- Contact Fragment-->
     <string name="contact_title">CONTACT US</string>
-    <string name="contact_email_hint">Email</string>
     <string name="contact_subject_hint">Subject</string>
     <string name="contact_text_hint">Write your message here</string>
     <string name="contact_send_button">SEND MESSAGE</string>
     <string name="contact_sended_toast_message">You have successfully sent your message.\n We\'ll revert back to you as soon as possible.</string>
-    <string name="contact_toast_message">You have successfully sent your message.\n We\'ll revert back to you as soon as possible.</string>
-    <string name="email_error_text"> Enter a valid email address   </string>
+    <string name="contact_toast_message">You have successfully sent your message.\n We\'ll revert back to you as soon as possible to the registered email address.</string>
+    <string name="empty_field_error">This field can not be empty!</string>
 
     <!--  Donate Fragment-->
     <string name="donate_title">DONATE TO HAPIS</string>

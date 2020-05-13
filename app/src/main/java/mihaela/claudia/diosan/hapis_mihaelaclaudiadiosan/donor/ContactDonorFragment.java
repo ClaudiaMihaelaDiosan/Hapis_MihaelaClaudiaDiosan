@@ -1,17 +1,13 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.content.res.Configuration;
-import android.os.Build;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.util.Patterns;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,26 +15,36 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.basgeekball.awesomevalidation.AwesomeValidation;
-import com.basgeekball.awesomevalidation.ValidationStyle;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register.RegisterDonorActivity;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ContactDonorFragment extends Fragment {
+public class ContactDonorFragment extends Fragment implements View.OnClickListener{
 
     /*EdiText*/
-    private TextInputEditText donorEmail;
+    private TextInputEditText subjectET;
+    private TextInputEditText messageET;
 
     /*Buttons*/
     private MaterialButton donorContactButton;
+
+    /*Firebase*/
+    private FirebaseFirestore mFirestore;
+    FirebaseUser user;
+
+    private Map<String,String> contactFromData = new HashMap<>();
 
     public ContactDonorFragment() {
         // Required empty public constructor
@@ -50,39 +56,70 @@ public class ContactDonorFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_contact, container, false);
 
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        mFirestore = FirebaseFirestore.getInstance();
+
         initViews(view);
-        sendMessage(view);
 
         return view;
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        donorContactButton.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.contact_send_button){
+            sendContactFormData();
+            successSentToast();
+        }
+    }
+
+    private void sendContactFormData(){
+        String subject = subjectET.getText().toString();
+        String message = messageET.getText().toString();
+
+        contactFromData.put("contactSubject", subject);
+        contactFromData.put("contactMessage",message);
+
+        if (subject.isEmpty() || message.isEmpty()){
+            showErrorToast(getString(R.string.empty_field_error));
+        }else{
+            mFirestore.collection("donorsContactForm").document(user.getEmail() + "\n" +  subject).set(contactFromData)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            //  Toast.makeText(RegisterDonorActivity.this, "Donor data recorded", Toast.LENGTH_SHORT).show();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            String error = e.getMessage();
+                            showErrorToast("Error " + error);
+
+                        }
+                    });
+        }
+    }
+
+
     private void initViews(View view){
         donorContactButton = view.findViewById(R.id.contact_send_button);
-        donorEmail = view.findViewById(R.id.contact_subject_hint);
-        TextInputEditText message = view.findViewById(R.id.form_contact_message_hint);
-    }
+        subjectET = view.findViewById(R.id.contact_subject_hint);
+        messageET = view.findViewById(R.id.form_contact_message_hint);
 
-    private void sendMessage(final View view){
-        donorContactButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isEmailValid()){
-                    showToast();
-                }else{
-                    Toast.makeText(view.getContext(), getString(R.string.email_error_text), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
-
-
-    private boolean isEmailValid() {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(donorEmail.getText().toString()).matches() && !donorEmail.getText().toString().isEmpty();
     }
 
 
 
-    public void showToast(){
+
+    public void successSentToast(){
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(R.layout.contact_custom_toast,
                 (ViewGroup) getActivity().findViewById(R.id.toast_layout_root));
@@ -98,6 +135,19 @@ public class ContactDonorFragment extends Fragment {
         toast.setDuration(Toast.LENGTH_LONG); // set the duration for the Toast
         toast.setView(layout); // set the inflated layout
         toast.show(); // display the custom Toast
+    }
+
+    public void showErrorToast(String message){
+        Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_LONG);
+        View view =toast.getView();
+        view.setBackgroundColor(Color.WHITE);
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        toastMessage.setTextColor(Color.RED);
+        toastMessage.setGravity(Gravity.CENTER);
+        toastMessage.setTextSize(15);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
+        toastMessage.setPadding(10,10,10,10);
+        toast.show();
     }
 
 }

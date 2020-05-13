@@ -25,8 +25,8 @@
     <dimen name="payment_icons">50dp</dimen>
     <dimen name="statistics_image">150dp</dimen>
     <dimen name="statistics_image_land">120dp</dimen>
-    <dimen name="contact_image">300dp</dimen>
-    <dimen name="contact_image_land">150dp</dimen>
+    <dimen name="contact_image">100dp</dimen>
+    <dimen name="contact_image_land">100dp</dimen>
     <dimen name="donate_icon">50dp</dimen>
     <dimen name="help_image">200dp</dimen>
     <dimen name="help_image_land">120dp</dimen>

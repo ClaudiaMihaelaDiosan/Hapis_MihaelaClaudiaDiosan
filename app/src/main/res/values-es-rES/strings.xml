@@ -114,6 +114,7 @@
     <string name="register_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
     <string name="register_error">"Algo ha ido mal!</string>
 
+
     <!--*****   User Home  *****-->
     <string name="user_home_name">Voluntario</string>
     <string name="user_menu_home">Inicio</string>

@@ -132,14 +132,13 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
         loginEmailValue = loginEmailEditText.getText().toString();
         loginPasswordValue = loginPasswordEditText.getText().toString();
 
-        setDialog(true);
+
         mAuth.signInWithEmailAndPassword(loginEmailValue, loginPasswordValue)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-
-
+                            setDialog(true);
                             isDonor(loginEmailValue);
                             isVolunteer(loginEmailValue);
 

@@ -117,6 +117,7 @@
     <string name="register_pop_up_message">Thank you. Please check your email to activate your account.</string>
     <string name="register_error">"Something went wrong!</string>
 
+
     <!--    User Home Activity-->
     <string name="user_home_name">Volunteer</string>
     <string name="user_menu_home">Home</string>

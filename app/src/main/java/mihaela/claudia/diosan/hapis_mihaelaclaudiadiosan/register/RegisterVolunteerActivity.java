@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.basgeekball.awesomevalidation.ValidationStyle;
@@ -27,6 +28,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -154,6 +156,7 @@ public class RegisterVolunteerActivity extends MainActivity implements View.OnCl
 
     public void createEmailPasswordAccount(String email, String password){
 
+
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -163,19 +166,15 @@ public class RegisterVolunteerActivity extends MainActivity implements View.OnCl
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
                         } else {
-                            // If sign in fails, display a message to the user.
-                            //  Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(RegisterVolunteerActivity.this, getString(R.string.error_login),
-                                    Toast.LENGTH_SHORT).show();
-
+                            if (task.getException() instanceof FirebaseAuthUserCollisionException){
+                                Toast.makeText(RegisterVolunteerActivity.this, getString(R.string.user_exists),
+                                        Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(RegisterVolunteerActivity.this, getString(R.string.error_login),
+                                        Toast.LENGTH_SHORT).show();
+                            }
                         }
                     }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                String error = e.getMessage();
-                Toast.makeText(RegisterVolunteerActivity.this, "Error " + error, Toast.LENGTH_SHORT).show();
-            }
         });
     }
 

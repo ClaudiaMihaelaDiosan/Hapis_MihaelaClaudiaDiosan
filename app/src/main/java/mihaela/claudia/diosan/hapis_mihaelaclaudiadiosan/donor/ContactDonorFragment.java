@@ -76,7 +76,6 @@ public class ContactDonorFragment extends Fragment implements View.OnClickListen
     public void onClick(View v) {
         if (v.getId() == R.id.contact_send_button){
             sendContactFormData();
-            successSentToast();
         }
     }
 
@@ -87,14 +86,13 @@ public class ContactDonorFragment extends Fragment implements View.OnClickListen
         contactFromData.put("contactSubject", subject);
         contactFromData.put("contactMessage",message);
 
-        if (subject.isEmpty() || message.isEmpty()){
-            showErrorToast(getString(R.string.empty_field_error));
-        }else{
+
+        if (validFields()){
             mFirestore.collection("donorsContactForm").document(user.getEmail() + "\n" +  subject).set(contactFromData)
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
-                            //  Toast.makeText(RegisterDonorActivity.this, "Donor data recorded", Toast.LENGTH_SHORT).show();
+                            successSentToast();
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -106,6 +104,19 @@ public class ContactDonorFragment extends Fragment implements View.OnClickListen
                         }
                     });
         }
+    }
+
+    private boolean validFields() {
+        if (subjectET.getText().toString().isEmpty()) {
+            subjectET.setError(getString(R.string.empty_field_error));
+            return false;
+        }
+
+        if (messageET.getText().toString().isEmpty()) {
+            messageET.setError(getString(R.string.empty_field_error));
+            return false;
+        }
+        return true;
     }
 
 

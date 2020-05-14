@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -22,10 +23,13 @@ import com.google.android.material.button.MaterialButton;
 
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.YouTubePlayerActivity;
 
 
-public class DonateVolunteerFragment extends Fragment {
+public class DonateVolunteerFragment extends Fragment implements View.OnClickListener {
 
+    private MaterialButton donateBtn;
+    private MaterialButton videoBtn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,34 +38,37 @@ public class DonateVolunteerFragment extends Fragment {
         /*Video*/
         View view = inflater.inflate(R.layout.fragment_donate, container, false);
 
-        donate(view);
-        setVideo(view);
+        donateBtn = view.findViewById(R.id.donate_button);
+        videoBtn = view.findViewById(R.id.view_video_button);
+
 
         return view;
     }
 
-    private void donate(View view){
-        MaterialButton donateBtn = view.findViewById(R.id.donate_button);
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-        donateBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent paymentIntent = new Intent(getActivity(), PaymentActivity.class);
-                startActivity(paymentIntent);
-            }
-        });
+        donateBtn.setOnClickListener(this);
+        videoBtn.setOnClickListener(this);
+
     }
 
-    private void setVideo(View view){
-        VideoView videoView = view.findViewById(R.id.videoView);
-        String videoPath = "android.resource://" + getContext().getPackageName() + "/" + R.raw.homeless_video;
-        Uri uri = Uri.parse(videoPath);
-        videoView.setVideoURI(uri);
+    @Override
+    public void onClick(View v) {
 
+        switch (v.getId()){
+            case R.id.donate_button:
+                Intent paymentIntent = new Intent(getActivity(), PaymentActivity.class);
+                startActivity(paymentIntent);
+                break;
 
-        MediaController mediaController = new MediaController(getContext());
-        videoView.setMediaController(mediaController);
-        mediaController.setAnchorView(videoView);
+            case R.id.view_video_button:
+                Intent videoActivity = new Intent(getActivity(), YouTubePlayerActivity.class);
+                startActivity(videoActivity);
+                break;
+        }
+
     }
 
 }

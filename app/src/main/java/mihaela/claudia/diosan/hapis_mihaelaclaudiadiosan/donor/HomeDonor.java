@@ -207,7 +207,8 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
         if (donorDrawer.isDrawerOpen(GravityCompat.START)) {
             donorDrawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            Intent back = new Intent(HomeDonor.this, HomeDonor.class);
+            startActivity(back);
         }
     }
 

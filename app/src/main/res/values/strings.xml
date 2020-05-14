@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Hapis_MihaelaClaudiaDiosan</string>
     <string name="name">HAPIS</string>
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyCl1fruupMLaDB11EO0hHb2Ahx7rTYzwkA</string>
+    <string name="API_KEY" templateMergeStrategy="preserve" translatable="false">AIzaSyCl1fruupMLaDB11EO0hHb2Ahx7rTYzwkA</string>
 
     <!--General-->
     <string name="phone_error_text"> Enter a valid phone number</string>
@@ -238,8 +238,10 @@
     <!--  Donate Fragment-->
     <string name="donate_title">DONATE TO HAPIS</string>
     <string name="donate_text">Your generous support provide real people with things like food and helps us to continue with this application.</string>
-    <string name="donate_button">DONATE</string>
-    <string name="donate_video"> Watch the video to donate 0.40 Euro.</string>
+    <string name="donate_button">DONATE MONEY</string>
+    <string name="or">OR</string>
+    <string name="donate_video">Watch a 30 seconds video to donate €0.40.</string>
+    <string name="video_button">VIEW VIDEO</string>
 
     <!--  Help Fragment-->
     <string name="donation_type">Choose what you want do donate </string>

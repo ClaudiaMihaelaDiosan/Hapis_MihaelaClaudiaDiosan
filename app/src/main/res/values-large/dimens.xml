@@ -25,7 +25,7 @@
     <dimen name="statistics_image_land">140dp</dimen>
     <dimen name="contact_image">300dp</dimen>
     <dimen name="contact_image_land">300dp</dimen>
-    <dimen name="donate_icon">100dp</dimen>
+    <dimen name="donate_icon">200dp</dimen>
     <dimen name="help_image">400dp</dimen>
     <dimen name="help_image_land">240dp</dimen>
     <dimen name="through_vol_fragment">200dp</dimen>

@@ -235,8 +235,10 @@
     <!--  Donate Fragment-->
     <string name="donate_title">DONA A HAPIS</string>
     <string name="donate_text"> Tu donación proporciona cosas como comida a personas reales y nos ayuda seguir manteniendo esta aplicación.</string>
-    <string name="donate_button">DONAR</string>
-    <string name="donate_video">Mira el video para dona 0.40 centimos.</string>
+    <string name="donate_button">DONAR DINERO</string>
+    <string name="or">O</string>
+    <string name="donate_video">Mira un video de 30 segundo para donar €0.40 .</string>
+    <string name="video_button">MIRAR VIDEO</string>
 
     <!--  Help Fragment-->
     <string name="donation_type">Selecciona  que quieres donar</string>

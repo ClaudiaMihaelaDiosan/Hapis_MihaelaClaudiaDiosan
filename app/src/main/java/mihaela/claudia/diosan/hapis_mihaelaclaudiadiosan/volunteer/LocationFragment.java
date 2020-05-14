@@ -19,7 +19,6 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
@@ -108,7 +107,7 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
 
 
     private void initPlaces    (){
-        Places.initialize(view.getContext(), getString(R.string.google_maps_key));
+        Places.initialize(view.getContext(), getString(R.string.API_KEY));
         PlacesClient placesClient = Places.createClient(view.getContext());
     }
 

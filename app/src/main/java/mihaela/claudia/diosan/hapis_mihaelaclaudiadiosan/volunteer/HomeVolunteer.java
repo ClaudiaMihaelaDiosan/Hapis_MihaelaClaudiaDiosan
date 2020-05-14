@@ -171,10 +171,11 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
         if (volunteerDrawer.isDrawerOpen(GravityCompat.START)) {
             volunteerDrawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
-        }
-    }
+            Intent back = new Intent(HomeVolunteer.this, HomeVolunteer.class);
+            startActivity(back);
 
+            }
+        }
 
 }
 

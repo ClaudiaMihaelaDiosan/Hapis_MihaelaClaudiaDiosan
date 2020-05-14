@@ -13,10 +13,8 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
-
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
 
     <application
         android:configChanges="locale"
@@ -26,8 +24,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
-        <activity android:name=".login.StatisticsActivity"
-            android:label="@string/statistics_name"/>
+        <activity android:name=".YouTubePlayerActivity"
+            android:configChanges="orientation|screenSize"/>
+        <activity
+            android:name=".login.StatisticsActivity"
+            android:label="@string/statistics_name" />
         <activity
             android:name=".donor.HomeDonor"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -58,6 +59,7 @@
             android:theme="@style/IntroTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -65,7 +67,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="@string/API_KEY" />
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

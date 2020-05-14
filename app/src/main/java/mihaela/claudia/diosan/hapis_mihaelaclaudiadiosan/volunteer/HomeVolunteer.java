@@ -153,6 +153,8 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConfigurationVolunteerFragment()).commit();
                 break;
             case R.id.user_menu_logout:
+                FirebaseAuth.getInstance().signOut();
+                finish();
                 Intent loginIntent = new Intent(HomeVolunteer.this, LoginActivity.class);
                 startActivity(loginIntent);
                 break;

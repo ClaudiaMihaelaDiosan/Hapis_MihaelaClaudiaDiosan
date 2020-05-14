@@ -188,6 +188,8 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
                 getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, new ConfigurationDonorFragment()).commit();
                 break;
             case R.id.user_menu_logout:
+                FirebaseAuth.getInstance().signOut();
+                finish();
                 Intent loginIntent = new Intent(HomeDonor.this, LoginActivity.class);
                 startActivity(loginIntent);
                 break;

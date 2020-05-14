@@ -10,6 +10,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/top_margin"
         android:layout_gravity="center"
         android:baselineAligned="false">
 
@@ -25,6 +26,7 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margins"
                 app:cardCornerRadius="@dimen/cardCornerRadius"
                 app:cardElevation="@dimen/elevation">
 
@@ -52,10 +54,11 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/top_margin"
             android:orientation="horizontal"
             android:layout_gravity="center"
             android:layout_margin="@dimen/margins"
-            android:layout_weight="2">
+            android:layout_weight="1">
 
 
             <com.google.android.material.card.MaterialCardView
@@ -63,180 +66,124 @@
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="@dimen/cardCornerRadius"
                 app:cardElevation="@dimen/elevation"
-                android:layout_margin="@dimen/margins"
-                >
+                android:layout_margin="@dimen/margins">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="@dimen/cv_margins"
-                    android:layout_gravity="center">
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:layout_marginEnd="@dimen/end_margin"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
+                    <TextView
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="@dimen/end_margin"
-                        android:layout_weight="1"
+                        android:text="@string/login_title"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/body"
+                        android:gravity="center"
+                        android:layout_marginBottom="@dimen/bottom_margin" />
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/email_hint"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                         >
 
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/login_email_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/password_hint"
+                        app:passwordToggleEnabled="true"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                        >
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/login_password_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textPassword"/>
+
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/login_title"
+                            android:id="@+id/forgot_password_text_view"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:layout_gravity="end"
+                            android:layout_weight="1"
+                            android:text="@string/forgot_password"
                             android:textColor="@color/grey"
-                            android:textSize="@dimen/body"
-                            android:layout_marginBottom="@dimen/bottom_margin"
-                            android:gravity="center"/>
+                            android:textSize="@dimen/body" />
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/login_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="@dimen/top_margin"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:text="@string/login_button"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/title" />
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/margins"
+                        android:orientation="vertical">
+
+
+                        <TextView
+                            android:id="@+id/signup_text_view"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:hint="@string/email_hint"
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                            >
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="@string/signup_tex_view"
+                            android:textColor="@color/grey"
+                            android:textSize="@dimen/body" />
 
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/login_email_edit_text"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/password_hint"
-                            app:passwordToggleEnabled="true"
-                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                            >
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/login_password_edit_text"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:inputType="textPassword"/>
-
-                            <TextView
-                                android:id="@+id/forgot_password_text_view"
-                                android:layout_width="wrap_content"
-                                android:layout_height="0dp"
-                                android:layout_gravity="end"
-                                android:layout_weight="1"
-                                android:layout_marginBottom="@dimen/bottom_margin"
-                                android:text="@string/forgot_password"
-                                android:textColor="@color/grey"
-                                android:textSize="@dimen/body" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/login_button"
+                        <TextView
+                            android:id="@+id/signup"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:layout_marginTop="@dimen/top_margin"
-                            android:backgroundTint="@color/colorPrimary"
-                            android:text="@string/login_button"
-                            android:textColor="@color/white"
-                            android:textSize="@dimen/title" />
+                            android:gravity="center"
+                            android:text="@string/sign_up"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/title"
+                            android:textStyle="bold" />
 
-                    </LinearLayout>
-
-                    <View
-                        android:id="@+id/divider1"
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:background="?android:attr/listDivider" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/statistics_tv"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/start_margin"
+                            android:layout_gravity="center"
                             android:layout_marginTop="@dimen/top_margin"
-                            android:layout_marginEnd="@dimen/end_margin"
-                            android:orientation="vertical">
-
-
-                            <TextView
-                                android:id="@+id/google_login_text_view"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:gravity="center"
-                                android:text="@string/google_text_view"
-                                android:textColor="@color/grey"
-                                android:textSize="@dimen/body" />
-
-
-                            <com.google.android.gms.common.SignInButton
-                                android:id="@+id/sign_in_button"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/top_margin" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom"
-                            android:layout_margin="@dimen/margins"
-                            android:orientation="vertical">
-
-
-                            <TextView
-                                android:id="@+id/signup_text_view"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:gravity="center"
-                                android:text="@string/signup_tex_view"
-                                android:textColor="@color/grey"
-                                android:textSize="@dimen/body" />
-
-                            <TextView
-                                android:id="@+id/signup"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/top_margin"
-                                android:gravity="center"
-                                android:text="@string/sign_up"
-                                android:textColor="@color/colorPrimary"
-                                android:textSize="@dimen/title"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/statistics_tv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:layout_marginTop="@dimen/top_margin"
-                                android:gravity="center"
-                                android:text="@string/statistics"
-                                android:textColor="@color/amber"
-                                android:drawableStart="@drawable/statistics_drawable"
-                                android:textSize="@dimen/title"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
+                            android:gravity="center"
+                            android:text="@string/statistics"
+                            android:textColor="@color/amber"
+                            android:drawableStart="@drawable/statistics_drawable"
+                            android:textSize="@dimen/title"
+                            android:textStyle="bold" />
 
                     </LinearLayout>
 
                 </LinearLayout>
+
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>

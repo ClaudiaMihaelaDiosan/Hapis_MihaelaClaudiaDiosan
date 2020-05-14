@@ -15,6 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/bottom_margin"
             android:scaleType="fitXY"
             android:adjustViewBounds="true"
             android:src="@drawable/login_foto"
@@ -25,6 +26,7 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/top_margin"
             app:cardCornerRadius="@dimen/cardCornerRadius"
             app:cardElevation="@dimen/elevation"
             android:layout_margin="@dimen/margins">
@@ -94,48 +96,16 @@
                     android:layout_marginTop="@dimen/top_margin"
                     android:backgroundTint="@color/colorPrimary"
                     android:text="@string/login_button"
+                    android:layout_marginBottom="@dimen/login_margin"
                     android:textColor="@color/white"
                     android:textSize="@dimen/title" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/start_margin"
-                    android:layout_marginTop="@dimen/top_margin"
-                    android:layout_marginEnd="@dimen/end_margin"
-                    android:orientation="vertical">
-
-                    <View
-                        android:id="@+id/divider1"
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="?android:attr/listDivider" />
-
-
-                    <TextView
-                        android:id="@+id/google_login_text_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="@string/google_text_view"
-                        android:textColor="@color/grey"
-                        android:textSize="@dimen/body" />
-
-
-                    <com.google.android.gms.common.SignInButton
-                        android:id="@+id/sign_in_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/top_margin" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"
+                    android:layout_marginTop="@dimen/top_margin"
                     android:layout_margin="@dimen/margins"
                     android:orientation="vertical">
 

@@ -8,6 +8,7 @@
     <dimen name="margins">16dp</dimen>
 
     <dimen name="padding">15dp</dimen>
+    <dimen name="login_margin">50dp</dimen>
 
     <!--    Cards-->
     <dimen name="cardCornerRadius">8dp</dimen>

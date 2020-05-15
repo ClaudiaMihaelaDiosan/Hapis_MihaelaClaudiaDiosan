@@ -45,5 +45,7 @@
     <dimen name="needs_edit_text_box">250dp</dimen>
     <dimen name="profile_edit_text_box">250dp</dimen>
     <dimen name="header">400dp</dimen>
+    <dimen name="terms_fragment">500dp</dimen>
+    <dimen name="signature_pad">200dp</dimen>
 
 </resources>

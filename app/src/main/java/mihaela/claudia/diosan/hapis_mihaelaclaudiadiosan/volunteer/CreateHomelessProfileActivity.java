@@ -70,6 +70,7 @@ public class CreateHomelessProfileActivity extends MainActivity {
         tabLayout.getTabAt(1).setIcon(R.drawable.create_homeless_profile);
         tabLayout.getTabAt(2).setIcon(R.drawable.create_homeless_location);
         tabLayout.getTabAt(3).setIcon(R.drawable.create_homeless_needs);
+
     }
 
     private static class ViewPagerAdapter extends FragmentPagerAdapter {

@@ -120,6 +120,7 @@
                         android:textColor="@color/grey"
                         android:textSize="@dimen/body" />
 
+
                     <TextView
                         android:id="@+id/signup"
                         android:layout_width="wrap_content"
@@ -131,6 +132,16 @@
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/title"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/top_margin"
+                        android:text="@string/statistics_tv"
+                        android:textColor="@color/grey"
+                        android:textSize="@dimen/body" />
 
                     <TextView
                         android:id="@+id/statistics_tv"

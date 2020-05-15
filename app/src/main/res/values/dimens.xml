@@ -51,5 +51,7 @@
     <dimen name="profile_edit_text_box">150dp</dimen>
     <dimen name="map_bubble">100dp</dimen>
     <dimen name="header">200dp</dimen>
+    <dimen name="terms_fragment">200dp</dimen>
+    <dimen name="signature_pad">100dp</dimen>
 
 </resources>

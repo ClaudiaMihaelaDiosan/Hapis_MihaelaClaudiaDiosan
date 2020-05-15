@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Hapis_MihaelaClaudiaDiosan</string>
     <string name="name">HAPIS</string>
     <string name="API_KEY" templateMergeStrategy="preserve" translatable="false">AIzaSyCl1fruupMLaDB11EO0hHb2Ahx7rTYzwkA</string>
@@ -44,6 +44,7 @@
     <string name="forgot_password">Forgot password?</string>
     <string name="google_text_view">You also can continue with Google:</string>
     <string name="signup_tex_view">Don\'t have an account yet?</string>
+    <string name="statistics_tv">Here you can consult our statistics:</string>
     <string name="sign_up">REGISTER NOW</string>
     <string name="statistics">STATISTICS</string>
     <string name="error_login">Check your username or password</string>
@@ -209,14 +210,20 @@
             so that people know you better in order to help you and at no time will it be transferred to third parties. </string>
     <string name="clear_signature_button">CLEAR SIGNATURE</string>
     <string name="save_signature_button">SAVE SIGNATURE</string>
-    <string name="signature_saved_jpg">Signature saved into the Gallery</string>
+    <string name="success_upload">Sign has been successfully uploaded!You can continue with the register</string>
     <string name="unable_to_store_jpg">Unable to store the signature</string>
     <string name="cannot_write_external">Cannot write images to external storage</string>
-    <string name="signature_pad">SignaturePad</string>
+    <string name="signature_pad">HAPIS</string>
     <string name="directory_not_created">Directory not created</string>
     <string name="album_name">SignaturePad</string>
     <string name="agreement">I agree the terms and conditions</string>
     <string name="have_to_sign">You have to sign first!</string>
+    <string name="confirmation_popup_message">To confirm enter the first and last name of the person who signed.</string>
+    <string name="confirmation_popup_button_confirm">CONFIRM</string>
+    <string name="confirmation_popup_cancel_button" tools:ignore="ButtonCase">CANCEL</string>
+    <string name="confirmation_popup_firstname_hint">First Name</string>
+    <string name="confirmation_popup_lastname_hint">Last Name</string>
+
 
     <!--Configuration Fragment-->
     <string name="configuration_title">CONFIGURATION</string>

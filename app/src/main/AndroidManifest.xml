@@ -5,6 +5,7 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <uses-permission
         android:name="android.permission.MEDIA_CONTENT_CONTROL"
         tools:ignore="ProtectedPermissions" />
@@ -17,15 +18,18 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:requestLegacyExternalStorage="true"
         android:configChanges="locale"
         android:icon="@mipmap/hapis_icon"
         android:label="@string/name"
         android:roundIcon="@mipmap/hapis_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:label">
+        tools:replace="android:label"
+        tools:targetApi="q">
         <activity android:name=".YouTubePlayerActivity"
-            android:configChanges="orientation|screenSize"/>
+            android:configChanges="orientation|screenSize"
+            />
         <activity
             android:name=".login.StatisticsActivity"
             android:label="@string/statistics_name" />
@@ -35,7 +39,9 @@
         <activity
             android:name=".volunteer.CreateHomelessProfileActivity"
             android:configChanges="orientation|screenSize"
-            android:label="@string/create_homeless_profile_name" />
+            android:screenOrientation="portrait"
+            android:label="@string/create_homeless_profile_name"
+            tools:ignore="LockedOrientationActivity" />
         <activity android:name=".volunteer.PaymentActivity" />
         <activity
             android:name=".volunteer.HomeVolunteer"

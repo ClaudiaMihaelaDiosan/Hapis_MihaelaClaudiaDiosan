@@ -19,8 +19,11 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.material.badge.BadgeDrawable;
@@ -48,9 +51,27 @@ public class CreateHomelessProfileActivity extends MainActivity {
 
     }
 
+
     private void setUpViewPager() {
         viewPager = findViewById(R.id.create_homeless_view_pager);
         tabLayout = findViewById(R.id.create_homeless_tab_layout);
+
+        /*Disable buttons from tabLayout*/
+        LinearLayout tabStrip = ((LinearLayout)tabLayout.getChildAt(0));
+        for(int i = 0; i < tabStrip.getChildCount(); i++) {
+            tabStrip.getChildAt(i).setOnTouchListener(new View.OnTouchListener() {
+        @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    return true;
+                }
+            });
+        }
+
+
+        /*Disable viewpager swipe*/
+        viewPager.beginFakeDrag();
+        tabLayout.clearOnTabSelectedListeners();
+
 
         TermsFragment termsFragment = new TermsFragment();
         ProfileFragment profileFragment = new ProfileFragment();
@@ -59,7 +80,7 @@ public class CreateHomelessProfileActivity extends MainActivity {
 
         tabLayout.setupWithViewPager(viewPager);
 
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(),0);
+        final ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(),0);
         viewPagerAdapter.addFragment(termsFragment);
         viewPagerAdapter.addFragment(profileFragment);
         viewPagerAdapter.addFragment(locationFragment);
@@ -72,6 +93,7 @@ public class CreateHomelessProfileActivity extends MainActivity {
         tabLayout.getTabAt(3).setIcon(R.drawable.create_homeless_needs);
 
     }
+
 
     private static class ViewPagerAdapter extends FragmentPagerAdapter {
 
@@ -98,6 +120,7 @@ public class CreateHomelessProfileActivity extends MainActivity {
         }
 
     }
+
 
 
 

@@ -41,8 +41,8 @@ public class ProfileFragment extends Fragment {
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
     private static final int CAMERA_REQUEST_CODE = 100;
 
-    Integer REQUEST_CAMERA = 1;
-    Integer SELECT_FILE = 0;
+    private Integer REQUEST_CAMERA = 1;
+    private Integer SELECT_FILE = 0;
 
 
     ImageView homelessProfileImage;

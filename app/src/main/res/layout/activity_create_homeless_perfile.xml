@@ -12,10 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/create_homeless_tab_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
+
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="wrap_content"

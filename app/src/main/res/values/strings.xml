@@ -228,6 +228,7 @@
     <string name="confirmation_popup_cancel_button" tools:ignore="ButtonCase">CANCEL</string>
     <string name="confirmation_popup_firstname_hint">First Name</string>
     <string name="confirmation_popup_lastname_hint">Last Name</string>
+    <string name="account_created">THE ACCOUNT HAS BEEN SUCCESSFULLY CREATED!</string>
 
 
     <!--Configuration Fragment-->

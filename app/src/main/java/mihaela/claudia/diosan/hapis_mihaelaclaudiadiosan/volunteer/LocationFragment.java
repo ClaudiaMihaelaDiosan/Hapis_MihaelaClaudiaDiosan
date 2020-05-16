@@ -112,6 +112,7 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
                 }else{
                     showErrorToast(getString(R.string.location_error_toast));
                 }
+                break;
         }
     }
 

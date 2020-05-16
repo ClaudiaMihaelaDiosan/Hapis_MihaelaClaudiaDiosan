@@ -225,6 +225,7 @@
     <string name="confirmation_popup_cancel_button">CANCELAR</string>
     <string name="confirmation_popup_firstname_hint">Nombre</string>
     <string name="confirmation_popup_lastname_hint">Apellidos</string>
+    <string name="account_created">LA CUENTA SE HA CREADO CORRECTAMENTE!</string>
 
 
     <!--Configuration Fragment-->

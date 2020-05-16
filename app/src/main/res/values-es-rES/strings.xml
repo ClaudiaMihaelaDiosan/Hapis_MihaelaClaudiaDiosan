@@ -45,7 +45,7 @@
     <string name="sign_up">REGÍSTRATE AHORA</string>
     <string name="statistics">ESTADÍSTICAS</string>
     <string name="error_login">Comprueba tu usuario o contraseña</string>
-    <string name="user_exists">Este usuario ya existe!</string>
+    <string name="user_exists">Este usuario ya existe!Escoje otro nombre.</string>
     <string name="login_button">INICIAR SESIÓN</string>
     <string name="email_hint">Correo electronico</string>
     <string name="password_hint">Contraseña</string>
@@ -211,9 +211,9 @@
             que especificar la localización y un horario en el que podrás ser encontrado en la dicha localización. Estos datos sirven para que las personas que quieren donar algo te entreguen las cosas personalmente.\n\n6. Todos los datos facilitados serán utilizados solamente con el fin de que las personas te conozcan mejor para poder ayudarte y en ningún momento serán cedidas a terceros.</string>
     <string name="clear_signature_button">BORRAR </string>
     <string name="save_signature_button">GUARDAR FIRMA</string>
-    <string name="success_upload">La firma se ha subido correctamente!Puedes continuar con el registro</string>
+    <string name="success_upload">La firma se ha guardado correctamente!Puedes continuar con el registro</string>
     <string name="unable_to_store_jpg">No ha sido posible guardar la firma</string>
-    <string name="correct_saved_info">La información se ha subido correctamente!Puedes continuar con el registro</string>
+    <string name="correct_saved_info">La información se ha guardad correctamente!Puedes continuar con el registro</string>
     <string name="cannot_write_external">No se pueden guardar imàgenes en la memoria externa</string>
     <string name="signature_pad">HAPIS</string>
     <string name="directory_not_created">Directorio no creado</string>

@@ -48,7 +48,7 @@
     <string name="sign_up">REGISTER NOW</string>
     <string name="statistics">STATISTICS</string>
     <string name="error_login">Check your username or password</string>
-    <string name="user_exists">This user already exists!</string>
+    <string name="user_exists">This user already exists!Choose another name.</string>
     <string name="login_button">LOGIN</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
@@ -214,9 +214,9 @@
             so that people know you better in order to help you and at no time will it be transferred to third parties. </string>
     <string name="clear_signature_button">CLEAR SIGNATURE</string>
     <string name="save_signature_button">SAVE SIGNATURE</string>
-    <string name="success_upload">Sign has been successfully uploaded!You can continue with the register</string>
+    <string name="success_upload">Sign has been successfully saved!You can continue with the register</string>
     <string name="unable_to_store_jpg">Unable to store the signature</string>
-    <string name="correct_saved_info">Information successfuly saved!You can continue with register</string>
+    <string name="correct_saved_info">Information successfully saved!You can continue with register</string>
     <string name="cannot_write_external">Cannot write images to external storage</string>
     <string name="signature_pad">HAPIS</string>
     <string name="directory_not_created">Directory not created</string>

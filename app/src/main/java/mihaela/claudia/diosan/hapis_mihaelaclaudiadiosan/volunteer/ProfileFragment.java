@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
@@ -37,6 +38,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
@@ -48,6 +50,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
 
@@ -83,6 +87,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     private Map<String,String> homeless = new HashMap<>();
 
+    SharedPreferences preferences;
+
 
 
 
@@ -92,6 +98,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_profile, container, false);
 
+
+        preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
 
         initViews();
         firebaseInit();
@@ -129,9 +137,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.saveProfileButton:
              if (isValidForm()){
-                 uploadDataToFirebase();
-                 uploadPhotoToFirebase(selectedImagePath);
-                 goToLocationFragment();
+                checkUserExistsAndUploadData();
+                 successfullyUploadedInfoToast();
              }
         }
     }
@@ -154,7 +161,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         user = FirebaseAuth.getInstance().getCurrentUser();
         FirebaseStorage storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
-        FirebaseAuth mAuth = FirebaseAuth.getInstance();
         mFirestore = FirebaseFirestore.getInstance();
 
     }
@@ -218,6 +224,9 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         homeless.put("homelessLifeHistory", homelessLifeHistoryValue);
         homeless.put("homelessPhoneNumber", homelessPhoneNumberValue);
 
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("homelessUsername", homelessUsernameValue);
+        editor.apply();
 
 
         if (homelessUsernameValue.isEmpty()){
@@ -243,6 +252,24 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     }
 
+    private void checkUserExistsAndUploadData(){
+        mFirestore.collection("homeless").document(homelessUsername.getText().toString()).get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()){
+                            if (task.getResult().exists()){
+                                showErrorToast(getString(R.string.user_exists));
+                            }else{
+                                uploadDataToFirebase();
+                                uploadPhotoToFirebase(selectedImagePath);
+                                goToLocationFragment();
+                            }
+                        }
+                    }
+                });
+    }
+
 
     public void showErrorToast(String message){
         Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
@@ -262,10 +289,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private boolean isValidForm(){
         if (!isValidPhoneNumber(homelessPhoneNumber.getText().toString())){
             homelessPhoneNumber.setError(getString(R.string.phone_error_text));
-        }else if (!isLifeHistoryValid(homelessUsername.getText().toString())){
-            homelessUsername.setError(getString(R.string.life_hitory_error));
-        }else if (!isUsernameValid(homelessLifeHistory.getText().toString())){
-            homelessLifeHistory.setError(getString(R.string.username_error_text));
+        }else if (!isUsernameValid(homelessUsername.getText().toString())){
+            homelessUsername.setError(getString(R.string.username_error_text));
+        }else if (!isLifeHistoryValid(homelessLifeHistory.getText().toString())){
+            homelessLifeHistory.setError(getString(R.string.life_hitory_error));
         }
         return isUsernameValid(homelessUsername.getText().toString()) && isValidPhoneNumber(homelessPhoneNumber.getText().toString()) && isLifeHistoryValid(homelessLifeHistory.getText().toString());
     }
@@ -289,7 +316,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     }
 
     private boolean isLifeHistoryValid(CharSequence lifeHistory){
-        if (lifeHistory.length() > 20) {
+        if (lifeHistory.length() > 19) {
             return true;
         }
         return false;

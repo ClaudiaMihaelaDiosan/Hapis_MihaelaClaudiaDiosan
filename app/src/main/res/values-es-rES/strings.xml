@@ -171,6 +171,10 @@
     <string name="chooser_cancel">Cancelar</string>
     <string name="dialog_add_image">Añadir Imagen</string>
     <string name="dialog_select_file">Seleccionar Archivo</string>
+    <string name="select_photo_button">SELECCIONA UNA FOTO DE PERFIL</string>
+    <string name="life_hitory_error">La descripción tiene que tener almenos 20 caracteres.</string>
+    <string name="uploading_photo">Cargando…</string>
+    <string name="uploaded_photo">Completado</string>
 
     <!--    Needs Fragment -->
     <string name="schedule_text">Escribe cuando puede ser encontrada la persona necesitada en la ubicación seleccionada anteriormente:</string>
@@ -209,6 +213,7 @@
     <string name="save_signature_button">GUARDAR FIRMA</string>
     <string name="success_upload">La firma se ha subido correctamente!Puedes continuar con el registro</string>
     <string name="unable_to_store_jpg">No ha sido posible guardar la firma</string>
+    <string name="correct_saved_info">La información se ha subido correctamente!Puedes continuar con el registro</string>
     <string name="cannot_write_external">No se pueden guardar imàgenes en la memoria externa</string>
     <string name="signature_pad">HAPIS</string>
     <string name="directory_not_created">Directorio no creado</string>

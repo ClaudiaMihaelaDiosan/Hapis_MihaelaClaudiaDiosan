@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/profile_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -27,16 +28,22 @@
                     android:id="@+id/homeless_profile_image"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
-                    android:background="@color/light_blue"
-                    android:layout_gravity="center" />
+                    android:background="@color/green_color"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/content_description"/>
 
-                <ImageButton
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/add_homeless_profile_photo_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_add_a_photo_black_24dp"/>
-
+                    app:iconGravity="textStart"
+                    android:text="@string/select_photo_button"
+                    android:textColor="@color/colorPrimary"
+                    app:icon="@drawable/ic_add_a_photo_black_24dp"
+                    app:iconTint="@color/colorPrimary"
+                    />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"

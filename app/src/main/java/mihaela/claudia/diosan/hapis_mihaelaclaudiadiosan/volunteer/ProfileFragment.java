@@ -2,74 +2,88 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.content.DialogInterface;
+import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 
 import android.provider.MediaStore;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
-import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
-import static android.content.Context.MODE_PRIVATE;
-
-public class ProfileFragment extends Fragment {
+public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     private static  final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-    private static final int CAMERA_REQUEST_CODE = 100;
 
-    private Integer REQUEST_CAMERA = 1;
+
     private Integer SELECT_FILE = 0;
 
 
-    ImageView homelessProfileImage;
-    ImageButton addProfilePhotoBtn;
-    View view;
+    private ImageView homelessProfileImage;
+    private MaterialButton addProfilePhotoBtn;
+    private View view;
 
-    TextInputEditText homelessUsername;
-    TextInputEditText homelessPhoneNumber;
-    TextInputEditText homelessBirthday;
-    TextInputEditText homelessLifeHistory;
+    private TextInputEditText homelessUsername;
+    private TextInputEditText homelessPhoneNumber;
+    private TextInputEditText homelessBirthday;
+    private TextInputEditText homelessLifeHistory;
 
-    String homelessUsernameValue;
-    String homelessPhoneNumberValue;
-    String homelessBirthdayValue;
-    String homelessLifeHistoryValue;
-
-    MaterialButton cancelBtn;
-    MaterialButton saveBtn;
-
-    SharedPreferences preferences;
-
-    DatePickerDialog.OnDateSetListener setListener;
+    private MaterialButton cancelBtn;
+    private MaterialButton saveBtn;
 
 
-    public ProfileFragment() {
-        // Required empty public constructor
-    }
+    private DatePickerDialog.OnDateSetListener setListener;
+
+    private Uri selectedImagePath;
+
+
+    /*Firebase*/
+    private StorageReference storageReference;
+    private FirebaseUser user;
+    private FirebaseFirestore mFirestore;
+
+    private Map<String,String> homeless = new HashMap<>();
+
+
 
 
     @Override
@@ -78,103 +92,210 @@ public class ProfileFragment extends Fragment {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-      homelessProfileImage = view.findViewById(R.id.homeless_profile_image);
-      addProfilePhotoBtn = view.findViewById(R.id.add_homeless_profile_photo_button);
 
-      homelessUsername = view.findViewById(R.id.homeless_username_editText);
-      homelessPhoneNumber = view.findViewById(R.id.homeless_phone_number_editText);
-      homelessBirthday = view.findViewById(R.id.homeless_birthday_editText);
-      homelessLifeHistory = view.findViewById(R.id.homeless_life_history_editText);
+        initViews();
+        firebaseInit();
 
-      cancelBtn = view.findViewById(R.id.cancelProfileButton);
-      saveBtn = view.findViewById(R.id.saveProfileButton);
-
-
-      preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
-
-
-      addProfilePhotoBtn.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              verifyStoragePermissions(getActivity());
-              selectImage();
-          }
-      });
-
-      homelessBirthday.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v) {
-              selectDate();
-          }
-      });
-
-        setTextDateListener();
-
-        cancelBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent homeIntent = new Intent(getActivity(),HomeVolunteer.class );
-                startActivity(homeIntent);
-            }
-        });
-
-
-        saveBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                validate();
-                if (isValidPhoneNumber(homelessPhoneNumber.getText().toString())){
-                    getInfo();
-                    Toast.makeText(getActivity(), getString(R.string.toast_save_btn), Toast.LENGTH_SHORT).show();
-                }else if (!isValidPhoneNumber(homelessPhoneNumber.getText().toString())) {
-                    Toast.makeText(getActivity(), getString(R.string.phone_error_text), Toast.LENGTH_SHORT).show();
-                }
-                }
-        });
 
       return view;
     }
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-    public void getInfo(){
-        homelessUsernameValue = homelessUsername.getText().toString();
-        homelessPhoneNumberValue = homelessPhoneNumber.getText().toString();
-        homelessBirthdayValue = homelessBirthday.getText().toString();
-        homelessLifeHistoryValue = homelessLifeHistory.getText().toString();
+        addProfilePhotoBtn.setOnClickListener(this);
+        homelessBirthday.setOnClickListener(this);
+        cancelBtn.setOnClickListener(this);
+        saveBtn.setOnClickListener(this);
 
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("homelessUsername", homelessUsernameValue);
-        editor.putString("homelessPhoneNumber", homelessPhoneNumberValue);
-        editor.putString("homelessBirthday", homelessBirthdayValue);
-        editor.putString("homelessLifeHistory", homelessLifeHistoryValue);
-        editor.apply();
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()){
+            case R.id.add_homeless_profile_photo_button:
+                verifyStoragePermissions(getActivity());
+                chooseImage();
+                break;
+            case R.id.homeless_birthday_editText:
+                selectDate();
+                setTextDateListener();
+                break;
+            case R.id.cancelProfileButton:
+                Intent homeIntent = new Intent(getActivity(),HomeVolunteer.class );
+                startActivity(homeIntent);
+                break;
+            case R.id.saveProfileButton:
+             if (isValidForm()){
+                 uploadDataToFirebase();
+                 uploadPhotoToFirebase(selectedImagePath);
+                 goToLocationFragment();
+             }
+        }
+    }
+
+    private void initViews(){
+        homelessProfileImage = view.findViewById(R.id.homeless_profile_image);
+        addProfilePhotoBtn = view.findViewById(R.id.add_homeless_profile_photo_button);
+
+        homelessUsername = view.findViewById(R.id.homeless_username_editText);
+        homelessPhoneNumber = view.findViewById(R.id.homeless_phone_number_editText);
+        homelessBirthday = view.findViewById(R.id.homeless_birthday_editText);
+        homelessLifeHistory = view.findViewById(R.id.homeless_life_history_editText);
+
+        cancelBtn = view.findViewById(R.id.cancelProfileButton);
+        saveBtn = view.findViewById(R.id.saveProfileButton);
+
+    }
+
+    private void firebaseInit(){
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+        FirebaseAuth mAuth = FirebaseAuth.getInstance();
+        mFirestore = FirebaseFirestore.getInstance();
+
+    }
+
+    private void uploadPhotoToFirebase(Uri selectedImagePath){
+
+        if (selectedImagePath != null){
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setTitle(getString(R.string.uploading_photo));
+            progressDialog.show();
+
+            StorageReference ref = storageReference.child("homelessProfilePhotos/" + user.getEmail() + "->" + homelessUsername.getText().toString() );
+            ref.putFile(selectedImagePath)
+                    .addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                            progressDialog.dismiss();
+                            successfullyUploadedInfoToast();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            String error = e.getMessage();
+                            Toast.makeText(getActivity(), "Failed" + error, Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+                    double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+                    progressDialog.setMessage(getString(R.string.uploaded_photo) + " " + (int) progress + "%");
+                }
+            });
+
+        }
+    }
+
+
+    private void successfullyUploadedInfoToast(){
+        Toast toast = Toast.makeText(getActivity(), getString(R.string.correct_saved_info), Toast.LENGTH_LONG);
+        View view =toast.getView();
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        view.setBackgroundColor(Color.TRANSPARENT);
+        toastMessage.setTextColor(Color.GREEN);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check_circle_black_24dp, 0,0,0);
+        toastMessage.setPadding(10,10,10,10);
+        toast.show();
+    }
+
+
+
+    public void uploadDataToFirebase(){
+        String homelessUsernameValue = homelessUsername.getText().toString();
+        String homelessPhoneNumberValue = homelessPhoneNumber.getText().toString();
+        String homelessBirthdayValue = homelessBirthday.getText().toString();
+        String homelessLifeHistoryValue = homelessLifeHistory.getText().toString();
+
+        homeless.put("homelessUsername", homelessUsernameValue);
+        homeless.put("homelessBirthday", homelessBirthdayValue);
+        homeless.put("homelessLifeHistory", homelessLifeHistoryValue);
+        homeless.put("homelessPhoneNumber", homelessPhoneNumberValue);
+
+
+
+        if (homelessUsernameValue.isEmpty()){
+            homelessUsername.setError(getString(R.string.empty_field_error));
+        }else{
+            mFirestore.collection("homeless").document(homelessUsername.getText().toString()).set(homeless)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            //  Toast.makeText(RegisterDonorActivity.this, "Donor data recorded", Toast.LENGTH_SHORT).show();
+                          //  successfullyUploadedInfoToast();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            String error = e.getMessage();
+                            showErrorToast("Error " + error);
+
+                        }
+                    });
+        }
 
     }
 
 
-    public void validate(){
-         if (homelessUsername.getText().toString().isEmpty()){
-             homelessUsername.setError(getString(R.string.username_error_text));
-
-         }
-
-         if (homelessLifeHistory.getText().toString().isEmpty()){
-             homelessLifeHistory.setError(getString(R.string.complete_life_toast));
-
-         }
+    public void showErrorToast(String message){
+        Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
+        View view =toast.getView();
+        view.setBackgroundColor(Color.WHITE);
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        toastMessage.setTextColor(Color.RED);
+        toastMessage.setGravity(Gravity.CENTER);
+        toastMessage.setTextSize(15);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
+        toastMessage.setPadding(10,10,10,10);
+        toast.show();
     }
+
+
+
+    private boolean isValidForm(){
+        if (!isValidPhoneNumber(homelessPhoneNumber.getText().toString())){
+            homelessPhoneNumber.setError(getString(R.string.phone_error_text));
+        }else if (!isLifeHistoryValid(homelessUsername.getText().toString())){
+            homelessUsername.setError(getString(R.string.life_hitory_error));
+        }else if (!isUsernameValid(homelessLifeHistory.getText().toString())){
+            homelessLifeHistory.setError(getString(R.string.username_error_text));
+        }
+        return isUsernameValid(homelessUsername.getText().toString()) && isValidPhoneNumber(homelessPhoneNumber.getText().toString()) && isLifeHistoryValid(homelessLifeHistory.getText().toString());
+    }
+
 
     public  boolean isValidPhoneNumber(CharSequence target) {
         if (target.length() == 0){
             return true;
-        }else if (target== null || target.length() < 6 || target.length() > 13) {
+        }else if (target.length() < 6 || target.length() > 13) {
             return false;
         } else {
             return android.util.Patterns.PHONE.matcher(target).matches();
         }
     }
 
-    public void selectDate(){
+    private boolean isUsernameValid(CharSequence username){
+        if (username.length() > 3) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isLifeHistoryValid(CharSequence lifeHistory){
+        if (lifeHistory.length() > 20) {
+            return true;
+        }
+        return false;
+    }
+
+    private void selectDate(){
         Calendar calendar = Calendar.getInstance();
         final int year = calendar.get(Calendar.YEAR);
         final int month = calendar.get(Calendar.MONTH);
@@ -186,7 +307,7 @@ public class ProfileFragment extends Fragment {
     }
 
 
-    public void setTextDateListener(){
+    private void setTextDateListener(){
         setListener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -198,33 +319,10 @@ public class ProfileFragment extends Fragment {
     }
 
 
-
-        private void selectImage(){
-        final CharSequence[] items = {getString(R.string.chooser_gallery), getString(R.string.chooser_camera), getString(R.string.chooser_cancel)};
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(getString(R.string.dialog_add_image));
-
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int i) {
-
-                if (items[i].equals(getString(R.string.chooser_camera))){
-                    Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(cameraIntent,REQUEST_CAMERA);
-
-                }else if (items[i].equals(getString(R.string.chooser_gallery))){
-
-                    Intent selectFileIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    selectFileIntent.setType("image/*");
-                    startActivityForResult(selectFileIntent.createChooser(selectFileIntent, getString(R.string.dialog_select_file)), SELECT_FILE);
-
-                }else if (items[i].equals(getString(R.string.chooser_cancel))){
-                    dialog.dismiss();
-                }
-            }
-        });
-        builder.show();
+    private void chooseImage(){
+        Intent selectFileIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        selectFileIntent.setType("image/*");
+        startActivityForResult(selectFileIntent.createChooser(selectFileIntent, getString(R.string.dialog_select_file)), SELECT_FILE);
     }
 
 
@@ -233,26 +331,33 @@ public class ProfileFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data){
       //  super.onActivityResult(requestCode, resultCode, data);
 
-            if (resultCode == Activity.RESULT_OK && null != data){
-            if (requestCode == REQUEST_CAMERA){
-                Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-                homelessProfileImage.setImageBitmap(bitmap);
-            }else
-                if (requestCode == SELECT_FILE){
-                Uri selectedImageUri = data.getData();
-                homelessProfileImage.setImageURI(selectedImageUri);
-            }
+            if ( requestCode == SELECT_FILE && resultCode == Activity.RESULT_OK && null != data){
+
+                selectedImagePath = data.getData();
+                homelessProfileImage.setImageURI(selectedImagePath);
+
         }
     }
 
-    /**
-     * Checks if the app has permission to write to device storage
-     * <p/>
-     * If the app does not has permission then the user will be prompted to grant permissions
-     *
-     * @param activity the activity from which permissions are checked
-     */
-    public void verifyStoragePermissions(Activity activity) {
+    private void goToLocationFragment(){
+        ViewPager viewPager = getActivity().findViewById(R.id.create_homeless_view_pager);
+
+
+        int position = viewPager.getCurrentItem();
+
+        position++;
+        viewPager.setCurrentItem(position);
+
+        //hide keyboard
+        InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+    }
+
+
+
+
+    private void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
         int camera = ActivityCompat.checkSelfPermission(activity, Manifest.permission.CAMERA);
@@ -265,12 +370,6 @@ public class ProfileFragment extends Fragment {
                     REQUEST_EXTERNAL_STORAGE
             );
         }
-
-        if (ActivityCompat.checkSelfPermission(activity, String.valueOf(camera)) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.CAMERA}, CAMERA_REQUEST_CODE);
-        }
     }
-
-
 
 }

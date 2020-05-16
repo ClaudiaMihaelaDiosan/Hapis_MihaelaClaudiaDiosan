@@ -173,6 +173,10 @@
     <string name="chooser_cancel">Cancel</string>
     <string name="dialog_add_image">Add Image</string>
     <string name="dialog_select_file">Select File</string>
+    <string name="select_photo_button">SELECT PROFILE PHOTO</string>
+    <string name="life_hitory_error">Life History must be at least 20 characters large.</string>
+    <string name="uploading_photo">Uploading…</string>
+    <string name="uploaded_photo">Uploaded</string>
 
     <!--    Needs Fragment -->
     <string name="schedule_text">Write when the homeless could  be found on the previous selected location:</string>
@@ -212,6 +216,7 @@
     <string name="save_signature_button">SAVE SIGNATURE</string>
     <string name="success_upload">Sign has been successfully uploaded!You can continue with the register</string>
     <string name="unable_to_store_jpg">Unable to store the signature</string>
+    <string name="correct_saved_info">Information successfuly saved!You can continue with register</string>
     <string name="cannot_write_external">Cannot write images to external storage</string>
     <string name="signature_pad">HAPIS</string>
     <string name="directory_not_created">Directory not created</string>

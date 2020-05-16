@@ -162,7 +162,7 @@ public class TermsFragment extends Fragment implements View.OnClickListener {
     private void uploadJPEGToFirebase(File photo){
         Uri file = Uri.fromFile(photo);
 
-        StorageReference ref = storageReference.child("homelessSignatures/"  + homelessFirstName.getText().toString() + homelessLastName.getText().toString());
+        StorageReference ref = storageReference.child("homelessSignatures/"  + homelessFirstName.getText().toString() + " " + homelessLastName.getText().toString());
         ref.putFile(file)
                 .addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                     @Override

@@ -56,7 +56,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/homeless_cv_image"
             android:background="@color/light_blue"
-            android:src="@mipmap/ic_launcher"
             android:layout_gravity="center" />
 
         <com.google.android.material.button.MaterialButton
@@ -136,7 +135,7 @@
             android:orientation="vertical">
 
             <fragment
-                android:id="@+id/autocomplete_fragment"
+                android:id="@+id/autocomplete_fragment_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:name=
@@ -188,7 +187,7 @@
             android:id="@+id/chip_group"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margins"
+            android:layout_marginBottom="@dimen/bottom_margin"
             app:singleSelection="true">
 
             <com.google.android.material.chip.Chip
@@ -257,6 +256,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_marginBottom="@dimen/bottom_margin"
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
@@ -291,7 +291,9 @@
             android:backgroundTint="@color/white"
             android:layout_marginStart="@dimen/start_margin"
             android:textSize="@dimen/body"
+            android:gravity="center"
             android:layout_gravity="center"
+            android:layout_marginTop="@dimen/top_margin"
             app:icon="@drawable/delete_homeless_icon"
             app:iconTint="@color/red"
             android:textColor="@color/red"

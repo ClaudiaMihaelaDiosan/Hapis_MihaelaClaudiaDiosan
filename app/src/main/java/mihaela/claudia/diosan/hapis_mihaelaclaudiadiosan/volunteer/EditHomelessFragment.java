@@ -1,15 +1,23 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
+import android.Manifest;
+import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,11 +27,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
+import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
@@ -33,10 +52,18 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import org.w3c.dom.Text;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.ForgotPasswordActivity;
@@ -48,6 +75,13 @@ import static android.content.Context.MODE_PRIVATE;
  */
 public class EditHomelessFragment extends Fragment implements View.OnClickListener {
 
+    private static  final int REQUEST_EXTERNAL_STORAGE = 1;
+    private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
+    private Integer SELECT_FILE = 0;
+
+    private ImageView editProfileImage;
+
 
     private TextView usernameTV;
     private TextInputEditText  phoneET;
@@ -58,24 +92,32 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
     private TextView location;
     private TextView need;
 
-    private ImageView editProfileImage;
+
 
 
     private SharedPreferences preferences;
     private View view;
+
+    private Uri selectedImagePath;
 
 
     private FirebaseFirestore mFirestore;
     private FirebaseUser user;
     private StorageReference storageReference;
 
-    MaterialButton cancelBtn;
-    MaterialButton saveBtn;
-    MaterialButton deleteBtn;
+    private MaterialButton cancelBtn;
+    private MaterialButton saveBtn;
+    private MaterialButton deleteBtn;
+    private MaterialButton changeProfilePhoto;
 
-    String username;
+    private String username;
+
+    private ChipGroup chipGroup;
 
 
+    private List<Place.Field> placeFields = Arrays.asList(Place.Field.ID,Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
+
+    private Map<String,String> homeless = new HashMap<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,11 +127,25 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
 
         initViews();
         firebaseInit();
+        initPlaces();
+        updateLocation();
 
         username = preferences.getString("homelessUsername", "");
         usernameTV.setText(username);
 
         getCurrentInfo(username);
+
+        chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(ChipGroup group, @IdRes int checkedId) {
+                // Handle the checked chip change.
+                Chip chip = chipGroup.findViewById(checkedId);
+                if(chip != null){
+                    need.setText(chip.getText().toString());
+                }
+
+            }
+        });
 
 
 
@@ -113,10 +169,17 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
         location = view.findViewById(R.id.selected_location_text);
         need = view.findViewById(R.id.most_important_need);
         editProfileImage = view.findViewById(R.id.edit_profile_image);
+        changeProfilePhoto = view.findViewById(R.id.edit_homeless_profile_photo_button);
         cancelBtn = view.findViewById(R.id.cancelEditButton);
         saveBtn = view.findViewById(R.id.saveHomelessBtn);
         deleteBtn = view.findViewById(R.id.deleteProfileBtn);
+        chipGroup = (ChipGroup) view.findViewById(R.id.chip_group);
 
+    }
+
+    private void initPlaces(){
+        Places.initialize(view.getContext(), getString(R.string.API_KEY));
+        PlacesClient placesClient = Places.createClient(view.getContext());
     }
 
     @Override
@@ -126,6 +189,7 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
         cancelBtn.setOnClickListener(this);
         saveBtn.setOnClickListener(this);
         deleteBtn.setOnClickListener(this);
+        changeProfilePhoto.setOnClickListener(this);
     }
 
     @Override
@@ -136,9 +200,18 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
                 startActivity(homeIntent);
                 break;
             case R.id.saveHomelessBtn:
+                if (isLifeHistoryValid(lifeHistoryET.getText().toString()) && isValidPhoneNumber(phoneET.getText().toString())){
+                    updateProfileInfo(username);
+                    showSuccessfullDialog(getString(R.string.update_success_toast));
+                    startActivity(new Intent(getActivity(), HomeVolunteer.class));
+                }
                 break;
             case R.id.deleteProfileBtn:
                 showDeleteDialog();
+                break;
+            case R.id.edit_homeless_profile_photo_button:
+                verifyStoragePermissions(getActivity());
+                chooseImage();
                 break;
         }
     }
@@ -199,18 +272,51 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
                 });
     }
 
-    public void showErrorToast(String message){
-        Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.RED);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
+
+    private void uploadPhotoToFirebase(final Uri selectedImagePath){
+
+        if (selectedImagePath != null){
+            final ProgressDialog progressDialog = new ProgressDialog(getActivity());
+            progressDialog.setTitle(getString(R.string.uploading_photo));
+            progressDialog.show();
+
+            final DocumentReference documentReference = mFirestore.collection("homeless").document(username);
+            final StorageReference ref = storageReference.child("homelessProfilePhotos/" + user.getEmail() + "->" + username);
+
+            ref.putFile(selectedImagePath)
+                    .addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
+                            progressDialog.dismiss();
+                            ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    documentReference.update("image", uri.toString());
+
+
+                                }
+                            });
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            progressDialog.dismiss();
+                            String error = e.getMessage();
+                            Toast.makeText(getActivity(), "Failed" + error, Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
+                    double progress = (100.0*taskSnapshot.getBytesTransferred()/taskSnapshot.getTotalByteCount());
+                    progressDialog.setMessage(getString(R.string.uploaded_photo) + " " + (int) progress + "%");
+                }
+            });
+
+        }
+
     }
+
 
     public void showSuccessfullDialog(String message){
         Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_LONG);
@@ -254,6 +360,7 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
                         Glide
                                 .with(getActivity())
                                 .load(image)
+                                .placeholder(R.drawable.no_profile_image)
                                 .into(editProfileImage);
 
 
@@ -263,6 +370,141 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
         });
 
     }
+
+
+    private void updateProfileInfo(String username){
+
+        uploadPhotoToFirebase(selectedImagePath);
+
+            DocumentReference documentReference = mFirestore.collection("homeless").document(username);
+
+            String phoneNumber = phoneET.getText().toString();
+            String schedule = scheduleET.getText().toString();
+            String lifeHistory = lifeHistoryET.getText().toString();
+
+            if (!phoneNumber.isEmpty()){
+                documentReference.update("homelessPhoneNumber", phoneNumber);
+            }
+
+            if (!schedule.isEmpty()){
+                documentReference.update("homelessSchedule", schedule);
+
+            }
+
+
+            if (!lifeHistory.isEmpty()){
+                documentReference.update("homelessLifeHistory", lifeHistory);
+
+            }
+
+
+        documentReference.update("homelessNeed", need.getText().toString());
+
+
+    }
+
+    public void updateLocation(){
+        AutocompleteSupportFragment autocompleteSupportFragment = (AutocompleteSupportFragment) getChildFragmentManager().findFragmentById(R.id.autocomplete_fragment_edit);
+        assert autocompleteSupportFragment != null;
+        autocompleteSupportFragment.setPlaceFields(placeFields);
+        autocompleteSupportFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(@NonNull final Place place) {
+
+                if (place.getLatLng() != null) {
+                    Double latitude = aroundUp(place.getLatLng().latitude,2);
+                    Double longitude = aroundUp(place.getLatLng().longitude,2) ;
+
+
+                    String homelessAddress = place.getAddress();
+                    String homelessLatitude = latitude.toString();
+                    String homelessLongitude = longitude.toString();
+
+                    DocumentReference documentReference = mFirestore.collection("homeless").document(username);
+
+                    location.setText(homelessAddress);
+                    documentReference.update("homelessAddress", homelessAddress);
+                    documentReference.update("homelessLongitude", homelessLongitude);
+                    documentReference.update("homelessLatitude", homelessLatitude);
+
+                }
+
+            }
+            @Override
+            public void onError(@NonNull Status status) {
+                Toast.makeText(view.getContext(), ""+status.getStatusMessage(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public static double aroundUp(double number, int canDecimal) {
+        int cifras = (int) Math.pow(10, canDecimal);
+        return Math.ceil(number * cifras) / cifras;
+    }
+
+    public  boolean isValidPhoneNumber(CharSequence target) {
+        if (target.length() == 0){
+            return true;
+        }else if (target.length() < 6 || target.length() > 13) {
+            phoneET.setError(getString(R.string.phone_error_text));
+            return false;
+        } else {
+            return android.util.Patterns.PHONE.matcher(target).matches();
+        }
+    }
+
+    private boolean isLifeHistoryValid(CharSequence lifeHistory){
+        if (lifeHistory.length() != 0){
+            if (lifeHistory.length() > 19 && lifeHistory.length()<=400) {
+                return true;
+            }else{
+                lifeHistoryET.setError(getString(R.string.life_hitory_error));
+
+            }
+            return false;
+        }
+       return true;
+    }
+
+    private void chooseImage(){
+        Intent selectFileIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        selectFileIntent.setType("image/*");
+        startActivityForResult(selectFileIntent.createChooser(selectFileIntent, getString(R.string.dialog_select_file)), SELECT_FILE);
+    }
+
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        //  super.onActivityResult(requestCode, resultCode, data);
+
+        if ( requestCode == SELECT_FILE && resultCode == Activity.RESULT_OK && null != data){
+
+            selectedImagePath = data.getData();
+
+            Glide
+                    .with(getActivity())
+                    .load(selectedImagePath)
+                    .placeholder(R.drawable.no_profile_image)
+                    .into(editProfileImage);
+
+        }
+    }
+
+    private void verifyStoragePermissions(Activity activity) {
+        // Check if we have write permission
+        int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            // We don't have permission so prompt the user
+            ActivityCompat.requestPermissions(
+                    activity,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
+        }
+    }
+
 
 
 

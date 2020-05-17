@@ -43,8 +43,8 @@ public class NeedsFragment extends Fragment implements View.OnClickListener {
     private TextView needTV;
     private TextView needText;
 
-    MaterialButton cancelScheduleBtn;
-    MaterialButton saveScheduleBtn;
+    private MaterialButton cancelScheduleBtn;
+    private MaterialButton saveScheduleBtn;
 
     private SharedPreferences preferences;
 

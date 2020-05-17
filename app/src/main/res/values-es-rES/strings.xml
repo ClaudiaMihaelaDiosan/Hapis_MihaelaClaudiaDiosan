@@ -287,6 +287,8 @@
     <string name="delete_confirm_button">BORRAR</string>
     <string name="delete_cancel_button">CANCELAR</string>
     <string name="delete_correct_toast">Perfil borrado con exito</string>
+    <string name="update_success_toast">Perfil actualizado con exito</string>
+
 
 
     <!--Homeless complete view-->

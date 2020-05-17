@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
@@ -36,6 +37,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -61,7 +64,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private static  final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
-
     private Integer SELECT_FILE = 0;
 
 
@@ -78,6 +80,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private MaterialButton saveBtn;
 
 
+
     private DatePickerDialog.OnDateSetListener setListener;
 
     private Uri selectedImagePath;
@@ -90,11 +93,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     private Map<String,String> homeless = new HashMap<>();
 
-    SharedPreferences preferences;
-
-    ImageView test;
-
-
+    private SharedPreferences preferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -145,6 +144,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                  successfullyUploadedInfoToast();
              }
              break;
+
+
         }
     }
 
@@ -159,8 +160,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
         cancelBtn = view.findViewById(R.id.cancelProfileButton);
         saveBtn = view.findViewById(R.id.saveProfileButton);
-
-        test = view.findViewById(R.id.test);
 
     }
 
@@ -237,7 +236,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
 
 
-    public void uploadDataToFirebase(){
+    private void uploadDataToFirebase(){
 
         String homelessUsernameValue = homelessUsername.getText().toString();
         String homelessPhoneNumberValue = homelessPhoneNumber.getText().toString();

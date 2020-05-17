@@ -290,6 +290,7 @@
     <string name="delete_confirm_button">DELETE</string>
     <string name="delete_cancel_button">CANCEL</string>
     <string name="delete_correct_toast">Profile successfully deleted</string>
+    <string name="update_success_toast">Profile successfully updated</string>
 
     <!--Homeless complete view -->
     <string name="birthday">Birthday: </string>

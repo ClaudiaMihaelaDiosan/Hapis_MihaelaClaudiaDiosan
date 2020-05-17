@@ -172,7 +172,7 @@
     <string name="dialog_add_image">Añadir Imagen</string>
     <string name="dialog_select_file">Seleccionar Archivo</string>
     <string name="select_photo_button">SELECCIONA UNA FOTO DE PERFIL</string>
-    <string name="life_hitory_error">La descripción tiene que tener almenos 20 caracteres.</string>
+    <string name="life_hitory_error">La descripción tiene que tener almenos 20 caracteres y como máximo 400.</string>
     <string name="uploading_photo">Cargando…</string>
     <string name="uploaded_photo">Completado</string>
 

@@ -45,6 +45,11 @@
                     app:iconTint="@color/colorPrimary"
                     />
 
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/test"/>
+
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -56,6 +61,7 @@
                         android:id="@+id/homeless_username_editText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:singleLine="true"
                         android:hint="@string/homeless_profile_fragment_username_hint"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -72,7 +78,7 @@
                         android:id="@+id/homeless_phone_number_editText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="numberDecimal"
+                        android:inputType="phone"
                         android:hint="@string/homeless_profile_fragment_phone_number"
                         />
                 </com.google.android.material.textfield.TextInputLayout>

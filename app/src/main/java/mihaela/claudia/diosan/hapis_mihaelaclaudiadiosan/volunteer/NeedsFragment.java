@@ -142,6 +142,7 @@ public class NeedsFragment extends Fragment implements View.OnClickListener {
         return true;
     }
 
+
     private void uploadDataToFirebase(){
         String homelessUsername = preferences.getString("homelessUsername","");
 

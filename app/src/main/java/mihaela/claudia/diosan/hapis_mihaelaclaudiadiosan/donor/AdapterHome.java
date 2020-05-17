@@ -1,16 +1,10 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,8 +13,6 @@ import java.util.ArrayList;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless.Homeless;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class AdapterHome extends RecyclerView.Adapter<AdapterHome.AdapterHomeViewHolder>  {
     private ArrayList<Homeless> mHomelessList;
@@ -82,10 +74,10 @@ public class AdapterHome extends RecyclerView.Adapter<AdapterHome.AdapterHomeVie
     public void onBindViewHolder(@NonNull AdapterHomeViewHolder holder, int position) {
         Homeless currentItem = mHomelessList.get(position);
 
-        holder.profileImageView.setImageResource(currentItem.getProfileImageResource());
-        holder.username.setText(currentItem.getUsername());
-        holder.need.setText(currentItem.getNeed());
-        holder.locationAddress.setText(currentItem.getLocationAddress());
+       // holder.profileImageView.setImageResource(currentItem.getImage());
+        holder.username.setText(currentItem.getHomelessUsername());
+        holder.need.setText(currentItem.getHomelessNeed());
+        holder.locationAddress.setText(currentItem.getHomelessAddress());
 
 
 

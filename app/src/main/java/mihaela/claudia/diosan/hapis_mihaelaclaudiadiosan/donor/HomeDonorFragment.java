@@ -3,8 +3,6 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,7 +15,6 @@ import java.util.ArrayList;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless.Homeless;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer.HomelessAdapter;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -44,7 +41,7 @@ public class HomeDonorFragment extends Fragment {
         preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
 
         //Recyclerview
-        addItems();
+      /*  addItems();*/
         buildRecyclerView();
 
         return view;
@@ -77,7 +74,7 @@ public class HomeDonorFragment extends Fragment {
 
 
 
-    public void addItems(){
+/*    public void addItems(){
         homelessList = new ArrayList<>();
 
         homelessList.add(new Homeless(R.drawable.andrew_image,"Andrew",getString(R.string.work), getString(R.string.andrew_location)));
@@ -85,7 +82,7 @@ public class HomeDonorFragment extends Fragment {
         homelessList.add(new Homeless(R.drawable.maite_image,"Maite",getString(R.string.clothes), getString(R.string.maite_location)));
         homelessList.add(new Homeless(R.drawable.luis_image,"Luis",getString(R.string.work), getString(R.string.luis_location)));
         homelessList.add(new Homeless(R.drawable.cristina_image,"Cristina",getString(R.string.lodging), getString(R.string.cristina_location)));
-    }
+    }*/
 
     public void getItems(){
 

@@ -174,7 +174,7 @@
     <string name="dialog_add_image">Add Image</string>
     <string name="dialog_select_file">Select File</string>
     <string name="select_photo_button">SELECT PROFILE PHOTO</string>
-    <string name="life_hitory_error">Life History must be at least 20 characters large.</string>
+    <string name="life_hitory_error">Life History must be between 20 and 400 characters large.</string>
     <string name="uploading_photo">Uploading…</string>
     <string name="uploaded_photo">Uploaded</string>
 

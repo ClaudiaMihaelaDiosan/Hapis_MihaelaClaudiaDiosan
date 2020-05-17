@@ -1,74 +1,79 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import com.google.android.gms.maps.model.LatLng;
 
 public class Homeless {
-    private int profileImageResource;
-    private String username;
-    private String phone;
-    private String birthday;
-    private String lifeHistory;
-    private String locationAddress;
-    private String schedule;
-    private String need;
+    private String image;
+    private String homelessUsername;
+    private String homelessPhoneNumber;
+    private String homelessBirthday;
+    private String homelessLifeHistory;
+    private String homelessAddress;
+    private String homelessSchedule;
+    private String homelessNeed;
 
-    public Homeless(int profileImageResource, String username, String phone, String birthday, String lifeHistory, String locationAddress, String schedule, String need){
-        this.profileImageResource = profileImageResource;
-        this.username = username;
-        this.phone = phone;
-        this.birthday =birthday;
-        this.lifeHistory = lifeHistory;
-        this.locationAddress = locationAddress;
-        this.schedule = schedule;
-        this.need = need;
+    public Homeless(){
 
     }
 
-    public Homeless(int profileImageResource, String username, String need, String locationAddress){
-        this.profileImageResource = profileImageResource;
-        this.username = username;
-        this.need = need;
-        this.locationAddress = locationAddress;
+    public Homeless(String image, String homelessUsername, String phone, String birthday, String lifeHistory, String locationAddress, String schedule, String need){
+        this.image = image;
+        this.homelessUsername = homelessUsername;
+        this.homelessPhoneNumber = phone;
+        this.homelessBirthday =birthday;
+        this.homelessLifeHistory = lifeHistory;
+        this.homelessAddress = locationAddress;
+        this.homelessSchedule = schedule;
+        this.homelessNeed = need;
 
     }
 
-    public Homeless(String username, LatLng locationCoordinates){
-        this.username = username;
+    public Homeless(String profileImageResource, String homelessUsername, String need, String locationAddress){
+        this.image = profileImageResource;
+        this.homelessUsername = homelessUsername;
+        this.homelessNeed = need;
+        this.homelessAddress = locationAddress;
+
     }
 
-    public int getProfileImageResource(){
-        return profileImageResource;
+    public Homeless(String homelessUsername, LatLng locationCoordinates){
+        this.homelessUsername = homelessUsername;
     }
 
-    public String getUsername() {
-        return username;
+    public String getImage(){
+        return image;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getHomelessUsername() {
+        return homelessUsername;
     }
 
-    public String getBirthday() {
-        return birthday;
+    public String getHomelessPhoneNumber() {
+        return homelessPhoneNumber;
     }
 
-    public String getLifeHistory() {
-        return lifeHistory;
+    public String getHomelessBirthday() {
+        return homelessBirthday;
     }
 
-    public String getLocationAddress() {
-        return locationAddress;
+    public String getHomelessLifeHistory() {
+        return homelessLifeHistory;
     }
 
-    public String getNeed() {
-        return need;
+    public String getHomelessAddress() {
+        return homelessAddress;
     }
 
-    public String getSchedule() {
-        return schedule;
+    public String getHomelessNeed() {
+        return homelessNeed;
+    }
+
+    public String getHomelessSchedule() {
+        return homelessSchedule;
+    }
+
+    public void setImage(String image){
+        this.image = image;
     }
 
 }

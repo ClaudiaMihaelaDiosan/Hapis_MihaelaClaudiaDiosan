@@ -47,6 +47,7 @@
                         android:id="@+id/confirmation_first_name_ed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>
@@ -62,6 +63,7 @@
                         android:id="@+id/confirmation_last_name_ed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
                         />
 
                 </com.google.android.material.textfield.TextInputLayout>

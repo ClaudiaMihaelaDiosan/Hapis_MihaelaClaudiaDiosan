@@ -19,6 +19,7 @@
 
     <application
         android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true"
         android:configChanges="locale"
         android:icon="@mipmap/hapis_icon"
         android:label="@string/name"

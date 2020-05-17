@@ -30,6 +30,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -38,8 +39,10 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
@@ -89,6 +92,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     SharedPreferences preferences;
 
+    ImageView test;
 
 
 
@@ -128,8 +132,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 chooseImage();
                 break;
             case R.id.homeless_birthday_editText:
-                selectDate();
                 setTextDateListener();
+                selectDate();
                 break;
             case R.id.cancelProfileButton:
                 Intent homeIntent = new Intent(getActivity(),HomeVolunteer.class );
@@ -156,6 +160,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         cancelBtn = view.findViewById(R.id.cancelProfileButton);
         saveBtn = view.findViewById(R.id.saveProfileButton);
 
+        test = view.findViewById(R.id.test);
+
     }
 
     private void firebaseInit(){
@@ -166,19 +172,36 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     }
 
-    private void uploadPhotoToFirebase(Uri selectedImagePath){
+
+    private void uploadPhotoToFirebase(final Uri selectedImagePath){
 
         if (selectedImagePath != null){
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setTitle(getString(R.string.uploading_photo));
             progressDialog.show();
 
-            StorageReference ref = storageReference.child("homelessProfilePhotos/" + user.getEmail() + "->" + homelessUsername.getText().toString() );
+            final StorageReference ref = storageReference.child("homelessProfilePhotos/" + user.getEmail() + "->" + homelessUsername.getText().toString() );
             ref.putFile(selectedImagePath)
                     .addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
                             progressDialog.dismiss();
+                            ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    homeless.put("image", uri.toString());
+
+                                    mFirestore.collection("homeless").document(homelessUsername.getText().toString()).set(homeless, SetOptions.merge())
+                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                @Override
+                                                public void onSuccess(Void aVoid) {
+                                                    //  Toast.makeText(RegisterDonorActivity.this, "Donor data recorded", Toast.LENGTH_SHORT).show();
+                                                    //  successfullyUploadedInfoToast();
+                                                }
+                                            });
+
+                                }
+                            });
                             successfullyUploadedInfoToast();
                         }
                     })
@@ -215,6 +238,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
 
     public void uploadDataToFirebase(){
+
         String homelessUsernameValue = homelessUsername.getText().toString();
         String homelessPhoneNumberValue = homelessPhoneNumber.getText().toString();
         String homelessBirthdayValue = homelessBirthday.getText().toString();
@@ -224,6 +248,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         homeless.put("homelessBirthday", homelessBirthdayValue);
         homeless.put("homelessLifeHistory", homelessLifeHistoryValue);
         homeless.put("homelessPhoneNumber", homelessPhoneNumberValue);
+        homeless.put("volunteerEmail", user.getEmail());
 
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("homelessUsername", homelessUsernameValue);
@@ -262,9 +287,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                             if (task.getResult().exists()){
                                 showErrorToast(getString(R.string.user_exists));
                             }else{
-                                uploadDataToFirebase();
                                 uploadPhotoToFirebase(selectedImagePath);
+                                uploadDataToFirebase();
                                 goToLocationFragment();
+                                successfullyUploadedInfoToast();
                             }
                         }
                     }
@@ -317,7 +343,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     }
 
     private boolean isLifeHistoryValid(CharSequence lifeHistory){
-        if (lifeHistory.length() > 19) {
+        if (lifeHistory.length() > 19 && lifeHistory.length()<=400) {
             return true;
         }
         return false;

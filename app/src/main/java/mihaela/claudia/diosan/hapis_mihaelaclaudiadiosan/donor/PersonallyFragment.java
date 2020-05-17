@@ -23,7 +23,7 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class PersonallyFragment extends Fragment implements OnMapReadyCallback {
+public class PersonallyFragment extends Fragment  {
 
     private SharedPreferences preferences;
 
@@ -52,7 +52,7 @@ public class PersonallyFragment extends Fragment implements OnMapReadyCallback {
         initViews(view);
 
         SupportMapFragment mMapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.homeless_location_map);
-        mMapFragment.getMapAsync(this);
+      //  mMapFragment.getMapAsync(this);
 
         return view;
     }
@@ -63,7 +63,7 @@ public class PersonallyFragment extends Fragment implements OnMapReadyCallback {
 
     }
 
-    public void getInfo(){
+  /*  public void getInfo(){
         Integer position = preferences.getInt("position", 0);
         if (position.equals(0)){
             String andrewLocation = preferences.getString("andrewLocation","");
@@ -213,5 +213,5 @@ public class PersonallyFragment extends Fragment implements OnMapReadyCallback {
                 }
             });
         }
-    }
+    }*/
 }

@@ -265,6 +265,7 @@
     <string name="through_volunteer_button">A TRAVÉS DE UN VOLUNTARIO</string>
     <string name="chip_text1">Tu donación de </string>
     <string name="chip_text2">será añadida a nuestras estadísticas</string>
+    <string name="error_chip">Tienes que seleccionar un tipo de ayuda primero.</string>
 
     <!--    Homeless custom view -->
     <string name="hcv_username">Usuario</string>

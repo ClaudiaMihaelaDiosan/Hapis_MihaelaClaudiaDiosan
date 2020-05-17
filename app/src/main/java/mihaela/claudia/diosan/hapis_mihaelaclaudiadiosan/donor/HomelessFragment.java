@@ -1,6 +1,7 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,10 +14,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import org.w3c.dom.Text;
 
@@ -30,7 +45,7 @@ import static android.content.Context.MODE_PRIVATE;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomelessFragment extends Fragment {
+public class HomelessFragment extends Fragment implements View.OnClickListener {
 
     private MaterialButton wantHelpBtn;
     private View view;
@@ -45,13 +60,12 @@ public class HomelessFragment extends Fragment {
     private TextView homelessSchedule;
     private TextView homelessNeed;
 
-    private ArrayList<Homeless> homelessList;
+    private String username;
 
+    private FirebaseFirestore mFirestore;
+    private FirebaseUser user;
+    private StorageReference storageReference;
 
-
-    public HomelessFragment() {
-        // Required empty public constructor
-    }
 
 
     @Override
@@ -59,23 +73,27 @@ public class HomelessFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_homeless, container, false);
-        AdapterHome mAdapter = new AdapterHome(homelessList);
+
         preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
 
         initViews(view);
+        firebaseInit();
 
+        username = preferences.getString("homelessUsername", "");
+        homelessUsername.setText(username);
 
-        wantHelpBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                 HelpFragment helpFragment = new HelpFragment();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, helpFragment)
-                        .addToBackStack(null).commit();
-            }
-        });
-
+        getHomelessInfo(username);
 
         return view;
+    }
+
+
+    private void firebaseInit(){
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+        mFirestore = FirebaseFirestore.getInstance();
+
     }
 
     private void initViews(View view){
@@ -89,96 +107,56 @@ public class HomelessFragment extends Fragment {
         wantHelpBtn = view.findViewById(R.id.want_help_button);
     }
 
-    private void getInfo(){
-        Integer position = preferences.getInt("position", 0);
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
-        if (position.equals(0)){
-            String andrewUsername = preferences.getString("andrewName", "");
-            String andrewBirthday = preferences.getString("andrewBirthday","");
-            String andrewStory = preferences.getString("andrewStory","");
-            String andrewLocation = preferences.getString("andrewLocation","");
-            String andrewSchedule = preferences.getString("andrewSchedule","");
-            String andrewNeed = preferences.getString("andrewNeed","");
+        wantHelpBtn.setOnClickListener(this);
 
-            profileImage.setImageResource(R.drawable.andrew_image);
-            homelessUsername.setText(andrewUsername);
-            homelessBirthday.setText(andrewBirthday);
-            homelessLifeHistory.setText(andrewStory);
-            homelessAddress.setText(andrewLocation);
-            homelessSchedule.setText(andrewSchedule);
-            homelessNeed.setText(andrewNeed);
-
-        }else  if (position.equals(1)){
-            String mariaUsername = preferences.getString("mariaName", "");
-            String mariaBirthday = preferences.getString("mariaBirthday","");
-            String mariaStory = preferences.getString("mariaStory","");
-            String mariaLocation = preferences.getString("mariaLocation","");
-            String mariaSchedule = preferences.getString("mariaSchedule","");
-            String mariaNeed = preferences.getString("mariaNeed","");
-
-            profileImage.setImageResource(R.drawable.maria_image);
-            homelessUsername.setText(mariaUsername);
-            homelessBirthday.setText(mariaBirthday);
-            homelessLifeHistory.setText(mariaStory);
-            homelessAddress.setText(mariaLocation);
-            homelessSchedule.setText(mariaSchedule);
-            homelessNeed.setText(mariaNeed);
-
-        }else  if (position.equals(2)){
-            String maiteUsername = preferences.getString("maiteName", "");
-            String maiteBirthday = preferences.getString("maiteBirthday","");
-            String maiteStory = preferences.getString("maiteStory","");
-            String maiteLocation = preferences.getString("maiteLocation","");
-            String maiteSchedule = preferences.getString("maiteSchedule","");
-            String maiteNeed = preferences.getString("maiteNeed","");
-
-            profileImage.setImageResource(R.drawable.maite_image);
-            homelessUsername.setText(maiteUsername);
-            homelessBirthday.setText(maiteBirthday);
-            homelessLifeHistory.setText(maiteStory);
-            homelessAddress.setText(maiteLocation);
-            homelessSchedule.setText(maiteSchedule);
-            homelessNeed.setText(maiteNeed);
-
-        }else  if (position.equals(3)){
-            String luisUsername = preferences.getString("luisName", "");
-            String luisBirthday = preferences.getString("luisBirthday","");
-            String luisStory = preferences.getString("luisStory","");
-            String luisLocation = preferences.getString("luisLocation","");
-            String luisSchedule = preferences.getString("luisSchedule","");
-            String luisNeed = preferences.getString("luisNeed","");
-
-            profileImage.setImageResource(R.drawable.luis_image);
-            homelessUsername.setText(luisUsername);
-            homelessBirthday.setText(luisBirthday);
-            homelessLifeHistory.setText(luisStory);
-            homelessAddress.setText(luisLocation);
-            homelessSchedule.setText(luisSchedule);
-            homelessNeed.setText(luisNeed);
-
-        }else  if (position.equals(4)){
-            String cristinaUsername = preferences.getString("cristinaName", "");
-            String cristinaBirthday = preferences.getString("cristinaBirthday","");
-            String cristinaStory = preferences.getString("cristinaStory","");
-            String cristinaLocation = preferences.getString("cristinaLocation","");
-            String cristinaSchedule = preferences.getString("cristinaSchedule","");
-            String cristinaNeed = preferences.getString("cristinaNeed","");
-
-            profileImage.setImageResource(R.drawable.cristina_image);
-            homelessUsername.setText(cristinaUsername);
-            homelessBirthday.setText(cristinaBirthday);
-            homelessLifeHistory.setText(cristinaStory);
-            homelessAddress.setText(cristinaLocation);
-            homelessSchedule.setText(cristinaSchedule);
-            homelessNeed.setText(cristinaNeed);
-
-        }
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        getInfo();
+    public void onClick(View v) {
+        if (v.getId() == R.id.want_help_button){
+            HelpFragment helpFragment = new HelpFragment();
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, helpFragment)
+                    .addToBackStack(null).commit();
+        }
     }
 
+    private void getHomelessInfo(String username){
+
+        DocumentReference documentReference = mFirestore.collection("homeless").document(username);
+
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+                    DocumentSnapshot documentSnapshot = task.getResult();
+                    if (documentSnapshot != null){
+
+                        String birthday = documentSnapshot.getString("homelessBirthday");
+                        String lifeHistory = documentSnapshot.getString("homelessLifeHistory");
+                        String locationValue = documentSnapshot.getString("homelessAddress");
+                        String schedule = documentSnapshot.getString("homelessSchedule");
+                        String needValue = documentSnapshot.getString("homelessNeed");
+                        String image = documentSnapshot.getString("image");
+
+
+                        homelessBirthday.setText(birthday);
+                        homelessLifeHistory.setText(lifeHistory);
+                        homelessAddress.setText(locationValue);
+                        homelessSchedule.setText(schedule);
+                        homelessNeed.setText(needValue);
+
+                        Glide
+                                .with(getActivity())
+                                .load(image)
+                                .placeholder(R.drawable.no_profile_image)
+                                .into(profileImage);
+                    }
+                }
+            }
+        });
+    }
 }

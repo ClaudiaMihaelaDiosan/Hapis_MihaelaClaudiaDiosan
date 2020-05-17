@@ -1,10 +1,9 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
-import android.content.Context;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,18 +13,30 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless.Homeless;
 
-public class HomelesAdapter extends FirestoreRecyclerAdapter<Homeless, HomelesAdapter.HomelessHolder> {
+public class HomelessAdapter extends FirestoreRecyclerAdapter<Homeless, HomelessAdapter.HomelessHolder> {
+
+    private HomelessAdapter.OnItemClickListener mListener;
+
+    public interface OnItemClickListener{
+        void onItemClick(DocumentSnapshot  documentSnapshot, int position);
+    }
+
+    public void setOnItemClickListener(HomelessAdapter.OnItemClickListener listener){
+        mListener = listener;
+    }
 
 
 
-    public HomelesAdapter(@NonNull FirestoreRecyclerOptions<Homeless> options) {
+    public HomelessAdapter(@NonNull FirestoreRecyclerOptions<Homeless> options) {
 
         super(options);
+
     }
 
     @Override
@@ -52,7 +63,7 @@ public class HomelesAdapter extends FirestoreRecyclerAdapter<Homeless, HomelesAd
     @Override
     public HomelessHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.homeless_custom_view, parent, false);
-        return new HomelessHolder(view);
+        return new HomelessHolder(view, mListener);
     }
 
     class HomelessHolder extends RecyclerView.ViewHolder{
@@ -66,7 +77,7 @@ public class HomelesAdapter extends FirestoreRecyclerAdapter<Homeless, HomelesAd
         TextView schedule;
         TextView need;
 
-        public HomelessHolder(@NonNull View itemView) {
+        public HomelessHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
 
             profileImageView = itemView.findViewById(R.id.profile_image);
@@ -77,6 +88,18 @@ public class HomelesAdapter extends FirestoreRecyclerAdapter<Homeless, HomelesAd
             locationAddress = itemView.findViewById(R.id.homeless_locationAddress_tv);
             schedule = itemView.findViewById(R.id.homeless_schedule_tv);
             need = itemView.findViewById(R.id.homeless_need_tv);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (listener != null){
+                        int position = getAdapterPosition();
+                        if (position != RecyclerView.NO_POSITION){
+                            listener.onItemClick(getSnapshots().getSnapshot(position), position);
+                        }
+                    }
+                }
+            });
         }
     }
 }

@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,25 +19,13 @@ import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.github.clans.fab.FloatingActionButton;
-import com.github.clans.fab.FloatingActionMenu;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.storage.FirebaseStorage;
-
-import java.util.ArrayList;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless.Homeless;
@@ -60,7 +47,9 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
     private FirebaseUser user;
 
     private CollectionReference homelessRef;
-    private HomelesAdapter homelesAdapter;
+    private HomelessAdapter homelessAdapter;
+
+    SharedPreferences preferences;
 
 
     @Override
@@ -69,8 +58,9 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home_volunteer, container, false);
 
+        preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
+
         initViews();
-       /* editAndDeleteProfile();*/
         firebaseInit();
 
         setUpRecyclerView();
@@ -88,26 +78,52 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
                 .setQuery(query, Homeless.class)
                 .build();
 
-        homelesAdapter = new HomelesAdapter(options);
+        homelessAdapter = new HomelessAdapter(options);
 
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(homelesAdapter);
+        recyclerView.setAdapter(homelessAdapter);
 
+        homelessAdapter.setOnItemClickListener(new HomelessAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
+                Homeless homeless = documentSnapshot.toObject(Homeless.class);
+                String username =  documentSnapshot.getString("homelessUsername");
+
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("homelessUsername", username);
+                editor.apply();
+
+                EditHomelessFragment editHomelessFragment = new EditHomelessFragment();
+
+
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, editHomelessFragment)
+                        .addToBackStack(null).commit();
+            }
+        });
+
+       /* homelessAdapter.setOnItemClickListener(new HomelessAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                EditHomelessFragment editHomelessFragment = new EditHomelessFragment();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, editHomelessFragment)
+                        .addToBackStack(null).commit();
+            }
+        });*/
     }
 
 
     @Override
     public void onStart() {
         super.onStart();
-        homelesAdapter.startListening();
+        homelessAdapter.startListening();
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        homelesAdapter.stopListening();
+        homelessAdapter.stopListening();
     }
 
     @Override
@@ -144,23 +160,6 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
         user = FirebaseAuth.getInstance().getCurrentUser();
 
     }
-
-/*    private void editAndDeleteProfile(){
-        editHomelessListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-             //   Toast.makeText(getActivity(), getString(R.string.edit_button_toast), Toast.LENGTH_LONG).show();
-            }
-        };
-
-        deleteHomelessListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), getString(R.string.delete_button_toast), Toast.LENGTH_LONG).show();
-
-            }
-        };
-    }*/
 
 
     private void sendNotificationDialog(){

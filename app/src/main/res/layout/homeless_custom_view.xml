@@ -111,28 +111,6 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|start"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/edit_homeless_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/edit_homeless_icon"
-                android:backgroundTint="@color/white"/>
-
-
-            <ImageButton
-                android:id="@+id/delete_homeless_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/delete_homeless_icon"
-                android:backgroundTint="@color/white"/>
-        </LinearLayout>
-
     </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>

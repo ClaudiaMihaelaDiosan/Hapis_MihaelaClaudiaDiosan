@@ -276,6 +276,19 @@
     <string name="hcv_need">Necesidad</string>
     <string name="need_tv">Necesita:  </string>
 
+    <!--Edit Homeless-->
+    <string name="edit_title">Editar el perfil de </string>
+    <string name="edit_profile_photo_button">CAMBIAR FOTO DE PERFIL</string>
+    <string name="cancelEditBtn">CANCELAR</string>
+    <string name="saveEditBtn">GUARDAR</string>
+    <string name="deleteHomelessBtn">BORRAR EL PERFIL</string>
+    <string name="delete_dialog_title">BORRAR EL USUARIO</string>
+    <string name="delete_message">Estas seguro que quieres borrar el perfil? \nSe borrará toda la información!</string>
+    <string name="delete_confirm_button">BORRAR</string>
+    <string name="delete_cancel_button">CANCELAR</string>
+    <string name="delete_correct_toast">Perfil borrado con exito</string>
+
+
     <!--Homeless complete view-->
     <string name="birthday">Cumpleaños: </string>
     <string name="life_history">Mi historia: </string>

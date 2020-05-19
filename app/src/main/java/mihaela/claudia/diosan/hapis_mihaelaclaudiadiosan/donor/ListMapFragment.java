@@ -1,5 +1,5 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
-
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,7 +24,16 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
@@ -38,6 +48,7 @@ public class ListMapFragment extends Fragment  {
 
     private LinearLayoutManager mLinearLayoutManager;
     private GridLayoutManager mGridLayoutManager;
+    private FirebaseFirestore mFirestore;
 
     public ListMapFragment() {
         // Required empty public constructor
@@ -49,6 +60,8 @@ public class ListMapFragment extends Fragment  {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_list_map, container, false);
+
+        mFirestore = FirebaseFirestore.getInstance();
 
         setHasOptionsMenu(true);
         setupRecyclerView(view);
@@ -65,7 +78,34 @@ public class ListMapFragment extends Fragment  {
         mRecyclerView = view.findViewById(R.id.recycler_view_list_map);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
-        mRecyclerView.setAdapter(new MapAdapter(LIST_LOCATIONS));
+
+        final List<NamedLocation> LIST_LOCATIONS = new ArrayList<>();
+
+        mFirestore.collection("homeless")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                // Log.d(TAG, document.getId() + " => " + document.getData());
+                                String latitude = document.getString("homelessLatitude");
+                                String longitude = document.getString("homelessLongitude");
+                                String username = document.getString("homelessUsername");
+
+                                final LatLng position = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
+
+
+
+                                   NamedLocation namedLocation = new NamedLocation(username, position);
+                                   LIST_LOCATIONS.add(namedLocation);
+                                   mRecyclerView.setAdapter(new MapAdapter(LIST_LOCATIONS));
+
+                            }
+                        }
+                    }
+                });
+
         mRecyclerView.setRecyclerListener(mRecycleListener);
     }
 
@@ -91,9 +131,10 @@ public class ListMapFragment extends Fragment  {
 
     private class MapAdapter extends RecyclerView.Adapter<MapAdapter.ViewHolder> {
 
-        private NamedLocation[] namedLocations;
+        //private NamedLocation[] namedLocations;
+        List<NamedLocation> namedLocations = new ArrayList<>();
 
-        private MapAdapter(NamedLocation[] locations) {
+        private MapAdapter(List<NamedLocation> locations) {
             super();
             namedLocations = locations;
         }
@@ -119,7 +160,7 @@ public class ListMapFragment extends Fragment  {
 
         @Override
         public int getItemCount() {
-            return namedLocations.length;
+            return namedLocations.size();
         }
 
 
@@ -174,7 +215,7 @@ public class ListMapFragment extends Fragment  {
             }
 
             private void bindView(int pos) {
-                NamedLocation item = namedLocations[pos];
+                NamedLocation item = namedLocations.get(pos);
                 // Store a reference of the ViewHolder object in the layout.
                 layout.setTag(this);
                 // Store a reference to the item in the mapView's tag. We use it to get the
@@ -223,13 +264,13 @@ public class ListMapFragment extends Fragment  {
      * A list of locations to show in this ListView.
      */
 
-    private static final NamedLocation[] LIST_LOCATIONS = new NamedLocation[]{
+/*    private static final NamedLocation[] LIST_LOCATIONS = new NamedLocation[]{
             new NamedLocation("ANDREW", new LatLng(41.609769, 0.620776)),
             new NamedLocation("MARIA", new LatLng(41.611742, 0.628077)),
             new NamedLocation("MAITE", new LatLng(41.611704, 0.631876)),
             new NamedLocation("LUIS", new LatLng(41.620809, 0.628363)),
             new NamedLocation("CRISTINA", new LatLng(41.617109, 0.613393))
-    };
+    };*/
 
 
 }

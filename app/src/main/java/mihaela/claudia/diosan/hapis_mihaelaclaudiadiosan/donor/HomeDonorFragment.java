@@ -83,7 +83,6 @@ public class HomeDonorFragment extends Fragment {
            }
        });
 
-
     }
 
     @Override

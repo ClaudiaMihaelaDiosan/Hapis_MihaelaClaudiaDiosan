@@ -142,7 +142,7 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
                 break;
 
             case R.id.map_navigation:
-           //     fragment = new MapFragment();
+                fragment = new MapFragment();
                 break;
 
             case R.id.list_map_navigaion:

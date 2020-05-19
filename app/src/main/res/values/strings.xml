@@ -324,33 +324,4 @@
     <string name="time_error_toast">You have to select an hour!</string>
     <string name="fthv_location_error_toast">You have to select the location!</string>
 
-
-    <!--Preferences-->
-    <string name="food">Food</string>
-    <string name="clothes">Clothes</string>
-    <string name="work">Work</string>
-    <string name="lodging">Lodging</string>
-
-    <string name="andrew_location">Av. de Madrid, 3, 25002 Lleida</string>
-    <string name="maria_location">Av. de València, 21, 25001 Lleida</string>
-    <string name="maite_location">Av. de les Garrigues, 38, 25001 Lleida</string>
-    <string name="luis_location">Plaça Mossèn Jacint Verdaguer, 4, 25004 Lleida</string>
-    <string name="cristina_location">Gran Passeig de Ronda, 63, 25006 Lleida</string>
-
-    <string name="andrew_story">I made a mistake when I was younger and got caught smoking dope. I ended up having to do a short prison sentence.
-I ended up being homeless on the streets on and off. I would sleep rough for a few weeks or a month. I served a few spells in prison but I would usually end up on the streets again as when I got out I had nowhere to live.</string>
-    <string name="maria_story">I have been homeless twice – once when I was 23 and again at 30. Both times it was due to mental health problems.
-The first time it happened I left my job because I wasn’t well. I went to stay with my parents, but it didn’t work out and my dad asked me to leave. Then I went to stay with friends.
-The second time I became homeless it followed a similar pattern. I had been working part-time in a shop but ended up leaving. So I had no job and rent to pay. </string>
-    <string name="maite_story">My husband and I split up in 2014 after he was arrested for beating me up badly. I was only working part time and had nowhere to stay with the children, onlysometimes with my mum.In the end we live for rent and I try to give them the best with the help we have.</string>
-    <string name="luis_story">We have a home, but we find really difficult to pass the month, due to our works.I am working part time and my wife is not working at the moment.</string>
-    <string name="cristina_story">I have had my daughter with a man who does not love her and who left me on the street when he found out that she was pregnant. Now we are both living in foster homes while I find a job.</string>
-
-    <string name="andrew_schedule">Every day in the morning</string>
-    <string name="maria_schedule">Monday afternoon and Wednesday morning</string>
-    <string name="maite_schedule">Monday to Friday afternoons</string>
-    <string name="luis_schedule">On weekends all day</string>
-    <string name="cristina_schedule">Every day in the morning</string>
-
-
 </resources>

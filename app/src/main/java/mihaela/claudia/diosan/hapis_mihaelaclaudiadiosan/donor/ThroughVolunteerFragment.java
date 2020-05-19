@@ -2,11 +2,15 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,23 +20,34 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.Status;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ThroughVolunteerFragment extends Fragment {
+public class ThroughVolunteerFragment extends Fragment implements View.OnClickListener {
 
 
     private View view;
@@ -49,13 +64,17 @@ public class ThroughVolunteerFragment extends Fragment {
     private MaterialButton timePickerBtn;
     private MaterialButton confirmBtn;
 
+    /*Firebase*/
+    private StorageReference storageReference;
+    private FirebaseUser user;
+    private FirebaseFirestore mFirestore;
+
+    private Map<String,String> donor = new HashMap<>();
+
+
+
 
     private DatePickerDialog.OnDateSetListener setListener;
-
-    public ThroughVolunteerFragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,10 +83,10 @@ public class ThroughVolunteerFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_through_volunteer, container, false);
 
         initViews(view);
+        firebaseInit();
 
         initPlaces();
         setupPlaceAutoComplete();
-        onClickButtons(view);
         setTextDateListener();
 
         return view;
@@ -84,40 +103,103 @@ public class ThroughVolunteerFragment extends Fragment {
         confirmBtn = view.findViewById(R.id.donor_confirm_button);
     }
 
-    private void onClickButtons(final View view){
+    private void firebaseInit(){
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+        mFirestore = FirebaseFirestore.getInstance();
 
-        datePickerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        datePickerBtn.setOnClickListener(this);
+        timePickerBtn.setOnClickListener(this);
+        confirmBtn.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.date_picker_donor:
                 selectDate();
-
-            }
-
-        });
-
-
-        timePickerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                break;
+            case R.id.time_picker_donor:
                 selectTime();
-            }
-        });
-
-        confirmBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if (selectedDateDonor.getText().toString().equals(getString(R.string.fr_tv_date))){
-                    Toast.makeText(view.getContext(), getString(R.string.date_error_toast), Toast.LENGTH_SHORT).show();
-                }else if (selectedTimeDonor.getText().toString().equals(getString(R.string.fr_tv_hour))){
-                    Toast.makeText(view.getContext(), getString(R.string.time_error_toast), Toast.LENGTH_SHORT).show();
-                }else if (locationDonor.getText().toString().equals(getString(R.string.fr_tv_location))){
-                    Toast.makeText(view.getContext(), getString(R.string.location_error_toast), Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(view.getContext(), getString(R.string.fr_tv_confirm_toast), Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.donor_confirm_button:
+                if (isValidForm()){
+                    uploadDataToFirebase();
+                    showSuccessToast(getString(R.string.fr_tv_confirm_toast));
+                    startActivity(new Intent(getContext(), HomeDonor.class));
                 }
+                break;
+        }
+
+    }
+
+    private void uploadDataToFirebase(){
+
+        donor.put("donationLocation", locationDonor.getText().toString());
+        donor.put("donationHour", selectedTimeDonor.getText().toString());
+        donor.put("donationDate", selectedDateDonor.getText().toString());
+
+        mFirestore.collection("donors").document(user.getEmail()).set(donor, SetOptions.merge())
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        //  successfullyUploadedInfoToast();
+                    }
+                }) .addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                String error = e.getMessage();
+                Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
+
             }
         });
+    }
+
+    private boolean isValidForm(){
+        if (selectedDateDonor.getText().toString().equals(getString(R.string.fr_tv_date))){
+            showErrorToast( getString(R.string.date_error_toast));
+            return false;
+        }else if (selectedTimeDonor.getText().toString().equals(getString(R.string.fr_tv_hour))){
+            showErrorToast(getString(R.string.time_error_toast));
+            return false;
+        }else if (locationDonor.getText().toString().equals(getString(R.string.fr_tv_location))){
+            showErrorToast( getString(R.string.location_error_toast));
+            return false;
+        }
+        return true;
+    }
+
+    public void showErrorToast(String message){
+        Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
+        View view =toast.getView();
+        view.setBackgroundColor(Color.WHITE);
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        toastMessage.setTextColor(Color.RED);
+        toastMessage.setGravity(Gravity.CENTER);
+        toastMessage.setTextSize(15);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
+        toastMessage.setPadding(10,10,10,10);
+        toast.show();
+    }
+
+    public void showSuccessToast(String message){
+        Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
+        View view =toast.getView();
+        view.setBackgroundColor(Color.WHITE);
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        toastMessage.setTextColor(Color.GREEN);
+        toastMessage.setGravity(Gravity.CENTER);
+        toastMessage.setTextSize(15);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check_circle_black_24dp, 0,0,0);
+        toastMessage.setPadding(10,10,10,10);
+        toast.show();
     }
 
     private void initPlaces() {
@@ -185,4 +267,6 @@ public class ThroughVolunteerFragment extends Fragment {
        }, hour, minute, false);
         timePickerDialog.show();
     }
+
+
 }

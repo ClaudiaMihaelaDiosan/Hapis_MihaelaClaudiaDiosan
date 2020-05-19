@@ -236,7 +236,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
 
 
-    private void uploadDataToFirebase(){
+    public void uploadDataToFirebase(){
 
         String homelessUsernameValue = homelessUsername.getText().toString();
         String homelessPhoneNumberValue = homelessPhoneNumber.getText().toString();

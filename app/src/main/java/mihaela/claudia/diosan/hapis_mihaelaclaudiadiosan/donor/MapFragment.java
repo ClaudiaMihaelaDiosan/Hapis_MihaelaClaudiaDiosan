@@ -1,3 +1,4 @@
+/*
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
 import android.graphics.Bitmap;
@@ -42,9 +43,11 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.maps.OnMapAndViewReadyListener;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register.RegisterDonorActivity;
 
+*/
 /**
  * A simple {@link Fragment} subclass.
- */
+ *//*
+
 public class MapFragment extends Fragment implements
         OnMapAndViewReadyListener.OnGlobalLayoutAndMapReadyListener,
         GoogleMap.OnMarkerClickListener, OnMapReadyCallback,
@@ -318,3 +321,4 @@ public class MapFragment extends Fragment implements
     }
 
 }
+*/

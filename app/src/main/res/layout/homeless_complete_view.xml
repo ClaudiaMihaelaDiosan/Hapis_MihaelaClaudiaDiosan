@@ -76,8 +76,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/body"
                     android:layout_marginStart="@dimen/start_margin"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:text="@string/maria_story"/>
+                    android:textColor="@color/colorPrimaryDark" />
 
             </LinearLayout>
 

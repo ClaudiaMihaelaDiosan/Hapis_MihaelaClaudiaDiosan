@@ -323,32 +323,4 @@
     <string name="time_error_toast">Tienes que seleccionar una hora!</string>
     <string name="fthv_location_error_toast">Tienes que seleccionar una ubicación!</string>
 
-
-    <!--Preferences-->
-    <string name="food">Comida</string>
-    <string name="clothes">Ropa</string>
-    <string name="work">Trabajo</string>
-    <string name="lodging">Alojamiento</string>
-
-    <string name="andrew_location">Av. de Madrid, 3, 25002 Lleida</string>
-    <string name="maria_location">Avinguda de València, 21, 25001 Lleida</string>
-    <string name="maite_location">Av. de les Garrigues, 38, 25001 Lleida</string>
-    <string name="luis_location">Plaça Mossèn Jacint Verdaguer, 4, 25004 Lleida</string>
-    <string name="cristina_location">Gran Passeig de Ronda, 63, 25006 Lleida</string>
-
-    <string name="andrew_story">Cometí un error cuando era más joven y me descubrieron tomando droga. Terminé teniendo que cumplir una breve pena de prisión.
-Terminé sin hogar en las calles  durante unas semanas o un mes. Serví algunas condenas en prisión, pero generalmente terminaba en las calles nuevamente, ya que cuando salía no tenía dónde vivir.</string>
-    <string name="maria_story">He estado sin hogar dos veces, una vez cuando tenía 45 años y ahora. Ambas veces se debió a problemas de salud mental.
-La primera vez que sucedió, dejé mi trabajo porque no estaba bien. Fui a quedarme con mis padres, pero no funcionó y mi padre me pidió que me fuera. Luego fui a quedarme con amigos.
-La segunda vez que me quedé sin hogar, siguió un patrón similar. Estuve trabajando a tiempo parcial en una tienda pero terminé saliendo. Entonces no tenía trabajo y tenia una hippoteca para pagar.</string>
-    <string name="maite_story">Mi marido y yo nos separamos en 2014 después de que fue arrestado por maltratarme. Solo trabajaba a tiempo parcial y no tenía dónde quedarme con los niños, solo algunas veces con mi madre.Al final vivimos de alquiler e intento darles lo mejor con la ayuda que tenemos.</string>
-    <string name="luis_story">Tenemos una casa, pero nos resulta muy difícil pasar el mes, debido a nuestros trabajos. Estoy trabajando a tiempo parcial y mi esposa no está trabajando en este momento.</string>
-    <string name="cristina_story">He tenido a mi hija con un hombre que no la quiere y que me dejo en la calle cuando se ha enterado que estaba embarazada.Ahora estamos las dos viviendo en lugares de acogida mientras encuentro un trabajo.</string>
-
-    <string name="andrew_schedule">Cada día por las mañanas</string>
-    <string name="maria_schedule">Lunes por la tarde y Miercoles por la mañana</string>
-    <string name="maite_schedule">De lunes a viernes por las tardes</string>
-    <string name="luis_schedule">Los fines de semana todo el día</string>
-    <string name="cristina_schedule">Cada día por las mañanas</string>
-
 </resources>

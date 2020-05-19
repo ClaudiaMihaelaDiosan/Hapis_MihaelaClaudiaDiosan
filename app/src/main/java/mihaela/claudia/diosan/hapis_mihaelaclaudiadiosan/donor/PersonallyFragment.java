@@ -12,18 +12,28 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class PersonallyFragment extends Fragment  {
+public class PersonallyFragment extends Fragment implements OnMapReadyCallback {
 
     private SharedPreferences preferences;
 
@@ -33,13 +43,15 @@ public class PersonallyFragment extends Fragment  {
     private TextView homelessLocation;
     private TextView homelessSchedule;
 
+    private String address;
+    private String schedule;
+    private String longitude;
+    private String latitude;
+
+    private FirebaseFirestore mFirestore;
+
     /*Maps*/
     private GoogleMap mGoogleMap;
-
-    public PersonallyFragment() {
-        // Required empty public constructor
-    }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,11 +60,14 @@ public class PersonallyFragment extends Fragment  {
         view = inflater.inflate(R.layout.fragment_personally, container, false);
 
         preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
+        String username = preferences.getString("homelessUsername", "");
 
         initViews(view);
+        firebaseInit();
+        getHomelessInfo(username);
 
         SupportMapFragment mMapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.homeless_location_map);
-      //  mMapFragment.getMapAsync(this);
+        mMapFragment.getMapAsync(this);
 
         return view;
     }
@@ -63,155 +78,71 @@ public class PersonallyFragment extends Fragment  {
 
     }
 
-  /*  public void getInfo(){
-        Integer position = preferences.getInt("position", 0);
-        if (position.equals(0)){
-            String andrewLocation = preferences.getString("andrewLocation","");
-            String andrewSchedule = preferences.getString("andrewSchedule","");
+    private void firebaseInit(){
+        mFirestore = FirebaseFirestore.getInstance();
 
-
-            homelessLocation.setText(andrewLocation);
-            homelessSchedule.setText(andrewSchedule);
-
-
-
-
-        }else  if (position.equals(1)){
-            String mariaLocation = preferences.getString("mariaLocation","");
-            String mariaSchedule = preferences.getString("mariaSchedule","");
-
-            homelessLocation.setText(mariaLocation);
-            homelessSchedule.setText(mariaSchedule);
-
-
-        }else  if (position.equals(2)){
-
-            String maiteLocation = preferences.getString("maiteLocation","");
-            String maiteSchedule = preferences.getString("maiteSchedule","");
-
-            homelessLocation.setText(maiteLocation);
-            homelessSchedule.setText(maiteSchedule);
-
-
-        }else  if (position.equals(3)){
-
-            String luisLocation = preferences.getString("luisLocation","");
-            String luisSchedule = preferences.getString("luisSchedule","");
-
-            homelessLocation.setText(luisLocation);
-            homelessSchedule.setText(luisSchedule);
-
-
-        }else  if (position.equals(4)){
-
-            String cristinaLocation = preferences.getString("cristinaLocation","");
-            String cristinaSchedule = preferences.getString("cristinaSchedule","");
-
-            homelessLocation.setText(cristinaLocation);
-            homelessSchedule.setText(cristinaSchedule);
-
-
-        }
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        getInfo();
+
+    private void getHomelessInfo(String username){
+
+        DocumentReference documentReference = mFirestore.collection("homeless").document(username);
+
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+                    DocumentSnapshot documentSnapshot = task.getResult();
+                    if (documentSnapshot != null){
+
+                        address = documentSnapshot.getString("homelessAddress");
+                        schedule = documentSnapshot.getString("homelessSchedule");
+
+                        homelessLocation.setText(address);
+                        homelessSchedule.setText(schedule);
+                    }
+                }
+            }
+        });
     }
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         this.mGoogleMap = googleMap;
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
-        Integer position = preferences.getInt("position", 0);
-        if (position.equals(0)) {
-            final MarkerOptions markerOptions = new MarkerOptions();
-            String andrewLatitude = preferences.getString("andrewLatitude", "");
-            String andrewLongitude = preferences.getString("andrewLongitude", "");
-            final LatLng andrew = new LatLng(Double.parseDouble(andrewLatitude), Double.parseDouble(andrewLongitude));
-            markerOptions.position(andrew);
+        String username = preferences.getString("homelessUsername", "");
+        DocumentReference documentReference = mFirestore.collection("homeless").document(username);
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+                    DocumentSnapshot documentSnapshot = task.getResult();
+                    if (documentSnapshot != null){
 
-            mGoogleMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
-                @Override
-                public void onMapLoaded() {
-                    // Animating to the touched position
-                    mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(andrew));
-                    mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(andrew, 13.3f));
-                    mGoogleMap.addMarker(markerOptions);
+                        latitude = documentSnapshot.getString("homelessLatitude");
+                        longitude = documentSnapshot.getString("homelessLongitude");
 
+                        final LatLng position = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
+                        final MarkerOptions markerOptions = new MarkerOptions();
+                        markerOptions.position(position);
+
+                        mGoogleMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
+                            @Override
+                            public void onMapLoaded() {
+                                // Animating to the touched position
+                                mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(position));
+                                mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(position, 13.3f));
+                                mGoogleMap.addMarker(markerOptions);
+
+                            }
+                        });
+
+                    }
                 }
-            });
+            }
+        });
 
-        }else if (position.equals(1)){
-            final MarkerOptions markerOptions = new MarkerOptions();
-            String mariaLatitude = preferences.getString("mariaLatitude", "");
-            String mariaLongitude = preferences.getString("mariaLongitude", "");
-            final LatLng maria = new LatLng(Double.parseDouble(mariaLatitude), Double.parseDouble(mariaLongitude));
-            markerOptions.position(maria);
-
-            mGoogleMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
-                @Override
-                public void onMapLoaded() {
-                    // Animating to the touched position
-                    mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(maria));
-                    mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(maria, 13.3f));
-                    mGoogleMap.addMarker(markerOptions);
-
-                }
-            });
-        }else if (position.equals(2)){
-            final MarkerOptions markerOptions = new MarkerOptions();
-            String maiteLatitude = preferences.getString("maiteLatitude", "");
-            String maiteLongitude = preferences.getString("maiteLongitude", "");
-            final LatLng maite = new LatLng(Double.parseDouble(maiteLatitude), Double.parseDouble(maiteLongitude));
-            markerOptions.position(maite);
-
-            mGoogleMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
-                @Override
-                public void onMapLoaded() {
-                    // Animating to the touched position
-                    mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(maite));
-                    mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(maite, 13.3f));
-                    mGoogleMap.addMarker(markerOptions);
-
-                }
-            });
-        }else if (position.equals(3)){
-            final MarkerOptions markerOptions = new MarkerOptions();
-            String luisLatitude = preferences.getString("luisLatitude", "");
-            String luisLongitude = preferences.getString("luisLongitude", "");
-            final LatLng luis = new LatLng(Double.parseDouble(luisLatitude), Double.parseDouble(luisLongitude));
-            markerOptions.position(luis);
-
-            mGoogleMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
-                @Override
-                public void onMapLoaded() {
-                    // Animating to the touched position
-                    mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(luis));
-                    mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(luis, 13.3f));
-                    mGoogleMap.addMarker(markerOptions);
-
-                }
-            });
-        }else if (position.equals(4)){
-            final MarkerOptions markerOptions = new MarkerOptions();
-            String cristinaLatitude = preferences.getString("cristinaLatitude", "");
-            String cristinaLongitude = preferences.getString("cristinaLongitude", "");
-            final LatLng cristina = new LatLng(Double.parseDouble(cristinaLatitude), Double.parseDouble(cristinaLongitude));
-            markerOptions.position(cristina);
-
-            mGoogleMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
-                @Override
-                public void onMapLoaded() {
-                    // Animating to the touched position
-                    mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(cristina));
-                    mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(cristina, 13.3f));
-                    mGoogleMap.addMarker(markerOptions);
-
-                }
-            });
-        }
-    }*/
+    }
 }

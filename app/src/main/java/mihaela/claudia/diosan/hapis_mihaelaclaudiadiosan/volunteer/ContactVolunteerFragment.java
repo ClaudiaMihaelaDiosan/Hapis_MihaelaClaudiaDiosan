@@ -1,5 +1,6 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -68,6 +69,7 @@ public class ContactVolunteerFragment extends Fragment implements View.OnClickLi
 
         if (v.getId() == R.id.contact_send_button){
             sendContactFormData();
+            startActivity(new Intent(getContext(), HomeVolunteer.class));
         }
     }
 

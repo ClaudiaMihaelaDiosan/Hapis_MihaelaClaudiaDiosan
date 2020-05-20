@@ -148,8 +148,8 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
 
                 if (place.getLatLng() != null) {
                     textLocation.setVisibility(View.VISIBLE);
-                    latitude = aroundUp(place.getLatLng().latitude,2);
-                    longitude = aroundUp(place.getLatLng().longitude,2) ;
+                    latitude = aroundUp(place.getLatLng().latitude,5);
+                    longitude = aroundUp(place.getLatLng().longitude,5) ;
                     String name = place.getName();
 
                     String homelessAddress = place.getAddress();

@@ -145,12 +145,7 @@
     <string name="delete_button_toast">With this button the homeless profile will be deleted</string>
     <!--Floating Action Menu -->
     <string name="new_homeless_profile">New homeless profile</string>
-    <string name="send_delivery_notification">Send delivery notification to donor</string>
-    <string name="delivery_notification_title">Delivery Notification</string>
-    <string name="delivery_donor_username">Donor username</string>
-    <string name="delivery_homeless_username">Homeless username</string>
-    <string name="delivery_cancel_button">Cancel</string>
-    <string name="delivery_send_toast">The donor will receive a push notification like this: \n\nTitle: Donation successfully delivered \n\nBody: The volunteer delivered your donation to the homeless.</string>
+    <string name="send_delivery_notification">Donations delivery</string>
 
     <!--    Location Fragment -->
     <string name="location_fragment_title">Next, search and select the location where the donors can find the homeless person </string>
@@ -305,6 +300,7 @@
     <string name="map_not_ready">Map is not ready yet</string>
     <string name="list_map">Linear</string>
     <string name="grid_map">Grid</string>
+    <string name="search_hint">Search</string>
 
     <!--    Fragment personally-->
     <string name="location_text_personally">You can find the homeless person in the next location in order tu give your donation</string>

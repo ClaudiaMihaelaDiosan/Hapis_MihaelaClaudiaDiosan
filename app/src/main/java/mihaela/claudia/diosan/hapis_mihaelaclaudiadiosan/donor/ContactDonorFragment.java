@@ -1,5 +1,6 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -76,6 +77,7 @@ public class ContactDonorFragment extends Fragment implements View.OnClickListen
     public void onClick(View v) {
         if (v.getId() == R.id.contact_send_button){
             sendContactFormData();
+            startActivity(new Intent(getContext(), HomeDonor.class));
         }
     }
 

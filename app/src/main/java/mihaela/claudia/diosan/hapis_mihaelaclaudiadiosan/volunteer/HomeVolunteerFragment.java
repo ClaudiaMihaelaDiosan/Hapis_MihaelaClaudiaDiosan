@@ -156,28 +156,4 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
     }
 
 
-/*    private void sendNotificationDialog(){
-        notificationDialog.setContentView(R.layout.send_delivery_notification);
-        MaterialButton cancelNotification = (MaterialButton) notificationDialog.findViewById(R.id.delivery_close_button);
-        MaterialButton sendNotification = (MaterialButton) notificationDialog.findViewById(R.id.send_notification_button);
-
-        cancelNotification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                notificationDialog.dismiss();
-            }
-        });
-
-        notificationDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        notificationDialog.show();
-
-        sendNotification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(),  getString(R.string.delivery_send_toast), Toast.LENGTH_LONG).show();
-            }
-        });
-    }*/
-
-
 }

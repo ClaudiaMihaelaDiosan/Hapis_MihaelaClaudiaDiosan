@@ -1,5 +1,7 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
-import android.graphics.Color;
+
+import android.app.SearchManager;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -10,13 +12,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -24,7 +25,6 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -33,6 +33,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
@@ -50,6 +51,8 @@ public class ListMapFragment extends Fragment  {
     private GridLayoutManager mGridLayoutManager;
     private FirebaseFirestore mFirestore;
 
+    private SearchView searchView;
+
     public ListMapFragment() {
         // Required empty public constructor
     }
@@ -61,6 +64,10 @@ public class ListMapFragment extends Fragment  {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_list_map, container, false);
 
+        searchView = view.findViewById(R.id.list_map_search);
+
+
+
         mFirestore = FirebaseFirestore.getInstance();
 
         setHasOptionsMenu(true);
@@ -68,7 +75,9 @@ public class ListMapFragment extends Fragment  {
 
 
         return view;
+
     }
+
 
     private void setupRecyclerView(View view){
         // Set up the RecyclerView
@@ -91,13 +100,30 @@ public class ListMapFragment extends Fragment  {
                                 // Log.d(TAG, document.getId() + " => " + document.getData());
                                 String latitude = document.getString("homelessLatitude");
                                 String longitude = document.getString("homelessLongitude");
-                                String username = document.getString("homelessUsername");
+                                final String address = document.getString("homelessAddress");
+                                final String username = document.getString("homelessUsername");
 
                                 final LatLng position = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
 
-                                   NamedLocation namedLocation = new NamedLocation(username, position);
+                                   final NamedLocation namedLocation = new NamedLocation(username, position, address);
                                    LIST_LOCATIONS.add(namedLocation);
-                                   mRecyclerView.setAdapter(new MapAdapter(LIST_LOCATIONS));
+                                   final MapAdapter mapAdapter = new MapAdapter(LIST_LOCATIONS);
+
+                                   searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                                       List<String> list = new ArrayList<>();
+                                       @Override
+                                       public boolean onQueryTextSubmit(String query) {
+                                           return false;
+                                       }
+
+                                       @Override
+                                       public boolean onQueryTextChange(String newText) {
+                                           mapAdapter.getFilter().filter(newText);
+
+                                           return false;
+                                       }
+                                   });
+                                   mRecyclerView.setAdapter(mapAdapter);
 
                             }
                         }
@@ -105,37 +131,23 @@ public class ListMapFragment extends Fragment  {
                 });
 
         mRecyclerView.setRecyclerListener(mRecycleListener);
-    }
-
-    /** Create a menu to switch between Linear and Grid LayoutManager. */
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
 
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.layout_linear:
-                mRecyclerView.setLayoutManager(mLinearLayoutManager);
-                break;
-            case R.id.layout_grid:
-                mRecyclerView.setLayoutManager(mGridLayoutManager);
-                break;
-        }
-        return true;
-    }
 
-    private class MapAdapter extends RecyclerView.Adapter<MapAdapter.ViewHolder> {
+    private class MapAdapter extends RecyclerView.Adapter<MapAdapter.ViewHolder> implements Filterable{
 
         //private NamedLocation[] namedLocations;
-        List<NamedLocation> namedLocations = new ArrayList<>();
+        List<NamedLocation> namedLocations;
+        List<NamedLocation> namedLocationsAll;
 
-        private MapAdapter(List<NamedLocation> locations) {
+
+        private MapAdapter(List<NamedLocation> namedLocations) {
             super();
-            namedLocations = locations;
+            this.namedLocations = namedLocations;
+            this.namedLocationsAll = new ArrayList<>(namedLocations);
         }
+
 
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -161,11 +173,44 @@ public class ListMapFragment extends Fragment  {
             return namedLocations.size();
         }
 
+        @Override
+        public Filter getFilter() {
+            return filter;
+        }
+
+        Filter filter = new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence constraint) {
+                List<NamedLocation> filteredList = new ArrayList<>();
+                if (constraint.toString().isEmpty()){
+                    filteredList.addAll(namedLocationsAll);
+                }else{
+                    for (NamedLocation namedLocation : namedLocationsAll){
+                        if (namedLocation.getName().toLowerCase().contains(constraint.toString().trim()) || namedLocation.getAddress().toLowerCase().contains(constraint.toString().trim())){
+                            filteredList.add(namedLocation);
+                        }
+                    }
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = filteredList;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence constraint, FilterResults results) {
+                    namedLocations.clear();
+                    namedLocations.addAll((Collection<? extends NamedLocation>) results.values);
+                    notifyDataSetChanged();
+            }
+        };
+
 
         class ViewHolder extends RecyclerView.ViewHolder implements OnMapReadyCallback {
 
             MapView mapView;
             TextView title;
+            TextView address;
             GoogleMap map;
             View layout;
 
@@ -174,6 +219,7 @@ public class ListMapFragment extends Fragment  {
                 layout = itemView;
                 mapView = layout.findViewById(R.id.lite_list_row_map);
                 title = layout.findViewById(R.id.lite_list_row_text);
+                address = layout.findViewById(R.id.lite_list_row_address);
                 if (mapView != null) {
                     // Initialise the MapView
                     mapView.onCreate(null);
@@ -192,7 +238,7 @@ public class ListMapFragment extends Fragment  {
             public void onMapReady(GoogleMap googleMap) {
                 MapsInitializer.initialize(view.getContext());
                 map = googleMap;
-                map.animateCamera(CameraUpdateFactory.zoomTo(10),  2000, null);
+                map.animateCamera(CameraUpdateFactory.zoomTo(13),  2000, null);
                 setMapLocation();
 
             }
@@ -221,9 +267,12 @@ public class ListMapFragment extends Fragment  {
                 mapView.setTag(item);
                 setMapLocation();
                 title.setText(item.name);
+                address.setText(item.getAddress());
             }
         }
     }
+
+
 
 
 
@@ -251,24 +300,25 @@ public class ListMapFragment extends Fragment  {
 
         public final String name;
         public final LatLng location;
+        public final String address;
 
-        NamedLocation(String name, LatLng location) {
+        NamedLocation(String name, LatLng location, String address) {
             this.name = name;
             this.location = location;
+            this.address = address;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public String getAddress() {
+            return address;
+        }
+
+        public LatLng getLocation() {
+            return location;
         }
     }
-
-    /**
-     * A list of locations to show in this ListView.
-     */
-
-/*    private static final NamedLocation[] LIST_LOCATIONS = new NamedLocation[]{
-            new NamedLocation("ANDREW", new LatLng(41.609769, 0.620776)),
-            new NamedLocation("MARIA", new LatLng(41.611742, 0.628077)),
-            new NamedLocation("MAITE", new LatLng(41.611704, 0.631876)),
-            new NamedLocation("LUIS", new LatLng(41.620809, 0.628363)),
-            new NamedLocation("CRISTINA", new LatLng(41.617109, 0.613393))
-    };*/
-
 
 }

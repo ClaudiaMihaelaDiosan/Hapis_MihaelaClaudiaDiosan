@@ -14,6 +14,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -82,16 +84,19 @@ public class MapFragment extends Fragment implements OnMapAndViewReadyListener.O
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                // Log.d(TAG, document.getId() + " => " + document.getData());
-                                String latitude = document.getString("homelessLatitude");
-                                String longitude = document.getString("homelessLongitude");
-                                final LatLng position = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
+                             if (task.isSuccessful()){
+                                 String latitude = document.getString("homelessLatitude");
+                                 String longitude = document.getString("homelessLongitude");
+                                 final LatLng position = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
 
-                                LatLngBounds bounds = new LatLngBounds.Builder()
-                                        .include(position)
-                                        .build();
+                                 LatLngBounds bounds = new LatLngBounds.Builder()
+                                         .include(position)
+                                         .build();
 
-                                mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 80));
+
+                                   mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(position, 14));
+                             }
+
                             }
                         }
                     }
@@ -108,7 +113,6 @@ public class MapFragment extends Fragment implements OnMapAndViewReadyListener.O
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                // Log.d(TAG, document.getId() + " => " + document.getData());
                                 String latitude = document.getString("homelessLatitude");
                                 String longitude = document.getString("homelessLongitude");
                                 String username = document.getString("homelessUsername");
@@ -116,19 +120,11 @@ public class MapFragment extends Fragment implements OnMapAndViewReadyListener.O
 
                                 final LatLng position = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
 
-                                LatLngBounds bounds = new LatLngBounds.Builder()
-                                        .include(position)
-                                        .build();
-
-                                mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 80));
-
                                 mMap.addMarker(new MarkerOptions()
                                         .position(position)
                                         .title(username)
                                         .snippet(getString(R.string.here) + " " + schedule)
-                                        .icon(vectorToBitmap(R.drawable.men_icon, Color.parseColor("#2979ff"))));
-
-
+                                        .icon(vectorToBitmap(R.drawable.ic_person_pin_circle_black_24dp, Color.parseColor("#F10000"))));
                             }
                         }
                     }

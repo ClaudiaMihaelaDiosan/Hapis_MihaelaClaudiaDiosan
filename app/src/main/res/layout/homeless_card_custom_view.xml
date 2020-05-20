@@ -7,7 +7,9 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="@dimen/margins"
+        android:layout_marginStart="@dimen/start_margin"
+        android:layout_marginEnd="@dimen/end_margin"
+        android:layout_marginTop="@dimen/cv_margins"
         android:backgroundTint="@color/white">
 
         <LinearLayout

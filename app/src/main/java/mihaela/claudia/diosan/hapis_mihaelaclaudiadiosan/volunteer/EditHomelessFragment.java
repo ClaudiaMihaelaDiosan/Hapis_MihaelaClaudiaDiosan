@@ -412,8 +412,8 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
             public void onPlaceSelected(@NonNull final Place place) {
 
                 if (place.getLatLng() != null) {
-                    Double latitude = aroundUp(place.getLatLng().latitude,2);
-                    Double longitude = aroundUp(place.getLatLng().longitude,2) ;
+                    Double latitude = aroundUp(place.getLatLng().latitude,5);
+                    Double longitude = aroundUp(place.getLatLng().longitude,5) ;
 
 
                     String homelessAddress = place.getAddress();

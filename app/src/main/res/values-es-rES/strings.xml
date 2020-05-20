@@ -143,12 +143,8 @@
     <string name="delete_button_toast">Con este botón se borrará el perfil de la persona necesitada</string>
     <!--Floating Action Menu -->
     <string name="new_homeless_profile">Nuevo perfil persona necesitada</string>
-    <string name="send_delivery_notification">Enviar notification de entrega al donante</string>
-    <string name="delivery_notification_title">Notificatión de entrega</string>
-    <string name="delivery_donor_username">Nombre usuario Donante</string>
-    <string name="delivery_homeless_username">Nombre usuario persona necesitada</string>
-    <string name="delivery_cancel_button">Cancelar</string>
-    <string name="delivery_send_toast">El donante recibirá una notificación push como en el ejemplo siguiente: \nAsunto: Donación entregada correctamente \nMensaje: El voluntario ha realizado la entrega de tu donación a la persona necesitada.</string>
+    <string name="send_delivery_notification">Entrega donaciones</string>
+
 
     <!--    Location Fragment -->
     <string name="location_fragment_title">A continuación, busca y selecciona una ubicación donde los donantes podrán encontrar a la persona necesitada </string>
@@ -304,6 +300,7 @@
     <string name="map_not_ready">El mapa no esta listo aun</string>
     <string name="list_map">Linear</string>
     <string name="grid_map">Grid</string>
+    <string name="search_hint">Buscar</string>
 
     <!-- Personally Fragment-->
     <string name="location_text_personally">La persona que necesita tu ayuda estará en la siguiente ubicación para que puedas dejarle tu donación</string>

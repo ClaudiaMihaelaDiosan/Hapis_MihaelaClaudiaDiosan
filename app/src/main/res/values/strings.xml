@@ -62,8 +62,7 @@
     <!--*****    Statistics Activity  *****-->
     <string name="statistics_name">Statistics Hapis</string>
     <string name="statistics_title">STATISTICS</string>
-    <string name="donations_title">DONATIONS</string>
-    <string name="statistics_help_type">HELP TYPE</string>
+    <string name="donations_title">NEEDS</string>
     <string name="statistics_homeless_text">Total Homelesses:</string>
     <string name="statistics_donor_text">Total Donors:</string>
     <string name="statistics_volunteers_text">Total Volunteers:</string>
@@ -72,9 +71,9 @@
     <string name="statistics_work_help">Work:</string>
     <string name="statistics_lodging_help">Lodging:</string>
     <string name="statistics_hygiene_products_help">Hygiene products:</string>
-    <string name="statistics_personal_help">Helped personally: </string>
-    <string name="statistics_volunteer_help">Helped through a volunteer:</string>   <!--    Buttons -->
+   <!--    Buttons -->
     <string name="statistics_to_login_button">Back</string>
+    <string name="food">Food</string>
 
     <!--*****    Register Activity  *****-->
     <string name="register_activity_name">Register</string>
@@ -323,5 +322,19 @@
     <string name="date_error_toast">You have to select a date!</string>
     <string name="time_error_toast">You have to select an hour!</string>
     <string name="fthv_location_error_toast">You have to select the location!</string>
+
+    <!--Through volunteer fragment-->
+    <string name="donation_type_tv">Wants to donate</string>
+    <string name="donates_to">To</string>
+    <string name="can_be">Location</string>
+    <string name="on">Date and time</string>
+    <string name="contact">Contact: </string>
+    <string name="delivery_done">DELIVERY DONE</string>
+    <string name="delivery_message">Did you delivered this donation to homeless?</string>
+    <string name="confirm_button_delivery">YES</string>
+    <string name="negative_button_delivery">NOT YET</string>
+    <string name="toast_delivery">Thank you for you collaboration!</string>
+    <string name="delivery_title">Donations to deliver</string>
+
 
 </resources>

@@ -1,15 +1,19 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
@@ -84,6 +88,8 @@ public class HomeDonorFragment extends Fragment {
        });
 
     }
+
+
 
     @Override
     public void onStart() {

@@ -39,7 +39,7 @@
         android:id="@+id/send_delivery_notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:fab_label="Send delivery notification"
+        app:fab_label="Donations delivery"
             app:fab_colorNormal="@color/colorPrimaryDark"
             app:fab_colorPressed="@color/colorPrimary"
             android:src="@drawable/send_notification_drawable"

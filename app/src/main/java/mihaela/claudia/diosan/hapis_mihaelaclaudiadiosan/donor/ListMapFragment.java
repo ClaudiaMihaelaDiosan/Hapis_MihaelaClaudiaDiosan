@@ -95,8 +95,6 @@ public class ListMapFragment extends Fragment  {
 
                                 final LatLng position = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
 
-
-
                                    NamedLocation namedLocation = new NamedLocation(username, position);
                                    LIST_LOCATIONS.add(namedLocation);
                                    mRecyclerView.setAdapter(new MapAdapter(LIST_LOCATIONS));

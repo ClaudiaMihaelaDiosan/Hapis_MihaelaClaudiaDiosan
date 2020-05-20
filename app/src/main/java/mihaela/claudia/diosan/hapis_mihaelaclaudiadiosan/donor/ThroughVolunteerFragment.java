@@ -145,6 +145,7 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
         donor.put("donationLocation", locationDonor.getText().toString());
         donor.put("donationHour", selectedTimeDonor.getText().toString());
         donor.put("donationDate", selectedDateDonor.getText().toString());
+        donor.put("throughVolunteer", "yes");
 
         mFirestore.collection("donors").document(user.getEmail()).set(donor, SetOptions.merge())
                 .addOnCompleteListener(new OnCompleteListener<Void>() {

@@ -59,8 +59,7 @@
     <!--*****    Statistics Activity  *****-->
     <string name="statistics_name">Estadísticas Hapis</string>
     <string name="statistics_title">ESTADÍSTICAS</string>
-    <string name="donations_title">DONACIONES</string>
-    <string name="statistics_help_type">TIPO DE AYUDA</string>
+    <string name="donations_title">NECESIDADES</string>
     <string name="statistics_homeless_text">Total personas que necesitan ayuda:</string>
     <string name="statistics_donor_text">Total Donantes:</string>
     <string name="statistics_volunteers_text">Total Voluntarios:</string>
@@ -69,9 +68,9 @@
     <string name="statistics_work_help">Trabajo:</string>
     <string name="statistics_lodging_help">Alojamiento:</string>
     <string name="statistics_hygiene_products_help">Productos de higiene personal:</string>
-    <string name="statistics_personal_help">Han ofrecido ayuda personalmente: </string>
-    <string name="statistics_volunteer_help">Han ofrecido ayuda a través de un voluntario:</string>
     <string name="statistics_to_login_button">Volver</string>
+    <string name="food">Comida</string>
+
 
     <!--*****    Register Activity  *****-->
     <string name="register_activity_name">Registro</string>
@@ -322,5 +321,18 @@
     <string name="date_error_toast">Tienes que seleccionar una fecha!</string>
     <string name="time_error_toast">Tienes que seleccionar una hora!</string>
     <string name="fthv_location_error_toast">Tienes que seleccionar una ubicación!</string>
+
+    <!--Through volunteer fragment-->
+    <string name="donation_type_tv">Quiere donar</string>
+    <string name="donates_to">A</string>
+    <string name="can_be">Ubicación</string>
+    <string name="on">Fecha y hora</string>
+    <string name="contact">Contacto: </string>
+    <string name="delivery_done">ENTREGA REALIZADA</string>
+    <string name="delivery_message">Has entregado esta donación a la persona necesitada?</string>
+    <string name="confirm_button_delivery">SI</string>
+    <string name="negative_button_delivery">TODAVÍA NO</string>
+    <string name="toast_delivery">Gracias por tu colaboración!</string>
+    <string name="delivery_title">Donaciones para entregar</string>
 
 </resources>

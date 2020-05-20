@@ -103,14 +103,6 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
             }
         });
 
-       /* homelessAdapter.setOnItemClickListener(new HomelessAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                EditHomelessFragment editHomelessFragment = new EditHomelessFragment();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, editHomelessFragment)
-                        .addToBackStack(null).commit();
-            }
-        });*/
     }
 
 
@@ -143,7 +135,9 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
                 startActivity(createAccountIntent);
                 break;
             case R.id.send_delivery_notification:
-                sendNotificationDialog();
+                DeliveryFragment deliveryFragment = new DeliveryFragment();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, deliveryFragment)
+                        .addToBackStack(null).commit();
                 break;
         }
     }
@@ -162,7 +156,7 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
     }
 
 
-    private void sendNotificationDialog(){
+/*    private void sendNotificationDialog(){
         notificationDialog.setContentView(R.layout.send_delivery_notification);
         MaterialButton cancelNotification = (MaterialButton) notificationDialog.findViewById(R.id.delivery_close_button);
         MaterialButton sendNotification = (MaterialButton) notificationDialog.findViewById(R.id.send_notification_button);
@@ -183,7 +177,7 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
                 Toast.makeText(getActivity(),  getString(R.string.delivery_send_toast), Toast.LENGTH_LONG).show();
             }
         });
-    }
+    }*/
 
 
 }

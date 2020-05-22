@@ -39,6 +39,7 @@
     <dimen name="intro_image_layout_height_land">160dp</dimen>
     <dimen name="delivery_notification_width">100dp</dimen>
     <dimen name="delivery_notification_height">200dp</dimen>
+    <dimen name="homeless_custom_view">100dp</dimen>
 
 
     <!--Boxes-->

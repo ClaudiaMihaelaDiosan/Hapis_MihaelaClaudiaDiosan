@@ -111,6 +111,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
       return view;
     }
 
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -135,6 +136,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 selectDate();
                 break;
             case R.id.cancelProfileButton:
+                deleteExistingInfo();
                 Intent homeIntent = new Intent(getActivity(),HomeVolunteer.class );
                 startActivity(homeIntent);
                 break;
@@ -294,6 +296,24 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                         }
                     }
                 });
+    }
+
+    private void deleteExistingInfo(){
+        String firstName = preferences.getString("firstName", "");
+        String lastName = preferences.getString("lastName", "");
+            storageReference.child("homelessSignatures/" + firstName + " " + lastName)
+                    .delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+
+                }
+            });
     }
 
 

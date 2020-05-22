@@ -48,10 +48,19 @@
 
     </com.github.clans.fab.FloatingActionMenu>
 
+
+    <SearchView
+        android:id="@+id/volunteer_search"
+        android:padding="@dimen/padding"
+        android:layout_width="match_parent"
+        android:queryHint="@string/search_hint_donor"
+        android:layout_height="?actionBarSize"/>
+
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/recycler_view"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
+       android:layout_marginTop="40dp"
        android:scrollbars="vertical"/>
 
 

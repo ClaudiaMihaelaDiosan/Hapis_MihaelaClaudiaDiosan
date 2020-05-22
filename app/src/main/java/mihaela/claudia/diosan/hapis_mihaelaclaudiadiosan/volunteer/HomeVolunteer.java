@@ -12,6 +12,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,6 +50,7 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
 
     FirebaseUser user;
     FirebaseFirestore mFirestore;
+
 
 
     @Override
@@ -104,6 +106,7 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
         mToolbar = findViewById(R.id.volunteer_toolbar);
         volunteerDrawer = findViewById(R.id.volunteer_drawer);
         navigationView = findViewById(R.id.nav_view_volunteer);
+
     }
 
     private void setNavigationElements() {

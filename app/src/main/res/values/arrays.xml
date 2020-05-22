@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string-array name="names">
+            <item>Solo Wi-Fi</item>
+            <item>Cualquier red</item>
+        </string-array>
+        <string-array name="values">
+            <item>Wi-Fi</item>
+            <item>Todas</item>
+        </string-array>
+</resources>

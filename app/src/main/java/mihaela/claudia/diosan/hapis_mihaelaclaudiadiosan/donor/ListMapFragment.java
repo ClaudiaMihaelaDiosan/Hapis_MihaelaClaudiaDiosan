@@ -1,13 +1,9 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
-import android.app.SearchManager;
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -37,6 +33,7 @@ import java.util.Collection;
 import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless.Homeless;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -47,15 +44,10 @@ public class ListMapFragment extends Fragment  {
 
     private RecyclerView mRecyclerView;
 
-    private LinearLayoutManager mLinearLayoutManager;
-    private GridLayoutManager mGridLayoutManager;
     private FirebaseFirestore mFirestore;
 
     private SearchView searchView;
-
-    public ListMapFragment() {
-        // Required empty public constructor
-    }
+    private Homeless homeless;
 
 
     @Override
@@ -65,8 +57,8 @@ public class ListMapFragment extends Fragment  {
         view = inflater.inflate(R.layout.fragment_list_map, container, false);
 
         searchView = view.findViewById(R.id.list_map_search);
-
-
+        searchView.onActionViewExpanded();
+        searchView.clearFocus();
 
         mFirestore = FirebaseFirestore.getInstance();
 
@@ -80,9 +72,8 @@ public class ListMapFragment extends Fragment  {
 
 
     private void setupRecyclerView(View view){
-        // Set up the RecyclerView
-        mGridLayoutManager = new GridLayoutManager(view.getContext(), 2);
-        mLinearLayoutManager = new LinearLayoutManager(view.getContext());
+
+        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(view.getContext());
 
         mRecyclerView = view.findViewById(R.id.recycler_view_list_map);
         mRecyclerView.setHasFixedSize(true);
@@ -108,21 +99,7 @@ public class ListMapFragment extends Fragment  {
                                    final NamedLocation namedLocation = new NamedLocation(username, position, address);
                                    LIST_LOCATIONS.add(namedLocation);
                                    final MapAdapter mapAdapter = new MapAdapter(LIST_LOCATIONS);
-
-                                   searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                                       List<String> list = new ArrayList<>();
-                                       @Override
-                                       public boolean onQueryTextSubmit(String query) {
-                                           return false;
-                                       }
-
-                                       @Override
-                                       public boolean onQueryTextChange(String newText) {
-                                           mapAdapter.getFilter().filter(newText);
-
-                                           return false;
-                                       }
-                                   });
+                                   searchText(mapAdapter);
                                    mRecyclerView.setAdapter(mapAdapter);
 
                             }
@@ -135,9 +112,24 @@ public class ListMapFragment extends Fragment  {
     }
 
 
+    private void searchText(final MapAdapter mapAdapter){
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                mapAdapter.getFilter().filter(newText);
+
+                return false;
+            }
+        });
+    }
+
     private class MapAdapter extends RecyclerView.Adapter<MapAdapter.ViewHolder> implements Filterable{
 
-        //private NamedLocation[] namedLocations;
         List<NamedLocation> namedLocations;
         List<NamedLocation> namedLocationsAll;
 

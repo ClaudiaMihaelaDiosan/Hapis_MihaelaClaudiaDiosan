@@ -10,7 +10,7 @@
         android:id="@+id/list_map_search"
         android:padding="@dimen/padding"
         android:layout_width="match_parent"
-        android:queryHint="@string/search_hint"
+        android:queryHint="@string/search_hint_map"
         android:layout_height="?actionBarSize"/>
 
 

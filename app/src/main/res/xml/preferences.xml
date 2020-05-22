@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:key="phone"
+        android:title="@string/config_phone_number_hint"
+        android:summary="@string/config_phone_number_summary"
+        android:selectable="true"
+        android:inputType="numberDecimal"
+        android:digits="0123456789"
+        android:icon="@drawable/phone_drawable"
+        />
+
+<ListPreference
+    android:key="map"
+    android:title="@string/title_map"
+    android:summary="@string/summary_map"
+    android:entries="@array/names"
+    android:entryValues="@array/values"
+    android:defaultValue="@string/any_value"
+    android:icon="@drawable/ic_map_black_24dp"/>
+</PreferenceScreen>

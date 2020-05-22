@@ -1,32 +1,29 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.SearchView;
 
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless.Homeless;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer.HomelessAdapter;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -39,10 +36,10 @@ public class HomeDonorFragment extends Fragment {
     private SharedPreferences preferences;
 
     private FirebaseFirestore mFirestore;
-    private FirebaseUser user;
 
-    private CollectionReference homelessRef;
-    private DonorAdapter donorAdapter;
+    private SearchView searchView;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,6 +48,9 @@ public class HomeDonorFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_home_donor, container, false);
 
         preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
+        searchView = view.findViewById(R.id.donor_search);
+        searchView.onActionViewExpanded();
+        searchView.clearFocus();
 
         firebaseInit();
         buildRecyclerView();
@@ -59,55 +59,77 @@ public class HomeDonorFragment extends Fragment {
     }
 
     public void buildRecyclerView(){
-        homelessRef = mFirestore.collection("homeless");
 
-        FirestoreRecyclerOptions<Homeless> options = new FirestoreRecyclerOptions.Builder<Homeless>()
-                .setQuery(homelessRef, Homeless.class)
-                .build();
-
-        donorAdapter = new DonorAdapter(options);
-
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view_donor);
+        final RecyclerView recyclerView = view.findViewById(R.id.recycler_view_donor);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        recyclerView.setAdapter(donorAdapter);
 
-       donorAdapter.setOnItemClickListener(new DonorAdapter.OnItemClickListener() {
-           @Override
-           public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
-               String username =  documentSnapshot.getString("homelessUsername");
-               SharedPreferences.Editor editor = preferences.edit();
-               editor.putString("homelessUsername", username);
-               editor.apply();
+        final List<Homeless> homelesses = new ArrayList<>();
 
-               HomelessFragment homelessFragment = new HomelessFragment();
-               getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, homelessFragment)
-                       .addToBackStack(null).commit();
+        mFirestore.collection("homeless")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()) {
+                            for (QueryDocumentSnapshot document : task.getResult()) {
+                                // Log.d(TAG, document.getId() + " => " + document.getData());
+                                String image = document.getString("image");
+                                final String need = document.getString("homelessNeed");
+                                final String address = document.getString("homelessAddress");
+                                final String username = document.getString("homelessUsername");
 
-           }
-       });
+
+                                final Homeless homeless = new Homeless(username, address, need, image);
+                                homelesses.add(homeless);
+                                final DonorAdapter donorAdapter = new DonorAdapter(homelesses);
+                                searchText(donorAdapter);
+                                recyclerView.setAdapter(donorAdapter);
+
+                                recyclerView.setAdapter(donorAdapter);
+                                donorAdapter.setOnItemClicklistener(new DonorAdapter.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(int position) {
+                                        SharedPreferences.Editor editor = preferences.edit();
+                                        editor.putString("homelessUsername",  homelesses.get(position).getHomelessUsername());
+                                        editor.apply();
+
+                                        HomelessFragment homelessFragment = new HomelessFragment();
+                                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, homelessFragment)
+                                                .addToBackStack(null).commit();
+                                    }
+                                });
+
+
+
+                            }
+                        }
+                    }
+                });
+
 
     }
 
+    private void searchText(final DonorAdapter donorAdapter){
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        donorAdapter.startListening();
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                    donorAdapter.getFilter().filter(newText);
+                return false;
+            }
+        });
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        donorAdapter.stopListening();
-    }
+
 
 
     private void firebaseInit(){
         mFirestore = FirebaseFirestore.getInstance();
-        user = FirebaseAuth.getInstance().getCurrentUser();
-
     }
 
 }

@@ -28,16 +28,16 @@ public class Homeless {
 
     }
 
-    public Homeless(String profileImageResource, String homelessUsername, String need, String locationAddress){
-        this.image = profileImageResource;
-        this.homelessUsername = homelessUsername;
-        this.homelessNeed = need;
-        this.homelessAddress = locationAddress;
-
-    }
 
     public Homeless(String homelessUsername, LatLng locationCoordinates){
         this.homelessUsername = homelessUsername;
+    }
+
+    public Homeless(String homelessUsername, String homelessAddress, String homelessNeed, String image){
+        this.homelessUsername = homelessUsername;
+        this.homelessAddress = homelessAddress;
+        this.homelessNeed = homelessNeed;
+        this.image = image;
     }
 
     public String getImage(){

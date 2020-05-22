@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -47,10 +48,14 @@ import java.io.OutputStream;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
+import static android.content.Context.MODE_PRIVATE;
+
 public class TermsFragment extends Fragment implements View.OnClickListener {
 
     private static  final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
+    private SharedPreferences preferences;
 
 
     private View view;
@@ -77,6 +82,8 @@ public class TermsFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_terms, container, false);
+
+        preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
 
         firebaseInit();
         initViews();
@@ -220,6 +227,10 @@ public class TermsFragment extends Fragment implements View.OnClickListener {
     private void goToProfileFragment(){
         ViewPager viewPager = getActivity().findViewById(R.id.create_homeless_view_pager);
 
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("firstName", homelessFirstName.getText().toString());
+        editor.putString("lastName", homelessLastName.getText().toString());
+        editor.apply();
 
         int position = viewPager.getCurrentItem();
 

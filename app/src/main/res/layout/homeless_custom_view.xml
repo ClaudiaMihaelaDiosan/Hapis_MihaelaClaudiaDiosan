@@ -9,8 +9,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/top_margin"
         android:layout_marginStart="@dimen/start_margin"
-        android:layout_marginEnd="@dimen/end_margin"
-        android:layout_marginBottom="@dimen/bottom_margin">
+        android:layout_marginEnd="@dimen/end_margin">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,6 +24,7 @@
                 android:layout_height="@dimen/homeless_cv_image"
                 android:background="@color/light_blue"
                 android:src="@mipmap/ic_launcher"
+                android:contentDescription="@string/content_description"
                 android:layout_gravity="center" />
 
             <TextView
@@ -50,6 +50,7 @@
                     android:drawableStart="@drawable/phone_drawable"
                     android:drawablePadding="@dimen/padding"
                     android:drawableTint="@color/colorPrimaryDark"
+                    android:textSize="@dimen/body"
                     android:text="@string/hcv_phone"/>
 
 
@@ -59,6 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/top_margin"
                     android:drawablePadding="@dimen/padding"
+                    android:textSize="@dimen/body"
                     android:drawableStart="@drawable/birthday_drawable"
                     android:drawableTint="@color/colorPrimaryDark"
                     android:text="@string/hcv_birthday"/>
@@ -70,6 +72,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/top_margin"
                     android:drawablePadding="@dimen/padding"
+                    android:textSize="@dimen/body"
                     android:drawableStart="@drawable/life_history_drawable"
                     android:drawableTint="@color/colorPrimaryDark"
                     android:text="@string/hcv_life_history"/>
@@ -81,6 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/top_margin"
                     android:drawablePadding="@dimen/padding"
+                    android:textSize="@dimen/body"
                     android:drawableStart="@drawable/create_homeless_location"
                     android:drawableTint="@color/colorPrimaryDark"
                     android:text="@string/hcv_address"/>
@@ -92,6 +96,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/top_margin"
                     android:drawablePadding="@dimen/padding"
+                    android:textSize="@dimen/body"
                     android:drawableStart="@drawable/ic_schedule_black_24dp"
                     android:drawableTint="@color/colorPrimaryDark"
                     android:text="@string/hcv_schedule"/>
@@ -104,6 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/top_margin"
                     android:drawablePadding="@dimen/padding"
+                    android:textSize="@dimen/body"
                     android:drawableStart="@drawable/create_homeless_needs"
                     android:drawableTint="@color/colorPrimaryDark"
                     android:text="@string/hcv_need"/>

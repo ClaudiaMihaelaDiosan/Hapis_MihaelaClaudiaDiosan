@@ -19,13 +19,18 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -52,7 +57,10 @@ public class NeedsFragment extends Fragment implements View.OnClickListener {
 
     private ChipGroup chipGroup;
 
+
     private FirebaseFirestore mFirestore;
+    private StorageReference storageReference;
+    private FirebaseUser user;
 
     private Map<String,String> homeless = new HashMap<>();
 
@@ -98,6 +106,10 @@ public class NeedsFragment extends Fragment implements View.OnClickListener {
 
     private void firebaseInit(){
         mFirestore = FirebaseFirestore.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
+        mFirestore = FirebaseFirestore.getInstance();
 
     }
 
@@ -114,6 +126,7 @@ public class NeedsFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.cancelScheduleButton:
+                deleteExisitingInfo();
                 Intent homeIntent = new Intent(getActivity(),HomeVolunteer.class );
                 startActivity(homeIntent);
                 break;
@@ -130,8 +143,13 @@ public class NeedsFragment extends Fragment implements View.OnClickListener {
 
     private boolean isValidForm(){
         if (scheduleEditText.getText().toString().isEmpty()){
-            showErrorToast(getString(R.string.complete_schedule_toast));
+            scheduleEditText.setError(getString(R.string.complete_schedule_toast));
            return false;
+        }
+
+        if (scheduleEditText.getText().length()>40){
+            scheduleEditText.setError(getString(R.string.maxim_char_schedule));
+            return false;
         }
 
         if (needText.getText().toString().isEmpty()){
@@ -192,6 +210,45 @@ public class NeedsFragment extends Fragment implements View.OnClickListener {
         toastMessage.setPadding(10,10,10,10);
         toast.show();
     }
+
+    private void deleteExisitingInfo(){
+        String firstName = preferences.getString("firstName", "");
+        String lastName = preferences.getString("lastName", "");
+        String username = preferences.getString("homelessUsername", "");
+
+        mFirestore.collection("homeless").document(username)
+                .delete();
+
+        storageReference.child("homelessSignatures/" + firstName + " " + lastName)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+
+        storageReference.child("homelessProfilePhotos/" + user.getEmail() + "->" + username)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+
+    }
+
 
 
 }

@@ -85,11 +85,12 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
                             String phone = documentSnapshot.getString("donorPhone");
                             String firstName = documentSnapshot.getString("donorFirstName");
                             String lastName = documentSnapshot.getString("donorLastName");
+
                             donorUsername.setText(username);
                             donorPhone.setText(phone);
                            // Toast.makeText(HomeDonor.this, firstName + lastName, Toast.LENGTH_SHORT).show();
-                           donorFirstName.setText(firstName);
-                           donorLastName.setText(lastName);
+                            donorFirstName.setText(firstName);
+                            donorLastName.setText(lastName);
                         }
                     }
                 }

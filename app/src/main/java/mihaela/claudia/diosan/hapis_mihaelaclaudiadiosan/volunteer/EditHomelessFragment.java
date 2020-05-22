@@ -466,6 +466,7 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
        return true;
     }
 
+
     private void chooseImage(){
         Intent selectFileIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         selectFileIntent.setType("image/*");

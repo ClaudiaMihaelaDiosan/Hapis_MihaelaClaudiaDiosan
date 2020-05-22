@@ -28,6 +28,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
@@ -36,8 +37,11 @@ import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -68,6 +72,8 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
     private MaterialButton saveBtn;
 
     private FirebaseFirestore mFirestore;
+    private StorageReference storageReference;
+    private FirebaseUser user;
 
     private Map<String,String> homeless = new HashMap<>();
 
@@ -102,6 +108,7 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.cancelLocationBtn:
+                deleteExisitingInfo();
                 Intent homeIntent = new Intent(getActivity(),HomeVolunteer.class );
                 startActivity(homeIntent);
                 break;
@@ -133,6 +140,10 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
     }
 
     private void firebaseInit(){
+        mFirestore = FirebaseFirestore.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        storageReference = storage.getReference();
         mFirestore = FirebaseFirestore.getInstance();
 
     }
@@ -258,6 +269,44 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
         toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check_circle_black_24dp, 0,0,0);
         toastMessage.setPadding(10,10,10,10);
         toast.show();
+    }
+
+    private void deleteExisitingInfo(){
+        String firstName = preferences.getString("firstName", "");
+        String lastName = preferences.getString("lastName", "");
+        String username = preferences.getString("homelessUsername", "");
+
+        mFirestore.collection("homeless").document(username)
+                .delete();
+
+        storageReference.child("homelessSignatures/" + firstName + " " + lastName)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+
+        storageReference.child("homelessProfilePhotos/" + user.getEmail() + "->" + username)
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+
     }
 
     private void goToNeedsFragment(){

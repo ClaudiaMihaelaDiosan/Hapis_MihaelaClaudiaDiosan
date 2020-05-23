@@ -48,7 +48,6 @@ public class ForgotPasswordActivity extends MainActivity implements View.OnClick
 
         mAuth = FirebaseAuth.getInstance();
 
-        makeFullscreenActivity();
         initViews();
 
         recoverPassword.setOnClickListener(this);
@@ -72,13 +71,6 @@ public class ForgotPasswordActivity extends MainActivity implements View.OnClick
     }
 
 
-
-    private void makeFullscreenActivity() {
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
-    }
-
     private void resetPassword(String email){
         mAuth.sendPasswordResetEmail(email)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -91,6 +83,11 @@ public class ForgotPasswordActivity extends MainActivity implements View.OnClick
                         }
                     }
                 });
+    }
+
+
+    private boolean isEmailValid() {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(forgotPasswordEmail.getText().toString()).matches() && !forgotPasswordEmail.getText().toString().isEmpty();
     }
 
     public void showErrorToast(String message){
@@ -128,10 +125,4 @@ public class ForgotPasswordActivity extends MainActivity implements View.OnClick
         super.finish();
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right );
     }
-
-    boolean isEmailValid() {
-        return android.util.Patterns.EMAIL_ADDRESS.matcher(forgotPasswordEmail.getText().toString()).matches() && !forgotPasswordEmail.getText().toString().isEmpty();
-    }
-
-
 }

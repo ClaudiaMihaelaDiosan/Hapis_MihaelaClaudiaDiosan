@@ -41,7 +41,6 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
 
     /* Buttons */
     MaterialButton registerDonorBtn;
-    MaterialButton popUpBtn;
 
     /* Alert Dialogs */
     Dialog succesRegisterDialog;
@@ -60,19 +59,15 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
     TextInputEditText donorLastNameEditText;
     TextInputEditText donorPhoneEditText;
 
-
     String donorUsernameValue;
     String donorEmailValue;
     String donorFirstNameValue;
     String donorLastNameValue;
     String donorPhoneValue;
 
-
-
     /*Firebase*/
     private FirebaseFirestore mFirestore;
     private FirebaseAuth mAuth;
-
     private Map<String,String> user = new HashMap<>();
 
 
@@ -81,22 +76,17 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_user);
 
-
         initViews();
-
-        mAuth = FirebaseAuth.getInstance();
-        mFirestore = FirebaseFirestore.getInstance();
+        initFirebase();
 
         registerDonorBtn.setOnClickListener(this);
         acceptTermsCheckbox.setOnClickListener(this);
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
+    private void initFirebase(){
+        mAuth = FirebaseAuth.getInstance();
+        mFirestore = FirebaseFirestore.getInstance();
     }
 
 
@@ -118,11 +108,8 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
         }
 
     public void registerUser(){
-
         if (acceptTermsCheckbox.isChecked() && isValidForm()) {
-
             createEmailPasswordAccount(donorEmailEditText.getText().toString(), donorPasswordEditText.getText().toString());
-
         }else if (!acceptTermsCheckbox.isChecked()){
             showErrorToast(getString(R.string.register_user_terms_error));
         }
@@ -130,14 +117,12 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
 
     public void createEmailPasswordAccount(String email, String password){
 
-
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             showPopUp();
-                            FirebaseUser user = mAuth.getCurrentUser();
                         } else {
                             if (task.getException() instanceof FirebaseAuthUserCollisionException){
                                 showErrorToast(getString(R.string.user_exists));
@@ -166,21 +151,7 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
         if (donorEmailValue.isEmpty()){
             donorEmailEditText.setError(getString(R.string.email_error_text));
         }else{
-            mFirestore.collection("donors").document(donorEmailValue).set(user)
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            //  Toast.makeText(RegisterDonorActivity.this, "Donor data recorded", Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            String error = e.getMessage();
-                            showErrorToast("Error " + error);
-
-                        }
-                    });
+            mFirestore.collection("donors").document(donorEmailValue).set(user);
         }
     }
 

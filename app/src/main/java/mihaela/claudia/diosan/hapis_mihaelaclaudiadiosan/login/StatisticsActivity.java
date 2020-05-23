@@ -4,24 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
-public class StatisticsActivity extends MainActivity {
+public class StatisticsActivity extends MainActivity implements View.OnClickListener {
 
+    /*Buttons*/
     MaterialButton backLoginBtn;
 
     /*TextViews*/
@@ -34,6 +31,7 @@ public class StatisticsActivity extends MainActivity {
     TextView lodgingStatisticsTV;
     TextView hygieneProductsStatisticsTV;
 
+    /*Firebase*/
     FirebaseFirestore mFirestore;
 
 
@@ -46,24 +44,17 @@ public class StatisticsActivity extends MainActivity {
         mFirestore = FirebaseFirestore.getInstance();
 
         initViews();
+        getAllData();
 
-        getHomelessNumber();
-        getDonorsNumber();
-        getVolunteersNumber();
-        getFood();
-        getClothes();
-        getWork();
-        getLodging();
-        getHygiene();
+        backLoginBtn.setOnClickListener(this);
+    }
 
-
-        backLoginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent loginIntent = new Intent(StatisticsActivity.this, LoginActivity.class);
-                startActivity(loginIntent);
-            }
-        });
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.statistics_back_login){
+            Intent loginIntent = new Intent(StatisticsActivity.this, LoginActivity.class);
+            startActivity(loginIntent);
+        }
     }
 
     private void initViews(){
@@ -78,8 +69,18 @@ public class StatisticsActivity extends MainActivity {
         hygieneProductsStatisticsTV = findViewById(R.id.hygiene_products_statistics);
     }
 
-    private void getHomelessNumber(){
+    private void getAllData(){
+        getHomelessNumber();
+        getDonorsNumber();
+        getVolunteersNumber();
+        getFood();
+        getClothes();
+        getWork();
+        getLodging();
+        getHygiene();
+    }
 
+    private void getHomelessNumber(){
 
         mFirestore.collection("homeless").
                 get()
@@ -190,12 +191,11 @@ public class StatisticsActivity extends MainActivity {
     }
 
 
-
-
     @Override
     public void finish(){
         super.finish();
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right );
     }
+
 
 }

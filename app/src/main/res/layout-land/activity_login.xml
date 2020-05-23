@@ -42,14 +42,11 @@
                         android:scaleType="fitXY"
                         android:src="@drawable/login_foto"
                         android:contentDescription="@string/content_description"/>
-
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="0dp"
@@ -60,17 +57,19 @@
             android:layout_margin="@dimen/margins"
             android:layout_weight="1">
 
-
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:cardCornerRadius="@dimen/cardCornerRadius"
                 app:cardElevation="@dimen/elevation"
-                android:layout_margin="@dimen/margins">
+                android:layout_marginStart="@dimen/start_margin"
+                android:layout_marginEnd="@dimen/end_margin"
+                android:layout_marginTop="50dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/top_margin"
                     android:layout_marginStart="@dimen/start_margin"
                     android:layout_marginEnd="@dimen/end_margin"
                     android:orientation="vertical">
@@ -80,6 +79,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/login_title"
                         android:textColor="@color/grey"
+                        android:layout_marginTop="@dimen/top_margin"
                         android:textSize="@dimen/body"
                         android:gravity="center"
                         android:layout_marginBottom="@dimen/bottom_margin" />
@@ -96,6 +96,7 @@
                             android:id="@+id/login_email_edit_text"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:inputType="textEmailAddress"
                             />
                     </com.google.android.material.textfield.TextInputLayout>
 
@@ -136,7 +137,6 @@
                         android:textColor="@color/white"
                         android:textSize="@dimen/title" />
 
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -155,7 +155,24 @@
                             android:textColor="@color/grey"
                             android:textSize="@dimen/body" />
 
-                        <TextView
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/signup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/top_margin"
+                            android:backgroundTint="@color/white"
+                            android:text="@string/sign_up"
+                            android:textColor="@color/blue"
+                            android:textSize="@dimen/body"
+                            android:textStyle="bold"
+                            app:icon="@drawable/ic_person_add_black_24dp"
+                            app:iconTint="@color/blue"
+                            app:iconPadding="@dimen/padding"
+                            app:strokeColor="@color/blue"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+                      <!--  <TextView
                             android:id="@+id/signup"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -163,9 +180,9 @@
                             android:layout_marginTop="@dimen/top_margin"
                             android:gravity="center"
                             android:text="@string/sign_up"
-                            android:textColor="@color/colorPrimary"
+                            android:textColor="@color/green"
                             android:textSize="@dimen/title"
-                            android:textStyle="bold" />
+                            android:textStyle="bold" />-->
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -177,7 +194,25 @@
                             android:textColor="@color/grey"
                             android:textSize="@dimen/body" />
 
-                        <TextView
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/statistics_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/top_margin"
+                            android:backgroundTint="@color/white"
+                            android:text="@string/statistics"
+                            android:textColor="@color/amber"
+                            android:textSize="@dimen/body"
+                            android:textStyle="bold"
+                            app:iconPadding="@dimen/padding"
+                            app:icon="@drawable/statistics_drawable"
+                            app:iconTint="@color/amber"
+                            app:strokeColor="@color/amber"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+
+
+                       <!-- <TextView
                             android:id="@+id/statistics_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -188,7 +223,7 @@
                             android:textColor="@color/amber"
                             android:drawableStart="@drawable/statistics_drawable"
                             android:textSize="@dimen/title"
-                            android:textStyle="bold" />
+                            android:textStyle="bold" />-->
 
                     </LinearLayout>
 

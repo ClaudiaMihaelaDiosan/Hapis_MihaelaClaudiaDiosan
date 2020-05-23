@@ -25,10 +25,7 @@
                 android:scaleType="fitXY"
                 android:adjustViewBounds="true"
                 android:src="@drawable/volunteer_card_view_image"
-                android:contentDescription="@string/content_description"
-                />
-
-
+                android:contentDescription="@string/content_description" />
         </LinearLayout>
 
         <LinearLayout
@@ -81,13 +78,14 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/register_user_username_hint"
                             android:drawableStart="@drawable/username_drawable"
-                            android:drawablePadding="@dimen/padding"
-                            />
+                            android:textSize="@dimen/body"
+                            android:inputType="textPersonName"
+                            android:drawablePadding="@dimen/padding" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/start_margin"
                         android:layout_marginEnd="@dimen/end_margin"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
@@ -98,14 +96,14 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/register_user_email_hint"
                             android:drawableStart="@drawable/email_drawable"
-                            android:drawablePadding="@dimen/padding"
-
-                            />
+                            android:textSize="@dimen/body"
+                            android:inputType="textEmailAddress"
+                            android:drawablePadding="@dimen/padding" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/start_margin"
                         android:layout_marginEnd="@dimen/end_margin"
                         app:passwordToggleEnabled="true"
@@ -119,8 +117,7 @@
                             android:drawableStart="@drawable/password_drawable"
                             android:drawablePadding="@dimen/padding"
                             android:inputType="textPassword"
-
-                            />
+                            android:textSize="@dimen/body"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <TextView
@@ -133,7 +130,7 @@
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/start_margin"
                         android:layout_marginEnd="@dimen/end_margin"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -144,15 +141,15 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/register_user_first_name_hint"
+                            android:textSize="@dimen/body"
+                            android:inputType="textPersonName"
                             android:drawableStart="@drawable/username_drawable"
-                            android:drawablePadding="@dimen/padding"
-
-                            />
+                            android:drawablePadding="@dimen/padding" />
                     </com.google.android.material.textfield.TextInputLayout>
 
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/start_margin"
                         android:layout_marginEnd="@dimen/end_margin"
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
@@ -162,19 +159,18 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/register_user_last_name_hint"
+                            android:textSize="@dimen/body"
+                            android:inputType="textPersonName"
                             android:drawableStart="@drawable/username_drawable"
-                            android:drawablePadding="@dimen/padding"
-                            />
+                            android:drawablePadding="@dimen/padding"/>
                     </com.google.android.material.textfield.TextInputLayout>
 
-
                     <com.google.android.material.textfield.TextInputLayout
-
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/start_margin"
                         android:layout_marginEnd="@dimen/end_margin"
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                         <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/user_phone_edit_text"
@@ -183,9 +179,10 @@
                             android:hint="@string/register_user_phone_number_hint"
                             android:drawableStart="@drawable/phone_drawable"
                             android:drawablePadding="@dimen/padding"
-                            android:inputType="phone"
-                            />
+                            android:textSize="@dimen/body"
+                            android:inputType="numberDecimal" />
                     </com.google.android.material.textfield.TextInputLayout>
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -195,6 +192,7 @@
                             android:id="@+id/user_terms_checkbox"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textSize="@dimen/body"
                             android:checked="false"/>
 
                         <TextView
@@ -202,6 +200,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="@dimen/bottom_margin"
+                            android:textSize="@dimen/body"
                             android:text="@string/register_user_terms" />
 
                     </LinearLayout>
@@ -212,7 +211,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/top_margin"
-                        android:background="@drawable/btn_gradient_style"
+                        android:backgroundTint="@color/colorPrimary"
                         android:text="@string/register_user_button"
                         android:textColor="@color/white"
                         android:textSize="@dimen/title" />

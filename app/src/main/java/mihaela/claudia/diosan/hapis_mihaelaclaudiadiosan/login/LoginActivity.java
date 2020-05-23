@@ -23,6 +23,7 @@ import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,11 +46,11 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
 
     /*TextViews*/
     TextView forgotPassword;
-    TextView signUp;
-    TextView statistics;
 
     /*Buttons*/
     Button loginBtn;
+    MaterialButton signUp;
+    MaterialButton statistics;
 
     /*EditTexts*/
     TextInputEditText loginEmailEditText;
@@ -81,13 +82,6 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-
-    }
 
     @Override
     public void onClick(View v) {

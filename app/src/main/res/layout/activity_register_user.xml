@@ -66,8 +66,9 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/register_user_username_hint"
                         android:drawableStart="@drawable/username_drawable"
-                        android:drawablePadding="@dimen/padding"
-                        />
+                        android:textSize="@dimen/body"
+                        android:inputType="textPersonName"
+                        android:drawablePadding="@dimen/padding" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -83,8 +84,9 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/register_user_email_hint"
                         android:drawableStart="@drawable/email_drawable"
-                        android:drawablePadding="@dimen/padding"
-                        />
+                        android:textSize="@dimen/body"
+                        android:inputType="textEmailAddress"
+                        android:drawablePadding="@dimen/padding" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -103,8 +105,7 @@
                         android:drawableStart="@drawable/password_drawable"
                         android:drawablePadding="@dimen/padding"
                         android:inputType="textPassword"
-
-                        />
+                        android:textSize="@dimen/body"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
@@ -128,10 +129,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/register_user_first_name_hint"
+                        android:textSize="@dimen/body"
+                        android:inputType="textPersonName"
                         android:drawableStart="@drawable/username_drawable"
-                        android:drawablePadding="@dimen/padding"
-
-                        />
+                        android:drawablePadding="@dimen/padding" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -146,10 +147,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/register_user_last_name_hint"
+                        android:textSize="@dimen/body"
+                        android:inputType="textPersonName"
                         android:drawableStart="@drawable/username_drawable"
-                        android:drawablePadding="@dimen/padding"
-
-                        />
+                        android:drawablePadding="@dimen/padding"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -166,9 +167,8 @@
                         android:hint="@string/register_user_phone_number_hint"
                         android:drawableStart="@drawable/phone_drawable"
                         android:drawablePadding="@dimen/padding"
-                        android:inputType="numberDecimal"
-
-                        />
+                        android:textSize="@dimen/body"
+                        android:inputType="numberDecimal" />
                 </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -180,6 +180,7 @@
                         android:id="@+id/user_terms_checkbox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textSize="@dimen/body"
                         android:checked="false"/>
 
                     <TextView
@@ -187,6 +188,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="@dimen/bottom_margin"
+                        android:textSize="@dimen/body"
                         android:text="@string/register_user_terms" />
 
                 </LinearLayout>
@@ -202,8 +204,6 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/title" />
             </LinearLayout>
-
-
         </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>

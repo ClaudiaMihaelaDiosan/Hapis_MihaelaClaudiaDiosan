@@ -11,6 +11,7 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         app:cardCornerRadius="@dimen/cardCornerRadius"
         app:cardElevation="@dimen/elevation"
         android:layout_margin="@dimen/margins">
@@ -269,6 +270,8 @@
                 app:icon="@drawable/back_arrow"
                 app:iconTint="@color/colorPrimary"
                 android:layout_marginBottom="@dimen/bottom_margin"
+                app:strokeColor="@color/colorPrimary"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 />
 
         </LinearLayout>

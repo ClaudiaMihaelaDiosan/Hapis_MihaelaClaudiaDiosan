@@ -1,27 +1,18 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.intro;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
-
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.Toast;
-
 import com.google.android.material.tabs.TabLayout;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
@@ -46,7 +37,7 @@ public class IntroActivity extends MainActivity {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
 
-        fullScreenActivity();
+        makeFullscreenActivity();
         checkFirstTimeOpenedApp();
 
         setContentView(R.layout.activity_intro);
@@ -56,8 +47,15 @@ public class IntroActivity extends MainActivity {
     }
 
 
+    private void makeFullscreenActivity() {
+        //
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        Objects.requireNonNull(getSupportActionBar()).hide();
+    }
+
+
     private void checkFirstTimeOpenedApp() {
-        //when this activity is about to be launch we need to check if is opened before or not
         if (restorePrefData()){
             Intent mainActivity = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(mainActivity);
@@ -65,20 +63,14 @@ public class IntroActivity extends MainActivity {
         }
     }
 
-    private void fullScreenActivity() {
-        //make the activity on full screen
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        Objects.requireNonNull(getSupportActionBar()).hide();
-    }
 
     private void initViews() {
-        //init views
         tabIndicator = findViewById(R.id.tab_indicator);
         btnNext = findViewById(R.id.btn_next);
         btnGetStarted = findViewById(R.id.btn_get_started);
         btnAnim = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.button_animation);
     }
+
 
     private void setupViewPager() {
         //fill list screen
@@ -161,7 +153,6 @@ public class IntroActivity extends MainActivity {
 
 
 
-    //
     private boolean restorePrefData() {
         SharedPreferences pref =  getApplicationContext().getSharedPreferences("myPrefs",MODE_PRIVATE);
         return pref.getBoolean("IsIntroOpened",false);
@@ -173,16 +164,15 @@ public class IntroActivity extends MainActivity {
         editor.putBoolean("IsIntroOpened",true);
         editor.apply();
     }
-    //
-//    //show the GETSTARTED Button and hide the indicator and the next button
+
+    //show the GETSTARTED Button and hide the indicator and the next button
     private void loadLastScreen(){
         btnNext.setVisibility(View.INVISIBLE);
         btnGetStarted.setVisibility(View.VISIBLE);
         tabIndicator.setVisibility(View.INVISIBLE);
-        //add an animation to getStarted button
-        //setup animaion
         btnGetStarted.setAnimation(btnAnim);
 
     }
+
 
 }

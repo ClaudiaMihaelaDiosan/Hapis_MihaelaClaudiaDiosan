@@ -9,7 +9,6 @@
     android:background="@color/white"
     tools:context=".intro.IntroActivity">
 
-
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/screen_viewpager"
         android:layout_width="@dimen/intro_view_pager"
@@ -79,7 +78,5 @@
                 android:textColor="@color/colorPrimary" />
 
         </LinearLayout>
-
     </LinearLayout>
-
 </LinearLayout>

@@ -59,6 +59,7 @@
                         android:id="@+id/login_email_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:inputType="textEmailAddress"
                         />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -120,17 +121,23 @@
                         android:textColor="@color/grey"
                         android:textSize="@dimen/body" />
 
-                    <TextView
+
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/signup"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/top_margin"
-                        android:gravity="center"
+                        android:backgroundTint="@color/white"
                         android:text="@string/sign_up"
-                        android:textColor="@color/colorPrimary"
-                        android:textSize="@dimen/title"
-                        android:textStyle="bold" />
+                        android:textColor="@color/blue"
+                        android:textSize="@dimen/body"
+                        android:textStyle="bold"
+                        app:icon="@drawable/ic_person_add_black_24dp"
+                        app:iconTint="@color/blue"
+                        app:iconPadding="@dimen/padding"
+                        app:strokeColor="@color/blue"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -142,18 +149,22 @@
                         android:textColor="@color/grey"
                         android:textSize="@dimen/body" />
 
-                    <TextView
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/statistics_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginTop="@dimen/top_margin"
-                        android:gravity="center"
+                        android:backgroundTint="@color/white"
                         android:text="@string/statistics"
                         android:textColor="@color/amber"
-                        android:drawableStart="@drawable/statistics_drawable"
-                        android:textSize="@dimen/title"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/body"
+                        android:textStyle="bold"
+                        app:iconPadding="@dimen/padding"
+                        app:icon="@drawable/statistics_drawable"
+                        app:iconTint="@color/amber"
+                        app:strokeColor="@color/amber"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
                 </LinearLayout>
 

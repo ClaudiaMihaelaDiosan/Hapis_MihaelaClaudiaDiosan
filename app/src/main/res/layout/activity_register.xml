@@ -3,6 +3,7 @@
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_gravity="center"
     tools:context=".register.RegisterActivity"
@@ -32,7 +33,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Media -->
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -40,16 +40,13 @@
                         android:scaleType="fitXY"
                         android:adjustViewBounds="true"
                         android:src="@drawable/register_donor_img"
-                        android:contentDescription="@string/content_description"
-
-                        />
+                        android:contentDescription="@string/content_description" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <!-- Title, secondary and supporting text -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -58,10 +55,8 @@
                             android:textStyle="bold"
                             android:textSize="@dimen/title"
                             android:layout_gravity="center"
-                            android:textAppearance="?attr/textAppearanceHeadline6"
-                            />
+                            android:textAppearance="?attr/textAppearanceHeadline6" />
 
-                        <!-- Buttons -->
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -75,8 +70,7 @@
                                 android:layout_marginEnd="@dimen/cv_margins"
                                 android:text="@string/cv_more_button"
                                 android:textSize="@dimen/body"
-                                style="?attr/borderlessButtonStyle"
-                                />
+                                style="?attr/borderlessButtonStyle" />
 
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/start_register_donor"
@@ -85,17 +79,20 @@
                                 android:layout_marginEnd="@dimen/cv_margins"
                                 android:text="@string/cv_start_button"
                                 android:textSize="@dimen/body"
-                                />
+                                android:textColor="@color/colorPrimary"
+                                app:strokeColor="@color/colorPrimary"
+                                card_view:icon="@drawable/next_icon"
+                                card_view:iconGravity="end"
+                                android:textStyle="bold"
+                                card_view:iconTint="@color/colorPrimary"
+                                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
                         </LinearLayout>
-
-
 
                     </LinearLayout>
 
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
-
 
         </LinearLayout>
 
@@ -116,7 +113,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <!-- Media -->
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -124,16 +120,13 @@
                         android:scaleType="fitXY"
                         android:adjustViewBounds="true"
                         android:src="@drawable/register_volunteer_img"
-                        android:contentDescription="@string/content_description"
-
-                        />
+                        android:contentDescription="@string/content_description" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <!-- Title, secondary and supporting text -->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -142,10 +135,9 @@
                             android:textStyle="bold"
                             android:textSize="@dimen/title"
                             android:layout_gravity="center"
-                            android:textAppearance="?attr/textAppearanceHeadline6"
-                            />
+                            android:textAppearance="?attr/textAppearanceHeadline6" />
 
-                        <!-- Buttons -->
+
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -159,8 +151,7 @@
                                 android:layout_marginEnd="@dimen/cv_margins"
                                 android:text="@string/cv_more_button"
                                 android:textSize="@dimen/body"
-                                style="?attr/borderlessButtonStyle"
-                                />
+                                style="?attr/borderlessButtonStyle" />
 
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/start_register_volunteer"
@@ -169,7 +160,13 @@
                                 android:layout_marginEnd="@dimen/cv_margins"
                                 android:text="@string/cv_start_button"
                                 android:textSize="@dimen/body"
-                                />
+                                android:textColor="@color/colorPrimary"
+                                app:strokeColor="@color/colorPrimary"
+                                card_view:icon="@drawable/next_icon"
+                                card_view:iconGravity="end"
+                                android:textStyle="bold"
+                                card_view:iconTint="@color/colorPrimary"
+                                style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
                         </LinearLayout>
 
                     </LinearLayout>
@@ -181,9 +178,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-
-
-
 
 </ScrollView>

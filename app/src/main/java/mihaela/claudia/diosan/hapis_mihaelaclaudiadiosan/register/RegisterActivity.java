@@ -16,7 +16,7 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
 
-public class RegisterActivity extends MainActivity {
+public class RegisterActivity extends MainActivity implements View.OnClickListener {
 
 
     /*Buttons*/
@@ -33,10 +33,33 @@ public class RegisterActivity extends MainActivity {
 
         makeActivityFullScreen();
         initViews();
-        onClickButtons();
+
+        knowMoreDonorBtn.setOnClickListener(this);
+        knowMoreVolunteerBtn.setOnClickListener(this);
+        startRegisterDonorBtn.setOnClickListener(this);
+        startRegisterVolunteerBtn.setOnClickListener(this);
 
     }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.know_more_donor_button:
+               knowMorePopUp(getString(R.string.donor_know_more_title),getString(R.string.donor_know_more_text));
+                break;
+            case R.id.start_register_donor:
+                startActivity(new Intent(RegisterActivity.this, RegisterDonorActivity.class));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                break;
+            case R.id.know_more_volunteer_button:
+                knowMorePopUp(getString(R.string.volunteer_know_more_title), getString(R.string.volunteer_know_more_text));
+                break;
+            case R.id.start_register_volunteer:
+                startActivity(new Intent(RegisterActivity.this, RegisterVolunteerActivity.class ));
+                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                break;
+        }
+    }
 
 
     private void makeActivityFullScreen() {
@@ -52,43 +75,8 @@ public class RegisterActivity extends MainActivity {
         startRegisterVolunteerBtn = findViewById(R.id.start_register_volunteer);
     }
 
-    private void onClickButtons() {
-        knowMoreDonorBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDonorPopUpDialog();
-            }
-        });
 
-        knowMoreVolunteerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showVolunteerPopUpDialog();
-            }
-        });
-//
-
-        startRegisterDonorBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent registerDonorActivity = new Intent(RegisterActivity.this, RegisterDonorActivity.class );
-                startActivity(registerDonorActivity);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            }
-        });
-
-        startRegisterVolunteerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent registerVolunteerActivity = new Intent(RegisterActivity.this, RegisterVolunteerActivity.class );
-                startActivity(registerVolunteerActivity);
-                overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-            }
-        });
-    }
-
-
-    private void showVolunteerPopUpDialog(){
+    private void knowMorePopUp(String title, String message){
             new MaterialAlertDialogBuilder(this)
                     .setTitle(getString(R.string.volunteer_know_more_title))
                     .setMessage(getString(R.string.volunteer_know_more_text))
@@ -101,24 +89,11 @@ public class RegisterActivity extends MainActivity {
                     .show();
     }
 
-    private void showDonorPopUpDialog(){
-        new MaterialAlertDialogBuilder(this)
-                .setTitle(getString(R.string.donor_know_more_title))
-                .setMessage(getString(R.string.donor_know_more_text))
-                .setPositiveButton(getString(R.string.register_pop_up_button), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .show();
-    }
-
-
     @Override
     public void finish(){
         super.finish();
         overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right );
     }
+
 
 }

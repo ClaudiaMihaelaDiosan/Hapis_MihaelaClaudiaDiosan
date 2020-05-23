@@ -42,86 +42,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:layout_marginTop="@dimen/top_margin"
                     android:layout_marginEnd="@dimen/end_margin"
                     android:layout_weight="1">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/top_margin"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/grey"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/body"
-                            android:text="@string/statistics_homeless_text" />
-
-                        <TextView
-                            android:id="@+id/homeless_number_statistics"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:layout_marginStart="@dimen/start_margin"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/body" />
-
-
-                    </LinearLayout>
-
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/grey"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/body"
-                            android:text="@string/statistics_donor_text" />
-
-                        <TextView
-                            android:id="@+id/donor_number_statistics"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:layout_marginStart="@dimen/start_margin"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/body" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/grey"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/body"
-                            android:text="@string/statistics_volunteers_text" />
-
-                        <TextView
-                            android:id="@+id/volunteer_number_statistics"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:layout_marginStart="@dimen/start_margin"
-                            android:textStyle="bold"
-                            android:textSize="@dimen/body" />
-
-                    </LinearLayout>
-
 
                     <ImageView
                         android:layout_width="@dimen/statistics_image_land"
@@ -129,6 +51,24 @@
                         android:layout_gravity="start"
                         android:src="@drawable/statistics_img"
                         android:contentDescription="@string/content_description"/>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/statistics_back_login"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_height="wrap_content"
+                        android:text="@string/statistics_to_login_button"
+                        android:textSize="@dimen/body"
+                        android:layout_marginTop="@dimen/top_margin"
+                        android:textColor="@color/colorPrimary"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/white"
+                        app:icon="@drawable/back_arrow"
+                        app:iconTint="@color/colorPrimary"
+                        android:layout_marginBottom="@dimen/bottom_margin"
+                        app:strokeColor="@color/colorPrimary"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        />
 
                 </LinearLayout>
 
@@ -198,8 +138,6 @@
 
                     </LinearLayout>
 
-
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -246,8 +184,6 @@
                             android:textStyle="bold"
                             android:textSize="@dimen/body"
                             android:layout_marginStart="@dimen/start_margin" />
-
-
                     </LinearLayout>
 
                     <LinearLayout
@@ -274,25 +210,78 @@
 
                     </LinearLayout>
 
-
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/statistics_back_login"
-                        android:layout_width="wrap_content"
-                        android:layout_gravity="center"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/statistics_to_login_button"
-                        android:textSize="@dimen/body"
                         android:layout_marginTop="@dimen/top_margin"
-                        android:textColor="@color/colorPrimary"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/white"
-                        app:icon="@drawable/back_arrow"
-                        app:iconTint="@color/colorPrimary"
-                        android:layout_marginBottom="@dimen/bottom_margin"
-                        />
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/grey"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/body"
+                            android:text="@string/statistics_homeless_text" />
+
+                        <TextView
+                            android:id="@+id/homeless_number_statistics"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_marginStart="@dimen/start_margin"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/body" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/grey"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/body"
+                            android:text="@string/statistics_donor_text" />
+
+                        <TextView
+                            android:id="@+id/donor_number_statistics"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_marginStart="@dimen/start_margin"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/body" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/grey"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/body"
+                            android:text="@string/statistics_volunteers_text" />
+
+                        <TextView
+                            android:id="@+id/volunteer_number_statistics"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_marginStart="@dimen/start_margin"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/body" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
-
 
             </LinearLayout>
 

@@ -165,14 +165,12 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
                     String homelessLatitude = Double.toString(latitude);
                     String homelessLongitude = Double.toString(longitude);
 
-
                     homeless.put("homelessAddress", homelessAddress);
                     homeless.put("homelessLongitude", homelessLongitude);
                     homeless.put("homelessLatitude", homelessLatitude);
 
                     mFirestore.collection("homeless").document(homelessUsername).set(homeless, SetOptions.merge());
 
-                  /*  uploadDataToFirebase(homelessAddress, homelessLongitude, homelessLatitude);*/
 
                     selectedLocationTV.setText(place.getAddress());
                     // Creating a marker
@@ -211,7 +209,7 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
         });
     }
 
-    public static double aroundUp(double number, int canDecimal) {
+    private static double aroundUp(double number, int canDecimal) {
         int cifras = (int) Math.pow(10, canDecimal);
         return Math.ceil(number * cifras) / cifras;
     }
@@ -222,11 +220,6 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
     }
 
-
-/*    private void uploadDataToFirebase(String homelessAddress, String longitude, String latitude){
-
-
-    }*/
 
     private void successfullyUploadedInfoToast(){
         Toast toast = Toast.makeText(getActivity(), getString(R.string.correct_saved_info), Toast.LENGTH_LONG);

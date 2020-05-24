@@ -153,6 +153,8 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
 
+
+
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -162,33 +164,39 @@
                             android:textStyle="bold"
                             android:text="@string/contact"/>
 
-                        <TextView
-                            android:id="@+id/delivery_donor_email"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="@dimen/start_margin"
-                            android:textSize="@dimen/body"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:textStyle="bold"
-                            android:text="@string/text"/>
-                    </LinearLayout>
+                            android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/delivery_donor_phone"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="@dimen/start_margin"
-                        android:textSize="@dimen/body"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textStyle="bold"
-                        android:text="@string/text"/>
+                            <TextView
+                                android:id="@+id/delivery_donor_email"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/start_margin"
+                                android:textSize="@dimen/body"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textStyle="bold"
+                                android:text="@string/text"/>
+
+                            <TextView
+                                android:id="@+id/delivery_donor_phone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/start_margin"
+                                android:textSize="@dimen/body"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textStyle="bold"
+                                android:text="@string/text"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
-
-
 
 </LinearLayout>

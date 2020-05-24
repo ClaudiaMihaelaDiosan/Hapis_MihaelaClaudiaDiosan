@@ -52,15 +52,12 @@ public class MapFragment extends Fragment implements OnMapAndViewReadyListener.O
 
     private GoogleMap mMap;
     private FirebaseFirestore mFirestore;
-    private View view;
-
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_map, container, false);
+        View view = inflater.inflate(R.layout.fragment_map, container, false);
 
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext().getApplicationContext());
@@ -194,7 +191,5 @@ public class MapFragment extends Fragment implements OnMapAndViewReadyListener.O
         vectorDrawable.draw(canvas);
         return BitmapDescriptorFactory.fromBitmap(bitmap);
     }
-
-
 
 }

@@ -10,7 +10,8 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_margin="@dimen/margins">
 
         <LinearLayout
@@ -127,19 +128,19 @@
                 android:layout_height="wrap_content"
                 android:text="@string/personally_button"
                 android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginBottom="@dimen/bottom_margin"
                 android:textSize="@dimen/body"
                 android:layout_gravity="center"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/blue_light"
                 app:icon="@drawable/personally_icon"
-                app:iconTint="@color/black"
-
-                />
+                app:iconTint="@color/black" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/through_volunteer_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_margin"
                 android:text="@string/through_volunteer_button"
                 android:layout_marginBottom="@dimen/bottom_margin"
                 android:layout_gravity="center"
@@ -147,9 +148,7 @@
                 android:textSize="@dimen/body"
                 android:backgroundTint="@color/lila_color"
                 app:icon="@drawable/volunteer_icon"
-                app:iconTint="@color/black"
-
-                />
+                app:iconTint="@color/black" />
 
         </LinearLayout>
 

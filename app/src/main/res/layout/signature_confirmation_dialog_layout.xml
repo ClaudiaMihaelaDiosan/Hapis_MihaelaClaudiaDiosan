@@ -12,18 +12,10 @@
         android:elevation="@dimen/elevation"
         android:backgroundTint="@color/white">
 
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/margins"
-            android:orientation="horizontal">
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
+                android:layout_margin="@dimen/margins"
                 android:orientation="vertical">
 
                 <TextView
@@ -40,15 +32,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/confirmation_popup_firstname_hint"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                    >
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/confirmation_first_name_ed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        />
+                        android:textSize="@dimen/body"
+                        android:inputType="textPersonName" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,16 +47,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/confirmation_popup_lastname_hint"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                    >
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/confirmation_last_name_ed"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        />
-
+                        android:textSize="@dimen/body"
+                        android:inputType="textPersonName" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout
@@ -80,6 +69,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/top_margin"
                         android:layout_marginEnd="@dimen/end_margin"
+                        android:textSize="@dimen/body"
                         android:text="@string/confirmation_popup_cancel_button"
                         style="?attr/borderlessButtonStyle" />
 
@@ -90,12 +80,12 @@
                         android:layout_marginStart="@dimen/start_margin"
                         android:text="@string/confirmation_popup_button_confirm"
                         android:layout_marginTop="@dimen/top_margin"
+                        android:textSize="@dimen/body"
                         style="?attr/borderlessButtonStyle" />
+
                 </LinearLayout>
 
             </LinearLayout>
-
-        </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 

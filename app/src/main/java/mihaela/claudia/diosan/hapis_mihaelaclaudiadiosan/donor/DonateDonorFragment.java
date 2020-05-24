@@ -33,25 +33,26 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer.PaymentActivi
 public class DonateDonorFragment extends Fragment implements View.OnClickListener{
 
 
+    /*Buttons*/
     private MaterialButton donateBtn;
     private MaterialButton videoBtn;
-
-    private boolean fullScreen;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_donate, container, false);
 
-
-        donateBtn = view.findViewById(R.id.donate_button);
-        videoBtn = view.findViewById(R.id.view_video_button);
-
+        initViews(view);
 
         return view;
     }
+
+    private void initViews(View view){
+        donateBtn = view.findViewById(R.id.donate_button);
+        videoBtn = view.findViewById(R.id.view_video_button);
+    }
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -68,13 +69,11 @@ public class DonateDonorFragment extends Fragment implements View.OnClickListene
 
         switch (v.getId()){
             case R.id.donate_button:
-                Intent paymentIntent = new Intent(getActivity(), PaymentActivity.class);
-                startActivity(paymentIntent);
+                startActivity(new Intent(getActivity(), PaymentActivity.class));
                 break;
 
             case R.id.view_video_button:
-                Intent videoActivity = new Intent(getActivity(), YouTubePlayerActivity.class);
-                startActivity(videoActivity);
+                startActivity(new Intent(getActivity(), YouTubePlayerActivity.class));
                 break;
         }
 

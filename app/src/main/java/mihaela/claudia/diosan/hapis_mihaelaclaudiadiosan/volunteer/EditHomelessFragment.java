@@ -28,16 +28,12 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
-import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.android.material.button.MaterialButton;
@@ -50,23 +46,15 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import org.w3c.dom.Text;
-
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.ForgotPasswordActivity;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -75,54 +63,52 @@ import static android.content.Context.MODE_PRIVATE;
  */
 public class EditHomelessFragment extends Fragment implements View.OnClickListener {
 
+    /*Storage Permission*/
     private static  final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-
     private Integer SELECT_FILE = 0;
 
+    /*ImageView*/
     private ImageView editProfileImage;
+    private Uri selectedImagePath;
 
-
+    /*TextView*/
     private TextView usernameTV;
-    private TextInputEditText  phoneET;
-    private TextInputEditText lifeHistoryET;
-
-    private TextInputEditText scheduleET;
-
     private TextView location;
     private TextView need;
 
+    /*EditTexts*/
+    private TextInputEditText  phoneET;
+    private TextInputEditText lifeHistoryET;
+    private TextInputEditText scheduleET;
 
-
-
+    /*Shared Preferences*/
     private SharedPreferences preferences;
+    private String username;
+
+    /*Views*/
     private View view;
 
-    private Uri selectedImagePath;
-
-
+    /*Firebase*/
     private FirebaseFirestore mFirestore;
     private FirebaseUser user;
     private StorageReference storageReference;
 
+    /*Buttons*/
     private MaterialButton cancelBtn;
     private MaterialButton saveBtn;
     private MaterialButton deleteBtn;
     private MaterialButton changeProfilePhoto;
 
-    private String username;
-
     private ChipGroup chipGroup;
 
-
+    /*Autocomplete place field*/
     private List<Place.Field> placeFields = Arrays.asList(Place.Field.ID,Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
 
-    private Map<String,String> homeless = new HashMap<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_edit_homeless, container, false);
 
         initViews();
@@ -135,20 +121,6 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
 
         getCurrentInfo(username);
 
-        chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(ChipGroup group, @IdRes int checkedId) {
-                // Handle the checked chip change.
-                Chip chip = chipGroup.findViewById(checkedId);
-                if(chip != null){
-                    need.setText(chip.getText().toString());
-                }
-
-            }
-        });
-
-
-
         return view;
     }
 
@@ -157,7 +129,6 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
         FirebaseStorage storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         mFirestore = FirebaseFirestore.getInstance();
-
     }
 
     private void initViews(){
@@ -179,8 +150,8 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
 
     private void initPlaces(){
         Places.initialize(view.getContext(), getString(R.string.API_KEY));
-        PlacesClient placesClient = Places.createClient(view.getContext());
     }
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -190,19 +161,30 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
         saveBtn.setOnClickListener(this);
         deleteBtn.setOnClickListener(this);
         changeProfilePhoto.setOnClickListener(this);
+        chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(ChipGroup group, @IdRes int checkedId) {
+                // Handle the checked chip change.
+                Chip chip = chipGroup.findViewById(checkedId);
+                if(chip != null){
+                    need.setText(chip.getText().toString());
+                }
+
+            }
+        });
     }
+
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.cancelEditButton:
-                Intent homeIntent = new Intent(getActivity(),HomeVolunteer.class );
-                startActivity(homeIntent);
+                startActivity(new Intent(getActivity(),HomeVolunteer.class));
                 break;
             case R.id.saveHomelessBtn:
                 if (isLifeHistoryValid(lifeHistoryET.getText().toString()) && isValidPhoneNumber(phoneET.getText().toString())){
                     updateProfileInfo(username);
-                    showSuccessfullDialog(getString(R.string.update_success_toast));
+                    showSuccessfullToast(getString(R.string.update_success_toast));
                     startActivity(new Intent(getActivity(), HomeVolunteer.class));
                 }
                 break;
@@ -215,6 +197,7 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
                 break;
         }
     }
+
 
     private void showDeleteDialog(){
         new MaterialAlertDialogBuilder(getContext())
@@ -245,7 +228,7 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
                     @Override
                     public void onSuccess(Void aVoid) {
                       //  Log.d(TAG, "DocumentSnapshot successfully deleted!");
-                        showSuccessfullDialog(getString(R.string.delete_correct_toast));
+                        showSuccessfullToast(getString(R.string.delete_correct_toast));
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -318,22 +301,7 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
     }
 
 
-    public void showSuccessfullDialog(String message){
-        Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.GREEN);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check_circle_black_24dp, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
-
-
     private void getCurrentInfo(String username){
-
         DocumentReference documentReference = mFirestore.collection("homeless").document(username);
 
         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -388,22 +356,17 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
 
             if (!schedule.isEmpty()){
                 documentReference.update("homelessSchedule", schedule);
-
             }
 
 
             if (!lifeHistory.isEmpty()){
                 documentReference.update("homelessLifeHistory", lifeHistory);
-
             }
 
-
         documentReference.update("homelessNeed", need.getText().toString());
-
-
     }
 
-    public void updateLocation(){
+    private void updateLocation(){
         AutocompleteSupportFragment autocompleteSupportFragment = (AutocompleteSupportFragment) getChildFragmentManager().findFragmentById(R.id.autocomplete_fragment_edit);
         assert autocompleteSupportFragment != null;
         autocompleteSupportFragment.setPlaceFields(placeFields);
@@ -412,13 +375,12 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
             public void onPlaceSelected(@NonNull final Place place) {
 
                 if (place.getLatLng() != null) {
-                    Double latitude = aroundUp(place.getLatLng().latitude,5);
-                    Double longitude = aroundUp(place.getLatLng().longitude,5) ;
-
+                    double latitude = aroundUp(place.getLatLng().latitude,5);
+                    double longitude = aroundUp(place.getLatLng().longitude,5) ;
 
                     String homelessAddress = place.getAddress();
-                    String homelessLatitude = latitude.toString();
-                    String homelessLongitude = longitude.toString();
+                    String homelessLatitude = Double.toString(latitude);
+                    String homelessLongitude = Double.toString(longitude);
 
                     DocumentReference documentReference = mFirestore.collection("homeless").document(username);
 
@@ -437,12 +399,12 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
         });
     }
 
-    public static double aroundUp(double number, int canDecimal) {
+    private static double aroundUp(double number, int canDecimal) {
         int cifras = (int) Math.pow(10, canDecimal);
         return Math.ceil(number * cifras) / cifras;
     }
 
-    public  boolean isValidPhoneNumber(CharSequence target) {
+    private boolean isValidPhoneNumber(CharSequence target) {
         if (target.length() == 0){
             return true;
         }else if (target.length() < 6 || target.length() > 13) {
@@ -474,7 +436,6 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
     }
 
 
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         //  super.onActivityResult(requestCode, resultCode, data);
@@ -492,6 +453,32 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
         }
     }
 
+    private void showSuccessfullToast(String message){
+        Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_LONG);
+        View view =toast.getView();
+        view.setBackgroundColor(Color.WHITE);
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        toastMessage.setTextColor(Color.GREEN);
+        toastMessage.setGravity(Gravity.CENTER);
+        toastMessage.setTextSize(15);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check_circle_black_24dp, 0,0,0);
+        toastMessage.setPadding(10,10,10,10);
+        toast.show();
+    }
+
+    private void showErrorToast(String message){
+        Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_LONG);
+        View view =toast.getView();
+        view.setBackgroundColor(Color.WHITE);
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        toastMessage.setTextColor(Color.RED);
+        toastMessage.setGravity(Gravity.CENTER);
+        toastMessage.setTextSize(15);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
+        toastMessage.setPadding(10,10,10,10);
+        toast.show();
+    }
+
     private void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
@@ -505,8 +492,4 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
             );
         }
     }
-
-
-
-
 }

@@ -40,6 +40,7 @@
     <dimen name="delivery_notification_width">100dp</dimen>
     <dimen name="delivery_notification_height">200dp</dimen>
     <dimen name="homeless_custom_view">100dp</dimen>
+    <dimen name="create_profile_image">150dp</dimen>
 
 
     <!--Boxes-->
@@ -54,5 +55,14 @@
     <dimen name="header">200dp</dimen>
     <dimen name="terms_fragment">200dp</dimen>
     <dimen name="signature_pad">100dp</dimen>
+
+    <!--Delivery margins-->
+    <dimen name="delivery_top_margin">60dp</dimen>
+
+    <!--Donor margins-->
+    <dimen name="donor_top_margin">60dp</dimen>
+    <dimen name="donor_bottom_margin">60dp</dimen>
+    <dimen name="progress_image">45dp</dimen>
+
 
 </resources>

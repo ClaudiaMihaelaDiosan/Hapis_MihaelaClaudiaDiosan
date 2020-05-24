@@ -27,28 +27,25 @@
                     android:textStyle="bold"
                     android:textAlignment="center"
                     android:textColor="@color/red"
-                    android:textSize="@dimen/body"
-                    />
+                    android:textSize="@dimen/body" />
 
                 <TextView
                     android:id="@+id/terms_textView"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"
+                    android:layout_height="@dimen/terms_fragment"
                     android:layout_margin="@dimen/margins"
                     android:text="@string/fragment_terms_text"
                     android:layout_gravity="start"
                     android:textColor="@color/grey"
                     android:scrollbars="vertical"
-                    android:textSize="@dimen/body"
-                    />
+                    android:textSize="@dimen/body" />
 
                 <com.github.gcacace.signaturepad.views.SignaturePad
                     android:id="@+id/signature_pad"
                     android:layout_width="match_parent"
                     android:layout_marginTop="@dimen/top_margin"
-                    android:layout_height="100dp"
-                    app:penColor="@android:color/black"
-                    />
+                    android:layout_height="@dimen/signature_pad"
+                    app:penColor="@android:color/black" />
 
                 <TextView
                     android:id="@+id/signature_pad_description"
@@ -80,7 +77,13 @@
                         android:layout_marginTop="@dimen/top_margin"
                         android:textSize="@dimen/body"
                         android:text="@string/clear_signature_button"
-                        style="?attr/borderlessButtonStyle" />
+                        app:icon="@drawable/delete_homeless_icon"
+                        app:iconTint="@color/red"
+                        android:textColor="@color/red"
+                        app:strokeColor="@color/red"
+                        android:layout_marginEnd="@dimen/end_margin"
+                        android:layout_marginBottom="@dimen/bottom_margin"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/saveSignatureButton"
@@ -89,12 +92,15 @@
                         android:layout_marginTop="@dimen/top_margin"
                         android:textSize="@dimen/body"
                         android:text="@string/save_signature_button"
-                        style="?attr/borderlessButtonStyle" />
-
+                        android:textColor="@color/green"
+                        app:icon="@drawable/ic_save_black_24dp"
+                        app:iconTint="@color/green"
+                        app:strokeColor="@color/green"
+                        android:layout_marginBottom="@dimen/bottom_margin"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
                 </LinearLayout>
 
             </LinearLayout>
-
         </com.google.android.material.card.MaterialCardView>
 
 </ScrollView>

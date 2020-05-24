@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -16,9 +15,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
@@ -26,8 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
-
-import org.w3c.dom.Text;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,47 +32,39 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class HelpFragment extends Fragment implements View.OnClickListener {
 
+    /*SharedPreferences*/
     private SharedPreferences preferences;
 
-    private Map<String,String> donor = new HashMap<>();
-
+    /*Firebase*/
     private FirebaseFirestore mFirestore;
     private FirebaseUser user;
+    private Map<String,String> personallyDonations = new HashMap<>();
+    private Map<String,String> throughVolunteerDonations = new HashMap<>();
 
-    private ChipGroup chipGroup;
+    /*Buttons*/
 
     private MaterialButton personallyBtn;
     private MaterialButton throughVolunteerBtn;
+
+    private ChipGroup chipGroup;
     private TextView helpType;
 
-    private View view;
     private String need;
+    private String homelessUsername;
+
+    private View view;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_help, container, false);
 
         preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
+        homelessUsername = preferences.getString("homelessUsername","");
+
         initViews();
-
         firebaseInit();
-
-        chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(ChipGroup group, @IdRes final int checkedId) {
-                // Handle the checked chip change.
-                final Chip chip = chipGroup.findViewById(checkedId);
-                if(chip != null){
-                    uploadDataToFirebase(chip.getText().toString());
-                    need = chip.getText().toString();
-                  //  helpType.setVisibility(View.VISIBLE);
-                    helpType.setText(need);
-                }
-
-            }
-        });
 
         return view;
     }
@@ -89,6 +75,20 @@ public class HelpFragment extends Fragment implements View.OnClickListener {
 
         personallyBtn.setOnClickListener(this);
         throughVolunteerBtn.setOnClickListener(this);
+
+        chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(ChipGroup group, @IdRes final int checkedId) {
+
+                final Chip chip = chipGroup.findViewById(checkedId);
+                if(chip != null){
+                    need = chip.getText().toString();
+                    helpType.setText(need);
+                }
+
+            }
+        });
+
     }
 
     @Override
@@ -98,8 +98,8 @@ public class HelpFragment extends Fragment implements View.OnClickListener {
                 if (helpType.getText().toString().isEmpty()){
                     showErrorToast(getString(R.string.error_chip));
                 }else{
-                    PersonallyFragment helpFragment = new PersonallyFragment();
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, helpFragment)
+                    uploadPersonallyDonationToFirebase(helpType.getText().toString(), homelessUsername);
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, new PersonallyFragment())
                             .addToBackStack(null).commit();
                 }
 
@@ -108,8 +108,8 @@ public class HelpFragment extends Fragment implements View.OnClickListener {
                 if (helpType.getText().toString().isEmpty()){
                     showErrorToast(getString(R.string.error_chip));
                 }else {
-                    ThroughVolunteerFragment throughVolunteerFragment = new ThroughVolunteerFragment();
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, throughVolunteerFragment)
+                    uploadThroughVolunteerDonationToFirebase(helpType.getText().toString(), homelessUsername);
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, new ThroughVolunteerFragment())
                             .addToBackStack(null).commit();
                 }
                 break;
@@ -146,30 +146,27 @@ public class HelpFragment extends Fragment implements View.OnClickListener {
 
 
 
-    private void uploadDataToFirebase(String donationType){
+    private void uploadPersonallyDonationToFirebase(String donationType, String homelessUsername){
 
-        String homelessUsername = preferences.getString("homelessUsername","");
+        personallyDonations.put("donatesTo", homelessUsername);
+        personallyDonations.put("donationType", donationType);
 
-        donor.put("donatesTo", homelessUsername);
-        donor.put("donationType", donationType);
-
-
-        mFirestore.collection("donors").document(user.getEmail()).set(donor, SetOptions.merge())
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        //  successfullyUploadedInfoToast();
-                    }
-                }) .addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                String error = e.getMessage();
-               Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
-
-            }
-        });
+        mFirestore.collection("personallyDonations").document(user.getEmail() + "->" + homelessUsername + ":" + donationType).set(personallyDonations, SetOptions.merge());
     }
 
 
+    private void uploadThroughVolunteerDonationToFirebase(String donationType, String homelessUsername){
+
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("homelessUsername", homelessUsername);
+        editor.putString("donationType", donationType);
+        editor.apply();
+
+        throughVolunteerDonations.put("donatesTo", homelessUsername);
+        throughVolunteerDonations.put("donationType", donationType);
+
+        mFirestore.collection("throughVolunteerDonations").document(user.getEmail() + "->" + homelessUsername + ":" + donationType).set(throughVolunteerDonations, SetOptions.merge());
+
+    }
 
 }

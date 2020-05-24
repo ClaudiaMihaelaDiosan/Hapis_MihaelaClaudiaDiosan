@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">Hapis_MihaelaClaudiaDiosan</string>
     <string name="name">HAPIS</string>
     <string name="API_KEY" templateMergeStrategy="preserve" translatable="false">AIzaSyCl1fruupMLaDB11EO0hHb2Ahx7rTYzwkA</string>
@@ -51,7 +51,7 @@
     <string name="login_button">INICIAR SESIÓN</string>
     <string name="email_hint">Correo electronico</string>
     <string name="password_hint">Contraseña</string>
-    <string name="username_error_text">Introduce un nombre de usuario válido.El usuario tiene que tener al menos 4 caràcteres</string>
+    <string name="username_error_text">Introduce un nombre de usuario válido.El usuario tiene que tener mínimo 4 caràcteres y un máximo de 25.</string>
     <string name="password_error_text">Introduce una contraseña valida.La contrasña tiene que tener al menos 6 caràcteres </string>
     <string name="complete_life_toast">Rellena este campo</string>
     <string name="progress_login">Iniciando sesión…</string>
@@ -117,7 +117,7 @@
     <string name="register_user_button">REGISTRAR</string>
     <string name="register_user_pop_up_button">OK</string>
     <string name="register_pop_up_title">REGISTRO CORRECTO</string>
-    <string name="register_pop_up_message">Gracias.Por favor revisa tu correo electrónico para activar tu cuenta.</string>
+    <string name="register_pop_up_message">Gracias por registrarte.\nApreta el botón OK para ir al login.</string>
     <string name="register_error">"Algo ha ido mal!</string>
 
 
@@ -176,11 +176,11 @@
     <!--    Needs Fragment -->
     <string name="schedule_text">Escribe cuando puede ser encontrada la persona necesitada en la ubicación seleccionada anteriormente:</string>
     <string name="schedule_edit_text">Días y horas disponibles </string>
-    <string name="needs_text">A continuación, selecciona la necesidad más imporante que tiene la persona necesitada en este momento:</string>
+    <string name="needs_text">A continuación, selecciona la necesidad más importante que tiene la persona necesitada en este momento:</string>
     <string name="most_important_need_tv">La necesidad más importante seleccionada es: </string>
     <string name="complete_schedule_toast">Tienes que rellenar el horario</string>
     <string name="maxim_char_schedule">El horario puede tener como máximo 40 caracteres</string>
-    <string name="complete_need_toast">Tienes que elegir tu necesidad más importante</string>
+    <string name="complete_need_toast">Tienes que elegir la necesidad más importante</string>
 
     <!--    Payment activity-->
     <string name="payment_activity_name">Donar </string>
@@ -207,7 +207,7 @@
             podrán ayudarte\n\n2. No se te pedirá tu nombre real,sino un nombre de usuario que será visible para los donantes\n\n3. Podrás añadir una foto tuya al perfil, pero no es
             obligatorio.\n\n4. Se te pedirán la fecha de nacimiento,una pequeña historia de tu vida, el número de teléfono y lo que más necesitas en este momento.\n\n5. Tendrás
             que especificar la localización y un horario en el que podrás ser encontrado en la dicha localización. Estos datos sirven para que las personas que quieren donar algo te entreguen las cosas personalmente.\n\n6. Todos los datos facilitados serán utilizados solamente con el fin de que las personas te conozcan mejor para poder ayudarte y en ningún momento serán cedidas a terceros.</string>
-    <string name="clear_signature_button">BORRAR </string>
+    <string name="clear_signature_button">BORRAR</string>
     <string name="save_signature_button">GUARDAR FIRMA</string>
     <string name="success_upload">La firma se ha guardado correctamente!Puedes continuar con el registro</string>
     <string name="unable_to_store_jpg">No ha sido posible guardar la firma</string>
@@ -227,11 +227,8 @@
 
 
     <!--Configuration Fragment-->
-    <string name="configuration_title">CONFIGURACIÓN</string>
-    <string name="config_personal_info_title">Información Personal</string>
     <string name="config_phone_number_hint">Número de teléfono</string>
     <string name="config_phone_number_summary">Cambia tu número de teléfono existente o añade un número nuevo</string>
-    <string name="save_configuration_button">GUARDAR</string>
     <string name="config_changed_phone_toast">Has cambiado tu número de teléfono correctamente. La próxima vez que entras en la aplicación podrás ver tu nuevo teléfono en tu información de perfil.</string>
 
     <!--  Contact Fragment-->
@@ -288,6 +285,7 @@
     <string name="delete_cancel_button">CANCELAR</string>
     <string name="delete_correct_toast">Perfil borrado con exito</string>
     <string name="update_success_toast">Perfil actualizado con exito</string>
+    <string name="empty_error_toast">Tienes que editar almenos un campo para poder guardar! </string>
 
 
 

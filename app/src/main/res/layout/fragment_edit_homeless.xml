@@ -9,10 +9,7 @@
 <com.google.android.material.card.MaterialCardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="@dimen/top_margin"
-    android:layout_marginStart="@dimen/start_margin"
-    android:layout_marginEnd="@dimen/end_margin"
-    android:layout_marginBottom="@dimen/bottom_margin">
+    android:layout_margin="@dimen/margins">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,7 +53,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/homeless_cv_image"
             android:background="@color/light_blue"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:contentDescription="@string/content_description"/>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/edit_homeless_profile_photo_button"
@@ -65,19 +63,18 @@
             android:backgroundTint="@color/white"
             android:layout_gravity="center"
             app:iconGravity="textStart"
+            android:textSize="@dimen/body"
             android:text="@string/edit_profile_photo_button"
             android:textColor="@color/colorPrimary"
             app:icon="@drawable/ic_add_a_photo_black_24dp"
-            app:iconTint="@color/colorPrimary"
-            />
+            app:iconTint="@color/colorPrimary" />
 
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/top_margin"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            >
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/homeless_edit_phone"
@@ -85,10 +82,10 @@
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:inputType="phone"
+                android:textSize="@dimen/body"
                 android:drawablePadding="@dimen/padding"
                 android:drawableStart="@drawable/phone_drawable"
-                android:drawableTint="@color/colorPrimaryDark"
-                />
+                android:drawableTint="@color/colorPrimaryDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -96,8 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/top_margin"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-            >
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/homeless_edit_life_history"
@@ -107,8 +103,8 @@
                 android:drawableStart="@drawable/life_history_drawable"
                 android:drawableTint="@color/colorPrimaryDark"
                 android:gravity="top|start"
-                android:inputType="textMultiLine"
-                />
+                android:textSize="@dimen/body"
+                android:inputType="textMultiLine"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -134,13 +130,12 @@
             android:backgroundTint="@color/light_blue"
             android:orientation="vertical">
 
-            <fragment
+            <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/autocomplete_fragment_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:name=
-                    "com.google.android.libraries.places.widget.AutocompleteSupportFragment"
-                />
+                    "com.google.android.libraries.places.widget.AutocompleteSupportFragment" />
 
         </com.google.android.material.card.MaterialCardView>
 
@@ -160,9 +155,9 @@
                 android:inputType="textMultiLine"
                 android:gravity="top|start"
                 android:drawablePadding="@dimen/padding"
+                android:textSize="@dimen/body"
                 android:drawableStart="@drawable/ic_schedule_black_24dp"
-                android:drawableTint="@color/colorPrimaryDark"
-                />
+                android:drawableTint="@color/colorPrimaryDark" />
         </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -269,6 +264,8 @@
                 app:icon="@drawable/ic_close_black_24dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:strokeColor="@color/colorPrimary"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:text="@string/cancelEditBtn" />
 
 
@@ -282,6 +279,8 @@
                 app:icon="@drawable/ic_save_black_24dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                app:strokeColor="@color/green"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:text="@string/saveEditBtn" />
 
         </LinearLayout>
@@ -289,7 +288,6 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/deleteProfileBtn"
             android:backgroundTint="@color/white"
-            android:layout_marginStart="@dimen/start_margin"
             android:textSize="@dimen/body"
             android:gravity="center"
             android:layout_gravity="center"
@@ -299,11 +297,10 @@
             android:textColor="@color/red"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:strokeColor="@color/red"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:text="@string/deleteHomelessBtn" />
-
-
     </LinearLayout>
-
 
 </com.google.android.material.card.MaterialCardView>
 

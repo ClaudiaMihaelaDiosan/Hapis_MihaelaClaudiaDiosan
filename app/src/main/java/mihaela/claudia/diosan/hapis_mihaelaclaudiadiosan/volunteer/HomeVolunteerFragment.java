@@ -46,24 +46,26 @@ import static android.content.Context.MODE_PRIVATE;
 public class HomeVolunteerFragment extends Fragment implements View.OnClickListener{
 
 
-    private Dialog notificationDialog;
+    /*Views*/
     private View view;
 
-
+    /*Floating Action menu*/
     private FloatingActionButton newHomelessProfile;
     private FloatingActionButton sendDeliveryNotification;
 
+    /*Firebase*/
     private FirebaseFirestore mFirestore;
 
+    /*Shared Preferences*/
     private SharedPreferences preferences;
 
+    /*SearchView bar*/
     private SearchView searchView;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home_volunteer, container, false);
 
         preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
@@ -74,6 +76,41 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
         setUpRecyclerView();
 
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        newHomelessProfile.setOnClickListener(this);
+        sendDeliveryNotification.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.new_homeless_profile:
+                startActivity(new Intent(getActivity(), CreateHomelessProfileActivity.class));
+                break;
+            case R.id.send_delivery_notification:
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DeliveryFragment())
+                        .addToBackStack(null).commit();
+                break;
+        }
+    }
+
+    private void initViews(){
+        newHomelessProfile = view.findViewById(R.id.new_homeless_profile);
+        sendDeliveryNotification = view.findViewById(R.id.send_delivery_notification);
+
+        searchView = view.findViewById(R.id.volunteer_search);
+        searchView.onActionViewExpanded();
+        searchView.clearFocus();
+    }
+
+    private void firebaseInit(){
+        mFirestore = FirebaseFirestore.getInstance();
     }
 
     private void setUpRecyclerView(){
@@ -113,11 +150,9 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
                                     @Override
                                     public void onItemClick(int position) {
                                         SharedPreferences.Editor editor = preferences.edit();
-                                        editor.putString("homelessUsername",  homelesses.get(position).getHomelessUsername());
-                                        editor.apply();
+                                        editor.putString("homelessUsername",  homelesses.get(position).getHomelessUsername()).apply();
 
-                                        EditHomelessFragment editHomelessFragment = new EditHomelessFragment();
-                                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, editHomelessFragment)
+                                        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new EditHomelessFragment())
                                                 .addToBackStack(null).commit();
                                     }
                                 });
@@ -142,45 +177,4 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
             }
         });
     }
-
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        newHomelessProfile.setOnClickListener(this);
-        sendDeliveryNotification.setOnClickListener(this);
-
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.new_homeless_profile:
-                Intent createAccountIntent = new Intent(getActivity(), CreateHomelessProfileActivity.class);
-                startActivity(createAccountIntent);
-                break;
-            case R.id.send_delivery_notification:
-                DeliveryFragment deliveryFragment = new DeliveryFragment();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, deliveryFragment)
-                        .addToBackStack(null).commit();
-                break;
-        }
-    }
-
-    private void initViews(){
-        newHomelessProfile = view.findViewById(R.id.new_homeless_profile);
-        sendDeliveryNotification = view.findViewById(R.id.send_delivery_notification);
-
-        notificationDialog = new Dialog(getActivity());
-        searchView = view.findViewById(R.id.volunteer_search);
-        searchView.onActionViewExpanded();
-        searchView.clearFocus();
-    }
-
-    private void firebaseInit(){
-        mFirestore = FirebaseFirestore.getInstance();
-    }
-
-
 }

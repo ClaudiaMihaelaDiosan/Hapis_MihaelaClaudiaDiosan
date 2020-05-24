@@ -19,14 +19,12 @@
             android:layout_margin="@dimen/margins"
             android:orientation="vertical">
 
-
             <ImageView
                 android:layout_width="@dimen/help_image"
                 android:layout_height="@dimen/help_image"
                 android:src="@drawable/img_donate"
                 android:layout_gravity="center"
                 android:contentDescription="@string/content_description"/>
-
 
             <TextView
                 android:id="@+id/donation_type"
@@ -120,7 +118,6 @@
                 android:textStyle="bold" />
 
             <TextView
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/top_margin"
@@ -143,9 +140,7 @@
                 android:textColor="@color/black"
                 android:backgroundTint="@color/blue_light"
                 app:icon="@drawable/personally_icon"
-                app:iconTint="@color/black"
-
-                />
+                app:iconTint="@color/black" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/through_volunteer_button"
@@ -158,9 +153,7 @@
                 android:textSize="@dimen/body"
                 android:backgroundTint="@color/lila_color"
                 app:icon="@drawable/volunteer_icon"
-                app:iconTint="@color/black"
-
-                />
+                app:iconTint="@color/black" />
 
         </LinearLayout>
 

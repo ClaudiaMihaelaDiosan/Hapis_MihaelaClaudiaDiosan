@@ -139,5 +139,4 @@ public class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.Volu
         }
     }
 
-
 }

@@ -47,12 +47,13 @@ import static android.content.Context.MODE_PRIVATE;
  */
 public class HomelessFragment extends Fragment implements View.OnClickListener {
 
+    /*Buttons*/
     private MaterialButton wantHelpBtn;
-    private View view;
 
-    private SharedPreferences preferences;
-
+    /*ImageViews*/
     private ImageView profileImage;
+
+    /*TextViews*/
     private TextView homelessUsername;
     private TextView homelessBirthday;
     private TextView homelessLifeHistory;
@@ -60,26 +61,21 @@ public class HomelessFragment extends Fragment implements View.OnClickListener {
     private TextView homelessSchedule;
     private TextView homelessNeed;
 
-    private String username;
-
+    /*Firebase*/
     private FirebaseFirestore mFirestore;
-    private FirebaseUser user;
-    private StorageReference storageReference;
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_homeless, container, false);
+        View view = inflater.inflate(R.layout.fragment_homeless, container, false);
 
-        preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
+        SharedPreferences preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
 
         initViews(view);
         firebaseInit();
 
-        username = preferences.getString("homelessUsername", "");
+        String username = preferences.getString("homelessUsername", "");
         homelessUsername.setText(username);
 
         getHomelessInfo(username);
@@ -89,11 +85,7 @@ public class HomelessFragment extends Fragment implements View.OnClickListener {
 
 
     private void firebaseInit(){
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
         mFirestore = FirebaseFirestore.getInstance();
-
     }
 
     private void initViews(View view){
@@ -118,8 +110,8 @@ public class HomelessFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.want_help_button){
-            HelpFragment helpFragment = new HelpFragment();
-            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, helpFragment)
+
+            getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, new HelpFragment())
                     .addToBackStack(null).commit();
         }
     }

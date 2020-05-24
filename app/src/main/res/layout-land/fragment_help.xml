@@ -30,7 +30,8 @@
                     android:layout_width="@dimen/help_image_land"
                     android:layout_height="@dimen/help_image_land"
                     android:src="@drawable/img_donate"
-                    android:layout_gravity="center"/>
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/content_description"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -118,6 +119,16 @@
 
                     </com.google.android.material.chip.ChipGroup>
 
+                    <TextView
+                        android:id="@+id/help_type_donor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="invisible"
+                        android:gravity="start"
+                        android:textSize="@dimen/body"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold" />
+
 
                 </LinearLayout>
 
@@ -153,9 +164,7 @@
                     android:backgroundTint="@color/blue_light"
                     android:textSize="@dimen/body"
                     app:icon="@drawable/personally_icon"
-                    app:iconTint="@color/black"
-
-                    />
+                    app:iconTint="@color/black" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/through_volunteer_button"
@@ -168,9 +177,7 @@
                     android:textSize="@dimen/body"
                     android:backgroundTint="@color/lila_color"
                     app:icon="@drawable/volunteer_icon"
-                    app:iconTint="@color/black"
-
-                    />
+                    app:iconTint="@color/black" />
 
             </LinearLayout>
 

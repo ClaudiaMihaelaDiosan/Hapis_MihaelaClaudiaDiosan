@@ -33,7 +33,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -52,11 +51,11 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class TermsFragment extends Fragment implements View.OnClickListener {
 
+    /*Storage permissions*/
     private static  final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
     private SharedPreferences preferences;
-
 
     private View view;
 
@@ -144,26 +143,7 @@ public class TermsFragment extends Fragment implements View.OnClickListener {
         cancelBtn.setOnClickListener(this);
         confirmationBtn.setOnClickListener(this);
 
-        signaturePad.setOnSignedListener(new SignaturePad.OnSignedListener() {
-            @Override
-            public void onStartSigning() {
-                // Toast.makeText(getActivity(), "On Start Signing", Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onSigned() {
-                mClearButton.setEnabled(true);
-                mSaveButton.setEnabled(true);
-            }
-
-            @Override
-            public void onClear() {
-                mClearButton.setEnabled(false);
-                mSaveButton.setEnabled(false);
-            }
-        });
     }
-
 
 
     private void uploadJPEGToFirebase(File photo){
@@ -180,7 +160,7 @@ public class TermsFragment extends Fragment implements View.OnClickListener {
             @Override
             public void onFailure(@NonNull Exception e) {
                 String error = e.getMessage();
-                Toast.makeText(getActivity(), "Failed" + error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Error:" + error, Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -15,14 +15,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-            <androidx.appcompat.widget.Toolbar
-                android:id="@+id/volunteer_toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:background="@color/colorPrimary"
-                android:elevation="@dimen/elevation"
-                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/volunteer_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimary"
+            android:elevation="@dimen/elevation"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
 
         <FrameLayout
@@ -30,9 +30,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         </FrameLayout>
-
     </LinearLayout>
-
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view_volunteer"
@@ -45,6 +43,5 @@
         app:headerLayout="@layout/user_header"
         android:layout_gravity="start">
     </com.google.android.material.navigation.NavigationView>
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -206,7 +206,7 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
     }
 
     private boolean isUsernameValid(CharSequence username){
-        if (username.length() > 3) {
+        if (username.length() > 3 && username.length() <=25) {
             return true;
         }
         return false;

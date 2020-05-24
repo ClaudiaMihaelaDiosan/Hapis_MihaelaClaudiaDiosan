@@ -17,12 +17,11 @@
             android:orientation="vertical"
             android:layout_margin="@dimen/margins">
 
-
             <ImageView
                 android:id="@+id/profile_image"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/homeless_cv_image"
-                android:background="@color/light_blue"
+                android:background="@drawable/gradient_background"
                 android:src="@mipmap/ic_launcher"
                 android:contentDescription="@string/content_description"
                 android:layout_gravity="center" />
@@ -40,8 +39,6 @@
                 android:textStyle="bold"
                 android:text="@string/hcv_username"/>
 
-
-
             <TextView
                 android:id="@+id/homeless_phone_tv"
                 android:layout_width="wrap_content"
@@ -52,7 +49,6 @@
                 android:drawableTint="@color/colorPrimaryDark"
                 android:textSize="@dimen/body"
                 android:text="@string/hcv_phone"/>
-
 
             <TextView
                 android:id="@+id/homeless_birthday_tv"
@@ -65,7 +61,6 @@
                 android:drawableTint="@color/colorPrimaryDark"
                 android:text="@string/hcv_birthday"/>
 
-
             <TextView
                 android:id="@+id/homeless_lifeHistory_tv"
                 android:layout_width="wrap_content"
@@ -76,7 +71,6 @@
                 android:drawableStart="@drawable/life_history_drawable"
                 android:drawableTint="@color/colorPrimaryDark"
                 android:text="@string/hcv_life_history"/>
-
 
             <TextView
                 android:id="@+id/homeless_locationAddress_tv"
@@ -89,7 +83,6 @@
                 android:drawableTint="@color/colorPrimaryDark"
                 android:text="@string/hcv_address"/>
 
-
             <TextView
                 android:id="@+id/homeless_schedule_tv"
                 android:layout_width="match_parent"
@@ -101,6 +94,7 @@
                 android:drawableTint="@color/colorPrimaryDark"
                 android:text="@string/hcv_schedule"/>
 
+
             <TextView
                 android:id="@+id/homeless_need_tv"
                 android:layout_width="match_parent"
@@ -111,7 +105,6 @@
                 android:drawableStart="@drawable/create_homeless_needs"
                 android:drawableTint="@color/colorPrimaryDark"
                 android:text="@string/hcv_need"/>
-
 
         </LinearLayout>
 

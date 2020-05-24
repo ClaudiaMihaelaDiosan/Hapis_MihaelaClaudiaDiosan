@@ -37,27 +37,25 @@ public class PersonallyFragment extends Fragment implements OnMapReadyCallback {
 
     private SharedPreferences preferences;
 
-    private View view;
-
     /*TextViews*/
     private TextView homelessLocation;
     private TextView homelessSchedule;
 
+    /*Firebase*/
+    private FirebaseFirestore mFirestore;
     private String address;
     private String schedule;
     private String longitude;
     private String latitude;
 
-    private FirebaseFirestore mFirestore;
-
     /*Maps*/
     private GoogleMap mGoogleMap;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.fragment_personally, container, false);
+        View view = inflater.inflate(R.layout.fragment_personally, container, false);
 
         preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
         String username = preferences.getString("homelessUsername", "");

@@ -48,6 +48,7 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
     TextView volunteerFirstName;
     TextView volunteerLastName;
 
+    /*Firebase*/
     FirebaseUser user;
     FirebaseFirestore mFirestore;
 
@@ -59,18 +60,26 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
 
         setContentView(R.layout.activity_home_volunteer);
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        mFirestore = FirebaseFirestore.getInstance();
-
         initViews();
+        initFirebase();
         setNavigationElements();
         setUserData();
-
 
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeVolunteerFragment()).commit();
             navigationView.setCheckedItem(R.id.user_menu_home);
         }
+    }
+    private void initViews() {
+        mToolbar = findViewById(R.id.volunteer_toolbar);
+        volunteerDrawer = findViewById(R.id.volunteer_drawer);
+        navigationView = findViewById(R.id.nav_view_volunteer);
+
+    }
+
+    private void initFirebase(){
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        mFirestore = FirebaseFirestore.getInstance();
     }
 
 
@@ -87,27 +96,17 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
                 if (task.isSuccessful()){
                     DocumentSnapshot documentSnapshot = task.getResult();
                     if (documentSnapshot != null){
-                        String username = documentSnapshot.getString("volunteerUsername");
-                        String phone = documentSnapshot.getString("volunteerPhone");
-                        String firstName = documentSnapshot.getString("volunteerFirstName");
-                        String lastName = documentSnapshot.getString("volunteerLastName");
-                        volunteerUsername.setText(username);
-                        volunteerPhone.setText(phone);
-                        volunteerFirstName.setText(firstName);
-                        volunteerLastName.setText(lastName);
+
+                        volunteerUsername.setText(documentSnapshot.getString("volunteerUsername"));
+                        volunteerPhone.setText(documentSnapshot.getString("volunteerPhone"));
+                        volunteerFirstName.setText(documentSnapshot.getString("volunteerFirstName"));
+                        volunteerLastName.setText(documentSnapshot.getString("volunteerLastName"));
                     }
                 }
             }
         });
      }
  }
-
-    private void initViews() {
-        mToolbar = findViewById(R.id.volunteer_toolbar);
-        volunteerDrawer = findViewById(R.id.volunteer_drawer);
-        navigationView = findViewById(R.id.nav_view_volunteer);
-
-    }
 
     private void setNavigationElements() {
         setSupportActionBar(mToolbar);
@@ -134,8 +133,7 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()){
-            case android.R.id.home:
+        if (item.getItemId() == android.R.id.home){
                 volunteerDrawer.openDrawer(GravityCompat.START);
                 return true;
         }
@@ -158,8 +156,7 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
             case R.id.user_menu_logout:
                 FirebaseAuth.getInstance().signOut();
                 finish();
-                Intent loginIntent = new Intent(HomeVolunteer.this, LoginActivity.class);
-                startActivity(loginIntent);
+                startActivity( new Intent(HomeVolunteer.this, LoginActivity.class));
                 break;
             case R.id.user_menu_contact:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactVolunteerFragment()).commit();
@@ -176,8 +173,7 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
         if (volunteerDrawer.isDrawerOpen(GravityCompat.START)) {
             volunteerDrawer.closeDrawer(GravityCompat.START);
         } else {
-            Intent back = new Intent(HomeVolunteer.this, HomeVolunteer.class);
-            startActivity(back);
+            startActivity(new Intent(HomeVolunteer.this, HomeVolunteer.class));
 
             }
         }

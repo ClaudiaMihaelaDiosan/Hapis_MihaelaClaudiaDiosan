@@ -31,24 +31,30 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
 import static android.content.Context.MODE_PRIVATE;
 
-public class ConfigurationVolunteerFragment extends PreferenceFragmentCompat {
+public class ConfigurationVolunteerFragment extends PreferenceFragmentCompat{
 
 
+    /*Firebase*/
     private FirebaseFirestore mFirestore;
     private FirebaseUser user;
-    SharedPreferences preferences;
 
+    private EditTextPreference phonePreference;
 
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         setPreferencesFromResource(R.xml.volunteer_preferences, rootKey);
-        preferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+        /*SharedPreferences*/
 
-        user = FirebaseAuth.getInstance().getCurrentUser();
-        mFirestore = FirebaseFirestore.getInstance();
+        phonePreference = (EditTextPreference) findPreference("phone_volunteer");
 
-        final EditTextPreference phonePreference = (EditTextPreference) findPreference("phone_volunteer");
+        initFirebase();
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
         phonePreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -66,8 +72,13 @@ public class ConfigurationVolunteerFragment extends PreferenceFragmentCompat {
     }
 
 
+    private void initFirebase(){
+        user = FirebaseAuth.getInstance().getCurrentUser();
+        mFirestore = FirebaseFirestore.getInstance();
+    }
 
-    public  boolean isValidPhoneNumber(CharSequence target) {
+
+    private boolean isValidPhoneNumber(CharSequence target) {
         if (target== null || target.length() < 6 || target.length() > 13) {
             return false;
         } else {
@@ -75,7 +86,7 @@ public class ConfigurationVolunteerFragment extends PreferenceFragmentCompat {
         }
     }
 
-    public void showSuccessToast(String message){
+    private void showSuccessToast(String message){
         Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_LONG);
         View view =toast.getView();
         view.setBackgroundColor(Color.WHITE);
@@ -101,6 +112,7 @@ public class ConfigurationVolunteerFragment extends PreferenceFragmentCompat {
         toastMessage.setPadding(10,10,10,10);
         toast.show();
     }
+
 
 }
 

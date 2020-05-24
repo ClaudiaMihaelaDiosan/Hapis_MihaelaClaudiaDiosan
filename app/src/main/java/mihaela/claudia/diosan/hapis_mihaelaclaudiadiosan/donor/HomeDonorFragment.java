@@ -30,35 +30,39 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class HomeDonorFragment extends Fragment {
 
+    /*View*/
     private View view;
 
-
+    /*SharedPreferences*/
     private SharedPreferences preferences;
 
+    /*Firebase*/
     private FirebaseFirestore mFirestore;
 
+    /*SearchView*/
     private SearchView searchView;
-
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home_donor, container, false);
 
-        preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
-        searchView = view.findViewById(R.id.donor_search);
-        searchView.onActionViewExpanded();
-        searchView.clearFocus();
-
+        initViews();
         firebaseInit();
         buildRecyclerView();
 
         return view;
     }
 
-    public void buildRecyclerView(){
+
+    private void initViews(){
+        searchView = view.findViewById(R.id.donor_search);
+        searchView.onActionViewExpanded();
+        searchView.clearFocus();
+    }
+
+    private void buildRecyclerView(){
 
         final RecyclerView recyclerView = view.findViewById(R.id.recycler_view_donor);
         recyclerView.setHasFixedSize(true);
@@ -79,7 +83,6 @@ public class HomeDonorFragment extends Fragment {
                                 final String address = document.getString("homelessAddress");
                                 final String username = document.getString("homelessUsername");
 
-
                                 final Homeless homeless = new Homeless(username, address, need, image);
                                 homelesses.add(homeless);
                                 final DonorAdapter donorAdapter = new DonorAdapter(homelesses);
@@ -87,9 +90,10 @@ public class HomeDonorFragment extends Fragment {
                                 recyclerView.setAdapter(donorAdapter);
 
                                 recyclerView.setAdapter(donorAdapter);
-                                donorAdapter.setOnItemClicklistener(new DonorAdapter.OnItemClickListener() {
+                                donorAdapter.setOnItemClickListener(new DonorAdapter.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(int position) {
+                                        preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
                                         SharedPreferences.Editor editor = preferences.edit();
                                         editor.putString("homelessUsername",  homelesses.get(position).getHomelessUsername());
                                         editor.apply();
@@ -99,8 +103,6 @@ public class HomeDonorFragment extends Fragment {
                                                 .addToBackStack(null).commit();
                                     }
                                 });
-
-
 
                             }
                         }
@@ -124,8 +126,6 @@ public class HomeDonorFragment extends Fragment {
             }
         });
     }
-
-
 
 
     private void firebaseInit(){

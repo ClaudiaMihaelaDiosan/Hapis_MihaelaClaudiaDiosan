@@ -9,9 +9,9 @@
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
         app:cardCornerRadius="@dimen/cardCornerRadius"
         app:cardElevation="@dimen/elevation"
+        android:layout_gravity="center_vertical"
         android:layout_margin="@dimen/margins">
 
         <LinearLayout
@@ -32,7 +32,6 @@
                 android:layout_marginTop="@dimen/top_margin"
                 android:layout_marginBottom="@dimen/bottom_margin"/>
 
-
             <ImageView
                 android:layout_width="@dimen/contact_image"
                 android:layout_height="@dimen/contact_image"
@@ -46,33 +45,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/contact_subject_hint"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                >
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/contact_subject_hint"
                     android:layout_width="match_parent"
+                    android:inputType="textEmailSubject"
+                    android:textSize="@dimen/body"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/contact_text_hint"
-
-                android:inputType="textMultiLine"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                >
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/form_contact_message_hint"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/contact_edit_text_box"
-                    android:gravity="top"
-                    />
-
-
+                    android:textSize="@dimen/body"
+                    android:inputType="textMultiLine"
+                    android:gravity="top" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
@@ -81,13 +76,15 @@
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"
                 android:text="@string/contact_send_button"
-                android:textColor="@color/white"
+                android:textColor="@color/colorPrimary"
                 android:padding="@dimen/padding"
                 android:textSize="@dimen/body"
-                android:backgroundTint="@color/colorPrimary"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:strokeColor="@color/colorPrimary"
+                app:icon="@drawable/send_notification_drawable"
+                app:iconTint="@color/colorPrimary"
                 android:layout_marginTop="@dimen/top_margin"
-                android:layout_marginBottom="@dimen/bottom_margin"
-                />
+                android:layout_marginBottom="@dimen/bottom_margin" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

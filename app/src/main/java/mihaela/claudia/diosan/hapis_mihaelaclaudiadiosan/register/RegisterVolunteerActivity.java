@@ -93,13 +93,6 @@ public class RegisterVolunteerActivity extends MainActivity implements View.OnCl
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-    }
-
 
 
     @Override
@@ -156,8 +149,6 @@ public class RegisterVolunteerActivity extends MainActivity implements View.OnCl
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             showPopUp();
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = mAuth.getCurrentUser();
                         } else {
                             if (task.getException() instanceof FirebaseAuthUserCollisionException){
                                 showErrorToast(getString(R.string.user_exists));
@@ -236,7 +227,7 @@ public class RegisterVolunteerActivity extends MainActivity implements View.OnCl
     }
 
     private boolean isUsernameValid(CharSequence username){
-        if (username.length() > 3) {
+        if (username.length() > 3 && username.length() <= 25) {
             return true;
         }
         return false;

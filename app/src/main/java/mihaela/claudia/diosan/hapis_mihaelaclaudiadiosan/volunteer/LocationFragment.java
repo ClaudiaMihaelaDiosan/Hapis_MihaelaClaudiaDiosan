@@ -28,11 +28,9 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
-import com.google.android.libraries.places.api.net.PlacesClient;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
 import com.google.android.libraries.places.widget.listener.PlaceSelectionListener;
 import com.google.android.material.button.MaterialButton;
@@ -53,37 +51,38 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.maps.OnMapAndViewReadyL
 
 import static android.content.Context.MODE_PRIVATE;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class LocationFragment extends Fragment  implements  OnMapAndViewReadyListener.OnGlobalLayoutAndMapReadyListener, OnMapReadyCallback, View.OnClickListener{
 
-
+    /*View*/
     private View view;
-    private List<Place.Field> placeFields = Arrays.asList(Place.Field.ID,Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
-    private TextView selectedLocationTV;
-    private TextView textLocation;
 
+    /*Map and Autocomplete Place*/
+    private List<Place.Field> placeFields = Arrays.asList(Place.Field.ID,Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
     private GoogleMap mGoogleMap;
     private Double latitude;
     private Double longitude;
 
+    /*TextViews*/
+    private TextView selectedLocationTV;
+    private TextView textLocation;
+
+    /*Buttons*/
     private MaterialButton cancelBtn;
     private MaterialButton saveBtn;
 
+    /*Firebase*/
     private FirebaseFirestore mFirestore;
     private StorageReference storageReference;
     private FirebaseUser user;
-
     private Map<String,String> homeless = new HashMap<>();
 
-    SharedPreferences preferences;
+    /*SharedPreferences*/
+    private SharedPreferences preferences;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_location, container, false);
 
         preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
@@ -108,9 +107,8 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.cancelLocationBtn:
-                deleteExisitingInfo();
-                Intent homeIntent = new Intent(getActivity(),HomeVolunteer.class );
-                startActivity(homeIntent);
+                deleteExistingInfo();
+                startActivity(new Intent(getActivity(),HomeVolunteer.class));
                 break;
             case R.id.saveLocationButton:
                 if (!selectedLocationTV.getText().toString().isEmpty()){
@@ -133,8 +131,7 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
 
     private void initMapAndPlaces(){
         Places.initialize(view.getContext(), getString(R.string.API_KEY));
-        PlacesClient placesClient = Places.createClient(view.getContext());
-        // Get the map and register for the ready callback
+
         SupportMapFragment mMapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mMapFragment.getMapAsync(this);
     }
@@ -169,7 +166,6 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
 
                     uploadDataToFirebase(homelessAddress, homelessLatitude, homelessLongitude);
 
-
                     selectedLocationTV.setText(place.getAddress());
                     // Creating a marker
                     final MarkerOptions markerOptions = new MarkerOptions();
@@ -183,7 +179,6 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
 
                     // Clears the previously touched position
                     mGoogleMap.clear();
-
 
                     mGoogleMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
                         @Override
@@ -217,32 +212,16 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
     public void onMapReady(GoogleMap googleMap) {
         this.mGoogleMap = googleMap;
         mGoogleMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
-
-    }
-
-    public void showErrorToast(String message){
-        Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.RED);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
     }
 
 
-
-    public void uploadDataToFirebase(String homelessAddress, String longitude, String latitude){
+    private void uploadDataToFirebase(String homelessAddress, String longitude, String latitude){
 
         String homelessUsername = preferences.getString("homelessUsername","");
 
         homeless.put("homelessAddress", homelessAddress);
         homeless.put("homelessLongitude", longitude);
         homeless.put("homelessLatitude", latitude);
-
 
             mFirestore.collection("homeless").document(homelessUsername).set(homeless, SetOptions.merge())
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -271,47 +250,22 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
         toast.show();
     }
 
-    private void deleteExisitingInfo(){
+
+    private void deleteExistingInfo(){
         String firstName = preferences.getString("firstName", "");
         String lastName = preferences.getString("lastName", "");
         String username = preferences.getString("homelessUsername", "");
 
-        mFirestore.collection("homeless").document(username)
-                .delete();
+        mFirestore.collection("homeless").document(username).delete();
 
-        storageReference.child("homelessSignatures/" + firstName + " " + lastName)
-                .delete()
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
+        storageReference.child("homelessSignatures/" + firstName + " " + lastName).delete();
 
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-
-            }
-        });
-
-        storageReference.child("homelessProfilePhotos/" + user.getEmail() + "->" + username)
-                .delete()
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-
-            }
-        });
+        storageReference.child("homelessProfilePhotos/" + user.getEmail() + "->" + username).delete();
 
     }
 
     private void goToNeedsFragment(){
         ViewPager viewPager = getActivity().findViewById(R.id.create_homeless_view_pager);
-
 
         int position = viewPager.getCurrentItem();
 
@@ -322,6 +276,19 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
         InputMethodManager inputManager = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
+    }
+
+    public void showErrorToast(String message){
+        Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
+        View view =toast.getView();
+        view.setBackgroundColor(Color.WHITE);
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        toastMessage.setTextColor(Color.RED);
+        toastMessage.setGravity(Gravity.CENTER);
+        toastMessage.setTextSize(15);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
+        toastMessage.setPadding(10,10,10,10);
+        toast.show();
     }
 
 

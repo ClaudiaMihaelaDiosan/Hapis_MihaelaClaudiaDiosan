@@ -33,27 +33,22 @@ import java.util.Collection;
 import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless.Homeless;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class ListMapFragment extends Fragment  {
 
-    View view;
+    private View view;
 
     private RecyclerView mRecyclerView;
 
     private FirebaseFirestore mFirestore;
 
     private SearchView searchView;
-    private Homeless homeless;
 
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_list_map, container, false);
 
         searchView = view.findViewById(R.id.list_map_search);
@@ -147,10 +142,6 @@ public class ListMapFragment extends Fragment  {
                     .inflate(R.layout.fragment_list_map_row, parent, false));
         }
 
-        /**
-         * This function is called when the user scrolls through the screen and a new item needs
-         * to be shown. So we will need to bind the holder with the details of the next item.
-         */
 
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
@@ -265,9 +256,6 @@ public class ListMapFragment extends Fragment  {
     }
 
 
-
-
-
     private RecyclerView.RecyclerListener mRecycleListener = new RecyclerView.RecyclerListener() {
 
         @Override
@@ -284,10 +272,6 @@ public class ListMapFragment extends Fragment  {
     };
 
 
-    /**
-     * Location represented by a position ({@link com.google.android.gms.maps.model.LatLng} and a
-     * name ({@link java.lang.String}).
-     */
     private static class NamedLocation {
 
         public final String name;

@@ -47,19 +47,23 @@ public class DeliveryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         view = inflater.inflate(R.layout.fragment_delivery, container, false);
 
-        mFirestore = FirebaseFirestore.getInstance();
-        collectionReference = mFirestore.collection("donors");
-
+        initFirebase();
         setUpRecyclerView();
 
         return view;
     }
 
+    private void initFirebase(){
+        mFirestore = FirebaseFirestore.getInstance();
+        collectionReference = mFirestore.collection("throughVolunteerDonations");
+    }
+
+
     private void setUpRecyclerView() {
-        Query query = collectionReference.whereEqualTo("throughVolunteer", "yes").orderBy("donorUsername", Query.Direction.DESCENDING);
+        Query query = collectionReference.whereEqualTo("delivered", false);
 
         FirestoreRecyclerOptions<Delivery> options = new FirestoreRecyclerOptions.Builder<Delivery>()
                 .setQuery(query, Delivery.class)
@@ -80,13 +84,17 @@ public class DeliveryFragment extends Fragment {
                     new MaterialAlertDialogBuilder(getContext())
                             .setTitle(getString(R.string.delivery_done))
                             .setMessage(getString(R.string.delivery_message))
+                            .setIcon(R.drawable.ic_check_circle_black_24dp)
                             .setPositiveButton(getString(R.string.confirm_button_delivery), new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     String donorEmail = documentSnapshot.getString("donorEmail");
-                                    DocumentReference documentReference = mFirestore.collection("donors").document(donorEmail);
+                                    String donatesTo = documentSnapshot.getString("donatesTo");
+                                    String donationType = documentSnapshot.getString("donationType");
 
-                                    documentReference.update("throughVolunteer", "no");
+                                    DocumentReference documentReference = mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + donatesTo + ":" + donationType);
+
+                                    documentReference.update("delivered", true);
                                     showToast(getString(R.string.toast_delivery));
 
                                     Intent homeIntent = new Intent(getActivity(),HomeVolunteer.class );
@@ -99,24 +107,8 @@ public class DeliveryFragment extends Fragment {
                         }
                     }).show();
                 }
-
-
-
             }
         });
-    }
-
-    public void showToast(String message){
-        Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.GREEN);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check_circle_black_24dp, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
     }
 
     @Override
@@ -131,5 +123,17 @@ public class DeliveryFragment extends Fragment {
         deliveryAdapter.stopListening();
     }
 
+    public void showToast(String message){
+        Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
+        View view =toast.getView();
+        view.setBackgroundColor(Color.WHITE);
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        toastMessage.setTextColor(Color.GREEN);
+        toastMessage.setGravity(Gravity.CENTER);
+        toastMessage.setTextSize(15);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check_circle_black_24dp, 0,0,0);
+        toastMessage.setPadding(10,10,10,10);
+        toast.show();
+    }
 
 }

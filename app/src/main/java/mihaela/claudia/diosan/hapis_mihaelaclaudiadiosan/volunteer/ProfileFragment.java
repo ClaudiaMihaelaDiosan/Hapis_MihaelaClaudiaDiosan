@@ -61,39 +61,41 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
 
+    /*Storage Permissions*/
     private static  final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-
     private Integer SELECT_FILE = 0;
 
-
+    /*ImageView*/
     private ImageView homelessProfileImage;
+    private Uri selectedImagePath;
+
+    /*Buttons*/
     private MaterialButton addProfilePhotoBtn;
+    private MaterialButton cancelBtn;
+    private MaterialButton saveBtn;
+
+    private DatePickerDialog.OnDateSetListener setListener;
+
+    /*Views*/
     private View view;
 
+    /*EditTexts*/
     private TextInputEditText homelessUsername;
     private TextInputEditText homelessPhoneNumber;
     private TextInputEditText homelessBirthday;
     private TextInputEditText homelessLifeHistory;
-
-    private MaterialButton cancelBtn;
-    private MaterialButton saveBtn;
-
-
-
-    private DatePickerDialog.OnDateSetListener setListener;
-
-    private Uri selectedImagePath;
 
 
     /*Firebase*/
     private StorageReference storageReference;
     private FirebaseUser user;
     private FirebaseFirestore mFirestore;
-
     private Map<String,String> homeless = new HashMap<>();
 
+    /*SharedPreferences*/
     private SharedPreferences preferences;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -101,12 +103,10 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_profile, container, false);
 
-
         preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
 
         initViews();
         firebaseInit();
-
 
       return view;
     }
@@ -137,17 +137,13 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.cancelProfileButton:
                 deleteExistingInfo();
-                Intent homeIntent = new Intent(getActivity(),HomeVolunteer.class );
-                startActivity(homeIntent);
+                startActivity(new Intent(getActivity(),HomeVolunteer.class));
                 break;
             case R.id.saveProfileButton:
              if (isValidForm()){
                 checkUserExistsAndUploadData();
-                 successfullyUploadedInfoToast();
              }
              break;
-
-
         }
     }
 
@@ -175,7 +171,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
 
     private void uploadPhotoToFirebase(final Uri selectedImagePath){
-
         if (selectedImagePath != null){
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setTitle(getString(R.string.uploading_photo));
@@ -192,14 +187,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                                 public void onSuccess(Uri uri) {
                                     homeless.put("image", uri.toString());
 
-                                    mFirestore.collection("homeless").document(homelessUsername.getText().toString()).set(homeless, SetOptions.merge())
-                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void aVoid) {
-                                                    //  Toast.makeText(RegisterDonorActivity.this, "Donor data recorded", Toast.LENGTH_SHORT).show();
-                                                    //  successfullyUploadedInfoToast();
-                                                }
-                                            });
+                                    mFirestore.collection("homeless").document(homelessUsername.getText().toString()).set(homeless, SetOptions.merge());
 
                                 }
                             });
@@ -225,20 +213,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     }
 
 
-    private void successfullyUploadedInfoToast(){
-        Toast toast = Toast.makeText(getActivity(), getString(R.string.correct_saved_info), Toast.LENGTH_LONG);
-        View view =toast.getView();
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        view.setBackgroundColor(Color.TRANSPARENT);
-        toastMessage.setTextColor(Color.GREEN);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check_circle_black_24dp, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
 
-
-
-    public void uploadDataToFirebase(){
+    private void uploadDataToFirebase(){
 
         String homelessUsernameValue = homelessUsername.getText().toString();
         String homelessPhoneNumberValue = homelessPhoneNumber.getText().toString();
@@ -252,21 +228,12 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         homeless.put("volunteerEmail", user.getEmail());
 
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("homelessUsername", homelessUsernameValue);
-        editor.apply();
-
+        editor.putString("homelessUsername", homelessUsernameValue).apply();
 
         if (homelessUsernameValue.isEmpty()){
             homelessUsername.setError(getString(R.string.empty_field_error));
         }else{
             mFirestore.collection("homeless").document(homelessUsername.getText().toString()).set(homeless)
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            //  Toast.makeText(RegisterDonorActivity.this, "Donor data recorded", Toast.LENGTH_SHORT).show();
-                          //  successfullyUploadedInfoToast();
-                        }
-                    })
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
@@ -301,72 +268,13 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private void deleteExistingInfo(){
         String firstName = preferences.getString("firstName", "");
         String lastName = preferences.getString("lastName", "");
-            storageReference.child("homelessSignatures/" + firstName + " " + lastName)
-                    .delete()
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
 
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
+        storageReference.child("homelessSignatures/" + firstName + " " + lastName).delete();
 
-                }
-            });
-    }
-
-
-    public void showErrorToast(String message){
-        Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.RED);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
     }
 
 
 
-    private boolean isValidForm(){
-        if (!isValidPhoneNumber(homelessPhoneNumber.getText().toString())){
-            homelessPhoneNumber.setError(getString(R.string.phone_error_text));
-        }else if (!isUsernameValid(homelessUsername.getText().toString())){
-            homelessUsername.setError(getString(R.string.username_error_text));
-        }else if (!isLifeHistoryValid(homelessLifeHistory.getText().toString())){
-            homelessLifeHistory.setError(getString(R.string.life_hitory_error));
-        }
-        return isUsernameValid(homelessUsername.getText().toString()) && isValidPhoneNumber(homelessPhoneNumber.getText().toString()) && isLifeHistoryValid(homelessLifeHistory.getText().toString());
-    }
-
-
-    public  boolean isValidPhoneNumber(CharSequence target) {
-        if (target.length() == 0){
-            return true;
-        }else if (target.length() < 6 || target.length() > 13) {
-            return false;
-        } else {
-            return android.util.Patterns.PHONE.matcher(target).matches();
-        }
-    }
-
-    private boolean isUsernameValid(CharSequence username){
-        if (username.length() > 3) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean isLifeHistoryValid(CharSequence lifeHistory){
-        if (lifeHistory.length() > 19 && lifeHistory.length()<=400) {
-            return true;
-        }
-        return false;
-    }
 
     private void selectDate(){
         Calendar calendar = Calendar.getInstance();
@@ -428,21 +336,79 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     }
 
 
-
-
     private void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        int camera = ActivityCompat.checkSelfPermission(activity, Manifest.permission.CAMERA);
 
         if (permission != PackageManager.PERMISSION_GRANTED) {
-            // We don't have permission so prompt the user
             ActivityCompat.requestPermissions(
                     activity,
                     PERMISSIONS_STORAGE,
                     REQUEST_EXTERNAL_STORAGE
             );
         }
+    }
+
+    public void showErrorToast(String message){
+        Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
+        View view =toast.getView();
+        view.setBackgroundColor(Color.WHITE);
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        toastMessage.setTextColor(Color.RED);
+        toastMessage.setGravity(Gravity.CENTER);
+        toastMessage.setTextSize(15);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
+        toastMessage.setPadding(10,10,10,10);
+        toast.show();
+    }
+
+    private void successfullyUploadedInfoToast(){
+        Toast toast = Toast.makeText(getActivity(), getString(R.string.correct_saved_info), Toast.LENGTH_LONG);
+        View view =toast.getView();
+        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
+        view.setBackgroundColor(Color.TRANSPARENT);
+        toastMessage.setTextColor(Color.GREEN);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check_circle_black_24dp, 0,0,0);
+        toastMessage.setPadding(10,10,10,10);
+        toast.show();
+    }
+
+
+
+    private boolean isValidForm(){
+        if (!isValidPhoneNumber(homelessPhoneNumber.getText().toString())){
+            homelessPhoneNumber.setError(getString(R.string.phone_error_text));
+        }else if (!isUsernameValid(homelessUsername.getText().toString())){
+            homelessUsername.setError(getString(R.string.username_error_text));
+        }else if (!isLifeHistoryValid(homelessLifeHistory.getText().toString())){
+            homelessLifeHistory.setError(getString(R.string.life_hitory_error));
+        }
+        return isUsernameValid(homelessUsername.getText().toString()) && isValidPhoneNumber(homelessPhoneNumber.getText().toString()) && isLifeHistoryValid(homelessLifeHistory.getText().toString());
+    }
+
+
+    public  boolean isValidPhoneNumber(CharSequence target) {
+        if (target.length() == 0){
+            return true;
+        }else if (target.length() < 6 || target.length() > 13) {
+            return false;
+        } else {
+            return android.util.Patterns.PHONE.matcher(target).matches();
+        }
+    }
+
+    private boolean isUsernameValid(CharSequence username){
+        if (username.length() > 3) {
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isLifeHistoryValid(CharSequence lifeHistory){
+        if (lifeHistory.length() > 19 && lifeHistory.length()<=400) {
+            return true;
+        }
+        return false;
     }
 
 }

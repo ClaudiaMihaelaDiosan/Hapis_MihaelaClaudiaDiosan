@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".volunteer.PaymentActivity"
     android:orientation="vertical"
     android:background="@drawable/gradient_background">
@@ -12,8 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
-
-
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
@@ -27,6 +25,7 @@
                 android:layout_marginStart="@dimen/start_margin"
                 android:layout_marginEnd="@dimen/end_margin"
                 android:orientation="vertical">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -37,7 +36,8 @@
                         android:layout_height="@dimen/payment_icons"
                         android:layout_marginTop="@dimen/top_margin"
                         android:layout_marginStart="@dimen/start_margin"
-                        android:src="@drawable/donate_icon"/>
+                        android:src="@drawable/donate_icon"
+                        android:contentDescription="@string/content_description"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -47,7 +47,6 @@
                         android:layout_marginStart="@dimen/start_margin"
                         android:textColor="@color/black"
                         android:textSize="@dimen/body"/>
-
                 </LinearLayout>
 
                 <me.abhinay.input.CurrencyEditText
@@ -65,11 +64,12 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:layout_marginTop="@dimen/top_margin"
                         android:layout_marginStart="@dimen/start_margin"
-                        android:src="@drawable/credit_card_icon"/>
+                        android:src="@drawable/credit_card_icon"
+                        android:contentDescription="@string/content_description"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -89,17 +89,18 @@
                     android:layout_height="wrap_content"/>
 
 
-
-
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/button_pay"
                     android:layout_marginStart="@dimen/start_margin"
-                    android:textSize="@dimen/body"
-                    android:drawableLeft="@drawable/donate_left_drawable"
+                    app:icon="@drawable/donate_left_drawable"
+                    app:iconTint="@color/green"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    app:strokeColor="@color/green"
+                    android:textStyle="bold"
+                    android:textColor="@color/green"
                     android:layout_width="wrap_content"
                     android:layout_gravity="center"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/colorPrimary"
                     android:text="@string/payment_donate_button"/>
 
             </LinearLayout>

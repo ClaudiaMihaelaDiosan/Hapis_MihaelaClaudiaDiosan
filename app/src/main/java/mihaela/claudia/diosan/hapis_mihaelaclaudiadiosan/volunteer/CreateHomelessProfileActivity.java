@@ -1,32 +1,16 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -34,7 +18,6 @@ import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.intro.IntroViewPagerAdapter;
 
 public class CreateHomelessProfileActivity extends MainActivity {
 
@@ -45,7 +28,7 @@ public class CreateHomelessProfileActivity extends MainActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_create_homeless_perfile);
+        setContentView(R.layout.activity_create_homeless_profile);
 
         setUpViewPager();
 
@@ -71,20 +54,13 @@ public class CreateHomelessProfileActivity extends MainActivity {
         /*Disable viewpager swipe*/
         viewPager.beginFakeDrag();
         tabLayout.clearOnTabSelectedListeners();
-
-
-        TermsFragment termsFragment = new TermsFragment();
-        ProfileFragment profileFragment = new ProfileFragment();
-        NeedsFragment needsFragment = new NeedsFragment();
-        LocationFragment locationFragment = new LocationFragment();
-
         tabLayout.setupWithViewPager(viewPager);
 
         final ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(),0);
-        viewPagerAdapter.addFragment(termsFragment);
-        viewPagerAdapter.addFragment(profileFragment);
-        viewPagerAdapter.addFragment(locationFragment);
-        viewPagerAdapter.addFragment(needsFragment);
+        viewPagerAdapter.addFragment(new TermsFragment());
+        viewPagerAdapter.addFragment(new ProfileFragment());
+        viewPagerAdapter.addFragment(new LocationFragment());
+        viewPagerAdapter.addFragment(new NeedsFragment());
         viewPager.setAdapter(viewPagerAdapter);
 
         tabLayout.getTabAt(0).setIcon(R.drawable.create_homeless_terms);
@@ -100,11 +76,11 @@ public class CreateHomelessProfileActivity extends MainActivity {
         private List<Fragment> fragments = new ArrayList<>();
 
 
-        public ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
+        ViewPagerAdapter(@NonNull FragmentManager fm, int behavior) {
             super(fm, behavior);
         }
 
-        public void addFragment(Fragment fragment){
+        void addFragment(Fragment fragment){
             fragments.add(fragment);
         }
 
@@ -120,8 +96,6 @@ public class CreateHomelessProfileActivity extends MainActivity {
         }
 
     }
-
-
 
 
     @Override

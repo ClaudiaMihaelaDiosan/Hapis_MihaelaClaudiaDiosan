@@ -3,6 +3,7 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -31,6 +32,7 @@ import com.google.android.libraries.places.widget.listener.PlaceSelectionListene
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
@@ -44,43 +46,49 @@ import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+import static android.content.Context.MODE_PRIVATE;
+
+
 public class ThroughVolunteerFragment extends Fragment implements View.OnClickListener {
 
 
+    /*Views*/
     private View view;
-    private PlacesClient placesClient;
+
+    /*Autocomplete places*/
     private List<Place.Field> placeFields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
-    private AutocompleteSupportFragment autocompleteSupportFragment;
 
-
+    /*TextViews*/
     private TextView selectedDateDonor;
     private TextView selectedTimeDonor;
     private TextView locationDonor;
 
+    /*Buttons*/
     private MaterialButton datePickerBtn;
     private MaterialButton timePickerBtn;
     private MaterialButton confirmBtn;
+
+    private DatePickerDialog.OnDateSetListener setListener;
 
     /*Firebase*/
     private StorageReference storageReference;
     private FirebaseUser user;
     private FirebaseFirestore mFirestore;
 
-    private Map<String,String> donor = new HashMap<>();
+    private Map<String,String> throughVolunteerDonations = new HashMap<>();
+    private Map<String,Boolean> delivered = new HashMap<>();
+
+    /*SharedPreferences*/
+    private SharedPreferences preferences;
 
 
-
-
-    private DatePickerDialog.OnDateSetListener setListener;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_through_volunteer, container, false);
+
+        preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
 
         initViews(view);
         firebaseInit();
@@ -88,6 +96,12 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
         initPlaces();
         setupPlaceAutoComplete();
         setTextDateListener();
+
+        if (savedInstanceState != null){
+            locationDonor.setText(savedInstanceState.getString("location"));
+            selectedDateDonor.setText(savedInstanceState.getString("date"));
+            selectedTimeDonor.setText(savedInstanceState.getString("time"));
+        }
 
         return view;
     }
@@ -142,23 +156,37 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
 
     private void uploadDataToFirebase(){
 
-        donor.put("donationLocation", locationDonor.getText().toString());
-        donor.put("donationHour", selectedTimeDonor.getText().toString());
-        donor.put("donationDate", selectedDateDonor.getText().toString());
-        donor.put("throughVolunteer", "yes");
+        String donorEmail = user.getEmail();
+        String homelessUsername = preferences.getString("homelessUsername", "");
+        String donationType = preferences.getString("donationType", "");
 
-        mFirestore.collection("donors").document(user.getEmail()).set(donor, SetOptions.merge())
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        //  successfullyUploadedInfoToast();
-                    }
-                }) .addOnFailureListener(new OnFailureListener() {
+        addDonorData(donorEmail, homelessUsername, donationType);
+
+        throughVolunteerDonations.put("donationLocation", locationDonor.getText().toString());
+        throughVolunteerDonations.put("donationHour", selectedTimeDonor.getText().toString());
+        throughVolunteerDonations.put("donationDate", selectedDateDonor.getText().toString());
+        throughVolunteerDonations.put("donorEmail", donorEmail);
+        delivered.put("delivered", false);
+
+        mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + homelessUsername + ":" + donationType).set(throughVolunteerDonations, SetOptions.merge());
+        mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + homelessUsername + ":" + donationType).set(delivered, SetOptions.merge());
+    }
+
+    private void addDonorData(final String donorEmail, final String homelessUsername,final String donationType){
+        mFirestore.collection("donors").document(user.getEmail()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
-            public void onFailure(@NonNull Exception e) {
-                String error = e.getMessage();
-                Toast.makeText(getContext(), error, Toast.LENGTH_SHORT).show();
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+                    DocumentSnapshot documentSnapshot = task.getResult();
+                    if (documentSnapshot != null){
+                        String donorUsername = documentSnapshot.getString("donorUsername");
+                        String donorPhone = documentSnapshot.getString("donorPhone");
+                        throughVolunteerDonations.put("donorUsername",donorUsername);
+                        throughVolunteerDonations.put("donorPhone", donorPhone);
+                        mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + homelessUsername + ":" + donationType).set(throughVolunteerDonations, SetOptions.merge());
 
+                    }
+                }
             }
         });
     }
@@ -205,11 +233,11 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
 
     private void initPlaces() {
         Places.initialize(view.getContext(), getString(R.string.API_KEY));
-        placesClient = Places.createClient(view.getContext());
+
     }
 
     private void setupPlaceAutoComplete(){
-        autocompleteSupportFragment = (AutocompleteSupportFragment) getChildFragmentManager().findFragmentById(R.id.autocomplete_fragment_donor);
+        AutocompleteSupportFragment autocompleteSupportFragment = (AutocompleteSupportFragment) getChildFragmentManager().findFragmentById(R.id.autocomplete_fragment_donor);
         assert autocompleteSupportFragment != null;
         autocompleteSupportFragment.setPlaceFields(placeFields);
         autocompleteSupportFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
@@ -220,7 +248,6 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
 
                     locationDonor.setText(place.getAddress());
                 }
-
             }
 
             @Override
@@ -237,7 +264,7 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
         final int day = calendar.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(view.getContext(), setListener, year, month, day);
-      //  Objects.requireNonNull(datePickerDialog.getWindow()).setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
         datePickerDialog.show();
 
     }
@@ -269,5 +296,14 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
         timePickerDialog.show();
     }
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+
+        outState.putString("location", locationDonor.getText().toString());
+        outState.putString("date", selectedDateDonor.getText().toString());
+        outState.putString("time", selectedTimeDonor.getText().toString());
+
+        super.onSaveInstanceState(outState);
+    }
 
 }

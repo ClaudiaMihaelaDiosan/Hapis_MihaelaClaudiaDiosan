@@ -30,9 +30,6 @@ import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class DeliveryFragment extends Fragment {
 
     private FirebaseFirestore mFirestore;

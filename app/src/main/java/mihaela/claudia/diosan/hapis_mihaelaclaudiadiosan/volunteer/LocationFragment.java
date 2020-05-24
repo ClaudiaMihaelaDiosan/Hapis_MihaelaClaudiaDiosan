@@ -156,15 +156,23 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
 
                 if (place.getLatLng() != null) {
                     textLocation.setVisibility(View.VISIBLE);
-                    latitude = aroundUp(place.getLatLng().latitude,5);
-                    longitude = aroundUp(place.getLatLng().longitude,5) ;
+                    double latitude = aroundUp(place.getLatLng().latitude,5);
+                    double longitude = aroundUp(place.getLatLng().longitude,5) ;
                     String name = place.getName();
 
+                    String homelessUsername = preferences.getString("homelessUsername","");
                     String homelessAddress = place.getAddress();
-                    String homelessLatitude = latitude.toString();
-                    String homelessLongitude = longitude.toString();
+                    String homelessLatitude = Double.toString(latitude);
+                    String homelessLongitude = Double.toString(longitude);
 
-                    uploadDataToFirebase(homelessAddress, homelessLatitude, homelessLongitude);
+
+                    homeless.put("homelessAddress", homelessAddress);
+                    homeless.put("homelessLongitude", homelessLongitude);
+                    homeless.put("homelessLatitude", homelessLatitude);
+
+                    mFirestore.collection("homeless").document(homelessUsername).set(homeless, SetOptions.merge());
+
+                  /*  uploadDataToFirebase(homelessAddress, homelessLongitude, homelessLatitude);*/
 
                     selectedLocationTV.setText(place.getAddress());
                     // Creating a marker
@@ -215,29 +223,10 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
     }
 
 
-    private void uploadDataToFirebase(String homelessAddress, String longitude, String latitude){
+/*    private void uploadDataToFirebase(String homelessAddress, String longitude, String latitude){
 
-        String homelessUsername = preferences.getString("homelessUsername","");
 
-        homeless.put("homelessAddress", homelessAddress);
-        homeless.put("homelessLongitude", longitude);
-        homeless.put("homelessLatitude", latitude);
-
-            mFirestore.collection("homeless").document(homelessUsername).set(homeless, SetOptions.merge())
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            //  successfullyUploadedInfoToast();
-                        }
-                    }) .addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    String error = e.getMessage();
-                    showErrorToast("Error " + error);
-
-                }
-            });
-    }
+    }*/
 
     private void successfullyUploadedInfoToast(){
         Toast toast = Toast.makeText(getActivity(), getString(R.string.correct_saved_info), Toast.LENGTH_LONG);

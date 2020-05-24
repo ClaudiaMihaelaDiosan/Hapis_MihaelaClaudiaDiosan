@@ -58,9 +58,7 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
 import static android.content.Context.MODE_PRIVATE;
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class EditHomelessFragment extends Fragment implements View.OnClickListener {
 
     /*Storage Permission*/

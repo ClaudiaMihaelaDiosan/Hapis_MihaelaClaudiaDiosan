@@ -55,6 +55,7 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
 
     /*Firebase*/
     private FirebaseFirestore mFirestore;
+    private FirebaseUser user;
 
     /*Shared Preferences*/
     private SharedPreferences preferences;
@@ -111,6 +112,7 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
 
     private void firebaseInit(){
         mFirestore = FirebaseFirestore.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
     }
 
     private void setUpRecyclerView(){
@@ -121,7 +123,7 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
 
         final List<Homeless> homelesses = new ArrayList<>();
 
-        mFirestore.collection("homeless")
+        mFirestore.collection("homeless").whereEqualTo("volunteerEmail",user.getEmail())
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -137,7 +139,6 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
                                 final String schedule = document.getString("homelessSchedule");
                                 final String address = document.getString("homelessAddress");
                                 String need = document.getString("homelessNeed");
-
 
                                 final Homeless homeless = new Homeless(image, username, phone, birthday, lifeHistory, address, schedule, need);
                                 homelesses.add(homeless);

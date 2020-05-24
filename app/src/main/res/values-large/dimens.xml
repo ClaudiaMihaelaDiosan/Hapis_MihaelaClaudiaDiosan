@@ -22,7 +22,7 @@
     <!--    Images -->
     <dimen name="check_size">60dp</dimen>
     <dimen name="payment_icons">100dp</dimen>
-    <dimen name="statistics_image">180dp</dimen>
+    <dimen name="statistics_image">160dp</dimen>
     <dimen name="statistics_image_land">140dp</dimen>
     <dimen name="contact_image">300dp</dimen>
     <dimen name="contact_image_land">300dp</dimen>

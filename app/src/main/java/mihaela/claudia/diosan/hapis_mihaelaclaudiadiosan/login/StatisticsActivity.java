@@ -30,6 +30,8 @@ public class StatisticsActivity extends MainActivity implements View.OnClickList
     TextView workStatisticsTV;
     TextView lodgingStatisticsTV;
     TextView hygieneProductsStatisticsTV;
+    TextView personallyStatistics;
+    TextView throughVolunteerStatistics;
 
     /*Firebase*/
     FirebaseFirestore mFirestore;
@@ -67,6 +69,8 @@ public class StatisticsActivity extends MainActivity implements View.OnClickList
         workStatisticsTV = findViewById(R.id.work_statistics);
         lodgingStatisticsTV = findViewById(R.id.lodgind_statistics);
         hygieneProductsStatisticsTV = findViewById(R.id.hygiene_products_statistics);
+        personallyStatistics = findViewById(R.id.personally_statistics);
+        throughVolunteerStatistics = findViewById(R.id.statistics_through_volunteer);
     }
 
     private void getAllData(){
@@ -78,6 +82,8 @@ public class StatisticsActivity extends MainActivity implements View.OnClickList
         getWork();
         getLodging();
         getHygiene();
+        getPersonallyNumber();
+        getThroughVolunteerNumber();
     }
 
     private void getHomelessNumber(){
@@ -189,6 +195,34 @@ public class StatisticsActivity extends MainActivity implements View.OnClickList
                     }
                 });
     }
+
+    private void getPersonallyNumber(){
+        mFirestore.collection("personallyDonations")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()){
+                            personallyStatistics.setText(String.valueOf(task.getResult().size()));
+                        }
+                    }
+                });
+    }
+
+    private void getThroughVolunteerNumber(){
+        mFirestore.collection("throughVolunteerDonations")
+                .get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if (task.isSuccessful()){
+                            throughVolunteerStatistics.setText(String.valueOf(task.getResult().size()));
+                        }
+                    }
+                });
+    }
+
+
 
 
     @Override

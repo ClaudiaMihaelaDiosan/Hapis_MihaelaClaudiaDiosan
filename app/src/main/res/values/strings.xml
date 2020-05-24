@@ -62,6 +62,9 @@
     <string name="statistics_name">Estadísticas Hapis</string>
     <string name="statistics_title">ESTADÍSTICAS</string>
     <string name="donations_title">NECESIDADES</string>
+    <string name="help_title">AYUDAS OFRECIDAS</string>
+    <string name="statistics_personally">Personalmente:</string>
+    <string name="statistics_through_volunteer">A través de un voluntario:</string>
     <string name="statistics_homeless_text">Total personas que necesitan ayuda:</string>
     <string name="statistics_donor_text">Total Donantes:</string>
     <string name="statistics_volunteers_text">Total Voluntarios:</string>

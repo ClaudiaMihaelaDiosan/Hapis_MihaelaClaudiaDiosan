@@ -18,6 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margins"
             android:orientation="vertical">
 
             <TextView
@@ -34,7 +35,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:gravity="center"
-                android:layout_margin="@dimen/margins"
                 android:orientation="horizontal"
                 android:baselineAligned="false">
 
@@ -42,7 +42,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:layout_marginEnd="@dimen/end_margin"
                     android:layout_weight="1">
 
                     <ImageView
@@ -76,8 +75,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:layout_marginStart="@dimen/start_margin"
-                    android:layout_marginEnd="@dimen/end_margin"
                     android:layout_weight="1">
 
                     <TextView
@@ -281,6 +278,73 @@
 
                     </LinearLayout>
 
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/amber"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/title"
+                        android:text="@string/help_title" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/top_margin"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/grey"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/body"
+                            android:text="@string/statistics_personally" />
+
+                        <TextView
+                            android:id="@+id/personally_statistics"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_marginStart="@dimen/start_margin"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/body" />
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/grey"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/body"
+                            android:text="@string/statistics_through_volunteer" />
+
+                        <TextView
+                            android:id="@+id/statistics_through_volunteer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/body"
+                            android:layout_marginStart="@dimen/start_margin" />
+
+                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>

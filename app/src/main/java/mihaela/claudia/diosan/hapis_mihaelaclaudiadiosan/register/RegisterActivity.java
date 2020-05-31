@@ -78,8 +78,8 @@ public class RegisterActivity extends MainActivity implements View.OnClickListen
 
     private void knowMorePopUp(String title, String message){
             new MaterialAlertDialogBuilder(this)
-                    .setTitle(getString(R.string.volunteer_know_more_title))
-                    .setMessage(getString(R.string.volunteer_know_more_text))
+                    .setTitle(title)
+                    .setMessage(message)
                     .setPositiveButton(getString(R.string.register_pop_up_button), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {

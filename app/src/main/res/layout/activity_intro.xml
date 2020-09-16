@@ -23,7 +23,6 @@
             android:layout_marginBottom="100dp">
         </androidx.viewpager.widget.ViewPager>
 
-
         <Button
             android:id="@+id/btn_get_started"
             android:layout_width="wrap_content"
@@ -37,7 +36,6 @@
             android:textSize="@dimen/body"
             android:visibility="invisible"
             />
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -57,7 +55,6 @@
                 android:scrollbarSize="@dimen/body"
                 android:layout_weight="1">
             </com.google.android.material.tabs.TabLayout>
-
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_next"

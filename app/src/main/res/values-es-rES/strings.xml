@@ -13,18 +13,21 @@
     <string name="negative_button_network">ESPERAR</string>
     <string name="open_navigation_drawer">Abrir navigation drawer</string>
     <string name="close_navigation_drawer">Cerrar navigation drawer</string>
-    <string name="content_description">Content description</string>
-    <string name="text">Text</string>
+
+
 
     <!-- ********* Intro Activity********** -->
     <string name="logo_intro_title">HAPIS</string>
     <string name="donor_intro_title">DONANTE</string>
     <string name="volunteer_intro_tile">VOLUNTARIO</string>
-    <string name="logo_intro_description">Esta es una aplicación social a través de la cual puedes donar cosas básicas a una persona que de verdad lo necesita.</string>
-    <string name="donor_intro_description">Puedes registrarte como donante y tendrás la oportunidad de ver los perfiles de las personas sin recursos y ayudarlas.</string>
-    <string name="volunteer_intro_description">Puedes registrarte como voluntario y ayudar a registrar y administrar los perfiles de las personas que necesitan ayuda.</string>
+    <string name="liquid_galaxy_intro_title">SISTEMA LIQUID GALAXY</string>
+    <string name="logo_intro_description">Es una aplicación social a través de la cual puedes donar cosas básicas a una persona que de verdad lo necesita.</string>
+    <string name="donor_intro_description">Si te registras como donante tendrás la oportunidad de ver los perfiles de personas sin recursos y ofrecer tu ayuda.</string>
+    <string name="volunteer_intro_description">Si te registras como voluntario puedes encargarte de registrar y administrar los perfiles de las personas que necesitan ayuda.</string>
+    <string name="liquid_galaxy_description">Si tienes instalado el sistema Liquid Galaxy puedes ver toda la información en unas pantallas panoramicas espectaculares.</string>
     <string name="next_button">Siguiente</string>
     <string name="get_started_button">EMPEZAR</string>
+
 
     <!--******  Forgot password activity  *******-->
     <string name="is_email_valid_error">El Email no es válido o el campo esta vacio</string>
@@ -143,13 +146,15 @@
     <string name="welcome_user">BIENVENID@,</string>
     <string name="user_profile_info">INFORMACIÓN DE PERFIL :</string>
 
-    <!--    Volunteer home fragment-->
+
+
+
+     <!--    Volunteer home fragment-->
     <string name="edit_button_toast">Con este botón el voluntario podrá editar los campos que aparecen para la persona necesitada</string>
     <string name="delete_button_toast">Con este botón se borrará el perfil de la persona necesitada</string>
     <!--Floating Action Menu -->
     <string name="new_homeless_profile">Nuevo perfil persona necesitada</string>
     <string name="send_delivery_notification">Entrega donaciones</string>
-
 
     <!--    Location Fragment -->
     <string name="location_fragment_title">A continuación, busca y selecciona una ubicación donde los donantes podrán encontrar a la persona necesitada </string>

@@ -9,6 +9,8 @@ import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
+
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,13 +23,12 @@ public class IntroActivity extends MainActivity {
 
     /*View Pager*/
     private ViewPager screenPager;
-    IntroViewPagerAdapter introViewPagerAdapter;
-    TabLayout tabIndicator;
+    private TabLayout tabIndicator;
 
     /*Buttons*/
-    Button btnNext;
-    Button btnGetStarted;
-    Animation btnAnim;
+    private MaterialButton btnNext;
+    private MaterialButton btnGetStarted;
+    private Animation btnAnim;
 
     /*Variables*/
     int position = 0;
@@ -78,11 +79,12 @@ public class IntroActivity extends MainActivity {
         mList.add(new ScreenItem(getString(R.string.logo_intro_title), getString(R.string.logo_intro_description), R.drawable.intro_logo ));
         mList.add(new ScreenItem(getString(R.string.donor_intro_title), getString(R.string.donor_intro_description), R.drawable.intro_donor ));
         mList.add(new ScreenItem(getString(R.string.volunteer_intro_tile), getString(R.string.volunteer_intro_description), R.drawable.intro_volunteer ));
+        mList.add(new ScreenItem(getString(R.string.liquid_galaxy_intro_title), getString(R.string.liquid_galaxy_description), R.drawable.intro_liquid_galaxy ));
 
 
-//        //setup viewpager
+        //setup viewpager
         screenPager = findViewById(R.id.screen_viewpager);
-        introViewPagerAdapter = new IntroViewPagerAdapter(this, mList);
+        IntroViewPagerAdapter introViewPagerAdapter = new IntroViewPagerAdapter(this, mList);
         screenPager.setAdapter(introViewPagerAdapter);
 
         //setup TabLayout wih ViewPager
@@ -149,8 +151,6 @@ public class IntroActivity extends MainActivity {
             }
         });
     }
-
-
 
 
     private boolean restorePrefData() {

@@ -22,6 +22,8 @@
     <dimen name="body">15sp</dimen>
 
     <!--    Images -->
+    <dimen name="intro_image">200dp</dimen>
+
     <dimen name="check_size">50dp</dimen>
     <dimen name="payment_icons">50dp</dimen>
     <dimen name="statistics_image">80dp</dimen>
@@ -34,7 +36,6 @@
     <dimen name="through_vol_fragment">100dp</dimen>
     <dimen name="profile_image">100dp</dimen>
     <dimen name="homeless_cv_image">150dp</dimen>
-    <dimen name="intro_image">200dp</dimen>
     <dimen name="intro_image_layout_width_land">260dp</dimen>
     <dimen name="intro_image_layout_height_land">160dp</dimen>
     <dimen name="delivery_notification_width">100dp</dimen>

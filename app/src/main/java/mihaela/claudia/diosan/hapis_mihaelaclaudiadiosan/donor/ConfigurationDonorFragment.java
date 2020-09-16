@@ -110,7 +110,7 @@ public class ConfigurationDonorFragment extends PreferenceFragmentCompat {
         toastMessage.setTextColor(Color.GREEN);
         toastMessage.setGravity(Gravity.CENTER);
         toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check_circle_black_24dp,0,0,0);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_drawable,0,0,0);
         toastMessage.setPadding(10,10,10,10);
         toast.show();
     }

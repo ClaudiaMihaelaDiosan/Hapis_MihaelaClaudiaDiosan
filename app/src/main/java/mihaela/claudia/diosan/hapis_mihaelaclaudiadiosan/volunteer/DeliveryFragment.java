@@ -2,7 +2,6 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -81,7 +80,7 @@ public class DeliveryFragment extends Fragment {
                     new MaterialAlertDialogBuilder(getContext())
                             .setTitle(getString(R.string.delivery_done))
                             .setMessage(getString(R.string.delivery_message))
-                            .setIcon(R.drawable.ic_check_circle_black_24dp)
+                            .setIcon(R.drawable.check_drawable)
                             .setPositiveButton(getString(R.string.confirm_button_delivery), new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -128,7 +127,7 @@ public class DeliveryFragment extends Fragment {
         toastMessage.setTextColor(Color.GREEN);
         toastMessage.setGravity(Gravity.CENTER);
         toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check_circle_black_24dp, 0,0,0);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_drawable, 0,0,0);
         toastMessage.setPadding(10,10,10,10);
         toast.show();
     }

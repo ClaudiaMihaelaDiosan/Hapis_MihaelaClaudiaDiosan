@@ -1,35 +1,23 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.PreferenceManager;
 
 
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class ConfigurationVolunteerFragment extends PreferenceFragmentCompat{
 
@@ -94,7 +82,7 @@ public class ConfigurationVolunteerFragment extends PreferenceFragmentCompat{
         toastMessage.setTextColor(Color.BLUE);
         toastMessage.setGravity(Gravity.CENTER);
         toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check_circle_black_24dp,0,0,0);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_drawable,0,0,0);
         toastMessage.setPadding(10,10,10,10);
         toast.show();
     }

@@ -1,16 +1,27 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
+import java.util.Objects;
+
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.ForgotPasswordActivity;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 
 public class HelpActivity extends AppCompatActivity {
 
@@ -19,11 +30,20 @@ public class HelpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
     }
 
+    public static void makeActivityFullScreen(Window window, ActionBar actionBar) {
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        Objects.requireNonNull(actionBar).hide();
+    }
+
+    /*
+    * Toasts
+    * */
 
     public static void showErrorToast(Context context, String message){
         Toast toast = Toast.makeText(context, message, Toast.LENGTH_LONG);
         View view =toast.getView();
-        view.setBackgroundColor(Color.TRANSPARENT);
+        view.setBackgroundColor(Color.WHITE);
         TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
         toastMessage.setTextColor(Color.RED);
         toastMessage.setGravity(Gravity.CENTER);
@@ -33,4 +53,6 @@ public class HelpActivity extends AppCompatActivity {
         toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
     }
+
+
 }

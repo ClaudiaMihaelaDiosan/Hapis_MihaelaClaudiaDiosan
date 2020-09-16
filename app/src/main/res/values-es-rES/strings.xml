@@ -59,6 +59,8 @@
 
 
 
+
+
     <string name="user_exists">Este usuario ya existe!Escoje otro nombre.</string>
     <string name="username_error_text">Introduce un nombre de usuario válido.El usuario tiene que tener mínimo 4 caràcteres y un máximo de 25.</string>
     <string name="complete_life_toast">Rellena este campo</string>

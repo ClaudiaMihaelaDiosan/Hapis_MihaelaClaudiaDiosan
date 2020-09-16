@@ -1,22 +1,12 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register.RegisterDonorActivity;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
 
 public class ForgotPasswordActivity extends MainActivity implements View.OnClickListener {
 
@@ -60,7 +50,7 @@ public class ForgotPasswordActivity extends MainActivity implements View.OnClick
             if (isEmailValid()){
                 resetPassword(forgotPasswordEmail.getText().toString());
             }else{
-                showErrorToast(getString(R.string.is_email_valid_error));
+                forgotPasswordEmail.setError(getString(R.string.is_email_valid_error));
             }
         }
     }
@@ -79,7 +69,7 @@ public class ForgotPasswordActivity extends MainActivity implements View.OnClick
                         if (task.isSuccessful()) {
                             showPopUp();
                         } else {
-                            showErrorToast(getString(R.string.fp_recover_failed));
+                            HelpActivity.showErrorToast(getApplicationContext(), getString(R.string.fp_recover_failed));
                         }
                     }
                 });
@@ -90,33 +80,20 @@ public class ForgotPasswordActivity extends MainActivity implements View.OnClick
         return android.util.Patterns.EMAIL_ADDRESS.matcher(forgotPasswordEmail.getText().toString()).matches() && !forgotPasswordEmail.getText().toString().isEmpty();
     }
 
-    public void showErrorToast(String message){
-        Toast toast = Toast.makeText(ForgotPasswordActivity.this, message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.RED);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
-
 
     public void showPopUp(){
+
         new MaterialAlertDialogBuilder(this)
                 .setTitle(getString(R.string.pop_up_title))
                 .setMessage(getString(R.string.pop_up_message))
-                .setIcon(R.drawable.ic_check_circle_black_24dp)
+                .setIcon(R.drawable.check_drawable)
+                .setCancelable(false)
                 .setPositiveButton(getString(R.string.pop_up_button), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Intent goLogin = new Intent(ForgotPasswordActivity.this, LoginActivity.class);
-                        startActivity(goLogin);
+                        startActivity(new Intent(ForgotPasswordActivity.this, LoginActivity.class));
                     }
                 })
-
                 .show();
     }
 

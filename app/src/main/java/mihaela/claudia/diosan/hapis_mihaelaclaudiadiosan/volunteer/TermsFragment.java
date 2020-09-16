@@ -241,7 +241,7 @@ public class TermsFragment extends Fragment implements View.OnClickListener {
         TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
         view.setBackgroundColor(Color.TRANSPARENT);
         toastMessage.setTextColor(Color.GREEN);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_check_circle_black_24dp, 0,0,0);
+        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_drawable, 0,0,0);
         toastMessage.setPadding(10,10,10,10);
         toast.show();
     }

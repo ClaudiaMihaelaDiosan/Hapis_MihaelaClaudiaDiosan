@@ -21,7 +21,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.AuxiliaryMethods;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor.HomeDonor;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.MainActivityLG;
@@ -56,7 +55,7 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
         mAuth = FirebaseAuth.getInstance();
         mFirestore = FirebaseFirestore.getInstance();
 
-        AuxiliaryMethods.makeActivityFullScreen(getWindow(), getSupportActionBar());
+        HelpActivity.makeActivityFullScreen(getWindow(), getSupportActionBar());
         initViews();
 
         loginBtn.setOnClickListener(this);

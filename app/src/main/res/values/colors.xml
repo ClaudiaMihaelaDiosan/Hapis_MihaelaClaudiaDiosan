@@ -6,13 +6,13 @@
 
     <color name="grey">#656565</color>
     <color name="white">#ffffff</color>
-
+    <color name="green">#00F10A</color>
 
 
 
     <color name="blue">#0A4CB6</color>
     <color name="light_blue">#e3f2fd</color>
-    <color name="green">#00F10A</color>
+
     <color name="dark_green">#1faa00</color>
     <color name="transparent">#00000000</color>
     <color name="red">#F10000</color>

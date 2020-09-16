@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
@@ -13,9 +12,9 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.tabs.TabLayout;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 
 public class IntroActivity extends MainActivity {
@@ -37,21 +36,13 @@ public class IntroActivity extends MainActivity {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
 
-        makeFullscreenActivity();
+        HelpActivity.makeActivityFullScreen(getWindow(), getSupportActionBar());
         checkFirstTimeOpenedApp();
 
         setContentView(R.layout.activity_intro);
 
         initViews();
         setupViewPager();
-    }
-
-
-    private void makeFullscreenActivity() {
-        //
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        Objects.requireNonNull(getSupportActionBar()).hide();
     }
 
 

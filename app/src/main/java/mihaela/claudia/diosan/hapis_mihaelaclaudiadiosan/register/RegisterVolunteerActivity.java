@@ -3,11 +3,9 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
-import android.util.Patterns;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.CheckBox;
@@ -16,10 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 
-import com.basgeekball.awesomevalidation.AwesomeValidation;
-import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -30,7 +25,6 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -237,7 +231,7 @@ public class RegisterVolunteerActivity extends MainActivity implements View.OnCl
         new MaterialAlertDialogBuilder(this)
                 .setTitle(getString(R.string.register_pop_up_title))
                 .setMessage(getString(R.string.register_pop_up_message))
-                .setIcon(R.drawable.ic_check_circle_black_24dp)
+                .setIcon(R.drawable.check_drawable)
                 .setPositiveButton(getString(R.string.register_pop_up_button), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

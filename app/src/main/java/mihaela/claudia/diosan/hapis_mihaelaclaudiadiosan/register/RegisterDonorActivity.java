@@ -15,8 +15,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
@@ -24,7 +22,6 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -217,7 +214,7 @@ public class RegisterDonorActivity extends MainActivity implements View.OnClickL
         new MaterialAlertDialogBuilder(this)
                 .setTitle(getString(R.string.register_pop_up_title))
                 .setMessage(getString(R.string.register_pop_up_message))
-                .setIcon(R.drawable.ic_check_circle_black_24dp)
+                .setIcon(R.drawable.check_drawable)
                 .setPositiveButton(getString(R.string.register_pop_up_button), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

@@ -27,7 +27,8 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:label"
         tools:targetApi="q">
-        <activity android:name=".auxiliary.HelpActivity"></activity>
+        <activity android:name=".register.RegisterUserActivity"></activity>
+        <activity android:name=".auxiliary.HelpActivity" />
         <activity android:name=".liquidGalaxy.MainActivityLG" />
         <activity
             android:name=".YouTubePlayerActivity"

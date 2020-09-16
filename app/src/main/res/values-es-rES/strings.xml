@@ -58,23 +58,12 @@
 
 
 
-
-
-
-    <string name="user_exists">Este usuario ya existe!Escoje otro nombre.</string>
-    <string name="username_error_text">Introduce un nombre de usuario válido.El usuario tiene que tener mínimo 4 caràcteres y un máximo de 25.</string>
-    <string name="complete_life_toast">Rellena este campo</string>
-
-
-
     <!--*****    Register Activity  *****-->
     <string name="register_activity_name">Registro</string>
     <string name="donor_cv_title">REGÍSTRATE COMO DONANTE</string>
     <string name="volunteer_cv_title">REGÍSTRATE COMO VOLUNTARIO</string>
     <string name="cv_more_button">SABER MÁS</string>
     <string name="cv_start_button">EMPEZAR</string>
-    <string name="content_description_donor_card">Persona pobre abraza una mujer</string>
-    <string name="content_description_volunteer_card">Persona pobre recibe una manzada de una niña</string>
     <string name="register_pop_up_button">OK</string>
     <!--    Know more register donor popup -->
     <string name="donor_know_more_title">Que puedes hacer si te registras como donante?</string>
@@ -89,6 +78,18 @@
                                             2. Puedes crear y gestionar perfiles para ellos, ya que ellos no siempre tienen un teléfono móvil conectado a Internet \n\n
                                             3. Puedes ayudar a realizar la entrega de donaciones en caso que los donantes no tienen la posibilidad de realizarla personalmente
     </string>
+
+
+
+
+
+    <string name="user_exists">Este usuario ya existe!Escoje otro nombre.</string>
+    <string name="username_error_text">Introduce un nombre de usuario válido.El usuario tiene que tener mínimo 4 caràcteres y un máximo de 25.</string>
+    <string name="complete_life_toast">Rellena este campo</string>
+
+
+
+
 
 
     <!--*****    Register User Activity  *****-->

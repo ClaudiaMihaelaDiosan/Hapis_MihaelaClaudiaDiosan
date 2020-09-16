@@ -54,5 +54,21 @@ public class HelpActivity extends AppCompatActivity {
         toast.show();
     }
 
+    /*
+    * Pop Ups
+    * */
+
+    public static void showPositivePopup(Context context, String title, String message, String positiveBtn){
+        new MaterialAlertDialogBuilder(context)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(positiveBtn, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
+    }
 
 }

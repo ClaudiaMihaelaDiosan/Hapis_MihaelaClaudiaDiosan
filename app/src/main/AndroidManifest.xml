@@ -5,7 +5,6 @@
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission
         android:name="android.permission.MEDIA_CONTENT_CONTROL"
         tools:ignore="ProtectedPermissions" />
@@ -17,40 +16,39 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:fullBackupContent="false"
-        android:requestLegacyExternalStorage="true"
-        android:usesCleartextTraffic="true"
         android:configChanges="locale"
+        android:fullBackupContent="false"
         android:icon="@mipmap/hapis_icon"
         android:label="@string/name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/hapis_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
         tools:replace="android:label"
         tools:targetApi="q">
-        <activity android:name=".YouTubePlayerActivity"
-            android:configChanges="orientation|screenSize"
-            />
+        <activity android:name=".auxiliary.HelpActivity"></activity>
+        <activity android:name=".liquidGalaxy.MainActivityLG" />
         <activity
-            android:name=".login.StatisticsActivity"
-            android:label="@string/statistics_name" />
+            android:name=".YouTubePlayerActivity"
+            android:configChanges="orientation|screenSize" />
         <activity
             android:name=".donor.HomeDonor"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".volunteer.CreateHomelessProfileActivity"
             android:configChanges="orientation|screenSize"
-            android:screenOrientation="portrait"
             android:label="@string/create_homeless_profile_name"
+            android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity android:name=".volunteer.PaymentActivity" />
         <activity
             android:name=".volunteer.HomeVolunteer"
             android:configChanges="orientation|screenSize"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"
             android:label="@string/user_home_name"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="LockedOrientationActivity" />
         <activity
             android:name=".register.RegisterVolunteerActivity"
             android:label="@string/register_volunteer_name" />
@@ -82,7 +80,6 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-
         <service
             android:name=".FirebaseMessaging.MyFirebaseMessagingService"
             android:exported="false">
@@ -91,7 +88,5 @@
             </intent-filter>
         </service>
     </application>
-
-
 
 </manifest>

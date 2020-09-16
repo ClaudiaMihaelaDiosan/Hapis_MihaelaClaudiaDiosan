@@ -161,26 +161,16 @@
                             android:layout_marginTop="@dimen/top_margin"
                             android:backgroundTint="@color/white"
                             android:text="@string/sign_up"
-                            android:textColor="@color/blue"
+                            android:textColor="@color/colorPrimary"
                             android:textSize="@dimen/body"
                             android:textStyle="bold"
-                            app:icon="@drawable/ic_person_add_black_24dp"
-                            app:iconTint="@color/blue"
+                            app:icon="@drawable/register_user_icon"
+                            app:iconTint="@null"
+                            app:iconSize="48dp"
                             app:iconPadding="@dimen/padding"
-                            app:strokeColor="@color/blue"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-
-                        <!--  <TextView
-                              android:id="@+id/signup"
-                              android:layout_width="wrap_content"
-                              android:layout_height="wrap_content"
-                              android:layout_gravity="center"
-                              android:layout_marginTop="@dimen/top_margin"
-                              android:gravity="center"
-                              android:text="@string/sign_up"
-                              android:textColor="@color/green"
-                              android:textSize="@dimen/title"
-                              android:textStyle="bold" />-->
+                            app:strokeColor="@color/colorPrimary"
+                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                            />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -188,40 +178,20 @@
                             android:layout_gravity="center"
                             android:gravity="center"
                             android:layout_marginTop="@dimen/top_margin"
-                            android:text="@string/statistics_tv"
+                            android:text="@string/liquid_galaxy_text"
                             android:textColor="@color/grey"
                             android:textSize="@dimen/body" />
 
                         <com.google.android.material.button.MaterialButton
-                            android:id="@+id/statistics_tv"
+                            android:id="@+id/liquid_galaxy_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:layout_marginTop="@dimen/top_margin"
                             android:backgroundTint="@color/white"
-                            android:text="@string/statistics"
-                            android:textColor="@color/amber"
-                            android:textSize="@dimen/body"
-                            android:textStyle="bold"
-                            app:iconPadding="@dimen/padding"
-                            app:icon="@drawable/statistics_drawable"
-                            app:iconTint="@color/amber"
-                            app:strokeColor="@color/amber"
-                            style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-
-
-                        <!-- <TextView
-                             android:id="@+id/statistics_tv"
-                             android:layout_width="wrap_content"
-                             android:layout_height="wrap_content"
-                             android:layout_gravity="center"
-                             android:layout_marginTop="@dimen/top_margin"
-                             android:gravity="center"
-                             android:text="@string/statistics"
-                             android:textColor="@color/amber"
-                             android:drawableStart="@drawable/statistics_drawable"
-                             android:textSize="@dimen/title"
-                             android:textStyle="bold" />-->
+                            android:layout_marginTop="@dimen/top_margin"
+                            app:icon="@drawable/lg"
+                            app:iconTint="@null"
+                            />
 
                     </LinearLayout>
 

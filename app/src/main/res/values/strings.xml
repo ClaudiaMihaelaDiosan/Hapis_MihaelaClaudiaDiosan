@@ -31,6 +31,21 @@
     <string name="next_button">Next</string>
     <string name="get_started_button">GET STARTED</string>
 
+    <!--******  Login activity  *******-->
+    <string name="login_title">Login to continue</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="login_button">LOGIN</string>
+    <string name="signup_tex_view">Don\'t have an account yet?</string>
+    <string name="sign_up">REGISTER NOW</string>
+    <string name="liquid_galaxy_text">Here you can access the Liquid Galaxy System:</string>
+    <string name="liquid_galaxy_tv">LIQUID GALAXY</string>
+    <string name="email_error_text">Enter a valid email</string>
+    <string name="error_login">Check your username or password</string>
+    <string name="password_error_text">Introduce a valid password.Password must have at least 6 characters </string>
+    <string name="progress_login">Starting session…</string>
+
     <!--******  Forgot password activity  *******-->
     <string name="forgot_password_name">Forgot password</string>
     <string name="is_email_valid_error">The email field is not valid or is empty</string>
@@ -43,44 +58,13 @@
     <string name="fp_email_hint">Email</string>
     <string name="fp_recover_failed">Fail to send reset password email!\Check that the email is correct</string>
 
-    <!--******  Login activity  *******-->
-    <string name="login_title">Login to continue</string>
-    <string name="forgot_password">Forgot password?</string>
-    <string name="google_text_view">You also can continue with Google:</string>
-    <string name="signup_tex_view">Don\'t have an account yet?</string>
-    <string name="statistics_tv">Here you can consult our statistics:</string>
-    <string name="sign_up">REGISTER NOW</string>
-    <string name="statistics">STATISTICS</string>
-    <string name="error_login">Check your username or password</string>
+
+
     <string name="user_exists">This user already exists!Choose another name.</string>
-    <string name="login_button">LOGIN</string>
-    <string name="email_hint">Email</string>
-    <string name="password_hint">Password</string>
     <string name="username_error_text">Enter a valid username. Username must have at least 4 characters</string>
-    <string name="password_error_text">Introduce a valid password.Password must have at least 6 characters </string>
     <string name="complete_life_toast">You have to fill this field</string>
-    <string name="progress_login">Starting session…</string>
-    <string name="email_error_text">Enter a valid email</string>
 
 
-    <!--*****    Statistics Activity  *****-->
-    <string name="statistics_name">Statistics Hapis</string>
-    <string name="statistics_title">STATISTICS</string>
-    <string name="donations_title">NEEDS</string>
-    <string name="statistics_homeless_text">Total Homelesses:</string>
-    <string name="statistics_donor_text">Total Donors:</string>
-    <string name="help_title">DONATIONS</string>
-    <string name="statistics_personally">Personally:</string>
-    <string name="statistics_through_volunteer">Through volunteer:</string>
-    <string name="statistics_volunteers_text">Total Volunteers:</string>
-    <string name="statistics_food_help">Food:</string>
-    <string name="statistics_clothes_help">Clothes:</string>
-    <string name="statistics_work_help">Work:</string>
-    <string name="statistics_lodging_help">Lodging:</string>
-    <string name="statistics_hygiene_products_help">Hygiene products:</string>
-    <!--    Buttons -->
-    <string name="statistics_to_login_button">Back</string>
-    <string name="food">Food</string>
 
     <!--*****    Register Activity  *****-->
     <string name="register_activity_name">Register</string>

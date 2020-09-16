@@ -1,63 +1,48 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login;
 
 import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.Patterns;
-import android.view.Gravity;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
-import com.basgeekball.awesomevalidation.AwesomeValidation;
-import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.AuxiliaryMethods;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor.HomeDonor;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.MainActivityLG;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register.RegisterActivity;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.register.RegisterDonorActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer.HomeVolunteer;
 
 public class LoginActivity extends MainActivity implements View.OnClickListener{
 
     /*TextViews*/
-    TextView forgotPassword;
+    private TextView forgotPassword;
 
     /*Buttons*/
-    Button loginBtn;
-    MaterialButton signUp;
-    MaterialButton statistics;
+    private MaterialButton loginBtn;
+    private MaterialButton registerBtn;
+    private MaterialButton lgBtn;
 
     /*EditTexts*/
-    TextInputEditText loginEmailEditText;
-    TextInputEditText loginPasswordEditText;
+    private TextInputEditText loginEmailEditText;
+    private TextInputEditText loginPasswordEditText;
 
-    String loginEmailValue;
-    String loginPasswordValue;
+    private String loginEmailValue;
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore mFirestore;
@@ -71,15 +56,23 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
         mAuth = FirebaseAuth.getInstance();
         mFirestore = FirebaseFirestore.getInstance();
 
-        makeFullscreenActivity();
+        AuxiliaryMethods.makeActivityFullScreen(getWindow(), getSupportActionBar());
         initViews();
-
 
         loginBtn.setOnClickListener(this);
         forgotPassword.setOnClickListener(this);
-        signUp.setOnClickListener(this);
-        statistics.setOnClickListener(this);
+        registerBtn.setOnClickListener(this);
+        lgBtn.setOnClickListener(this);
+    }
 
+
+    private void initViews() {
+        forgotPassword = findViewById(R.id.forgot_password_text_view);
+        registerBtn = findViewById(R.id.signup);
+        loginEmailEditText = findViewById(R.id.login_email_edit_text);
+        loginPasswordEditText = findViewById(R.id.login_password_edit_text);
+        loginBtn = findViewById(R.id.login_button);
+        lgBtn = findViewById(R.id.liquid_galaxy_tv);
     }
 
 
@@ -87,18 +80,15 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.forgot_password_text_view:
-                Intent forgotPassActivity = new Intent(LoginActivity.this, ForgotPasswordActivity.class );
-                startActivity(forgotPassActivity);
+                startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class ));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
             case R.id.signup:
-                Intent registerActivity = new Intent(LoginActivity.this, RegisterActivity.class);
-                startActivity(registerActivity);
+                startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
-            case R.id.statistics_tv:
-                Intent statisticsActivity = new Intent(LoginActivity.this, StatisticsActivity.class);
-                startActivity(statisticsActivity);
+            case R.id.liquid_galaxy_tv:
+                startActivity(new Intent(LoginActivity.this, MainActivityLG.class));
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
             case R.id.login_button:
@@ -108,27 +98,9 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
         }
     }
 
-
-    private void makeFullscreenActivity() {
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
-    }
-
-    private void initViews() {
-        forgotPassword = findViewById(R.id.forgot_password_text_view);
-        signUp = findViewById(R.id.signup);
-        statistics = findViewById(R.id.statistics_tv);
-        loginEmailEditText = findViewById(R.id.login_email_edit_text);
-        loginPasswordEditText = findViewById(R.id.login_password_edit_text);
-        loginBtn = findViewById(R.id.login_button);
-
-    }
-
-
     public void login(){
         loginEmailValue = loginEmailEditText.getText().toString();
-        loginPasswordValue = loginPasswordEditText.getText().toString();
+        String loginPasswordValue = loginPasswordEditText.getText().toString();
 
         if (loginEmailValue.isEmpty() || loginPasswordValue.isEmpty()){
             loginEmailEditText.setError(getString(R.string.email_error_text));
@@ -138,19 +110,15 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                setDialog(true);
+                                setDialog();
                                 isDonor(loginEmailValue);
                                 isVolunteer(loginEmailValue);
-
-                                FirebaseUser user = mAuth.getCurrentUser();
                             } else {
-                                showErrorToast(getString(R.string.error_login));
+                                HelpActivity.showErrorToast(LoginActivity.this, getString(R.string.error_login));
                             }
-
                         }
                     });
         }
-
     }
 
     private void isDonor(String email){
@@ -165,14 +133,12 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
                     if (task.isSuccessful()){
                         DocumentSnapshot documentSnapshot = task.getResult();
                         if (documentSnapshot.exists()){
-                            Intent donorIntent = new Intent(LoginActivity.this, HomeDonor.class);
-                            startActivity(donorIntent);
+                            startActivity(new Intent(LoginActivity.this, HomeDonor.class));
                         }
                     }
                 }
             });
         }
-
     }
 
 
@@ -188,14 +154,12 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
                     if (task.isSuccessful()){
                         DocumentSnapshot documentSnapshot = task.getResult();
                         if (documentSnapshot.exists()){
-                            Intent volunteerIntent = new Intent(LoginActivity.this, HomeVolunteer.class);
-                            startActivity(volunteerIntent);
+                            startActivity(new Intent(LoginActivity.this, HomeVolunteer.class));
                         }
                     }
                 }
             });
         }
-
     }
 
     private void validateForm(){
@@ -208,27 +172,12 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
         }
     }
 
-    private void setDialog(boolean show){
+    private void setDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(R.layout.progress);
         Dialog dialog = builder.create();
-        if (show)dialog.show();
-        else dialog.dismiss();
+        dialog.show();
     }
-
-    public void showErrorToast(String message){
-        Toast toast = Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.RED);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
-
 
     @Override
     public void finish(){

@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/bottom_margin"
+            android:layout_marginBottom="@dimen/cv_margins"
             android:scaleType="fitXY"
             android:adjustViewBounds="true"
             android:src="@drawable/login_foto"
@@ -26,8 +26,10 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/top_margin"
+            android:layout_marginTop="@dimen/cv_margins"
             app:cardCornerRadius="@dimen/cardCornerRadius"
+            android:backgroundTint="@color/white"
+            android:elevation="@dimen/elevation"
             app:cardElevation="@dimen/elevation"
             android:layout_margin="@dimen/margins">
 
@@ -52,15 +54,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/email_hint"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                    >
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/login_email_edit_text"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="textEmailAddress"
-                        />
+                        android:inputType="textEmailAddress" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -68,8 +68,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/password_hint"
                     app:passwordToggleEnabled="true"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-                    >
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/login_password_edit_text"
@@ -101,7 +100,6 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/title" />
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -130,14 +128,16 @@
                         android:layout_marginTop="@dimen/top_margin"
                         android:backgroundTint="@color/white"
                         android:text="@string/sign_up"
-                        android:textColor="@color/blue"
+                        android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/body"
                         android:textStyle="bold"
-                        app:icon="@drawable/ic_person_add_black_24dp"
-                        app:iconTint="@color/blue"
+                        app:icon="@drawable/register_user_icon"
+                        app:iconTint="@null"
+                        app:iconSize="24dp"
                         app:iconPadding="@dimen/padding"
-                        app:strokeColor="@color/blue"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
+                        app:strokeColor="@color/colorPrimary"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -145,27 +145,29 @@
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:layout_marginTop="@dimen/top_margin"
-                        android:text="@string/statistics_tv"
+                        android:text="@string/liquid_galaxy_text"
                         android:textColor="@color/grey"
                         android:textSize="@dimen/body" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/statistics_tv"
+                        android:id="@+id/liquid_galaxy_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:layout_marginTop="@dimen/top_margin"
                         android:backgroundTint="@color/white"
-                        android:text="@string/statistics"
-                        android:textColor="@color/amber"
+                        android:text="@string/liquid_galaxy_tv"
+                        android:textColor="@color/colorPrimary"
+                        android:layout_marginTop="@dimen/top_margin"
                         android:textSize="@dimen/body"
                         android:textStyle="bold"
+                        app:icon="@drawable/lg"
+                        app:iconTint="@null"
+                        app:iconSize="24dp"
+                        android:gravity="center"
                         app:iconPadding="@dimen/padding"
-                        app:icon="@drawable/statistics_drawable"
-                        app:iconTint="@color/amber"
-                        app:strokeColor="@color/amber"
-                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
-
+                        app:strokeColor="@color/colorPrimary"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        />
                 </LinearLayout>
 
             </LinearLayout>

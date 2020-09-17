@@ -14,7 +14,8 @@ import android.view.ViewGroup;
 import com.google.android.material.button.MaterialButton;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.YouTubePlayerActivity;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.Payment;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.YouTubePlayerActivity;
 
 
 public class DonateVolunteerFragment extends Fragment implements View.OnClickListener {
@@ -47,7 +48,7 @@ public class DonateVolunteerFragment extends Fragment implements View.OnClickLis
 
         switch (v.getId()){
             case R.id.donate_button:
-                startActivity(new Intent(getActivity(), PaymentActivity.class));
+                startActivity(new Intent(getActivity(), Payment.class));
                 break;
 
             case R.id.view_video_button:

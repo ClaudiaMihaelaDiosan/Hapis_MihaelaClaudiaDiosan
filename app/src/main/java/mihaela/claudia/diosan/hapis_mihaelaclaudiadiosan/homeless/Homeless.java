@@ -29,6 +29,18 @@ public class Homeless {
     }
 
 
+    public Homeless(String image, String homelessUsername, String birthday, String lifeHistory, String locationAddress, String schedule, String need){
+        this.image = image;
+        this.homelessUsername = homelessUsername;
+        this.homelessBirthday =birthday;
+        this.homelessLifeHistory = lifeHistory;
+        this.homelessAddress = locationAddress;
+        this.homelessSchedule = schedule;
+        this.homelessNeed = need;
+
+    }
+
+
     public Homeless(String homelessUsername, LatLng locationCoordinates){
         this.homelessUsername = homelessUsername;
     }

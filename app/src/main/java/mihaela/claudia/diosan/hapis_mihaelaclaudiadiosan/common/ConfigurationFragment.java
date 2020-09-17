@@ -1,4 +1,4 @@
-package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
+package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common;
 
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -22,7 +22,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
 
-public class ConfigurationDonorFragment extends PreferenceFragmentCompat {
+public class ConfigurationFragment extends PreferenceFragmentCompat {
 
     /*Firebase*/
     private FirebaseFirestore mFirestore;

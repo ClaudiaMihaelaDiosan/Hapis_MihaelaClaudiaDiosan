@@ -1,4 +1,4 @@
-package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
+package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -29,11 +29,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor.HomeDonor;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ContactDonorFragment extends Fragment implements View.OnClickListener{
+public class ContactFragment extends Fragment implements View.OnClickListener{
 
     /*EdiText*/
     private TextInputEditText subjectET;
@@ -48,7 +49,7 @@ public class ContactDonorFragment extends Fragment implements View.OnClickListen
 
     private Map<String,String> contactFromData = new HashMap<>();
 
-    public ContactDonorFragment() {
+    public ContactFragment() {
         // Required empty public constructor
     }
 

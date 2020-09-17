@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -21,13 +19,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
@@ -40,6 +34,7 @@ public class PersonallyFragment extends Fragment implements OnMapReadyCallback {
     /*TextViews*/
     private TextView homelessLocation;
     private TextView homelessSchedule;
+    private TextView homelessUsername;
 
     /*Firebase*/
     private FirebaseFirestore mFirestore;
@@ -73,6 +68,7 @@ public class PersonallyFragment extends Fragment implements OnMapReadyCallback {
     private void initViews(View view){
         homelessLocation = view.findViewById(R.id.homeless_location);
         homelessSchedule = view.findViewById(R.id.homeless_schedule_text);
+        homelessUsername = view.findViewById(R.id.homeless_username);
 
     }
 
@@ -82,8 +78,7 @@ public class PersonallyFragment extends Fragment implements OnMapReadyCallback {
     }
 
 
-    private void getHomelessInfo(String username){
-
+    private void getHomelessInfo(final String username){
         DocumentReference documentReference = mFirestore.collection("homeless").document(username);
 
         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
@@ -98,6 +93,7 @@ public class PersonallyFragment extends Fragment implements OnMapReadyCallback {
 
                         homelessLocation.setText(address);
                         homelessSchedule.setText(schedule);
+                        homelessUsername.setText(username);
                     }
                 }
             }

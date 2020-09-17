@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 
+import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
@@ -46,6 +47,7 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore mFirestore;
+    private FirebaseUser firebaseUser;
 
 
     @Override
@@ -97,37 +99,39 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
         }
     }
 
+
     public void login(){
         loginEmailValue = loginEmailEditText.getText().toString();
         String loginPasswordValue = loginPasswordEditText.getText().toString();
 
-        if (loginEmailValue.isEmpty() || loginPasswordValue.isEmpty()) {
+        if (loginEmailValue.isEmpty() || loginPasswordValue.isEmpty()){
             loginEmailEditText.setError(getString(R.string.email_error_text));
         }else{
-            FirebaseUser firebaseUser = mAuth.getCurrentUser();
-            if (firebaseUser != null){
-                firebaseUser.reload();
-                if (firebaseUser.isEmailVerified()) {
-                    mAuth.signInWithEmailAndPassword(loginEmailValue, loginPasswordValue)
-                            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()) {
+            mAuth.signInWithEmailAndPassword(loginEmailValue, loginPasswordValue)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                FirebaseUser user = mAuth.getCurrentUser();
+                                if (user != null){
+                                    user.reload();
+                                    user = mAuth.getCurrentUser();
+                                    if (user.isEmailVerified()){
                                         setDialog();
                                         isDonor(loginEmailValue);
                                         isVolunteer(loginEmailValue);
-                                    } else {
-                                        HelpActivity.showErrorToast(LoginActivity.this, getString(R.string.error_login));
+                                    }else{
+                                        HelpActivity.showErrorToast(getApplicationContext(), getString(R.string.verify_email_error));
                                     }
                                 }
-                            });
-                }else {
-                    HelpActivity.showErrorToast(getApplicationContext(), getString(R.string.verify_email_error));
-                }
-            }else {
-                HelpActivity.showErrorToast(LoginActivity.this, getString(R.string.error_login));
-            }
+
+                            } else {
+                                HelpActivity.showErrorToast(LoginActivity.this, getString(R.string.error_login));
+                            }
+                        }
+                    });
         }
+
     }
 
     private void isDonor(String email){

@@ -9,12 +9,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,6 +26,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.ConfigurationFragment;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.ContactFragment;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.DonateFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 
 
@@ -72,6 +73,21 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
         mFirestore = FirebaseFirestore.getInstance();
     }
 
+    private void initViews() {
+        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
+        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        mToolbar = findViewById(R.id.donor_toolbar);
+        setSupportActionBar(mToolbar);
+
+        donorDrawer = findViewById(R.id.donor_drawer);
+        navigationView = findViewById(R.id.nav_view_donor);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, donorDrawer, mToolbar, R.string.open_navigation_drawer, R.string.close_navigation_drawer);
+        donorDrawer.addDrawerListener(toggle);
+        toggle.syncState();
+    }
+
     private void setDataUser(){
         DocumentReference documentReference = mFirestore.collection("donors").document(user.getEmail());
 
@@ -85,10 +101,10 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
                         DocumentSnapshot documentSnapshot = task.getResult();
                         if (documentSnapshot != null){
 
-                            donorUsername.setText( documentSnapshot.getString("donorUsername"));
-                            donorPhone.setText(documentSnapshot.getString("donorPhone"));
-                            donorFirstName.setText(documentSnapshot.getString("donorFirstName"));
-                            donorLastName.setText(documentSnapshot.getString("donorLastName"));
+                            donorUsername.setText( documentSnapshot.getString("username"));
+                            donorPhone.setText(documentSnapshot.getString("phone"));
+                            donorFirstName.setText(documentSnapshot.getString("firstName"));
+                            donorLastName.setText(documentSnapshot.getString("lastName"));
                         }
                     }
                 }
@@ -96,16 +112,7 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
         }
     }
 
-    private void initViews() {
-        bottomNavigationView = findViewById(R.id.bottom_navigation_view);
-        bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        mToolbar = findViewById(R.id.donor_toolbar);
-        donorDrawer = findViewById(R.id.donor_drawer);
-        navigationView = findViewById(R.id.nav_view_donor);
-    }
-
     private void setNavigationElements() {
-        setSupportActionBar(mToolbar);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
@@ -135,16 +142,16 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
             switch (item.getItemId()){
 
                 case R.id.home_navigation:
-                fragment = new HomeDonorFragment();
-                break;
+                    fragment = new HomeDonorFragment();
+                    break;
 
-            case R.id.map_navigation:
-                fragment = new MapFragment();
-                break;
+                case R.id.map_navigation:
+                    fragment = new MapFragment();
+                    break;
 
-            case R.id.list_map_navigaion:
-                fragment = new ListMapFragment();
-                break;
+                case R.id.list_map_navigaion:
+                    fragment = new ListMapFragment();
+                    break;
             }
             getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, fragment).commit();
             return true;
@@ -157,13 +164,15 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-              if (item.getItemId() == R.id.home){
-                donorDrawer.openDrawer(GravityCompat.START);
-                return true;
+        if (item.getItemId() == R.id.home){
+            donorDrawer.openDrawer(GravityCompat.START);
+            return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -175,11 +184,11 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
                 break;
             case R.id.user_menu_donate:
                 bottomNavigationView.setVisibility(View.GONE);
-                getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new DonateDonorFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new DonateFragment()).commit();
                 break;
             case R.id.user_menu_configuration:
                 bottomNavigationView.setVisibility(View.GONE);
-                getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, new ConfigurationDonorFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, new ConfigurationFragment()).commit();
                 break;
             case R.id.user_menu_logout:
                 FirebaseAuth.getInstance().signOut();
@@ -188,7 +197,7 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
                 break;
             case R.id.user_menu_contact:
                 bottomNavigationView.setVisibility(View.GONE);
-                getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new ContactDonorFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new ContactFragment()).commit();
                 break;
         }
         donorDrawer.closeDrawer(GravityCompat.START);

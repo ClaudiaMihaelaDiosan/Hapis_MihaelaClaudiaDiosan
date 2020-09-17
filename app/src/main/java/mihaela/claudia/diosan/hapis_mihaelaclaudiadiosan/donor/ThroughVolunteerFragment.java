@@ -43,6 +43,7 @@ import java.util.List;
 import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -144,7 +145,7 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
             case R.id.donor_confirm_button:
                 if (isValidForm()){
                     uploadDataToFirebase();
-                    showSuccessToast(getString(R.string.fr_tv_confirm_toast));
+                    HelpActivity.showSuccessToast(getActivity(),getString(R.string.fr_tv_confirm_toast));
                     startActivity(new Intent(getContext(), HomeDonor.class));
                 }
                 break;
@@ -177,8 +178,8 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
                 if (task.isSuccessful()){
                     DocumentSnapshot documentSnapshot = task.getResult();
                     if (documentSnapshot != null){
-                        String donorUsername = documentSnapshot.getString("donorUsername");
-                        String donorPhone = documentSnapshot.getString("donorPhone");
+                        String donorUsername = documentSnapshot.getString("username");
+                        String donorPhone = documentSnapshot.getString("phone");
                         throughVolunteerDonations.put("donorUsername",donorUsername);
                         throughVolunteerDonations.put("donorPhone", donorPhone);
                         mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + homelessUsername + ":" + donationType).set(throughVolunteerDonations, SetOptions.merge());
@@ -191,42 +192,16 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
 
     private boolean isValidForm(){
         if (selectedDateDonor.getText().toString().equals(getString(R.string.fr_tv_date))){
-            showErrorToast( getString(R.string.date_error_toast));
+            HelpActivity.showErrorToast( getActivity(),getString(R.string.date_error_toast));
             return false;
         }else if (selectedTimeDonor.getText().toString().equals(getString(R.string.fr_tv_hour))){
-            showErrorToast(getString(R.string.time_error_toast));
+            HelpActivity.showErrorToast(getActivity(),getString(R.string.time_error_toast));
             return false;
         }else if (locationDonor.getText().toString().equals(getString(R.string.fr_tv_location))){
-            showErrorToast( getString(R.string.location_error_toast));
+            HelpActivity.showErrorToast( getActivity(),getString(R.string.location_error_toast));
             return false;
         }
         return true;
-    }
-
-    public void showErrorToast(String message){
-        Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.RED);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
-
-    public void showSuccessToast(String message){
-        Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.GREEN);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
     }
 
     private void initPlaces() {
@@ -292,16 +267,6 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
            }
        }, hour, minute, false);
         timePickerDialog.show();
-    }
-
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-
-        outState.putString("location", locationDonor.getText().toString());
-        outState.putString("date", selectedDateDonor.getText().toString());
-        outState.putString("time", selectedTimeDonor.getText().toString());
-
-        super.onSaveInstanceState(outState);
     }
 
 }

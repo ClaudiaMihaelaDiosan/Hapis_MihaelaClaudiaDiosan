@@ -15,6 +15,41 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/cv_margins"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title"
+                android:textStyle="bold"
+                android:gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/help_fr_title"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title"
+                android:gravity="center_horizontal"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/blank_space"/>
+
+            <TextView
+                android:id="@+id/username_to_help"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title"
+                android:textStyle="bold"
+                android:text="@string/text"
+                android:textColor="@color/colorPrimary"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/margins"
             android:orientation="vertical">
@@ -40,7 +75,6 @@
                 android:id="@+id/chip_group_donation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_marginTop="@dimen/top_margin"
                 android:layout_marginBottom="@dimen/bottom_margin"
                 app:singleSelection="true">
@@ -53,7 +87,9 @@
                     android:textColor="@color/black"
                     android:text="@string/chip_food"
                     app:chipIcon="@drawable/food_icon"
+                    android:padding="@dimen/chip_padding"
                     android:textSize="@dimen/body"
+                    app:iconStartPadding="@dimen/chip_padding"
                     app:chipIconEnabled="true"
                     style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
@@ -66,6 +102,8 @@
                     android:text="@string/chip_clothes"
                     android:textSize="@dimen/body"
                     app:chipIcon="@drawable/clothes_icon"
+                    app:iconStartPadding="@dimen/chip_padding"
+                    android:padding="@dimen/chip_padding"
                     app:chipIconEnabled="true"
                     style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
@@ -77,7 +115,9 @@
                     android:textColor="@color/black"
                     android:text="@string/chip_work"
                     android:textSize="@dimen/body"
+                    android:padding="@dimen/chip_padding"
                     app:chipIcon="@drawable/work_icon"
+                    app:iconStartPadding="@dimen/chip_padding"
                     app:chipIconEnabled="true"
                     style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
@@ -89,7 +129,9 @@
                     android:textColor="@color/black"
                     android:text="@string/chip_lodging"
                     android:textSize="@dimen/body"
+                    app:iconStartPadding="@dimen/chip_padding"
                     app:chipIcon="@drawable/lodging_icon"
+                    android:padding="@dimen/chip_padding"
                     app:chipIconEnabled="true"
                     style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
@@ -100,7 +142,9 @@
                     app:chipBackgroundColor="@drawable/chip_selector"
                     android:textColor="@color/black"
                     android:text="@string/chip_hygiene_products"
+                    android:padding="@dimen/chip_padding"
                     android:textSize="@dimen/body"
+                    app:iconStartPadding="@dimen/chip_padding"
                     app:chipIcon="@drawable/hygiene_icon"
                     app:chipIconEnabled="true"
                     style="@style/Widget.MaterialComponents.Chip.Choice"/>
@@ -137,10 +181,15 @@
                 android:layout_marginTop="@dimen/top_margin"
                 android:textSize="@dimen/body"
                 android:layout_gravity="center"
-                android:textColor="@color/black"
-                android:backgroundTint="@color/blue_light"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:iconSize="24dp"
+                android:backgroundTint="@color/white"
                 app:icon="@drawable/personally_icon"
-                app:iconTint="@color/black" />
+                app:iconPadding="@dimen/padding"
+                app:strokeColor="@color/colorPrimary"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:iconTint="@null" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/through_volunteer_button"
@@ -148,12 +197,17 @@
                 android:layout_height="wrap_content"
                 android:text="@string/through_volunteer_button"
                 android:layout_marginBottom="@dimen/bottom_margin"
+                android:textStyle="bold"
                 android:layout_gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/colorAccent"
                 android:textSize="@dimen/body"
-                android:backgroundTint="@color/lila_color"
+                app:iconSize="24dp"
+                android:backgroundTint="@color/white"
                 app:icon="@drawable/volunteer_icon"
-                app:iconTint="@color/black" />
+                app:iconPadding="@dimen/padding"
+                app:strokeColor="@color/colorAccent"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:iconTint="@null" />
 
         </LinearLayout>
 

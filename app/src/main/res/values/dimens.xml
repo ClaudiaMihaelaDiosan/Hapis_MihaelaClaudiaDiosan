@@ -10,6 +10,7 @@
     <dimen name="margins">16dp</dimen>
 
     <dimen name="padding">10dp</dimen>
+    <dimen name="chip_padding">5dp</dimen>
     <dimen name="login_margin">30dp</dimen>
 
     <!--    Cards-->

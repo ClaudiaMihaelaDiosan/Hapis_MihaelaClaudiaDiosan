@@ -242,7 +242,9 @@
     <string name="video_button">VIEW VIDEO</string>
 
     <!--  Help Fragment-->
-    <string name="donation_type">Choose what you want do donate </string>
+    <string name="help_fr_title">Help</string>
+    <string name="blank_space">" "</string>
+    <string name="donation_type">Select your donation</string>
     <string name="chip_food">Food</string>
     <string name="chip_clothes">Clothes</string>
     <string name="chip_work">Work</string>

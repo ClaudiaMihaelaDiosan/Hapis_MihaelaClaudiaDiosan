@@ -1,4 +1,4 @@
-package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
+package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.maps;
 
 import android.os.Bundle;
 
@@ -46,6 +46,7 @@ public class ListMapFragment extends Fragment  {
     private SearchView searchView;
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,7 +60,6 @@ public class ListMapFragment extends Fragment  {
 
         setHasOptionsMenu(true);
         setupRecyclerView(view);
-
 
         return view;
 

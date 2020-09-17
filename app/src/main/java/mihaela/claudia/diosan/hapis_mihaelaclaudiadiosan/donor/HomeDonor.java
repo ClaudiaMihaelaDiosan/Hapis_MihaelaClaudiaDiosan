@@ -30,6 +30,8 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.ConfigurationFra
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.ContactFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.DonateFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.maps.ListMapFragment;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.maps.MapFragment;
 
 
 public class HomeDonor extends MainActivity implements NavigationView.OnNavigationItemSelectedListener {

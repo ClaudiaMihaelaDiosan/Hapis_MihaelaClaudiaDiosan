@@ -45,6 +45,7 @@
     <string name="error_login">Check your username or password</string>
     <string name="password_error_text">Introduce a valid password.Password must have at least 6 characters </string>
     <string name="progress_login">Starting session…</string>
+    <string name="verify_email_error">Please, verify your email address to login!</string>
 
     <!--******  Forgot password activity  *******-->
     <string name="forgot_password_name">Forgot password</string>
@@ -80,17 +81,7 @@
                                   4. You can deliver the aid personally or with the help of a volunteer</string>
 
 
-
-    <string name="user_exists">This user already exists!Choose another name.</string>
-    <string name="username_error_text">Enter a valid username. Username must have at least 4 characters</string>
-    <string name="complete_life_toast">You have to fill this field</string>
-
-
-
-
     <!--*****    Register User Activity  *****-->
-    <string name="register_volunteer_name">Register Volunteer</string>
-    <string name="register_donor_name">Register Donor</string>
     <string name="register_user_title">Create an account</string>
     <string name="register_user_pop_up_title">REGISTRATION SUCCESS</string>
     <string name="register_user_login_info">Login Info</string>
@@ -106,9 +97,21 @@
     <string name="register_user_phone_number_hint">Phone number</string>
     <string name="register_user_button">REGISTER</string>
     <string name="register_user_pop_up_button">OK</string>
-    <string name="register_pop_up_title">REGISTRATION SUCCESS</string>
-    <string name="register_pop_up_message">Thank you. Please check your email to activate your account.</string>
+    <string name="register_pop_up_title">Please verify your email</string>
+    <string name="register_pop_up_message">You\'re almost there!\n We sent you an email, just click on the link you received to complete your register.\n THANK YOU!</string>
     <string name="register_error">"Something went wrong!</string>
+
+
+
+
+    <string name="user_exists">This user already exists!Choose another name.</string>
+    <string name="username_error_text">Enter a valid username. Username must have at least 4 characters</string>
+    <string name="complete_life_toast">You have to fill this field</string>
+
+
+
+
+
 
 
     <!--    User Home Activity-->

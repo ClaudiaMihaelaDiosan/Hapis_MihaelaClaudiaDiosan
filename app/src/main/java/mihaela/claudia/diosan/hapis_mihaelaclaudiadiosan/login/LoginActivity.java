@@ -15,6 +15,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -93,7 +94,6 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
             case R.id.login_button:
                 validateForm();
                 login();
-
         }
     }
 
@@ -101,22 +101,32 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
         loginEmailValue = loginEmailEditText.getText().toString();
         String loginPasswordValue = loginPasswordEditText.getText().toString();
 
-        if (loginEmailValue.isEmpty() || loginPasswordValue.isEmpty()){
+        if (loginEmailValue.isEmpty() || loginPasswordValue.isEmpty()) {
             loginEmailEditText.setError(getString(R.string.email_error_text));
         }else{
-            mAuth.signInWithEmailAndPassword(loginEmailValue, loginPasswordValue)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-                                setDialog();
-                                isDonor(loginEmailValue);
-                                isVolunteer(loginEmailValue);
-                            } else {
-                                HelpActivity.showErrorToast(LoginActivity.this, getString(R.string.error_login));
-                            }
-                        }
-                    });
+            FirebaseUser firebaseUser = mAuth.getCurrentUser();
+            if (firebaseUser != null){
+                firebaseUser.reload();
+                if (firebaseUser.isEmailVerified()) {
+                    mAuth.signInWithEmailAndPassword(loginEmailValue, loginPasswordValue)
+                            .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        setDialog();
+                                        isDonor(loginEmailValue);
+                                        isVolunteer(loginEmailValue);
+                                    } else {
+                                        HelpActivity.showErrorToast(LoginActivity.this, getString(R.string.error_login));
+                                    }
+                                }
+                            });
+                }else {
+                    HelpActivity.showErrorToast(getApplicationContext(), getString(R.string.verify_email_error));
+                }
+            }else {
+                HelpActivity.showErrorToast(LoginActivity.this, getString(R.string.error_login));
+            }
         }
     }
 

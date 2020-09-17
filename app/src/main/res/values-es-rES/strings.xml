@@ -42,6 +42,7 @@
     <string name="password_error_text">Introduce una contraseña valida.La contrasña tiene que tener al menos 6 caràcteres </string>
     <string name="progress_login">Iniciando sesión…</string>
     <string name="email_error_text">Introduce un correo valido</string>
+    <string name="verify_email_error">Por favor, verifica tu dirrección de correo electrónico para poder entrar!</string>
 
 
     <!--******  Forgot password activity  *******-->
@@ -80,21 +81,7 @@
     </string>
 
 
-
-
-
-    <string name="user_exists">Este usuario ya existe!Escoje otro nombre.</string>
-    <string name="username_error_text">Introduce un nombre de usuario válido.El usuario tiene que tener mínimo 4 caràcteres y un máximo de 25.</string>
-    <string name="complete_life_toast">Rellena este campo</string>
-
-
-
-
-
-
     <!--*****    Register User Activity  *****-->
-    <string name="register_volunteer_name">Register Volunteer</string>
-    <string name="register_donor_name">Register Donor</string>
     <string name="register_user_title">Crea tu cuenta</string>
     <string name="register_user_pop_up_title">REGISTRO CORRECTO</string>
     <string name="register_user_login_info">Información de inicio de sesión</string>
@@ -110,9 +97,22 @@
     <string name="register_user_phone_number_hint">Teléfono</string>
     <string name="register_user_button">REGISTRAR</string>
     <string name="register_user_pop_up_button">OK</string>
-    <string name="register_pop_up_title">REGISTRO CORRECTO</string>
-    <string name="register_pop_up_message">Gracias por registrarte.\nApreta el botón OK para ir al login.</string>
+    <string name="register_pop_up_title">Por favor, verifica tu email</string>
+    <string name="register_pop_up_message">Casi lo tienes!\nTe hemos enviado un correo, solo tienes que seleccionar el link que has recibido para completar el registro.\nGRACIAS!</string>
     <string name="register_error">"Algo ha ido mal!</string>
+
+
+
+    <string name="user_exists">Este usuario ya existe!Escoje otro nombre.</string>
+    <string name="username_error_text">Introduce un nombre de usuario válido.El usuario tiene que tener mínimo 4 caràcteres y un máximo de 25.</string>
+    <string name="complete_life_toast">Rellena este campo</string>
+
+
+
+
+
+
+
 
 
     <!--*****   User Home  *****-->

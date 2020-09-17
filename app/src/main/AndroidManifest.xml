@@ -51,12 +51,6 @@
             android:theme="@style/AppTheme.NoActionBar"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".register.RegisterVolunteerActivity"
-            android:label="@string/register_volunteer_name" />
-        <activity
-            android:name=".register.RegisterDonorActivity"
-            android:label="@string/register_donor_name" />
-        <activity
             android:name=".register.RegisterActivity"
             android:label="@string/register_activity_name" />
         <activity

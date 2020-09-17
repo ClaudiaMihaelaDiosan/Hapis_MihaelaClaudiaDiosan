@@ -71,4 +71,31 @@ public class HelpActivity extends AppCompatActivity {
                 .show();
     }
 
+    /*
+    * Check fields
+    * */
+
+    public static boolean isValidPhoneNumber(CharSequence target) {
+        if (target.length() == 0){
+            return true;
+        }else if (target.length() < 6 || target.length() > 13) {
+            return false;
+        } else {
+            return android.util.Patterns.PHONE.matcher(target).matches();
+        }
+    }
+
+    public static boolean isPasswordValid(CharSequence password){
+        if (password.length() > 5) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isUsernameValid(CharSequence username){
+        if (username.length() > 3 && username.length() <=25) {
+            return true;
+        }
+        return false;
+    }
 }

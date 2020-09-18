@@ -30,6 +30,9 @@ import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.ConfigurationFragment;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.ContactFragment;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.DonateFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 
 public class HomeVolunteer extends MainActivity implements NavigationView.OnNavigationItemSelectedListener  {
@@ -97,10 +100,11 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
                     DocumentSnapshot documentSnapshot = task.getResult();
                     if (documentSnapshot != null){
 
-                        volunteerUsername.setText(documentSnapshot.getString("volunteerUsername"));
-                        volunteerPhone.setText(documentSnapshot.getString("volunteerPhone"));
-                        volunteerFirstName.setText(documentSnapshot.getString("volunteerFirstName"));
-                        volunteerLastName.setText(documentSnapshot.getString("volunteerLastName"));
+
+                        volunteerUsername.setText(documentSnapshot.getString("username"));
+                        volunteerPhone.setText(documentSnapshot.getString("phone"));
+                        volunteerFirstName.setText(documentSnapshot.getString("firstName"));
+                        volunteerLastName.setText(documentSnapshot.getString("lastName"));
                     }
                 }
             }
@@ -148,10 +152,10 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeVolunteerFragment()).commit();
                 break;
             case R.id.user_menu_donate:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DonateVolunteerFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DonateFragment()).commit();
                 break;
             case R.id.user_menu_configuration:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConfigurationVolunteerFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ConfigurationFragment()).commit();
                 break;
             case R.id.user_menu_logout:
                 FirebaseAuth.getInstance().signOut();
@@ -159,7 +163,7 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
                 startActivity( new Intent(HomeVolunteer.this, LoginActivity.class));
                 break;
             case R.id.user_menu_contact:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactVolunteerFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactFragment()).commit();
                 break;
         }
         volunteerDrawer.closeDrawer(GravityCompat.START);

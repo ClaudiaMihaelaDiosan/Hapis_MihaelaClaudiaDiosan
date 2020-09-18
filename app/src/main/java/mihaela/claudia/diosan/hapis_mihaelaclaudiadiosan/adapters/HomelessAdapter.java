@@ -1,6 +1,5 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.adapters;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,9 +26,7 @@ import java.util.Collection;
 import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor.HomeDonor;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless.Homeless;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.logic.Homeless;
 
 public class HomelessAdapter extends RecyclerView.Adapter<HomelessAdapter.HomelessAdapterHolder> implements Filterable {
 

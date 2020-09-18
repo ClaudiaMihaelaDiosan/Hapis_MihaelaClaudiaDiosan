@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless.Homeless;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.logic.Homeless;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -82,7 +82,7 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.new_homeless_profile:
-                startActivity(new Intent(getActivity(), CreateHomelessProfileActivity.class));
+                startActivity(new Intent(getActivity(), CreateHomelessProfile.class));
                 break;
             case R.id.send_delivery_notification:
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DeliveryFragment())

@@ -28,6 +28,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.adapters.DeliveryAdapter;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.logic.Delivery;
 
 public class DeliveryFragment extends Fragment {
 

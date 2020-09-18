@@ -24,7 +24,7 @@ import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.adapters.HomelessAdapter;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless.Homeless;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.logic.Homeless;
 
 import static android.content.Context.MODE_PRIVATE;
 

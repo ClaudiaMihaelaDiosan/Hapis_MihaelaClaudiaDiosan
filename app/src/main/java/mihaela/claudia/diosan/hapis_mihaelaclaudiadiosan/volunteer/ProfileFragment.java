@@ -66,7 +66,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private Uri selectedImagePath;
 
     /*Buttons*/
-    private MaterialButton addProfilePhotoBtn;
     private MaterialButton cancelBtn;
     private MaterialButton saveBtn;
 
@@ -111,7 +110,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        addProfilePhotoBtn.setOnClickListener(this);
+        homelessProfileImage.setOnClickListener(this);
         homelessBirthday.setOnClickListener(this);
         cancelBtn.setOnClickListener(this);
         saveBtn.setOnClickListener(this);
@@ -122,7 +121,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
 
         switch (v.getId()){
-            case R.id.add_homeless_profile_photo_button:
+            case R.id.homeless_profile_image:
                 verifyStoragePermissions(getActivity());
                 chooseImage();
                 break;
@@ -144,7 +143,6 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
     private void initViews(){
         homelessProfileImage = view.findViewById(R.id.homeless_profile_image);
-        addProfilePhotoBtn = view.findViewById(R.id.add_homeless_profile_photo_button);
 
         homelessUsername = view.findViewById(R.id.homeless_username_editText);
         homelessPhoneNumber = view.findViewById(R.id.homeless_phone_number_editText);

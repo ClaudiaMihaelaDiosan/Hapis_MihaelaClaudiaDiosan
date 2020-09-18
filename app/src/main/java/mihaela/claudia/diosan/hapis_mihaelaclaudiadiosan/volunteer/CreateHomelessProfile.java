@@ -19,7 +19,7 @@ import java.util.List;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
-public class CreateHomelessProfileActivity extends MainActivity {
+public class CreateHomelessProfile extends MainActivity {
 
     ViewPager viewPager;
     TabLayout tabLayout;

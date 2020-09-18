@@ -18,7 +18,7 @@ import java.util.Collection;
 import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless.Homeless;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.logic.Homeless;
 
 public class VolunteerAdapter extends RecyclerView.Adapter<VolunteerAdapter.VolunteerAdapterHolder> implements Filterable {
     private List<Homeless> homelessData;

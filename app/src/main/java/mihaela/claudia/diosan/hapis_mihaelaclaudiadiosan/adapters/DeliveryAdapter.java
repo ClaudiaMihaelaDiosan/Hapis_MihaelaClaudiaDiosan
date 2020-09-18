@@ -1,4 +1,4 @@
-package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
+package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +13,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.DocumentSnapshot;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.logic.Delivery;
 
 
 public class DeliveryAdapter extends FirestoreRecyclerAdapter<Delivery, DeliveryAdapter.DeliveryHolder> {

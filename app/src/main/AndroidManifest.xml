@@ -40,7 +40,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".volunteer.CreateHomelessProfileActivity"
+            android:name=".volunteer.CreateHomelessProfile"
             android:configChanges="orientation|screenSize"
             android:label="@string/create_homeless_profile_name"
             android:screenOrientation="portrait"

@@ -1,4 +1,4 @@
-package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
+package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.logic;
 
 public class Delivery {
     private String donatesTo;

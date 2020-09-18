@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@drawable/gradient_background"
-    tools:context=".volunteer.CreateHomelessProfileActivity">
-    
+    tools:context=".volunteer.CreateHomelessProfile">
+
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

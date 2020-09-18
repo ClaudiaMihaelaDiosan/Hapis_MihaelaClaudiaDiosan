@@ -202,7 +202,7 @@
     <string name="fragment_terms_text">1. A continuación el voluntario te solicitará algunos datos personales por tal de crear tu perfil.De este modo, las personas entendrán mejor tu situación y
             podrán ayudarte\n\n2. No se te pedirá tu nombre real,sino un nombre de usuario que será visible para los donantes\n\n3. Podrás añadir una foto tuya al perfil, pero no es
             obligatorio.\n\n4. Se te pedirán la fecha de nacimiento,una pequeña historia de tu vida, el número de teléfono y lo que más necesitas en este momento.\n\n5. Tendrás
-            que especificar la localización y un horario en el que podrás ser encontrado en la dicha localización. Estos datos sirven para que las personas que quieren donar algo te entreguen las cosas personalmente.\n\n6. Todos los datos facilitados serán utilizados solamente con el fin de que las personas te conozcan mejor para poder ayudarte y en ningún momento serán cedidas a terceros.</string>
+            que especificar la localización y un horario en el que podrás ser encontrado en la dicha localización. Estos datos sirven para que las personas que quieren donar algo te entreguen las cosas personalmente.\n\n6. Todos los datos facilitados serán utilizados solamente con el fin de que las personas te conozcan mejor para poder ayudarte y en ningún momento serán cedidas a terceros.\n\n7. La firma, el nombre y los apellidos utilizados para dar tu consentimiento se guardarán en nuestra base de datos y serán eliminados cuando el voluntario borra tu perfil.</string>
     <string name="clear_signature_button">BORRAR</string>
     <string name="save_signature_button">GUARDAR FIRMA</string>
     <string name="success_upload">La firma se ha guardado correctamente!Puedes continuar con el registro</string>

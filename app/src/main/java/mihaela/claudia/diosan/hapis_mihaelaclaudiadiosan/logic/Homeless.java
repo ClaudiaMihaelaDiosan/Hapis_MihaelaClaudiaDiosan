@@ -1,4 +1,4 @@
-package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.homeless;
+package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.logic;
 
 import com.google.android.gms.maps.model.LatLng;
 

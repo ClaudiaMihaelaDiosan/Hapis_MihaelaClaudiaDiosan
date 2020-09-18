@@ -29,24 +29,12 @@
                 <ImageView
                     android:id="@+id/homeless_profile_image"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/create_profile_image"
-                    android:background="@drawable/gradient_background"
+                    android:layout_height="@dimen/homeless_cv_image"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/add_profile_image"
+                    android:background="@color/white"
                     android:layout_gravity="center"
                     android:contentDescription="@string/content_description"/>
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/add_homeless_profile_photo_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:layout_gravity="center"
-                    app:iconGravity="textStart"
-                    android:textSize="@dimen/body"
-                    android:text="@string/select_photo_button"
-                    android:textColor="@color/colorPrimary"
-                    app:icon="@drawable/ic_add_a_photo_black_24dp"
-                    app:iconTint="@color/colorPrimary"
-                    />
 
 
                 <com.google.android.material.textfield.TextInputLayout

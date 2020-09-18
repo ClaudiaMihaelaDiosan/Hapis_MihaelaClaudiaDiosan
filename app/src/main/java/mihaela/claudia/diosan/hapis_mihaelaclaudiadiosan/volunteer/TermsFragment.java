@@ -46,6 +46,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -124,7 +125,7 @@ public class TermsFragment extends Fragment implements View.OnClickListener {
 
             case R.id.saveSignatureButton:
                 if (signaturePad.isEmpty()) {
-                    signatureEmptyErrorToast();
+                    HelpActivity.showErrorToast(getActivity(), getString(R.string.have_to_sign));
                 }else {
                     confirmationPopUp();
                 }
@@ -154,7 +155,7 @@ public class TermsFragment extends Fragment implements View.OnClickListener {
                 .addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<UploadTask.TaskSnapshot> task) {
-                     successfullyUploadedSignatureToast();
+                        HelpActivity.showSuccessToast(getActivity(), getString(R.string.success_upload));
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -222,31 +223,6 @@ public class TermsFragment extends Fragment implements View.OnClickListener {
         inputManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
     }
-
-
-    private void signatureEmptyErrorToast(){
-        Toast toast = Toast.makeText(getActivity(), getString(R.string.have_to_sign), Toast.LENGTH_LONG);
-        View view =toast.getView();
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        view.setBackgroundColor(Color.TRANSPARENT);
-        toastMessage.setTextColor(Color.RED);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
-
-    private void successfullyUploadedSignatureToast(){
-        Toast toast = Toast.makeText(getActivity(), getString(R.string.success_upload), Toast.LENGTH_LONG);
-        View view =toast.getView();
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        view.setBackgroundColor(Color.TRANSPARENT);
-        toastMessage.setTextColor(Color.GREEN);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
-
-
 
     private File getAlbumStorageDir(String albumName) {
         // Get the directory for the user's public pictures directory.

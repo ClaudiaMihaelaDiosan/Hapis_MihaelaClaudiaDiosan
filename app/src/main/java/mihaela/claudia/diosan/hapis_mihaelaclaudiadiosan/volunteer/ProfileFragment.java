@@ -4,29 +4,31 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.content.ActivityNotFoundException;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.graphics.Color;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 
 import android.provider.MediaStore;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.DatePicker;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.ListAdapter;
 import android.widget.Toast;
 
 
@@ -45,13 +47,18 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.theartofdev.edmodo.cropper.CropImage;
 
+import java.io.File;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.adapters.ArrayAdapterWithIcon;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
 
+import static android.app.Activity.RESULT_OK;
 import static android.content.Context.MODE_PRIVATE;
 
 public class ProfileFragment extends Fragment implements View.OnClickListener {
@@ -60,6 +67,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     private static  final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
     private Integer SELECT_FILE = 0;
+    private static final int CAMERA_REQUEST_CODE=2;
+    File file;
 
     /*ImageView*/
     private ImageView homelessProfileImage;
@@ -123,7 +132,8 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         switch (v.getId()){
             case R.id.homeless_profile_image:
                 verifyStoragePermissions(getActivity());
-                chooseImage();
+                CropImage.activity()
+                        .start(getContext(), this);
                 break;
             case R.id.homeless_birthday_editText:
                 setTextDateListener();
@@ -169,7 +179,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
             progressDialog.setTitle(getString(R.string.uploading_photo));
             progressDialog.show();
 
-            final StorageReference ref = storageReference.child("homelessProfilePhotos/" + user.getEmail() + "->" + homelessUsername.getText().toString());
+            final StorageReference ref = storageReference.child("homelessProfilePhotos/" + user.getEmail() + "_" + homelessUsername.getText().toString());
             ref.putFile(selectedImagePath)
                     .addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
                         @Override
@@ -184,7 +194,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
 
                                 }
                             });
-                            successfullyUploadedInfoToast();
+                            HelpActivity.showSuccessToast(getActivity(), getString(R.string.correct_saved_info));
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -231,7 +241,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             String error = e.getMessage();
-                            showErrorToast("Error " + error);
+                            HelpActivity.showErrorToast(getActivity(), "Error " + error);
 
                         }
                     });
@@ -246,12 +256,13 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                         if (task.isSuccessful()){
                             if (task.getResult().exists()){
-                                showErrorToast(getString(R.string.user_exists));
+                                HelpActivity.showErrorToast(getActivity(), getString(R.string.user_exists));
                             }else{
                                 uploadPhotoToFirebase(selectedImagePath);
                                 uploadDataToFirebase();
                                 goToLocationFragment();
-                                successfullyUploadedInfoToast();
+
+                                HelpActivity.showSuccessToast(getActivity(), getString(R.string.correct_saved_info));
                             }
                         }
                     }
@@ -293,29 +304,25 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     }
 
 
-    private void chooseImage(){
-        Intent selectFileIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        selectFileIntent.setType("image/*");
-        startActivityForResult(selectFileIntent.createChooser(selectFileIntent, getString(R.string.dialog_select_file)), SELECT_FILE);
-    }
-
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
-      //  super.onActivityResult(requestCode, resultCode, data);
 
-            if ( requestCode == SELECT_FILE && resultCode == Activity.RESULT_OK && null != data){
-
-                selectedImagePath = data.getData();
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
+               selectedImagePath = result.getUri();
                 homelessProfileImage.setImageURI(selectedImagePath);
-
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                Exception error = result.getError();
+            }
         }
+
     }
+
 
     private void goToLocationFragment(){
         ViewPager viewPager = getActivity().findViewById(R.id.create_homeless_view_pager);
-
 
         int position = viewPager.getCurrentItem();
 
@@ -342,66 +349,17 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    public void showErrorToast(String message){
-        Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.RED);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
-
-    private void successfullyUploadedInfoToast(){
-        Toast toast = Toast.makeText(getActivity(), getString(R.string.correct_saved_info), Toast.LENGTH_LONG);
-        View view =toast.getView();
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        view.setBackgroundColor(Color.TRANSPARENT);
-        toastMessage.setTextColor(Color.GREEN);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
-
 
 
     private boolean isValidForm(){
-        if (!isValidPhoneNumber(homelessPhoneNumber.getText().toString())){
+        if (!HelpActivity.isValidPhoneNumber(homelessPhoneNumber.getText().toString())){
             homelessPhoneNumber.setError(getString(R.string.phone_error_text));
-        }else if (!isUsernameValid(homelessUsername.getText().toString())){
+        }else if (!HelpActivity.isUsernameValid(homelessUsername.getText().toString())){
             homelessUsername.setError(getString(R.string.username_error_text));
-        }else if (!isLifeHistoryValid(homelessLifeHistory.getText().toString())){
+        }else if (!HelpActivity.isLifeHistoryValid(homelessLifeHistory.getText().toString())){
             homelessLifeHistory.setError(getString(R.string.life_hitory_error));
         }
-        return isUsernameValid(homelessUsername.getText().toString()) && isValidPhoneNumber(homelessPhoneNumber.getText().toString()) && isLifeHistoryValid(homelessLifeHistory.getText().toString());
-    }
-
-
-    public  boolean isValidPhoneNumber(CharSequence target) {
-        if (target.length() == 0){
-            return true;
-        }else if (target.length() < 6 || target.length() > 13) {
-            return false;
-        } else {
-            return android.util.Patterns.PHONE.matcher(target).matches();
-        }
-    }
-
-    private boolean isUsernameValid(CharSequence username){
-        if (username.length() > 3) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean isLifeHistoryValid(CharSequence lifeHistory){
-        if (lifeHistory.length() > 19 && lifeHistory.length()<=400) {
-            return true;
-        }
-        return false;
+        return HelpActivity.isUsernameValid(homelessUsername.getText().toString()) && HelpActivity.isValidPhoneNumber(homelessPhoneNumber.getText().toString()) && HelpActivity.isLifeHistoryValid(homelessLifeHistory.getText().toString());
     }
 
 }

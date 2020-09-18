@@ -2,19 +2,16 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
@@ -26,11 +23,13 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.rpc.Help;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -39,7 +38,6 @@ public class NeedsFragment extends Fragment implements View.OnClickListener {
 
     /*TextViews*/
     private View view;
-    private TextView needTV;
     private TextView needText;
 
     /*Buttons*/
@@ -76,7 +74,6 @@ public class NeedsFragment extends Fragment implements View.OnClickListener {
 
     private void initViews(){
         scheduleEditText = view.findViewById(R.id.homeless_schedule_edit_text);
-        needTV = view.findViewById(R.id.most_important_neev_tv);
         needText = view.findViewById(R.id.most_important_need);
         cancelScheduleBtn = view.findViewById(R.id.cancelScheduleButton);
         saveScheduleBtn = view.findViewById(R.id.saveScheduleButton);
@@ -106,10 +103,8 @@ public class NeedsFragment extends Fragment implements View.OnClickListener {
                 // Handle the checked chip change.
                 Chip chip = chipGroup.findViewById(checkedId);
                 if(chip != null){
-                    needTV.setVisibility(View.VISIBLE);
                     needText.setText(chip.getText().toString());
                 }
-
             }
         });
     }
@@ -124,7 +119,7 @@ public class NeedsFragment extends Fragment implements View.OnClickListener {
             case R.id.saveScheduleButton:
                 if (isValidForm()){
                 uploadDataToFirebase();
-                successfullyUploadedInfoToast();
+                HelpActivity.showSuccessToast(getActivity(), getString(R.string.account_created));
                 startActivity(new Intent(getActivity(), HomeVolunteer.class));
             }
         }
@@ -137,13 +132,13 @@ public class NeedsFragment extends Fragment implements View.OnClickListener {
            return false;
         }
 
-        if (scheduleEditText.getText().length()>40){
+        if (!HelpActivity.isScheduleValid(scheduleEditText.getText().toString())){
             scheduleEditText.setError(getString(R.string.maxim_char_schedule));
             return false;
         }
 
         if (needText.getText().toString().isEmpty()){
-            showErrorToast(getString(R.string.complete_need_toast));
+            HelpActivity.showErrorToast(getActivity(),getString(R.string.complete_need_toast));
            return false;
         }
         return true;
@@ -169,31 +164,7 @@ public class NeedsFragment extends Fragment implements View.OnClickListener {
 
         storageReference.child("homelessSignatures/" + firstName + " " + lastName).delete();
 
-        storageReference.child("homelessProfilePhotos/" + user.getEmail() + "->" + username).delete();
-    }
-
-    public void showErrorToast(String message){
-        Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.RED);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
-
-    private void successfullyUploadedInfoToast(){
-        Toast toast = Toast.makeText(getActivity(), getString(R.string.account_created), Toast.LENGTH_LONG);
-        View view =toast.getView();
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        view.setBackgroundColor(Color.TRANSPARENT);
-        toastMessage.setTextColor(Color.GREEN);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
+        storageReference.child("homelessProfilePhotos/" + user.getEmail() + "_" + username).delete();
     }
 
 }

@@ -47,27 +47,16 @@
             </LinearLayout>
 
 
-
             <ImageView
                 android:id="@+id/edit_profile_image"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/homeless_cv_image"
-                android:background="@color/light_blue"
+                android:scaleType="centerCrop"
+                android:src="@drawable/add_profile_image"
+                android:background="@color/white"
                 android:layout_gravity="center"
                 android:contentDescription="@string/content_description"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/edit_homeless_profile_photo_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/white"
-                android:layout_gravity="center"
-                app:iconGravity="textStart"
-                android:textSize="@dimen/body"
-                android:text="@string/edit_profile_photo_button"
-                android:textColor="@color/colorPrimary"
-                app:icon="@drawable/ic_add_a_photo_black_24dp"
-                app:iconTint="@color/colorPrimary" />
 
 
             <com.google.android.material.textfield.TextInputLayout
@@ -107,6 +96,23 @@
                     android:inputType="textMultiLine"/>
             </com.google.android.material.textfield.TextInputLayout>
 
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/top_margin"
+                android:layout_marginBottom="@dimen/bottom_margin"
+                android:backgroundTint="@color/colorAccentLight"
+                android:orientation="vertical">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/autocomplete_fragment_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:name=
+                        "com.google.android.libraries.places.widget.AutocompleteSupportFragment" />
+            </com.google.android.material.card.MaterialCardView>
+
             <TextView
                 android:id="@+id/selected_location_text"
                 android:textSize="@dimen/body"
@@ -120,24 +126,6 @@
                 android:layout_marginTop="@dimen/top_margin"
                 android:layout_marginBottom="@dimen/bottom_margin"
                 />
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/top_margin"
-                android:layout_marginBottom="@dimen/bottom_margin"
-                android:backgroundTint="@color/light_blue"
-                android:orientation="vertical">
-
-                <androidx.fragment.app.FragmentContainerView
-                    android:id="@+id/autocomplete_fragment_edit"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:name=
-                        "com.google.android.libraries.places.widget.AutocompleteSupportFragment" />
-
-            </com.google.android.material.card.MaterialCardView>
 
 
 
@@ -170,6 +158,7 @@
                 android:layout_marginTop="@dimen/top_margin"
                 android:textSize="@dimen/body"
                 android:drawablePadding="@dimen/padding"
+                android:visibility="invisible"
                 android:textColor="@color/colorPrimaryDark"
                 android:drawableStart="@drawable/create_homeless_needs"
                 android:drawableTint="@color/colorPrimaryDark"
@@ -189,7 +178,7 @@
                     android:id="@+id/food_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:chipBackgroundColor="@color/light_red"
+                    app:chipBackgroundColor="@drawable/chip_selector"
                     android:textColor="@color/black"
                     android:text="@string/chip_food"
                     android:textSize="@dimen/body"
@@ -201,7 +190,7 @@
                     android:id="@+id/clothes_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:chipBackgroundColor="@color/blue_light"
+                    app:chipBackgroundColor="@drawable/chip_selector"
                     android:textColor="@color/black"
                     android:text="@string/chip_clothes"
                     android:textSize="@dimen/body"
@@ -213,7 +202,7 @@
                     android:id="@+id/work_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:chipBackgroundColor="@color/lila_color"
+                    app:chipBackgroundColor="@drawable/chip_selector"
                     android:textColor="@color/black"
                     android:text="@string/chip_work"
                     android:textSize="@dimen/body"
@@ -225,7 +214,7 @@
                     android:id="@+id/lodging_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:chipBackgroundColor="@color/green_color"
+                    app:chipBackgroundColor="@drawable/chip_selector"
                     android:textColor="@color/black"
                     android:text="@string/chip_lodging"
                     android:textSize="@dimen/body"
@@ -237,13 +226,14 @@
                     android:id="@+id/hygiene_chip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:chipBackgroundColor="@color/yellow_color"
+                    app:chipBackgroundColor="@drawable/chip_selector"
                     android:textColor="@color/black"
                     android:text="@string/chip_hygiene_products"
                     android:textSize="@dimen/body"
                     app:chipIcon="@drawable/hygiene_icon"
                     app:chipIconEnabled="true"
                     style="@style/Widget.MaterialComponents.Chip.Choice"/>
+
             </com.google.android.material.chip.ChipGroup>
 
             <LinearLayout
@@ -259,11 +249,12 @@
                     android:textSize="@dimen/body"
                     android:layout_marginEnd="@dimen/end_margin"
                     android:textColor="@color/colorPrimary"
-                    app:iconTint="@color/colorPrimary"
-                    app:icon="@drawable/ic_close_black_24dp"
+                    app:iconTint="@null"
+                    app:icon="@drawable/cancel_img"
+                    app:iconSize="48dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:strokeColor="@color/colorPrimary"
+                    app:strokeColor="@color/red"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     android:text="@string/cancelEditBtn" />
 
@@ -273,9 +264,10 @@
                     android:id="@+id/saveHomelessBtn"
                     android:backgroundTint="@color/white"
                     android:textSize="@dimen/body"
-                    android:textColor="@color/green"
-                    app:iconTint="@color/green"
-                    app:icon="@drawable/ic_save_black_24dp"
+                    android:textColor="@color/colorPrimary"
+                    app:iconTint="@null"
+                    app:icon="@drawable/save_img"
+                    app:iconSize="48dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:strokeColor="@color/green"
@@ -292,8 +284,9 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="@dimen/top_margin"
                 app:icon="@drawable/delete_homeless_icon"
-                app:iconTint="@color/red"
-                android:textColor="@color/red"
+                app:iconTint="@null"
+                app:iconSize="48dp"
+                android:textColor="@color/colorPrimary"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:strokeColor="@color/red"

@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -17,6 +20,8 @@ import android.widget.Toast;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
+import java.io.ByteArrayOutputStream;
+import java.nio.charset.Charset;
 import java.util.Objects;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
@@ -50,6 +55,7 @@ public class HelpActivity extends AppCompatActivity {
         toastMessage.setTextSize(15);
         toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_drawable,0,0,0);
         toastMessage.setPadding(10,10,10,10);
+        toast.setGravity(Gravity.CENTER, 0, 0);
         toast.show();
     }
 
@@ -98,6 +104,7 @@ public class HelpActivity extends AppCompatActivity {
         }
     }
 
+
     public static boolean isPasswordValid(CharSequence password){
         if (password.length() > 5) {
             return true;
@@ -111,4 +118,30 @@ public class HelpActivity extends AppCompatActivity {
         }
         return false;
     }
+
+    public static boolean isLifeHistoryValid(CharSequence lifeHistory){
+
+        if (lifeHistory.length() > 19 && lifeHistory.length()<=400) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isScheduleValid(CharSequence schedule){
+
+        if ( schedule.length() > 4 && schedule.length() <= 40){
+            return true;
+        }
+        return false;
+    }
+
+
+    public static Uri getImageUri(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
+    }
+
+
 }

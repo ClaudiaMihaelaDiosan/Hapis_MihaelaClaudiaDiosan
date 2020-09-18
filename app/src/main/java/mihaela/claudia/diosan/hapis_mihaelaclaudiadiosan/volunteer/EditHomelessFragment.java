@@ -50,12 +50,16 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.google.rpc.Help;
+import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.util.Arrays;
 import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
 
+import static android.app.Activity.RESULT_OK;
 import static android.content.Context.MODE_PRIVATE;
 
 
@@ -96,7 +100,6 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
     private MaterialButton cancelBtn;
     private MaterialButton saveBtn;
     private MaterialButton deleteBtn;
-    private MaterialButton changeProfilePhoto;
 
     private ChipGroup chipGroup;
 
@@ -138,7 +141,6 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
         location = view.findViewById(R.id.selected_location_text);
         need = view.findViewById(R.id.most_important_need);
         editProfileImage = view.findViewById(R.id.edit_profile_image);
-        changeProfilePhoto = view.findViewById(R.id.edit_homeless_profile_photo_button);
         cancelBtn = view.findViewById(R.id.cancelEditButton);
         saveBtn = view.findViewById(R.id.saveHomelessBtn);
         deleteBtn = view.findViewById(R.id.deleteProfileBtn);
@@ -158,7 +160,7 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
         cancelBtn.setOnClickListener(this);
         saveBtn.setOnClickListener(this);
         deleteBtn.setOnClickListener(this);
-        changeProfilePhoto.setOnClickListener(this);
+        editProfileImage.setOnClickListener(this);
         chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(ChipGroup group, @IdRes int checkedId) {
@@ -180,18 +182,20 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
                 startActivity(new Intent(getActivity(),HomeVolunteer.class));
                 break;
             case R.id.saveHomelessBtn:
-                if (isLifeHistoryValid(lifeHistoryET.getText().toString()) && isValidPhoneNumber(phoneET.getText().toString())){
+                if (isValidForm()){
                     updateProfileInfo(username);
-                    showSuccessfullToast(getString(R.string.update_success_toast));
+                    HelpActivity.showSuccessToast(getActivity(), getString(R.string.update_success_toast));
                     startActivity(new Intent(getActivity(), HomeVolunteer.class));
                 }
                 break;
             case R.id.deleteProfileBtn:
                 showDeleteDialog();
                 break;
-            case R.id.edit_homeless_profile_photo_button:
+            case R.id.edit_profile_image:
                 verifyStoragePermissions(getActivity());
-                chooseImage();
+                CropImage.activity()
+                        .start(getContext(), this);
+               // chooseImage();
                 break;
         }
     }
@@ -226,7 +230,7 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
                     @Override
                     public void onSuccess(Void aVoid) {
                       //  Log.d(TAG, "DocumentSnapshot successfully deleted!");
-                        showSuccessfullToast(getString(R.string.delete_correct_toast));
+                        HelpActivity.showSuccessToast(getActivity(),getString(R.string.delete_correct_toast));
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -238,7 +242,7 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
     }
 
     private void deleteProfilePhoto(String username){
-       storageReference.child("homelessProfilePhotos/" + user.getEmail() + "->" + username)
+       storageReference.child("homelessProfilePhotos/" + user.getEmail() + "_" + username)
                 .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -317,16 +321,16 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
                         String image = documentSnapshot.getString("image");
 
 
-                        phoneET.setHint(phone);
-                        lifeHistoryET.setHint(lifeHistory);
-                        scheduleET.setHint(schedule);
+                        phoneET.setText(phone, TextView.BufferType.EDITABLE);
+                        lifeHistoryET.setText(lifeHistory,TextView.BufferType.EDITABLE);
+                        scheduleET.setText(schedule,TextView.BufferType.EDITABLE);
                         location.setText(locationValue);
                         need.setText(needValue);
 
                         Glide
                                 .with(getActivity())
                                 .load(image)
-                                .placeholder(R.drawable.no_profile_image)
+                                .placeholder(R.drawable.add_profile_image)
                                 .into(editProfileImage);
 
 
@@ -355,7 +359,6 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
             if (!schedule.isEmpty()){
                 documentReference.update("homelessSchedule", schedule);
             }
-
 
             if (!lifeHistory.isEmpty()){
                 documentReference.update("homelessLifeHistory", lifeHistory);
@@ -402,39 +405,28 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
         return Math.ceil(number * cifras) / cifras;
     }
 
-    private boolean isValidPhoneNumber(CharSequence target) {
-        if (target.length() == 0){
-            return true;
-        }else if (target.length() < 6 || target.length() > 13) {
+
+    private boolean isValidForm(){
+        if (!HelpActivity.isValidPhoneNumber(phoneET.getText().toString())){
             phoneET.setError(getString(R.string.phone_error_text));
-            return false;
-        } else {
-            return android.util.Patterns.PHONE.matcher(target).matches();
+        }else if (!HelpActivity.isLifeHistoryValid(lifeHistoryET.getText().toString())){
+            lifeHistoryET.setError(getString(R.string.life_hitory_error));
+        }else if (!HelpActivity.isScheduleValid(scheduleET.getText().toString())){
+            scheduleET.setError(getString(R.string.maxim_char_schedule));
         }
-    }
-
-    private boolean isLifeHistoryValid(CharSequence lifeHistory){
-        if (lifeHistory.length() != 0){
-            if (lifeHistory.length() > 19 && lifeHistory.length()<=400) {
-                return true;
-            }else{
-                lifeHistoryET.setError(getString(R.string.life_hitory_error));
-
-            }
-            return false;
-        }
-       return true;
+        return HelpActivity.isValidPhoneNumber(phoneET.getText().toString()) && HelpActivity.isLifeHistoryValid(lifeHistoryET.getText().toString()) && HelpActivity.isScheduleValid(scheduleET.getText().toString());
     }
 
 
-    private void chooseImage(){
+
+  /*  private void chooseImage(){
         Intent selectFileIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         selectFileIntent.setType("image/*");
         startActivityForResult(selectFileIntent.createChooser(selectFileIntent, getString(R.string.dialog_select_file)), SELECT_FILE);
-    }
+    }*/
 
 
-    @Override
+   /* @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         //  super.onActivityResult(requestCode, resultCode, data);
 
@@ -445,37 +437,34 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
             Glide
                     .with(getActivity())
                     .load(selectedImagePath)
-                    .placeholder(R.drawable.no_profile_image)
+                    .placeholder(R.drawable.add_profile_image)
                     .into(editProfileImage);
 
         }
+    }*/
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+
+        if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+            if (resultCode == RESULT_OK) {
+                selectedImagePath = result.getUri();
+
+                Glide
+                        .with(getActivity())
+                        .load(selectedImagePath)
+                        .placeholder(R.drawable.add_profile_image)
+                        .into(editProfileImage);
+
+            } else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE) {
+                Exception error = result.getError();
+            }
+        }
+
     }
 
-    private void showSuccessfullToast(String message){
-        Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.GREEN);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
-
-    private void showErrorToast(String message){
-        Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.RED);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
 
     private void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission

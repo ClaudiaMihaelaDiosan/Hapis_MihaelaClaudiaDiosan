@@ -62,4 +62,5 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
     implementation 'com.google.firebase:firebase-messaging:20.1.7'
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
 }

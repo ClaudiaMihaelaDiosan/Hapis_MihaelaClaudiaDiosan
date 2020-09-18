@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -38,12 +40,15 @@ import com.google.firebase.firestore.SetOptions;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.maps.OnMapAndViewReadyListener;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -56,8 +61,7 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
     /*Map and Autocomplete Place*/
     private List<Place.Field> placeFields = Arrays.asList(Place.Field.ID,Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
     private GoogleMap mGoogleMap;
-    private Double latitude;
-    private Double longitude;
+    private Geocoder mGeocoder;
 
     /*TextViews*/
     private TextView selectedLocationTV;
@@ -72,6 +76,8 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
     private StorageReference storageReference;
     private FirebaseUser user;
     private Map<String,String> homeless = new HashMap<>();
+    private Map<String,String> cities = new HashMap<>();
+
 
     /*SharedPreferences*/
     private SharedPreferences preferences;
@@ -88,6 +94,8 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
         initMapAndPlaces();
         firebaseInit();
         setupPlaceAutoComplete();
+
+        mGeocoder = new Geocoder(getActivity(), Locale.getDefault());
 
         return view;
     }
@@ -110,9 +118,10 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
             case R.id.saveLocationButton:
                 if (!selectedLocationTV.getText().toString().isEmpty()){
                     goToNeedsFragment();
-                    successfullyUploadedInfoToast();
+                    HelpActivity.showSuccessToast(getActivity(), getString(R.string.correct_saved_info));
                 }else{
-                    showErrorToast(getString(R.string.location_error_toast));
+                    HelpActivity.showErrorToast(getActivity(),getString(R.string.location_error_toast));
+
                 }
                 break;
         }
@@ -161,13 +170,18 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
                     String homelessAddress = place.getAddress();
                     String homelessLatitude = Double.toString(latitude);
                     String homelessLongitude = Double.toString(longitude);
+                    String city = getCityNameByCoordinates(latitude, longitude);
+                    String country = getCountryNameByCoordinates(latitude, longitude);
+
 
                     homeless.put("homelessAddress", homelessAddress);
                     homeless.put("homelessLongitude", homelessLongitude);
                     homeless.put("homelessLatitude", homelessLatitude);
+                    homeless.put("city", city);
+                    homeless.put("country", country);
 
                     mFirestore.collection("homeless").document(homelessUsername).set(homeless, SetOptions.merge());
-
+                    mFirestore.collection("cities").document(city).set(cities,SetOptions.merge());
 
                     selectedLocationTV.setText(place.getAddress());
                     // Creating a marker
@@ -206,6 +220,35 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
         });
     }
 
+    private String getCityNameByCoordinates(double lat, double lon)  {
+
+        List<Address> addresses = null;
+        try {
+            addresses = mGeocoder.getFromLocation(lat, lon, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (addresses != null && addresses.size() > 0) {
+            return addresses.get(0).getLocality();
+        }
+        return null;
+    }
+
+    private String getCountryNameByCoordinates(double lat, double lon){
+        List<Address> addresses = null;
+        try {
+            addresses = mGeocoder.getFromLocation(lat, lon, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (addresses != null && addresses.size() > 0)
+        {
+            return addresses.get(0).getCountryName();
+        }
+        return null;
+    }
+
     private static double aroundUp(double number, int canDecimal) {
         int cifras = (int) Math.pow(10, canDecimal);
         return Math.ceil(number * cifras) / cifras;
@@ -218,17 +261,6 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
     }
 
 
-    private void successfullyUploadedInfoToast(){
-        Toast toast = Toast.makeText(getActivity(), getString(R.string.correct_saved_info), Toast.LENGTH_LONG);
-        View view =toast.getView();
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        view.setBackgroundColor(Color.TRANSPARENT);
-        toastMessage.setTextColor(Color.GREEN);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
-
 
     private void deleteExistingInfo(){
         String firstName = preferences.getString("firstName", "");
@@ -239,7 +271,7 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
 
         storageReference.child("homelessSignatures/" + firstName + " " + lastName).delete();
 
-        storageReference.child("homelessProfilePhotos/" + user.getEmail() + "->" + username).delete();
+        storageReference.child("homelessProfilePhotos/" + user.getEmail() + "_" + username).delete();
 
     }
 
@@ -256,19 +288,4 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
         inputManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
     }
-
-    public void showErrorToast(String message){
-        Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.RED);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
-
-
 }

@@ -175,7 +175,7 @@
     <string name="needs_text">A continuación, selecciona la necesidad más importante que tiene la persona necesitada en este momento:</string>
     <string name="most_important_need_tv">La necesidad más importante seleccionada es: </string>
     <string name="complete_schedule_toast">Tienes que rellenar el horario</string>
-    <string name="maxim_char_schedule">El horario puede tener como máximo 40 caracteres</string>
+    <string name="maxim_char_schedule">El horario tiene que tener almenos 5 carácteres y como máximo 40</string>
     <string name="complete_need_toast">Tienes que elegir la necesidad más importante</string>
 
     <!--    Payment activity-->
@@ -213,7 +213,7 @@
     <string name="directory_not_created">Directorio no creado</string>
     <string name="album_name">SignaturePad</string>
     <string name="agreement">Acepto los tèrminos y las condiciones</string>
-    <string name="have_to_sign">Tienes que firmar antes!</string>
+    <string name="have_to_sign">Tienes que firmar para poder continuar!</string>
     <string name="confirmation_popup_message">Para confirmar introduce el nombre y los apellidos de la persona que ha firmado.</string>
     <string name="confirmation_popup_button_confirm">CONFIRMAR</string>
     <string name="confirmation_popup_cancel_button">CANCELAR</string>

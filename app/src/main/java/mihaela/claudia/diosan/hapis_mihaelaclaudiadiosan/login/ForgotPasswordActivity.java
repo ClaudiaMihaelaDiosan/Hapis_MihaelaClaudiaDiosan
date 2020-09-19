@@ -2,6 +2,7 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login;
 
 import androidx.annotation.NonNull;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -83,8 +84,10 @@ public class ForgotPasswordActivity extends MainActivity implements View.OnClick
 
     public void showPopUp(){
 
-        new MaterialAlertDialogBuilder(this)
-                .setTitle(getString(R.string.pop_up_title))
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+
+        builder.setTitle(getString(R.string.pop_up_title))
                 .setMessage(getString(R.string.pop_up_message))
                 .setIcon(R.drawable.check_drawable)
                 .setCancelable(false)
@@ -93,8 +96,11 @@ public class ForgotPasswordActivity extends MainActivity implements View.OnClick
                     public void onClick(DialogInterface dialog, int which) {
                         startActivity(new Intent(ForgotPasswordActivity.this, LoginActivity.class));
                     }
-                })
-                .show();
+                });
+
+        AlertDialog alertDialog = builder.show();
+        alertDialog.setCanceledOnTouchOutside(false);
+
     }
 
     @Override

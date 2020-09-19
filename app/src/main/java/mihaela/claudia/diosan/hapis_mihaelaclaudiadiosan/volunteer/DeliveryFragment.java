@@ -1,5 +1,6 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -79,8 +80,10 @@ public class DeliveryFragment extends Fragment {
             public void onItemClick(final DocumentSnapshot documentSnapshot, int position) {
 
                 if (documentSnapshot.exists()){
-                    new MaterialAlertDialogBuilder(getContext())
-                            .setTitle(getString(R.string.delivery_done))
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                    builder.setCancelable(false);
+
+                    builder.setTitle(getString(R.string.delivery_done))
                             .setMessage(getString(R.string.delivery_message))
                             .setIcon(R.drawable.check_drawable)
                             .setPositiveButton(getString(R.string.confirm_button_delivery), new DialogInterface.OnClickListener() {
@@ -103,7 +106,11 @@ public class DeliveryFragment extends Fragment {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
                         }
-                    }).show();
+                    });
+
+                    AlertDialog alertDialog = builder.show();
+                    alertDialog.setCanceledOnTouchOutside(false);
+
                 }
             }
         });

@@ -47,18 +47,25 @@
     </com.github.clans.fab.FloatingActionMenu>
 
 
-    <SearchView
-        android:id="@+id/volunteer_search"
-        android:padding="@dimen/padding"
+        <SearchView
+            android:id="@+id/volunteer_search"
+            android:padding="@dimen/padding"
+            android:layout_width="match_parent"
+            android:queryHint="@string/search_hint_donor"
+            android:layout_height="?actionBarSize"/>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
         android:layout_width="match_parent"
-        android:queryHint="@string/search_hint_donor"
-        android:layout_height="?actionBarSize"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="@dimen/bottom_margin">
 
-   <androidx.recyclerview.widget.RecyclerView
-       android:id="@+id/recycler_view"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:layout_marginTop="40dp"
-       android:scrollbars="vertical"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"/>
 
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </FrameLayout>

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -41,9 +42,6 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
     /* Buttons */
     MaterialButton registerBtn;
 
-    /* Alert Dialogs */
-    Dialog succesRegisterDialog;
-
     /* TextViews */
     TextView acceptTermsTV;
 
@@ -69,7 +67,6 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
     /*Firebase*/
     private FirebaseFirestore mFirestore;
     private FirebaseAuth mAuth;
-    FirebaseUser firebaseUser;
     private Map<String,String> user = new HashMap<>();
 
 
@@ -97,8 +94,6 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
     public void initViews(){
         regUserImg = findViewById(R.id.register_user_image);
         regUserImg.setImageResource(R.drawable.register_user_image);
-
-        succesRegisterDialog = new Dialog(this);
 
         acceptTermsTV = findViewById(R.id.accept_terms_text_view);
         acceptTermsTV.setMovementMethod(LinkMovementMethod.getInstance());
@@ -216,8 +211,10 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
     }
 
     public void showSuccessfulPopup(){
-        new MaterialAlertDialogBuilder(this)
-                .setTitle(getString(R.string.register_pop_up_title))
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setCancelable(false);
+
+        builder.setTitle(getString(R.string.register_pop_up_title))
                 .setMessage(getString(R.string.register_pop_up_message))
                 .setIcon(R.drawable.check_drawable)
                 .setPositiveButton(getString(R.string.register_pop_up_button), new DialogInterface.OnClickListener() {
@@ -226,9 +223,11 @@ public class RegisterUserActivity extends AppCompatActivity implements View.OnCl
                         Intent goLogin = new Intent(RegisterUserActivity.this, LoginActivity.class);
                         startActivity(goLogin);
                     }
-                })
+                });
 
-                .show();
+        AlertDialog alertDialog = builder.show();
+        alertDialog.setCanceledOnTouchOutside(false);
+
     }
 
     @Override

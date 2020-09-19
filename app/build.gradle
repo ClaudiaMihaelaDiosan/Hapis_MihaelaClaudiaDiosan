@@ -63,4 +63,5 @@ dependencies {
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
     implementation 'com.google.firebase:firebase-messaging:20.1.7'
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 }

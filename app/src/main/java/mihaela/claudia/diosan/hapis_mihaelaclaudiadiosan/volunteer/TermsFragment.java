@@ -200,7 +200,10 @@ public class TermsFragment extends Fragment implements View.OnClickListener {
             }
         });
 
+        confirmationDialog.setCancelable(false);
+        confirmationDialog.setCanceledOnTouchOutside(false);
         confirmationDialog.show();
+
 
     }
 

@@ -12,12 +12,18 @@
         android:queryHint="@string/search_hint_donor"
         android:layout_height="?actionBarSize"/>
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayoutDonor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/donor_top_margin"
+        android:layout_marginBottom="@dimen/donor_bottom_margin" >
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_donor"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/donor_top_margin"
-        android:layout_marginBottom="@dimen/donor_bottom_margin"
         android:scrollbars="vertical"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </FrameLayout>

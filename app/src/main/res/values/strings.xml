@@ -104,7 +104,7 @@
 
 
 
-    <string name="user_exists">This user already exists!Choose another name.</string>
+    <string name="user_exists">There already exists an account with this email address!</string>
     <string name="username_error_text">Enter a valid username. Username must have at least 4 characters</string>
     <string name="complete_life_toast">You have to fill this field</string>
 

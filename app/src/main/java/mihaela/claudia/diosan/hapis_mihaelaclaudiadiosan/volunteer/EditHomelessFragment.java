@@ -2,6 +2,7 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -102,6 +103,7 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
     private MaterialButton deleteBtn;
 
     private ChipGroup chipGroup;
+    MaterialAlertDialogBuilder deleteProfileDialog;
 
     /*Autocomplete place field*/
     private List<Place.Field> placeFields = Arrays.asList(Place.Field.ID,Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
@@ -202,8 +204,10 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
 
 
     private void showDeleteDialog(){
-        new MaterialAlertDialogBuilder(getContext())
-                .setTitle(getString(R.string.delete_dialog_title))
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setCancelable(false);
+
+        builder.setTitle(getString(R.string.delete_dialog_title))
                 .setMessage(getString(R.string.delete_message))
                 .setIcon(R.drawable.delete_homeless_icon)
                 .setPositiveButton(getString(R.string.delete_confirm_button), new DialogInterface.OnClickListener() {
@@ -219,7 +223,10 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
-                }).show();
+                });
+
+            AlertDialog alertDialog = builder.show();
+            alertDialog.setCanceledOnTouchOutside(false);
 
     }
 

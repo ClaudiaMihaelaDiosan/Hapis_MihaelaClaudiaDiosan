@@ -22,6 +22,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="@dimen/margins"
                 android:orientation="vertical">
 
                 <TextView
@@ -33,15 +34,11 @@
                     android:text="@string/schedule_text"
                     android:layout_gravity="start"
                     android:textStyle="bold"
-                    android:layout_marginStart="@dimen/start_margin"
-                    android:layout_marginEnd="@dimen/end_margin"
                     android:textColor="@color/grey" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/start_margin"
-                    android:layout_marginEnd="@dimen/end_margin"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                     >
 
@@ -61,7 +58,8 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margins"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:layout_marginBottom="@dimen/bottom_margin"
                     android:text="@string/needs_text"
                     android:layout_gravity="start"
                     android:textStyle="bold"
@@ -73,7 +71,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_margin="@dimen/margins"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:layout_marginBottom="@dimen/bottom_margin"
                     app:singleSelection="true">
 
                     <com.google.android.material.chip.Chip
@@ -83,9 +82,10 @@
                         app:chipBackgroundColor="@drawable/chip_selector"
                         android:textColor="@color/black"
                         android:text="@string/chip_food"
-                        android:textSize="@dimen/body"
                         app:chipIcon="@drawable/food_icon"
-                        app:iconStartPadding="@dimen/cv_margins"
+                        android:padding="@dimen/chip_padding"
+                        android:textSize="@dimen/body"
+                        app:iconStartPadding="@dimen/chip_padding"
                         app:chipIconEnabled="true"
                         style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
@@ -97,8 +97,9 @@
                         android:textColor="@color/black"
                         android:text="@string/chip_clothes"
                         android:textSize="@dimen/body"
-                        app:iconStartPadding="@dimen/cv_margins"
                         app:chipIcon="@drawable/clothes_icon"
+                        app:iconStartPadding="@dimen/chip_padding"
+                        android:padding="@dimen/chip_padding"
                         app:chipIconEnabled="true"
                         style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
@@ -109,9 +110,10 @@
                         app:chipBackgroundColor="@drawable/chip_selector"
                         android:textColor="@color/black"
                         android:text="@string/chip_work"
-                        app:iconStartPadding="@dimen/cv_margins"
                         android:textSize="@dimen/body"
+                        android:padding="@dimen/chip_padding"
                         app:chipIcon="@drawable/work_icon"
+                        app:iconStartPadding="@dimen/chip_padding"
                         app:chipIconEnabled="true"
                         style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
@@ -123,8 +125,9 @@
                         android:textColor="@color/black"
                         android:text="@string/chip_lodging"
                         android:textSize="@dimen/body"
+                        app:iconStartPadding="@dimen/chip_padding"
                         app:chipIcon="@drawable/lodging_icon"
-                        app:iconStartPadding="@dimen/cv_margins"
+                        android:padding="@dimen/chip_padding"
                         app:chipIconEnabled="true"
                         style="@style/Widget.MaterialComponents.Chip.Choice"/>
 
@@ -135,8 +138,9 @@
                         app:chipBackgroundColor="@drawable/chip_selector"
                         android:textColor="@color/black"
                         android:text="@string/chip_hygiene_products"
+                        android:padding="@dimen/chip_padding"
                         android:textSize="@dimen/body"
-                        app:iconStartPadding="@dimen/cv_margins"
+                        app:iconStartPadding="@dimen/chip_padding"
                         app:chipIcon="@drawable/hygiene_icon"
                         app:chipIconEnabled="true"
                         style="@style/Widget.MaterialComponents.Chip.Choice"/>

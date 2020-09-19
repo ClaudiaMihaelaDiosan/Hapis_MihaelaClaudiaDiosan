@@ -122,6 +122,7 @@ public class HomelessAdapter extends RecyclerView.Adapter<HomelessAdapter.Homele
         TextView schedule;
         TextView need;
         LinearLayout phoneLayout;
+        ImageView phoneImg;
 
 
         public HomelessAdapterHolder(@NonNull View itemView, final OnItemClickListener listener) {

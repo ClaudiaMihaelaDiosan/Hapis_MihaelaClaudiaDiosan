@@ -7,7 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,17 +46,39 @@ public class HomeDonorFragment extends Fragment {
     /*SearchView*/
     private SearchView searchView;
 
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home_donor, container, false);
 
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayoutDonor);
+
         preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
 
         initViews();
         firebaseInit();
         buildRecyclerView();
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                buildRecyclerView();
+                new Handler().postDelayed(new Runnable() {
+                    @Override public void run() {
+                        // Stop animation (This will be after 3 seconds)
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                }, 1000);
+            }
+        });
+
+        swipeRefreshLayout.setColorSchemeColors(
+                getResources().getColor(R.color.colorPrimary),
+                getResources().getColor(R.color.colorAccent),
+                getResources().getColor(R.color.green)
+        );
 
         return view;
     }
@@ -89,7 +113,6 @@ public class HomeDonorFragment extends Fragment {
                                 // Log.d(TAG, document.getId() + " => " + document.getData());
                                 String image = document.getString("image");
                                 final String username = document.getString("homelessUsername");
-                                final String phone = document.getString("homelessPhoneNumber");
                                 final String birthday = document.getString("homelessBirthday");
                                 final String lifeHistory = document.getString("homelessLifeHistory");
                                 final String schedule = document.getString("homelessSchedule");
@@ -122,6 +145,7 @@ public class HomeDonorFragment extends Fragment {
 
 
     }
+
 
     private void searchText(final HomelessAdapter homelessAdapter){
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

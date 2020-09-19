@@ -6,7 +6,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +46,7 @@ public class ListMapFragment extends Fragment  {
     private FirebaseFirestore mFirestore;
 
     private SearchView searchView;
-
+    private SwipeRefreshLayout swipeRefreshLayout;
 
 
     @Override
@@ -52,6 +54,7 @@ public class ListMapFragment extends Fragment  {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_list_map, container, false);
 
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayoutListMap);
         searchView = view.findViewById(R.id.list_map_search);
         searchView.onActionViewExpanded();
         searchView.clearFocus();
@@ -60,6 +63,26 @@ public class ListMapFragment extends Fragment  {
 
         setHasOptionsMenu(true);
         setupRecyclerView(view);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                setupRecyclerView(view);
+                new Handler().postDelayed(new Runnable() {
+                    @Override public void run() {
+                        // Stop animation (This will be after 3 seconds)
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                }, 2000);
+            }
+        });
+
+        swipeRefreshLayout.setColorSchemeColors(
+                getResources().getColor(R.color.colorPrimary),
+                getResources().getColor(R.color.colorAccent),
+                getResources().getColor(R.color.green)
+        );
+
 
         return view;
 

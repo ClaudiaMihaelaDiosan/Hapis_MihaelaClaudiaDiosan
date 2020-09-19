@@ -47,7 +47,6 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore mFirestore;
-    private FirebaseUser firebaseUser;
 
 
     @Override
@@ -189,6 +188,8 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setView(R.layout.progress);
         Dialog dialog = builder.create();
+        dialog.setCancelable(false);
+        dialog.setCanceledOnTouchOutside(false);
         dialog.show();
     }
 

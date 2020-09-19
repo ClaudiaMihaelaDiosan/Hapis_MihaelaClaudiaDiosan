@@ -9,7 +9,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,18 +55,40 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
     /*SearchView bar*/
     private SearchView searchView;
 
+    private SwipeRefreshLayout swipeRefreshLayout;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home_volunteer, container, false);
 
+        swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipeRefreshLayout);
+
         preferences = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
 
         initViews();
         firebaseInit();
-
         setUpRecyclerView();
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                setUpRecyclerView();
+                new Handler().postDelayed(new Runnable() {
+                    @Override public void run() {
+                        // Stop animation (This will be after 3 seconds)
+                        swipeRefreshLayout.setRefreshing(false);
+                    }
+                }, 3000);
+            }
+        });
+
+        swipeRefreshLayout.setColorSchemeColors(
+                getResources().getColor(R.color.colorPrimary),
+                getResources().getColor(R.color.colorAccent),
+                getResources().getColor(R.color.green)
+        );
 
         return view;
     }
@@ -133,6 +157,7 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
                                 final Homeless homeless = new Homeless(image, username, phone, birthday, lifeHistory, address, schedule, need);
                                 homelesses.add(homeless);
                                 final VolunteerAdapter volunteerAdapter = new VolunteerAdapter(homelesses);
+                                volunteerAdapter.notifyDataSetChanged();
                                 searchText(volunteerAdapter);
                                 recyclerView.setAdapter(volunteerAdapter);
 

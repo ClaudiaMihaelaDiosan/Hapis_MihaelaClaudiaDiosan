@@ -21,8 +21,8 @@
 
 
     <string-array name="visualizationItems">
-        <item>Solo los perfiles creados por mi</item>
-        <item>Todos</item>
+        <item>Solo entregas para los perfiles creados por mi</item>
+        <item>Todas las entregas</item>
     </string-array>
 
     <string-array name="visualizationAlias">

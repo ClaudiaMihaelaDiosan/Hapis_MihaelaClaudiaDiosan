@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,69 +7,72 @@
     android:orientation="vertical"
     tools:context=".liquidGalaxy.MainActivityLG">
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/stop_statistics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/stop"
-        android:backgroundTint="@color/red"
-        android:visibility="gone"
-        android:layout_marginEnd="@dimen/cv_margins"
-        android:layout_gravity="end"/>
 
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/cities_cv"
-        android:layout_width="@dimen/dashboard_cards"
-        app:cardElevation="@dimen/elevation"
-        android:elevation="@dimen/elevation"
-        android:layout_gravity="center"
-        app:cardCornerRadius="@dimen/cardCornerRadius"
-        android:backgroundTint="@color/color_first_card"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp">
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_gravity="center">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/stop_statistics"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:text="@string/stop"
+            android:textSize="@dimen/body"
+            android:visibility="gone"
+            android:backgroundTint="@color/red"
+            android:layout_marginEnd="@dimen/cv_margins"
+            android:layout_gravity="end"/>
 
-            <!-- Media -->
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/dashboard_image_cv"
-                app:srcCompat="@drawable/cities_image"
-                android:scaleType="centerCrop"
-                android:contentDescription="@string/content_description"
-                />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cities_cv"
+            android:layout_width="@dimen/dashboard_cards"
+            app:cardElevation="@dimen/elevation"
+            android:elevation="@dimen/elevation"
+            app:cardCornerRadius="@dimen/cardCornerRadius"
+            android:backgroundTint="@color/color_first_card"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/padding">
+                android:orientation="vertical">
 
-                <!-- Title, secondary and supporting text -->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/cities"
-                    android:gravity="center"
-                    android:layout_gravity="center"
-                    android:textAppearance="?attr/textAppearanceHeadline6"
+                <!-- Media -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dashboard_image_cv"
+                    app:srcCompat="@drawable/cities_image"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="@string/content_description"
                     />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Title, secondary and supporting text -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cities"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:textAppearance="?attr/textAppearanceHeadline6"
+                        />
+
+
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-    </com.google.android.material.card.MaterialCardView>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:layout_gravity="center">
+        </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/city_statistics"
@@ -100,7 +102,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/padding">
+                    android:padding="16dp">
 
                     <!-- Title, secondary and supporting text -->
                     <TextView
@@ -146,7 +148,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/padding">
+                    android:padding="16dp">
 
                     <!-- Title, secondary and supporting text -->
                     <TextView
@@ -155,26 +157,22 @@
                         android:text="@string/statistics"
                         android:gravity="center"
                         android:layout_gravity="center"
-                        android:textAppearance="?attr/textAppearanceHeadline6"
-                        />
+                        android:textAppearance="?attr/textAppearanceHeadline6" />
                 </LinearLayout>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>
-
 
     </LinearLayout>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="@dimen/logos_image"
-        android:layout_gravity="center"
-        android:layout_marginEnd="@dimen/end_margin"
-        android:layout_marginStart="@dimen/start_margin"
-        android:src="@drawable/logos"
-        />
-</LinearLayout>
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/margins"
+        android:src="@drawable/logos" />
 
+</LinearLayout>
 
 
 

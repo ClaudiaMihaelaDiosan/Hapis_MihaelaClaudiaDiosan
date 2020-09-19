@@ -141,6 +141,8 @@
     <string name="edit_button_toast">Con este botón el voluntario podrá editar los campos que aparecen para la persona necesitada</string>
     <string name="delete_button_toast">Con este botón se borrará el perfil de la persona necesitada</string>
     <!--Floating Action Menu -->
+    <string name="welcome_vol">BIENVENID@ A</string>
+    <string name="first_homeless">Selecciona Nuevo perfil persona necesitada para crear el primer perfil.\n\n\n GRACIAS por tu colaboración!</string>
     <string name="new_homeless_profile">Nuevo perfil persona necesitada</string>
     <string name="send_delivery_notification">Entrega donaciones</string>
 
@@ -355,4 +357,34 @@
     <string name="snackbar_option">ACTIVAR WIFI</string>
     <string name="wifi_value">Wi-fi</string>
     <string name="any_value">Todas</string>
+
+    <!--LIQUID GALAXY-->
+
+    <!--Main activity LG-->
+
+    <string name="stop">STOP</string>
+
+    <!--Dashboard cards-->
+    <string name="cities">Ciudades\n</string>
+    <string name="statistics">Estadísticas\n globales</string>
+    <string name="city_statistics">Estadísticas\n por ciudad </string>
+
+    <string name="popup_info_title">Entrarás en la parte dedicada al Liquid Galaxy</string>
+    <string name="popup_info_message"> Todas las funcionalidades que encuentras aquí solo funcionarán si dispones de un sistema Liquid Galaxy correctamente instalado!</string>
+
+
+    <!--Visit POI task-->
+    <string name="viewing">Visualizando</string>
+    <string name="inLG">en el Liquid Galaxy</string>
+    <string name="visualizationCanceled">Visualización Cancelada</string>
+
+    <string name="speedx2">x2</string>
+    <string name="speedx4">x4</string>
+    <string name="stop_tour">STOP</string>
+    <string name="speeddiv2">x/2</string>
+    <string name="speeddiv4">x/4</string>
+    <string name="cancel">Cancelar</string>
+    <string name="connection_failure"> Error al conectar con el sistema Liquid Galaxy. Intenta cambiar el usuario, la contraseña, la ip o el puerto.</string>
+
+
 </resources>

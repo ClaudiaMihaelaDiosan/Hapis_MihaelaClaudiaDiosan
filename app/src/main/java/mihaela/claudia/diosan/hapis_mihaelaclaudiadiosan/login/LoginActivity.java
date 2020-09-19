@@ -1,6 +1,7 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login;
 
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -94,7 +95,8 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
             case R.id.liquid_galaxy_tv:
-                startActivity(new Intent(LoginActivity.this, MainActivityLG.class));
+              //  startActivity(new Intent(LoginActivity.this, MainActivityLG.class));
+                showLGDialog();
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
             case R.id.login_button:
@@ -198,6 +200,38 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
         dialog.setCancelable(false);
         dialog.setCanceledOnTouchOutside(false);
         dialog.show();
+    }
+
+    private void showLGDialog(){
+        final android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        builder.setCancelable(false);
+
+        builder.setTitle(getString(R.string.popup_info_title))
+                .setMessage(getString(R.string.popup_info_message))
+                .setIcon(R.drawable.error_drawable)
+                .setCancelable(false)
+                .setPositiveButton(getString(R.string.pop_up_button), new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        startActivity(new Intent(LoginActivity.this, MainActivityLG.class));
+                    }
+                });
+
+
+        final android.app.AlertDialog alertDialog = builder.create();
+        alertDialog.setCanceledOnTouchOutside(false);
+
+        builder.setNegativeButton(R.string.delete_cancel_button, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
+            }
+        });
+
+        builder.show();
+
+
+
     }
 
     @Override

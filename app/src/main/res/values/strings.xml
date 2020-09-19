@@ -130,6 +130,8 @@
     <string name="edit_button_toast">This button will let the volunteer edit the shown fields of the homeless</string>
     <string name="delete_button_toast">With this button the homeless profile will be deleted</string>
     <!--Floating Action Menu -->
+    <string name="welcome_vol">WELCOME TO</string>
+    <string name="first_homeless">Go on the floating menu and select\n New homeless profile\n to create your first homeless profile.\n\n\n THANK YOU for your collaboration!</string>
     <string name="new_homeless_profile">New homeless profile</string>
     <string name="send_delivery_notification">Donations delivery</string>
 
@@ -342,8 +344,32 @@
     <string name="wifi_value">Wi-fi</string>
     <string name="any_value">All</string>
 
+    <!--LIQUID GALAXY-->
+
+    <!--Main activity LG-->
+
+    <string name="stop">STOP</string>
+    <!--Dashboard cards-->
+    <string name="cities">Cities\n</string>
+    <string name="statistics">Global\n Statistics</string>
+    <string name="city_statistics">City\n Statistics</string>
+
+    <string name="popup_info_title">You are about to enter into the Liquid Galaxy part</string>
+    <string name="popup_info_message">All the functionalities in this part will work only is you have a functional Liquid Galaxy installed!</string>
 
 
+    <!--VisitPOI Task-->
+    <string name="viewing">Visualizing</string>
+    <string name="inLG">in Liquid Galaxy</string>
+    <string name="visualizationCanceled">Visualization Canceled</string>
+
+    <string name="speedx2">x2</string>
+    <string name="speedx4">x4</string>
+    <string name="stop_tour">STOP</string>
+    <string name="speeddiv2">x/2</string>
+    <string name="speeddiv4">x/4</string>
+    <string name="cancel">Cancel</string>
+    <string name="connection_failure">Error connecting with Liquid Galaxy system. Try changing username, password, port or the host ip</string>
 
 
 </resources>

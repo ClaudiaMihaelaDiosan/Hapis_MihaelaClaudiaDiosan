@@ -15,6 +15,7 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.SearchView;
 
 import com.github.clans.fab.FloatingActionButton;
@@ -40,6 +41,7 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
 
     /*Views*/
     private View view;
+    LinearLayout firstHomeless;
 
     /*Floating Action menu*/
     private FloatingActionButton newHomelessProfile;
@@ -117,11 +119,15 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
 
     private void initViews(){
         newHomelessProfile = view.findViewById(R.id.new_homeless_profile);
+        firstHomeless = view.findViewById(R.id.add_first_homeless);
+        firstHomeless.setVisibility(View.VISIBLE);
+
         sendDeliveryNotification = view.findViewById(R.id.send_delivery_notification);
 
         searchView = view.findViewById(R.id.volunteer_search);
         searchView.onActionViewExpanded();
         searchView.clearFocus();
+        searchView.setVisibility(View.GONE);
     }
 
     private void firebaseInit(){
@@ -161,7 +167,11 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
                                 searchText(volunteerAdapter);
                                 recyclerView.setAdapter(volunteerAdapter);
 
-                                recyclerView.setAdapter(volunteerAdapter);
+                                if (volunteerAdapter.getItemCount() != 0){
+                                    searchView.setVisibility(View.VISIBLE);
+                                    firstHomeless.setVisibility(View.GONE);
+
+                                }
                                 volunteerAdapter.setOnItemClicklistener(new VolunteerAdapter.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(int position) {

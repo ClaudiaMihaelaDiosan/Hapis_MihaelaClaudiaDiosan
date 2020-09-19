@@ -10,6 +10,12 @@
     <color name="green">#00F10A</color>
     <color name="icons_blue">#b6dcfe</color>
 
+    <!--dashboard cards-->
+    <color name="color_first_card">#3e72ff</color>
+    <color name="color_second_card">#ff66c4</color>
+    <color name="color_third_card">#ffc604</color>
+    <color name="color_forth_card">#ff6100</color>
+
 
 
     <color name="blue">#0A4CB6</color>

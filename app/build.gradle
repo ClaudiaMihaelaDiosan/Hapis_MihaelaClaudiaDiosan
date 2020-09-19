@@ -22,6 +22,10 @@ android {
                     (project.findProperty("GOOGLE_MAPS_API_KEY") ?: "")
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
 }
 
@@ -64,4 +68,5 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:20.1.7'
     api 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
+    implementation group: 'com.jcraft', name: 'jsch', version: '0.1.54'
 }

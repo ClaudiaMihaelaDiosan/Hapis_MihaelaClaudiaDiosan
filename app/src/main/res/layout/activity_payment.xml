@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:layout_margin="@dimen/margins"
         android:backgroundTint="@color/white"
-       >
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,7 +31,6 @@
                     android:layout_width="@dimen/payment_icons"
                     android:layout_height="@dimen/payment_icons"
                     android:layout_marginTop="@dimen/top_margin"
-                    android:layout_marginStart="@dimen/start_margin"
                     android:contentDescription="@string/content_description"
                     android:src="@drawable/donate_icon"/>
 
@@ -41,7 +40,7 @@
                     android:text="@string/payment_title"
                     android:layout_marginTop="@dimen/top_margin"
                     android:layout_marginStart="@dimen/start_margin"
-                    android:textColor="@color/black"
+                    android:textColor="@color/quantum_black_100"
                     android:textSize="@dimen/body"/>
 
             </LinearLayout>
@@ -55,29 +54,28 @@
                 android:inputType="number"
                 android:textSize="@dimen/title" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="@dimen/top_margin"
-                android:layout_marginStart="@dimen/start_margin"
-                android:contentDescription="@string/content_description"
-                android:src="@drawable/credit_card_icon"/>
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/payment_card_credit"
-                android:layout_marginStart="@dimen/start_margin"
-                android:layout_marginTop="@dimen/top_margin"
-                android:textColor="@color/black"
-                android:textSize="@dimen/body"/>
+                android:orientation="horizontal">
 
-        </LinearLayout>
+                <ImageView
+                    android:layout_width="@dimen/payment_icons"
+                    android:layout_height="@dimen/payment_icons"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:contentDescription="@string/content_description"
+                    android:src="@drawable/credit_card_img"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/payment_card_credit"
+                    android:layout_marginStart="@dimen/start_margin"
+                    android:layout_marginTop="@dimen/top_margin"
+                    android:textColor="@color/quantum_black_100"
+                    android:textSize="@dimen/body"/>
+
+            </LinearLayout>
 
             <com.braintreepayments.cardform.view.CardForm
                 android:id="@+id/card_form"
@@ -86,13 +84,15 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_pay"
-                android:layout_marginStart="@dimen/start_margin"
                 app:icon="@drawable/donate_left_drawable"
-                app:iconTint="@color/green"
-               style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                app:strokeColor="@color/green"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/top_margin"
+                app:iconTint="@null"
+                app:iconSize="24dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:strokeColor="@color/colorPrimary"
                 android:textStyle="bold"
-                android:textColor="@color/green"
+                android:textColor="@color/colorPrimary"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
                 android:layout_height="wrap_content"

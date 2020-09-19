@@ -226,6 +226,17 @@
     <string name="config_phone_number_hint">Número de teléfono</string>
     <string name="config_phone_number_summary">Cambia tu número de teléfono existente o añade un número nuevo</string>
     <string name="config_changed_phone_toast">Has cambiado tu número de teléfono correctamente. La próxima vez que entras en la aplicación podrás ver tu nuevo teléfono en tu información de perfil.</string>
+    <string name="profile_category">Ajustes de perfil</string>
+    <string name="network_category">Preferencias de red</string>
+    <string name="config_password_hint">Cambiar contraseña</string>
+    <string name="config_password_summary">Cambia tu contraseña.Solo tienes que ingresar la nueva contraseña.</string>
+    <string name="config_delete">Borrar cuenta</string>
+    <string name="config_delete_summary">Se borrará la cuenta definitivamente.Estas segur@?</string>
+    <string name="snackbar_failed">Algo ha ido mal. Intentalo más tarde!</string>
+    <string name="snackbar_succes">Contraseña modificada con éxito!</string>
+    <string name="snackbar_auth">Autenticación fallida!Prueba hacer logout y volver a entrar utilizando la nueva contraseña.</string>
+    <string name="snackbar_delete_ok">Cuanta borrada con éxito!</string>
+
 
     <!--  Contact Fragment-->
     <string name="contact_title">CONTACTA CON NOSOTROS</string>
@@ -238,7 +249,7 @@
 
     <!--  Donate Fragment-->
     <string name="donate_title">DONA A HAPIS</string>
-    <string name="donate_text"> Tu donación proporciona cosas como comida a personas reales y nos ayuda seguir manteniendo esta aplicación.</string>
+    <string name="donate_text"> Tu donación nos ayuda seguir manteniendo esta aplicación.</string>
     <string name="donate_button">DONAR DINERO</string>
     <string name="or">O</string>
     <string name="donate_video">Mira un video de 30 segundo para donar €0.40 .</string>

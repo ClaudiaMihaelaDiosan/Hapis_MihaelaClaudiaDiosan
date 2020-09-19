@@ -37,16 +37,13 @@ public class DonateFragment extends Fragment implements View.OnClickListener{
         videoBtn = view.findViewById(R.id.view_video_button);
     }
 
-
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
         donateBtn.setOnClickListener(this);
         videoBtn.setOnClickListener(this);
-
     }
-
 
     @Override
     public void onClick(View v) {

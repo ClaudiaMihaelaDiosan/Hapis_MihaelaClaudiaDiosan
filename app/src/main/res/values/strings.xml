@@ -102,16 +102,9 @@
     <string name="register_error">"Something went wrong!</string>
 
 
-
-
     <string name="user_exists">There already exists an account with this email address!</string>
     <string name="username_error_text">Enter a valid username. Username must have at least 4 characters</string>
     <string name="complete_life_toast">You have to fill this field</string>
-
-
-
-
-
 
 
     <!--    User Home Activity-->
@@ -223,6 +216,17 @@
     <string name="config_phone_number_hint">Phone number</string>
     <string name="config_phone_number_summary">Change your existing phone number or add a new one</string>
     <string name="config_changed_phone_toast">You changed your phone number successfully. Next time you login you can see your new phone number on your profile info.</string>
+    <string name="profile_category">Profile Settings</string>
+    <string name="network_category">Network Preferences</string>
+    <string name="config_password_hint">Change password</string>
+    <string name="config_password_summary">Change your password.You only have to enter the new password.</string>
+    <string name="config_delete">Delete your account</string>
+    <string name="config_delete_summary">By this you delete your account for ever.Are you sure?</string>
+    <string name="snackbar_failed">Something went wrong. Please try again later</string>
+    <string name="snackbar_succes">Password Successfully Modified</string>
+    <string name="snackbar_auth">Authentication Failed!Prove to exit application an get back in with the new password.</string>
+    <string name="snackbar_delete_ok">Account deleted successfully!</string>
+    <string name="delete_default_value" translatable="false">no</string>
 
     <!-- Contact Fragment-->
     <string name="contact_title">CONTACT US</string>
@@ -235,7 +239,7 @@
 
     <!--  Donate Fragment-->
     <string name="donate_title">DONATE TO HAPIS</string>
-    <string name="donate_text">Your generous support provide real people with things like food and helps us to continue with this application.</string>
+    <string name="donate_text">Your generous support helps us to continue with this application.</string>
     <string name="donate_button">DONATE MONEY</string>
     <string name="or">OR</string>
     <string name="donate_video">Watch a 30 seconds video to donate €0.40.</string>
@@ -334,6 +338,9 @@
     <string name="snackbar_option">ACTIVATE WIFI</string>
     <string name="wifi_value">Wi-fi</string>
     <string name="any_value">All</string>
+
+
+
 
 
 </resources>

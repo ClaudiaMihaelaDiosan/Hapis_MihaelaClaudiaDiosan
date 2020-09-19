@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="@string/profile_category">
+
+
+        <EditTextPreference
+            android:key="phone"
+            android:title="@string/config_phone_number_hint"
+            android:summary="@string/config_phone_number_summary"
+            android:selectable="true"
+            android:inputType="numberDecimal"
+            android:digits="0123456789"
+            android:icon="@drawable/phone_drawable"
+            />
+
+        <EditTextPreference
+            android:key="firstName"
+            android:title="@string/config_phone_number_hint"
+            android:summary="@string/config_phone_number_summary"
+            android:selectable="true"
+            android:inputType="numberDecimal"
+            android:digits="0123456789"
+            android:icon="@drawable/username_drawable"
+            />
+
+        <EditTextPreference
+            android:key="lastName"
+            android:title="@string/config_phone_number_hint"
+            android:summary="@string/config_phone_number_summary"
+            android:selectable="true"
+            android:inputType="numberDecimal"
+            android:digits="0123456789"
+            android:icon="@drawable/username_drawable"
+            />
+
+        <EditTextPreference
+            android:key="password"
+            android:title="@string/config_password_hint"
+            android:summary="@string/config_password_summary"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:icon="@drawable/password_drawable"
+            />
+
+        <ListPreference
+            android:key="delete_prefs"
+            android:title="@string/config_delete"
+            android:summary="@string/config_delete_summary"
+            android:entries="@array/deleteOptions"
+            app:icon="@drawable/delete_account_icon"
+            android:defaultValue="@string/delete_default_value"
+            android:entryValues="@array/deleteAlias"/>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/network_category">
+
+        <ListPreference
+            android:key="map"
+            android:title="@string/title_map"
+            android:summary="@string/summary_map"
+            android:entries="@array/names"
+            android:entryValues="@array/values"
+            android:defaultValue="@string/any_value"
+            android:icon="@drawable/ic_map_black_24dp"/>
+
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>

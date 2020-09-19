@@ -45,7 +45,10 @@
             android:label="@string/create_homeless_profile_name"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".common.Payment" />
+        <activity android:name=".common.Payment"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/payment_activity_name"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".volunteer.HomeVolunteer"
             android:configChanges="orientation|screenSize"

@@ -2,12 +2,14 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.preference.PreferenceManager;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -48,11 +50,14 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
     private FirebaseAuth mAuth;
     private FirebaseFirestore mFirestore;
 
+    SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         mAuth = FirebaseAuth.getInstance();
         mFirestore = FirebaseFirestore.getInstance();
@@ -102,6 +107,8 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
     public void login(){
         loginEmailValue = loginEmailEditText.getText().toString();
         String loginPasswordValue = loginPasswordEditText.getText().toString();
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("passwordValue", loginPasswordValue).apply();
 
         if (loginEmailValue.isEmpty() || loginPasswordValue.isEmpty()){
             loginEmailEditText.setError(getString(R.string.email_error_text));

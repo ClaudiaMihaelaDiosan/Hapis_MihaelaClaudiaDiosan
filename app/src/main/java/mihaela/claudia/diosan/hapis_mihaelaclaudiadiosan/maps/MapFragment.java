@@ -61,25 +61,26 @@ public class MapFragment extends Fragment implements OnMapAndViewReadyListener.O
 
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext().getApplicationContext());
-        //  String sPref = preferences.getString("networkPreference", "Todas");
-
+        String sPref = preferences.getString("networkPreference", "Todas");
+        String status = getConnectivityStatusString(getContext());
         homelessPref = getActivity().getSharedPreferences("homelessInfo", MODE_PRIVATE);
-        //  String status = getConnectivityStatusString(getContext());
 
-        //  if (sPref.equals("Wi-Fi") && status.equals(getString(R.string.mobile_connected)) || status.equals(getString(R.string.no_network_operating))){
-        //  snackBarWifi();
-        //  }else{
         firebaseInit();
+
+
+        if (sPref.equals("Wi-Fi") && status.equals(getString(R.string.mobile_connected)) || status.equals(getString(R.string.no_network_operating))){
+          snackBarWifi();
+        }else{
         // Get the map and register for the ready callback
         SupportMapFragment mMapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map_fragment);
         mMapFragment.getMapAsync(this);
 
-        //  }
+          }
 
         return view;
     }
 
-/*    private void snackBarWifi(){
+    private void snackBarWifi(){
         Snackbar.make(getActivity().findViewById(android.R.id.content), getString(R.string.map_snackbar), Snackbar.LENGTH_INDEFINITE)
                 .setAction(getString(R.string.snackbar_option), new View.OnClickListener() {
                     @Override
@@ -89,9 +90,8 @@ public class MapFragment extends Fragment implements OnMapAndViewReadyListener.O
                 })
                 .setActionTextColor(Color.RED)
                 .show();
-    }*/
+    }
 
-/*
     static String getConnectivityStatusString(Context context) {
         String status;
 
@@ -111,12 +111,6 @@ public class MapFragment extends Fragment implements OnMapAndViewReadyListener.O
         }
         return "";
     }
-
-    private void firebaseInit() {
-        mFirestore = FirebaseFirestore.getInstance();
-
-    }
-*/
 
     private void firebaseInit() {
         mFirestore = FirebaseFirestore.getInstance();

@@ -8,4 +8,14 @@
             <item>Wi-Fi</item>
             <item>Todas</item>
         </string-array>
+    
+    <string-array name="deleteOptions">
+        <item>SI</item>
+        <item>NO</item>
+    </string-array>
+    
+    <string-array name="deleteAlias">
+        <item>yes</item>
+        <item>no</item>
+    </string-array>
 </resources>

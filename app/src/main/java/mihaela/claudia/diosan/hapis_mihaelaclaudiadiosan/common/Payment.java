@@ -3,12 +3,9 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common;
 import androidx.appcompat.app.AlertDialog;
 
 import android.content.DialogInterface;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.InputType;
-import android.view.Gravity;
 import android.view.View;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.braintreepayments.cardform.view.CardForm;
@@ -18,6 +15,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import me.abhinay.input.CurrencyEditText;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
 
 public class Payment extends MainActivity {
 
@@ -61,7 +59,7 @@ public class Payment extends MainActivity {
                 if (cardForm.isValid()){
                     showAlertDialog();
                 }else {
-                    showErrorToast(getString(R.string.payment_toast_fail));
+                    HelpActivity.showErrorToast(getApplicationContext(),getString(R.string.payment_toast_fail));
                 }
             }
         });
@@ -94,18 +92,5 @@ public class Payment extends MainActivity {
         alertDialog.show();
     }
 
-
-    private void showErrorToast(String message){
-        Toast toast = Toast.makeText(Payment.this, message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.RED);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.error_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
 
 }

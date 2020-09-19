@@ -26,7 +26,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.ConfigurationFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.ContactFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.DonateFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
@@ -190,7 +189,7 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
                 break;
             case R.id.user_menu_configuration:
                 bottomNavigationView.setVisibility(View.GONE);
-                getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, new ConfigurationFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, new DonorConfigurationFragment()).commit();
                 break;
             case R.id.user_menu_logout:
                 FirebaseAuth.getInstance().signOut();

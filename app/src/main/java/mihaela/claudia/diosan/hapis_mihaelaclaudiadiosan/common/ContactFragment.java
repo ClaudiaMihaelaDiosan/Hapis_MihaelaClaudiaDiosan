@@ -104,8 +104,8 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
         String subject = subjectET.getText().toString();
         String message = messageET.getText().toString();
 
-        contactFormData.put("contactSubject", subject);
-        contactFormData.put("contactMessage",message);
+        contactFormData.put("subject", subject);
+        contactFormData.put("message",message);
 
         mFirestore.collection("contactForm").document(user.getEmail() + "\n" +  subject).set(contactFormData, SetOptions.merge());
     }

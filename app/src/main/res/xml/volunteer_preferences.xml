@@ -2,14 +2,45 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <EditTextPreference
-        android:key="phone_volunteer"
-        android:title="@string/config_phone_number_hint"
-        android:summary="@string/config_phone_number_summary"
-        android:selectable="true"
-        android:inputType="numberDecimal"
-        android:digits="0123456789"
-        android:icon="@drawable/phone_drawable"
-        />
+    <PreferenceCategory
+        android:title="@string/profile_category">
+
+        <EditTextPreference
+            android:key="phone_volunteer"
+            android:title="@string/config_phone_number_hint"
+            android:summary="@string/config_phone_number_summary"
+            android:selectable="true"
+            android:inputType="numberDecimal"
+            android:digits="0123456789"
+            android:icon="@drawable/phone_drawable"
+            />
+
+        <EditTextPreference
+            android:key="password_vol"
+            android:title="@string/config_password_hint"
+            android:summary="@string/config_password_summary"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:icon="@drawable/password_drawable"
+            />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/config_visualization">
+
+        <ListPreference
+            android:key="visualization"
+            android:title="@string/config_visualization_title"
+            android:summary="@string/config_visualization_summary"
+            android:entries="@array/visualizationItems"
+            android:entryValues="@array/visualizationAlias"
+            android:defaultValue="all"
+            android:icon="@drawable/visualization_drawable"/>
+
+
+    </PreferenceCategory>
+
+
 
 </PreferenceScreen>

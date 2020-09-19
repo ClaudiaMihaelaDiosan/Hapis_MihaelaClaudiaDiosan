@@ -3,10 +3,12 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +21,8 @@ import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -30,17 +34,19 @@ import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.adapters.DeliveryAdapter;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.logic.Delivery;
 
 public class DeliveryFragment extends Fragment {
 
     private FirebaseFirestore mFirestore;
+    FirebaseUser user;
     private CollectionReference collectionReference;
 
     private View view;
     private DeliveryAdapter deliveryAdapter;
 
-    private Map<String,String> donor = new HashMap<>();
+   SharedPreferences preferences;
 
 
     @Override
@@ -49,20 +55,31 @@ public class DeliveryFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_delivery, container, false);
 
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext().getApplicationContext());
+        String visualizationPrefs = preferences.getString("visualization", "all");
+
         initFirebase();
-        setUpRecyclerView();
+
+        if (visualizationPrefs.equals("all")){
+            Query query_all = collectionReference.whereEqualTo("delivered", false);
+            setUpRecyclerView(query_all);
+        }else {
+            String email = user.getEmail();
+            Query query_mine = collectionReference.whereEqualTo("delivered", false).whereEqualTo("volunteerEmail", email);
+            setUpRecyclerView(query_mine);
+        }
 
         return view;
     }
 
     private void initFirebase(){
         mFirestore = FirebaseFirestore.getInstance();
+        user = FirebaseAuth.getInstance().getCurrentUser();
         collectionReference = mFirestore.collection("throughVolunteerDonations");
     }
 
 
-    private void setUpRecyclerView() {
-        Query query = collectionReference.whereEqualTo("delivered", false);
+    private void setUpRecyclerView(Query query) {
 
         FirestoreRecyclerOptions<Delivery> options = new FirestoreRecyclerOptions.Builder<Delivery>()
                 .setQuery(query, Delivery.class)
@@ -96,7 +113,7 @@ public class DeliveryFragment extends Fragment {
                                     DocumentReference documentReference = mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + donatesTo + ":" + donationType);
 
                                     documentReference.update("delivered", true);
-                                    showToast(getString(R.string.toast_delivery));
+                                    HelpActivity.showSuccessToast(getActivity(),getString(R.string.toast_delivery));
 
                                     Intent homeIntent = new Intent(getActivity(),HomeVolunteer.class );
                                     startActivity(homeIntent);
@@ -128,17 +145,5 @@ public class DeliveryFragment extends Fragment {
         deliveryAdapter.stopListening();
     }
 
-    public void showToast(String message){
-        Toast toast = Toast.makeText(getActivity(), message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.GREEN);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.check_drawable, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
-    }
 
 }

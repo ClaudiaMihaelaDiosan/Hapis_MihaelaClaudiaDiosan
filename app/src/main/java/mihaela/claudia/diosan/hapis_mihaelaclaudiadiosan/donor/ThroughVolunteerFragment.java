@@ -160,6 +160,7 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
         String donationType = preferences.getString("donationType", "");
 
         addDonorData(donorEmail, homelessUsername, donationType);
+        addVolunteerData(donorEmail, homelessUsername, donationType);
 
         throughVolunteerDonations.put("donationLocation", locationDonor.getText().toString());
         throughVolunteerDonations.put("donationHour", selectedTimeDonor.getText().toString());
@@ -188,6 +189,21 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
                 }
             }
         });
+    }
+
+    private void addVolunteerData(final String donorEmail, final String homelessUsername,final String donationType){
+        mFirestore.collection("homeless").document(homelessUsername).get()
+                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        DocumentSnapshot documentSnapshot = task.getResult();
+                        if (documentSnapshot.exists()){
+                            String volunteerEmail = documentSnapshot.getString("volunteerEmail");
+                            throughVolunteerDonations.put("volunteerEmail", volunteerEmail);
+                            mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + homelessUsername + ":" + donationType).set(throughVolunteerDonations, SetOptions.merge());
+                        }
+                    }
+                });
     }
 
     private boolean isValidForm(){

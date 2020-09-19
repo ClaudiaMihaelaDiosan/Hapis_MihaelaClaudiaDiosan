@@ -66,6 +66,7 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeVolunteerFragment()).commit();
             navigationView.setCheckedItem(R.id.user_menu_home);
         }
+
     }
     private void initViews() {
         mToolbar = findViewById(R.id.volunteer_toolbar);
@@ -86,15 +87,12 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
 
      if (user != null){
         volunteerEmail.setText(user.getEmail());
-
         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DocumentSnapshot> task) {
                 if (task.isSuccessful()){
                     DocumentSnapshot documentSnapshot = task.getResult();
                     if (documentSnapshot != null){
-
-
                         volunteerUsername.setText(documentSnapshot.getString("username"));
                         volunteerPhone.setText(documentSnapshot.getString("phone"));
                         volunteerFirstName.setText(documentSnapshot.getString("firstName"));

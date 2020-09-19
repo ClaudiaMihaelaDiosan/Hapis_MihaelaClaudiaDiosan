@@ -227,6 +227,9 @@
     <string name="snackbar_auth">Authentication Failed!Prove to exit application an get back in with the new password.</string>
     <string name="snackbar_delete_ok">Account deleted successfully!</string>
     <string name="delete_default_value" translatable="false">no</string>
+    <string name="config_visualization">Visualization Settings</string>
+    <string name="config_visualization_title">Choose deliveries visualization</string>
+    <string name="config_visualization_summary">You can see deliveries for all homeless or only for homeless profiles created by you</string>
 
     <!-- Contact Fragment-->
     <string name="contact_title">CONTACT US</string>

@@ -17,26 +17,6 @@
             />
 
         <EditTextPreference
-            android:key="firstName"
-            android:title="@string/config_phone_number_hint"
-            android:summary="@string/config_phone_number_summary"
-            android:selectable="true"
-            android:inputType="numberDecimal"
-            android:digits="0123456789"
-            android:icon="@drawable/username_drawable"
-            />
-
-        <EditTextPreference
-            android:key="lastName"
-            android:title="@string/config_phone_number_hint"
-            android:summary="@string/config_phone_number_summary"
-            android:selectable="true"
-            android:inputType="numberDecimal"
-            android:digits="0123456789"
-            android:icon="@drawable/username_drawable"
-            />
-
-        <EditTextPreference
             android:key="password"
             android:title="@string/config_password_hint"
             android:summary="@string/config_password_summary"

@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.preference.EditTextPreference;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
@@ -14,11 +13,7 @@ import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 
 import android.text.InputType;
-import android.view.Gravity;
-import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -77,7 +72,7 @@ public class DonorConfigurationFragment extends PreferenceFragmentCompat {
                 if (!HelpActivity.isValidPhoneNumber(newValue.toString())){
                     HelpActivity.showErrorToast(getActivity(),getString(R.string.phone_error_text));
                 }else{
-                    mFirestore.collection("donors").document(document).update("donorPhone", newValue);
+                    mFirestore.collection("donors").document(document).update("phone", newValue);
                     HelpActivity.showSuccessToast(getActivity(),getString(R.string.config_changed_phone_toast));
                 }
                 return false;
@@ -102,8 +97,6 @@ public class DonorConfigurationFragment extends PreferenceFragmentCompat {
         passwordPreference.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, final Object newValue) {
-                final FirebaseUser user;
-                user = FirebaseAuth.getInstance().getCurrentUser();
                 final String email = user.getEmail();
 
 
@@ -153,8 +146,6 @@ public class DonorConfigurationFragment extends PreferenceFragmentCompat {
                 deletePrefs.setValue(newValue.toString());
 
                 if (newValue.equals("yes")){
-                    final FirebaseUser user;
-                    user = FirebaseAuth.getInstance().getCurrentUser();
                     final String email = user.getEmail();
 
                     DocumentReference donorsDocument = mFirestore.collection("donors").document(email);
@@ -175,16 +166,10 @@ public class DonorConfigurationFragment extends PreferenceFragmentCompat {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
-                                        Snackbar snackbar_su = Snackbar
-                                                .make(getActivity().findViewById(android.R.id.content), getString(R.string.snackbar_delete_ok), Snackbar.LENGTH_LONG);
-                                        snackbar_su.setBackgroundTint(Color.GREEN);
-                                        snackbar_su.show();
-                                       startActivity(new Intent(getActivity(), LoginActivity.class));
+                                        startActivity(new Intent(getActivity(), LoginActivity.class));
+                                        HelpActivity.showSuccessToast(getContext(),getString(R.string.snackbar_delete_ok) );
                                     }else {
-                                        Snackbar snackbar_failed = Snackbar
-                                                .make(getActivity().findViewById(android.R.id.content), getString(R.string.snackbar_failed), Snackbar.LENGTH_LONG);
-                                        snackbar_failed.setBackgroundTint(Color.RED);
-                                        snackbar_failed.show();
+                                        HelpActivity.showSuccessToast(getContext(),getString(R.string.snackbar_failed) );
                                     }
                                 }
                             });

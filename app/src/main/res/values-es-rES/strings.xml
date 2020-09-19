@@ -236,6 +236,11 @@
     <string name="snackbar_succes">Contraseña modificada con éxito!</string>
     <string name="snackbar_auth">Autenticación fallida!Prueba hacer logout y volver a entrar utilizando la nueva contraseña.</string>
     <string name="snackbar_delete_ok">Cuanta borrada con éxito!</string>
+    <string name="config_visualization">Preferencias de visualización</string>
+    <string name="config_visualization_title">Escoje como ver las entregas</string>
+    <string name="config_visualization_summary">Puedes ver todas las entregas o solo las entregas para los perfiles de las personas necesitadas creados por ti.</string>
+
+
 
 
     <!--  Contact Fragment-->

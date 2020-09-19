@@ -1,27 +1,26 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
+
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.Gravity;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
 
@@ -29,11 +28,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor.HomeDonor;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer.HomeVolunteer;
 
 /**
  * A simple {@link Fragment} subclass.
  */
+
 public class ContactFragment extends Fragment implements View.OnClickListener{
 
     /*EdiText*/
@@ -47,7 +49,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
     private FirebaseFirestore mFirestore;
     FirebaseUser user;
 
-    private Map<String,String> contactFromData = new HashMap<>();
+    private Map<String,String> contactFormData = new HashMap<>();
 
     public ContactFragment() {
         // Required empty public constructor
@@ -77,10 +79,20 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
         if (v.getId() == R.id.contact_send_button){
             if (validFields()){
                 sendContactFormData();
-                showSendMessageToast(getString(R.string.contact_toast_message));
-                startActivity(new Intent(getContext(), HomeDonor.class));
+                HelpActivity.showSuccessToast(getActivity(), getString(R.string.contact_toast_message));
+
+                isVolunteer(user.getEmail());
+                isDonor(user.getEmail());
             }
         }
+    }
+
+
+    private void initViews(View view){
+        donorContactButton = view.findViewById(R.id.contact_send_button);
+        subjectET = view.findViewById(R.id.contact_subject_hint);
+        messageET = view.findViewById(R.id.form_contact_message_hint);
+
     }
 
     private void initFirebase(){
@@ -92,10 +104,10 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
         String subject = subjectET.getText().toString();
         String message = messageET.getText().toString();
 
-        contactFromData.put("contactSubject", subject);
-        contactFromData.put("contactMessage",message);
+        contactFormData.put("contactSubject", subject);
+        contactFormData.put("contactMessage",message);
 
-        mFirestore.collection("donorsContactForm").document(user.getEmail() + "\n" +  subject).set(contactFromData, SetOptions.merge());
+        mFirestore.collection("contactForm").document(user.getEmail() + "\n" +  subject).set(contactFormData, SetOptions.merge());
     }
 
     private boolean validFields() {
@@ -111,26 +123,37 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
         return true;
     }
 
+    private void isVolunteer(String email){
+        DocumentReference donorsDocument = mFirestore.collection("volunteers").document(email);
 
-    private void initViews(View view){
-        donorContactButton = view.findViewById(R.id.contact_send_button);
-        subjectET = view.findViewById(R.id.contact_subject_hint);
-        messageET = view.findViewById(R.id.form_contact_message_hint);
-
+        donorsDocument.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+                    DocumentSnapshot documentSnapshot = task.getResult();
+                    if (documentSnapshot.exists()){
+                        startActivity(new Intent(getContext(), HomeVolunteer.class));
+                    }
+                }
+            }
+        });
     }
 
+    private void isDonor(String email){
+        DocumentReference donorsDocument = mFirestore.collection("donors").document(email);
 
-    private void showSendMessageToast(String message){
-        Toast toast = Toast.makeText(getContext(), message, Toast.LENGTH_LONG);
-        View view =toast.getView();
-        view.setBackgroundColor(Color.WHITE);
-        TextView toastMessage =  toast.getView().findViewById(android.R.id.message);
-        toastMessage.setTextColor(Color.GREEN);
-        toastMessage.setGravity(Gravity.CENTER);
-        toastMessage.setTextSize(15);
-        toastMessage.setCompoundDrawablesWithIntrinsicBounds(R.drawable.message_toast, 0,0,0);
-        toastMessage.setPadding(10,10,10,10);
-        toast.show();
+        donorsDocument.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()){
+                    DocumentSnapshot documentSnapshot = task.getResult();
+                    if (documentSnapshot.exists()){
+                        startActivity(new Intent(getContext(), HomeDonor.class));
+                    }
+                }
+            }
+        });
     }
+
 
 }

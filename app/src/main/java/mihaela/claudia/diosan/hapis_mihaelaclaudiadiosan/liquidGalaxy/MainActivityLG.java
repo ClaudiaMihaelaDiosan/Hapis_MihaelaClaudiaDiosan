@@ -27,7 +27,7 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgConnecti
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigation.POI;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigation.POIController;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.menuActivities.AboutActivity;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.menuActivities.HelpActivity;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.menuActivities.HelpTextActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.menuActivities.SettingsActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.menuActivities.ToolsActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
@@ -301,7 +301,7 @@ public class MainActivityLG extends AppCompatActivity implements View.OnClickLis
                 startActivity(new Intent(this, ToolsActivity.class));
                 return true;
             case R.id.help_lg:
-                startActivity(new Intent(this, HelpActivity.class));
+                startActivity(new Intent(this, HelpTextActivity.class));
                 return true;
             case R.id.action_about_lg:
                 startActivity(new Intent(this, AboutActivity.class));

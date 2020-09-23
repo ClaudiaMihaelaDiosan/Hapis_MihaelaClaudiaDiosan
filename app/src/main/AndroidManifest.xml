@@ -28,8 +28,10 @@
         tools:replace="android:label"
         tools:targetApi="q">
         <activity android:name=".liquidGalaxy.menuActivities.AboutActivity" />
-        <activity android:name=".liquidGalaxy.menuActivities.HelpActivity" />
-        <activity android:name=".liquidGalaxy.menuActivities.ToolsActivity" />
+        <activity android:name=".liquidGalaxy.menuActivities.HelpTextActivity"
+            android:label="@string/lg_help_name"/>
+        <activity android:name=".liquidGalaxy.menuActivities.ToolsActivity"
+            android:label="@string/tools_name"/>
         <activity android:name=".liquidGalaxy.menuActivities.SettingsActivity" />
         <activity android:name=".liquidGalaxy.CitiesActivity" />
         <activity

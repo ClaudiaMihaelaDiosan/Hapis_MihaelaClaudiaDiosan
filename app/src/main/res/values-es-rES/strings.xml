@@ -394,4 +394,75 @@
     <string name="about">Sobre nosotros</string>
     <string name="title_activity_settings">Configuración</string>
 
+    <!-- LG Settings -->
+    <string name="basic_category">Configuración básica</string>
+    <string name="advanced_category">Configuración avanzada</string>
+    <string name="logos_title">Logos</string>
+    <string name="logos_summary">Elige el slave donde quieres ver los logos.</string>
+    <string name="homeless_balloon_slaves">Personas necesitadas</string>
+    <string name="homeless_balloon_summary">Elige el slave donde quieres ver la ventana de la persona necesitada.</string>
+    <string name="local_statistics_slaves">Estadísticas locales</string>
+    <string name="local_statistics_summary">Elige el slave donde quieres ver la ventana con las estadísticas locales.</string>
+    <string name="global_statistics_slaves">Estadísticas globales</string>
+    <string name="global_statistics_summary">Elige el slave donde quieres ver la ventana con las estadísticas globales.</string>
+    <string name="connectivity_toast">Configuración de conectividad cambiada</string>
+
+    <!--Activity Tools LG-->
+    <string name="tools_name">Herramientas</string>
+    <string name="clean_kmls">Limpiar KMLs</string>
+    <string name="relaunch_lg">Relanzar LG</string>
+    <string name="reboot_lg">Reiniciar LG</string>
+    <string name="shutdown_lg">Apagar LG</string>
+    <string name="error_galaxy">Error al conectar con el Liquid Galaxy. Por favor, intenta cambiar la configuración.</string>
+    <string name="lg_positive_btn">Sí</string>
+    <string name="lg_negative_btn">No</string>
+    <string name="sure">Estas segur@ que quieres</string>
+    <string name="lg">Liquid Galaxy?</string>
+    <string name="clean_kmls_action">limpiar el archivo kml del </string>
+    <string name="relaunch_action">relanzar el</string>
+    <string name="reboot_action">reiniciar el</string>
+    <string name="shutdown_action">apagar el</string>
+
+    <!--Instalation menu-->
+    <string name="first_time_install">Instalar</string>
+    <string name="uninstall">Desinstalar</string>
+    <string name="install_toast">Instalación completa</string>
+    <string name="uninstall_toast">Se ha borrado toda la información de HAPIS en el Liquid Galaxy</string>
+    <string name="install_title">Instalar requerimientos LG</string>
+    <string name="install_description">Esto es necesario la primera vez que utilizas la aplicación con el Sistema Liquid Galaxy.\n Te permite ver toda la información en las pantallas.</string>
+    <string name="uninstall_title">Desinstalar requerimientos LG</string>
+    <string name="uninstall_description">Se van a desisntalar los requerimientos y se va a borrar toda la información de HAPIS existente en el Liquid Galaxy.</string>
+
+
+    <!--Liquid Galaxy Help-->
+    <string name="lg_help_name">Ayuda</string>
+    <string name="lg_help_title">Puedes encontrar la guía completa para HAPIS en la <a href="https://github.com/LiquidGalaxyLAB/GSoC2020_HomelessAidPanoramicInteractiveSystem/wiki">Wiki</a> </string>
+    <string name="lg_connection_title">Conexión con el Liquid Galaxy por primera vez.</string>
+    <string name="lg_connection_body">Para conectarte con el Liquid Galaxy por primera vez, sigue los siguientes pasos:\n 1.En el menu selecciona Configuració. Aquí, introduce el usuario LG, contraseña, IP y puerto.Normalmnte el puerto es 22.\n 2. En Configuración avanzada puedes encontrar 4 opciones.Aquí,puedes escojer cual es la pantalla del LG donde quieres ver la ventana con esa información.\n 3. Vuelve a la pantalla inicial y selecciona Herramientas en el menu.\n 4. En Herramientas, en el menu selecciona Instalar y pula el botón OK. De esta manera instalas todos los requisitos en el master del LG.\n 5. Si quieres borrar toda la información relacionada con HAPIS del master del LG, solo tiene que seleccionar el botón Desinstalar. </string>
+    <string name="main_dashboard_title">Botones pantalla inicial</string>
+    <string name="main_dashboard_body">En la pantalla inicial hay 3 botones:\n 1. Ciudades: Seleccionando este botón se abrirá otra pantalla donde podrá ver todas las ciudades donde hay personas necesitadas registradas.\n 2. Estadísticas por ciudad: Con este botón el LG viaja a cada ciudad y muestra las estadísticas locales.\n 3. Estadísticas globales: Este botón muestra una ventana con las estadísticas globales en el LG.</string>
+    <string name="tools_options_title">Pantalla de herramientas</string>
+    <string name="tools_options_body">Si seleccionas Herramientas en el menu, podrás ver 4 botones:\n 1. Limpiar KMLs: Seleccionando este botón, se borrarán todos los kmls que se muestran en el LG. También limpia la información de los slaves.\n 2. Relanzar LG: Pulsando este botón se realiza un relanzamiento del Liquid Galaxy.\n 3. Reiniciar LG: Realiza un reinicio de las máquinas.\n 4. Apagar LG: Apaga el las máquinas del LG. </string>
+    <string name="city_title">Ver información para cada ciudad</string>
+    <string name="city_body">Cuando seleccionas una ciudad, en el Liquid galaxy puedes ver como viaja a dicha ciudad y en el dispositivo puedes ver cuatro botonoes. A continuación, puedes ver que hace cada uno de ellos:\n 1. Necesitan ayuda: Muestra una lista con todas las personas necesitadas en la ciudad seleccionada y todos los marcadores en el Liquid Galaxy.\n 2. Voluntarios: Muestra una lista con todos los voluntarios en la ciudad seleccionada y todos los marcadores en el Liquid Galaxy.\n 3.Donantes: Muestra una lista con todos los donantes en la ciudad seleccionada y todos los marcadores en el Liquid Galaxy.\n 4.Live Overview: En el Liquid Galaxy,viaja a cada ciudad, muestra una ventana con las estadísticas locales en una pantalla y una ventana con información sobre cada persona necesitada en la ciudad, esperando 20 segundos entre cada uno.Además, realiza una orbita. </string>
+    <string name="homeless_title">Información personas necesitadas</string>
+    <string name="homeless_body">Cuando seleccionas Necesitan ayuda en una ciudad, puedes ver una lista con todas las personas que necesitan ayuda en dicha ciudad y en el Liquid Galaxy los marcadores para cada uno de ellos. Cuando seleccionas una persona necesitada, en el Liquid Galaxy se realiza un viaje a su ubicación y muestra una ventana con información básica.\n Cada nombre de usuario tiene 3 botones:\n 1. Historia de vida: Muestra también la historía de vida en el Liquid Galaxy.\n 2. Transacciones: Muestra las donaciones que ha recibido la persona.\n 3. Orbita: Realiza una orbita entorno a la persona necesitada. </string>
+    <string name="volunteers_title">Información Voluntarios</string>
+    <string name="volunteers_body">Cuando seleccionas Voluntarios en una ciudad, puedes ver una lista con todos los voluntarios en dicha ciudad y en el Liquid Galaxy los marcadores para cada uno de ellos.Cuando seleccionas un voluntario,  en el Liquid Galaxy se realiza un viaje a su ubicación y muestra una ventana con información básica.\n Cada nombre de usuario tiene 3 botones:\n 1. Información extra: Muestra también el nombre, el apellido y el teléfono en el Liquid Galaxy.\n 2. Transacciones: Muestra cuntos perfiles de persona necesitada ha creado.\n 3. Orbita: Realiza una orbita entorno al voluntario. </string>
+    <string name="donors_title">Información Donantes</string>
+    <string name="donors_body">Cuando seleccionas Donantes en una ciudad, puedes ver una lista con todos los donantes en dicha ciudad y en el Liquid Galaxy los marcadores para cada uno de ellos.Cuando seleccionas un donante,  en el Liquid Galaxy se realiza un viaje a su ubicación y muestra una ventana con información básica.\n Cada nombre de usuario tiene 3 botones:\n 1. Información extra: Muestra también el nombre, el apellido y el teléfono en el Liquid Galaxy.\n 2. Transacciones: Muestra cuantas donaciones ha realizado.\n 3. Orbita: Realiza una orbita entorno al donante. </string>
+
+    <!-- Liquid Galaxy About -->
+    <string name="about_name">Sobre nosotros</string>
+    <string name="lg_about_title">Sobre la aplicación HAPIS</string>
+    <string name="lg_about_button">CERRAR</string>
+    <string name="lg_about_info">Esta parte de la aplicación ha sido desarollada para el concurso Google Summer Of Code 2020 y como parte del proyecto para el Trabajo Final de Grado </string>
+    <string name="lg_about_contact">Desarollada por Mihaela Claudia Diosan (mcd1591@gmail.com) </string>
+    <string name="lg_about_github"><a href="https://github.com/LiquidGalaxyLAB/GSoC2020_HomelessAidPanoramicInteractiveSystem?organization=LiquidGalaxyLAB&amp;organization=LiquidGalaxyLAB">HAPIS Github Reposiory</a> </string>
+    <string name="lg_about_thanks">Desarollada con la ayuda de los Laboratorios TIC del Parque Cientifico de Lleida y los Laboratorios Liquid Galaxy</string>
+    <string name="special_thanks"> Las siguientes personas me has ayudado para realizar este proyecto, así que GRACIAS A TODOS.</string>
+    <string name="about_persons">Alexandra Rivero\n Maria Luz Mosterio\n Andreu Ibañez\n\n Paula Vidal\n Roger Colomo\n Josep Cunyat\n Guillem Felis de Dios\n\n Emilie Ma\n\n Sara Serrano\n Francesc Muñoz\n</string>
+    <string name="photos_about">Todas las fotos en esta aplicación han sido cojidas del la página <a href="https://unsplash.com/">Unsplash.\n</a> </string>
+    <string name="photos_about_1">A continuación se puede encontrar el autor y el link para las fotos principales:\n\n <a href="https://unsplash.com/photos/AEaTUnvneik">Pantalla login</a>\n <a href="https://unsplash.com/photos/4OFU9yxUvLc">Pantalla registro</a>.\n Todos los iconos se han bajado desde la página <a href="https://icons8.com/">icons8.com</a>\n Y las imágenes .png desde la página web <a href="https://www.cleanpng.com/">cleanpng.com\n</a> </string>
+
 </resources>

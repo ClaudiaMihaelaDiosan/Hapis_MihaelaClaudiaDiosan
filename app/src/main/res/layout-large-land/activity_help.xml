@@ -156,7 +156,6 @@
             android:textSize="@dimen/body"
             android:layout_gravity="center"/>
 
-
     </LinearLayout>
 
 

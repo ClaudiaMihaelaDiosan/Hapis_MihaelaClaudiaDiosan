@@ -26,8 +26,10 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.AboutUsFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.ContactFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.DonateFragment;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.HelpTextFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.maps.ListMapFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.maps.MapFragment;
@@ -199,6 +201,14 @@ public class HomeDonor extends MainActivity implements NavigationView.OnNavigati
             case R.id.user_menu_contact:
                 bottomNavigationView.setVisibility(View.GONE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new ContactFragment()).commit();
+                break;
+            case R.id.user_menu_help:
+                bottomNavigationView.setVisibility(View.GONE);
+                getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new HelpTextFragment()).commit();
+                break;
+            case  R.id.user_menu_about_us:
+                bottomNavigationView.setVisibility(View.GONE);
+                getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new AboutUsFragment()).commit();
                 break;
         }
         donorDrawer.closeDrawer(GravityCompat.START);

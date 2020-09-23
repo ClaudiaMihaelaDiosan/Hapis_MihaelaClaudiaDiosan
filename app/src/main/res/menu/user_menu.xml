@@ -35,7 +35,7 @@
     </item>
 
 
-    <item android:title="@string/contact_menu">
+    <item android:title="@string/more_menu_title">
 
         <menu>
 
@@ -44,13 +44,19 @@
                 android:id="@+id/user_menu_contact"
                 android:title="@string/user_menu_contact"
                 android:icon="@drawable/menu_contact_icon"/>
+
+                <item
+                    android:id="@+id/user_menu_help"
+                    android:title="@string/help_menu"
+                    android:icon="@drawable/help_menu_icon"/>
+
+                <item
+                    android:id="@+id/user_menu_about_us"
+                    android:title="@string/about_us_menu"
+                    android:icon="@drawable/about_us_menu"/>
             </group>
         </menu>
 
     </item>
-
-
-
-
 
 </menu>

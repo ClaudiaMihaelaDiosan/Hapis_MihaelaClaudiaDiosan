@@ -126,7 +126,10 @@
     <string name="user_username_text_view">Nombre de usuario</string>
     <string name="user_email_text_view">Correo electrónico</string>
     <string name="configuration_menu">Configuración</string>
+    <string name="more_menu_title">Más</string>
     <string name="contact_menu">Contacto</string>
+    <string name="help_menu">Ayuda</string>
+    <string name="about_us_menu">Sobre nosotros</string>
     <string name="user_phone_text_view">Número de teléfono</string>
     <string name="bottom_nav_home">Inicio</string>
     <string name="bottom_nav_map">Mapa</string>
@@ -491,5 +494,7 @@
     <string name="show_transactions">Mostrando transacciones para</string>
     <string name="show_life_history">Mostrando historia de vida para</string>
 
+    <!--Help Fragment-->
+    <string name="help_text_title">Ayuda</string>
 
 </resources>

@@ -24,9 +24,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.AboutUsFragment;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.HelpTextFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor.DonorConfigurationFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.ContactFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.DonateFragment;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor.HelpFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 
 public class HomeVolunteer extends MainActivity implements NavigationView.OnNavigationItemSelectedListener  {
@@ -156,6 +159,12 @@ public class HomeVolunteer extends MainActivity implements NavigationView.OnNavi
                 break;
             case R.id.user_menu_contact:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactFragment()).commit();
+                break;
+            case R.id.user_menu_help:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HelpTextFragment()).commit();
+                break;
+            case  R.id.user_menu_about_us:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AboutUsFragment()).commit();
                 break;
         }
         volunteerDrawer.closeDrawer(GravityCompat.START);

@@ -13,6 +13,7 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigati
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigation.POIController;
 
 import static mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.auxiliary.HelpBuildingStatistics.buildCityStatistics;
+import static mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.auxiliary.HelpUserListClass.buildTransactions;
 import static mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgConnection.LGCommand.CRITICAL_MESSAGE;
 import static mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigation.POI.createPOI;
 
@@ -188,7 +189,7 @@ public class HelpCityClass {
                 });
     }
 
-    public static void showHomelessInfo(String city, FirebaseFirestore mFirestore ){
+    public static void showHomelessInfo(String city, FirebaseFirestore mFirestore, String homeless_slave ){
         mFirestore.collection("homeless").whereEqualTo("city", city)
                 .get()
                 .addOnCompleteListener(task -> {
@@ -213,8 +214,7 @@ public class HelpCityClass {
 
                             POI userPoi = createPOI(username, latitude, longitude,"0.0d");
                             POIController.downloadProfilePhoto(userPoi.getName(), image);
-                            //TODO
-                           // POIController.getInstance().showBalloonOnSlave(userPoi, null, buildTransactions(lifeHistory,birthday, location, schedule, need, personallyDonations, throughVolunteerDonations),"http://lg1:81/hapis/balloons/transactions/homeless/",username,homeless_slave);
+                            POIController.getInstance().showBalloonOnSlave(userPoi, null, buildTransactions(lifeHistory,birthday, location, schedule, need, personallyDonations, throughVolunteerDonations),"http://lg1:81/hapis/balloons/transactions/homeless/",username,homeless_slave);
                             String sentence = "sleep 20";
                             LGConnectionManager.getInstance().addCommandToLG(new LGCommand(sentence, CRITICAL_MESSAGE, null)); }
 

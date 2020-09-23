@@ -2,7 +2,6 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.adapters;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.os.Build;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;

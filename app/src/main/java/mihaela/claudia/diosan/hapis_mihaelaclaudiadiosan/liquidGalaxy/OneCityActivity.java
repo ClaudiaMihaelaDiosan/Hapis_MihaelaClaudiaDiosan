@@ -94,8 +94,7 @@ public class OneCityActivity extends AppCompatActivity implements View.OnClickLi
                 HelpCityClass.cleanKmls(homeless_slave, local_statistics_slave, global_statistics_slave);
                 showLocalStatistics(city, mFirestore, local_statistics_slave);
                 showAllHomeless(city , mFirestore,hostIP);
-                //TODO
-                showHomelessInfo(city, mFirestore);
+                showHomelessInfo(city, mFirestore, homeless_slave);
                 liveOverview(city);
                 break;
         }

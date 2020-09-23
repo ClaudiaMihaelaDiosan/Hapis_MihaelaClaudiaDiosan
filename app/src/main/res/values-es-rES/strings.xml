@@ -368,6 +368,7 @@
     <string name="cities">Ciudades\n</string>
     <string name="statistics">Estadísticas\n globales</string>
     <string name="city_statistics">Estadísticas\n por ciudad </string>
+    <string name="stop_statistics">Se han parado las estadísticas locales</string>
 
     <string name="popup_info_title">Entrarás en la parte dedicada al Liquid Galaxy</string>
     <string name="popup_info_message"> Todas las funcionalidades que encuentras aquí solo funcionarán si dispones de un sistema Liquid Galaxy correctamente instalado!</string>
@@ -386,5 +387,11 @@
     <string name="cancel">Cancelar</string>
     <string name="connection_failure"> Error al conectar con el sistema Liquid Galaxy. Intenta cambiar el usuario, la contraseña, la ip o el puerto.</string>
 
+    <!--    Lg menu-->
+    <string name="settings">Configuración</string>
+    <string name="tools">Herramientas</string>
+    <string name="help">Ayuda</string>
+    <string name="about">Sobre nosotros</string>
+    <string name="title_activity_settings">Configuración</string>
 
 </resources>

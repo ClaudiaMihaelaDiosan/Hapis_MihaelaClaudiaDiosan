@@ -353,6 +353,8 @@
     <string name="cities">Cities\n</string>
     <string name="statistics">Global\n Statistics</string>
     <string name="city_statistics">City\n Statistics</string>
+    <string name="stop_statistics">Local Statistics Stop</string>
+
 
     <string name="popup_info_title">You are about to enter into the Liquid Galaxy part</string>
     <string name="popup_info_message">All the functionalities in this part will work only is you have a functional Liquid Galaxy installed!</string>
@@ -371,5 +373,12 @@
     <string name="cancel">Cancel</string>
     <string name="connection_failure">Error connecting with Liquid Galaxy system. Try changing username, password, port or the host ip</string>
 
+
+    <!--    Lg menu-->
+    <string name="settings">Settings</string>
+    <string name="tools">Tools</string>
+    <string name="help">Help</string>
+    <string name="about">About</string>
+    <string name="title_activity_settings">Settings</string>
 
 </resources>

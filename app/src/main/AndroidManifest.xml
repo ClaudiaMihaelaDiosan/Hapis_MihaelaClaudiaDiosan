@@ -27,8 +27,14 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:label"
         tools:targetApi="q">
-        <activity android:name=".register.RegisterUserActivity"
-            android:label="@string/register_activity_name"/>
+        <activity android:name=".liquidGalaxy.menuActivities.AboutActivity" />
+        <activity android:name=".liquidGalaxy.menuActivities.HelpActivity" />
+        <activity android:name=".liquidGalaxy.menuActivities.ToolsActivity" />
+        <activity android:name=".liquidGalaxy.menuActivities.SettingsActivity" />
+        <activity android:name=".liquidGalaxy.CitiesActivity" />
+        <activity
+            android:name=".register.RegisterUserActivity"
+            android:label="@string/register_activity_name" />
         <activity android:name=".auxiliary.HelpActivity" />
         <activity android:name=".liquidGalaxy.MainActivityLG" />
         <activity
@@ -45,10 +51,11 @@
             android:label="@string/create_homeless_profile_name"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
-        <activity android:name=".common.Payment"
+        <activity
+            android:name=".common.Payment"
             android:configChanges="orientation|screenSize"
             android:label="@string/payment_activity_name"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".volunteer.HomeVolunteer"
             android:configChanges="orientation|screenSize"
@@ -73,8 +80,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-            android:theme="@style/Base.Theme.AppCompat"/>
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

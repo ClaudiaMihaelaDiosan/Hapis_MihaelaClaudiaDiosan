@@ -8,6 +8,26 @@ import org.json.JSONObject;
 
 public class POI implements IJsonPacker, Parcelable {
 
+    public static final POI EARTH_POI = new POI()
+            .setName("Earth")
+            .setLongitude(-3.629954d)  //10.52668d
+            .setLatitude(40.769083d)  //40.085941d
+            .setAltitude(0.0d)
+            .setHeading(0.0d)      //90.0d
+            .setTilt(0.0d)
+            .setRange(10000000.0d)  //10000000.0d
+            .setAltitudeMode("relativeToSeaFloor");
+
+    public static final POI STATISTICS = new POI()
+            .setName("GLOBAL_STATISTICS")
+            .setLongitude(40.331103d)
+            .setLatitude(75.297993d)
+            .setAltitude(0.0d)
+            .setHeading(90.0d)
+            .setTilt(0.0d)
+            .setRange(10000000.0d)
+            .setAltitudeMode("relativeToSeaFloor");
+
     public static final Creator CREATOR = new Creator() {
         public POI createFromParcel(Parcel in) {
             return new POI(in);
@@ -248,15 +268,19 @@ public class POI implements IJsonPacker, Parcelable {
         parcel.writeInt(categoryId);
     }
 
-   /* public static POI getPOIByIDFromDB(int id) {
-        Cursor c = POIsContract.POIEntry.getPoiByID(id);
 
-        if (c.moveToNext()) {
-            POI poi = new POI(id, c.getString(1), c.getString(2), c.getDouble(3), c.getDouble(4), c.getDouble(5), c.getDouble(6), c.getDouble(7), c.getDouble(8), c.getString(9), c.getInt(10) != 0, c.getInt(11));
-            c.close();
-            return poi;
-        }
-        c.close();
-        return null;
-    }*/
+    public static POI createPOI(String name, String latitude, String longitude, String altitude) {
+
+        POI poi = new POI()
+                .setLongitude(Double.parseDouble(longitude))
+                .setName(name)
+                .setLatitude(Double.parseDouble(latitude))
+                .setAltitude(Double.parseDouble(altitude))
+                .setHeading(15.0d)
+                .setTilt(60.0d)
+                .setRange(1200.0d)
+                .setAltitudeMode("relativeToSeaFloor");
+
+        return poi;
+    }
 }

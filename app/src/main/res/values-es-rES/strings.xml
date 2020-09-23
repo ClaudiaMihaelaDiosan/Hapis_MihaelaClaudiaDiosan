@@ -465,4 +465,31 @@
     <string name="photos_about">Todas las fotos en esta aplicación han sido cojidas del la página <a href="https://unsplash.com/">Unsplash.\n</a> </string>
     <string name="photos_about_1">A continuación se puede encontrar el autor y el link para las fotos principales:\n\n <a href="https://unsplash.com/photos/AEaTUnvneik">Pantalla login</a>\n <a href="https://unsplash.com/photos/4OFU9yxUvLc">Pantalla registro</a>.\n Todos los iconos se han bajado desde la página <a href="https://icons8.com/">icons8.com</a>\n Y las imágenes .png desde la página web <a href="https://www.cleanpng.com/">cleanpng.com\n</a> </string>
 
+
+    <!--Cities activity-->
+    <string name="search_hint_city">Ciudad o País</string>
+    <string name="cities_name">Ciudades</string>
+
+    <!--City activity-->
+    <string name="city_name">Ciudad</string>
+    <string name="homeless">Necesitados</string>
+    <string name="volunteers">Voluntarios</string>
+    <string name="donors">Donantes</string>
+    <string name="live_overview">LIVE \n OVERVIEW</string>
+    <string name="you_are">Estas en </string>
+    <string name="comma">,</string>
+
+    <!--Users List Activity-->
+    <string name="users_list_name">Lista Usuarios</string>
+    <string name="search_users_hint">Nombre de usuario</string>
+    <string name="homeless_from">Necesitados en</string>
+    <string name="donors_from">Donantes en</string>
+    <string name="volunteers_from">Voluntarios en</string>
+    <string name="show_basic_info">Mostrando información básica de</string>
+    <string name="on_lg">en el Liquid Galaxy</string>
+    <string name="extra_info">Mostrando información extra de</string>
+    <string name="show_transactions">Mostrando transacciones para</string>
+    <string name="show_life_history">Mostrando historia de vida para</string>
+
+
 </resources>

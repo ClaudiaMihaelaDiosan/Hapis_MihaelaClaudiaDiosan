@@ -1,4 +1,4 @@
-package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.utils;
+package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.logic;
 
 public class LgUser {
     private String username;

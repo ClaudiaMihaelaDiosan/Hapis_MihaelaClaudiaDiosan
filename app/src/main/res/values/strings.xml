@@ -451,5 +451,31 @@
     <string name="photos_about">All the photos in this application are from the <a href="https://unsplash.com/">Unsplash page.\n</a> </string>
     <string name="photos_about_1">Next you can find the author and link to the photos I use:\n\n <a href="https://unsplash.com/photos/AEaTUnvneik">Login photo</a>\n <a href="https://unsplash.com/photos/4OFU9yxUvLc">Register page</a>\n The icons are all from the <a href="https://icons8.com/">icons8.com page</a>\n And, the .png images are from the <a href="https://www.cleanpng.com/">cleanpng.com page.</a>\n All the homeless people photos are obtained using the next <a href="https://docs.google.com/document/d/1ZjpoeqWUgFagAW3VPulsK9YFz4c9bfRJnHt1xYwzjc4/edit?usp=sharing">Databases\n</a> </string>
 
+    <!--Cities activity-->
+    <string name="search_hint_city">City or Country</string>
+    <string name="cities_name">Cities</string>
+
+
+    <!--City activity-->
+    <string name="city_name">City</string>
+    <string name="homeless">Homeless</string>
+    <string name="volunteers">Volunteers</string>
+    <string name="donors">Donors</string>
+    <string name="live_overview">LIVE \n OVERVIEW</string>
+    <string name="you_are">You are in </string>
+    <string name="comma">,</string>
+
+    <!--Users List Activity-->
+    <string name="users_list_name">Users List</string>
+    <string name="search_users_hint">Username</string>
+    <string name="homeless_from">Homeless people from</string>
+    <string name="donors_from">Donors from</string>
+    <string name="volunteers_from">Volunteers from</string>
+    <string name="show_basic_info">Showing basic info of</string>
+    <string name="on_lg">on Liquid Galaxy</string>
+    <string name="extra_info">Showing Extra Info of</string>
+    <string name="show_transactions">Showing Transactions for</string>
+    <string name="show_life_history">Showing Life History for</string>
+
 
 </resources>

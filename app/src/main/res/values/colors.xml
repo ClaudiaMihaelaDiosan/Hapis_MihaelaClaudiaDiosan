@@ -9,17 +9,19 @@
     <color name="white">#ffffff</color>
     <color name="green">#00F10A</color>
     <color name="icons_blue">#b6dcfe</color>
+    <color name="light_blue">#75a7ff</color>
 
     <!--dashboard cards-->
-    <color name="color_first_card">#3e72ff</color>
+    <color name="color_first_card">#00bfff</color>
     <color name="color_second_card">#ff66c4</color>
     <color name="color_third_card">#ffc604</color>
     <color name="color_forth_card">#ff6100</color>
 
 
 
+
     <color name="blue">#0A4CB6</color>
-    <color name="light_blue">#e3f2fd</color>
+
 
     <color name="dark_green">#1faa00</color>
     <color name="transparent">#00000000</color>

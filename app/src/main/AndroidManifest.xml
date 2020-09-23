@@ -27,18 +27,28 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:label"
         tools:targetApi="q">
-        <activity android:name=".liquidGalaxy.menuActivities.AboutActivity" />
-        <activity android:name=".liquidGalaxy.menuActivities.HelpTextActivity"
-            android:label="@string/lg_help_name"/>
-        <activity android:name=".liquidGalaxy.menuActivities.ToolsActivity"
-            android:label="@string/tools_name"/>
+
+        <activity android:name=".liquidGalaxy.UserListActivity"
+            android:label="@string/users_list_name"/>
+        <activity android:name=".liquidGalaxy.OneCityActivity"
+            android:label="@string/city_name"/>
+        <activity android:name=".liquidGalaxy.menuActivities.AboutActivity"
+            android:label="@string/about_name"/>
+        <activity
+            android:name=".liquidGalaxy.menuActivities.HelpTextActivity"
+            android:label="@string/lg_help_name" />
+        <activity
+            android:name=".liquidGalaxy.menuActivities.ToolsActivity"
+            android:label="@string/tools_name" />
         <activity android:name=".liquidGalaxy.menuActivities.SettingsActivity" />
-        <activity android:name=".liquidGalaxy.CitiesActivity" />
+        <activity android:name=".liquidGalaxy.CitiesActivity"
+            android:label="@string/cities_name"/>
         <activity
             android:name=".register.RegisterUserActivity"
             android:label="@string/register_activity_name" />
         <activity android:name=".auxiliary.HelpActivity" />
-        <activity android:name=".liquidGalaxy.MainActivityLG" />
+        <activity android:name=".liquidGalaxy.MainActivityLG"
+            android:label="Liquid Galaxy"/>
         <activity
             android:name=".common.YouTubePlayerActivity"
             android:configChanges="orientation|screenSize" />

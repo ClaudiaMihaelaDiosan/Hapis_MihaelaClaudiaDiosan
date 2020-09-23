@@ -10,9 +10,9 @@
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
+        android:layout_margin="@dimen/margins"
         app:cardElevation="@dimen/elevation"
         android:elevation="@dimen/elevation"
-        android:layout_margin="@dimen/margins"
         android:layout_height="wrap_content">
 
         <SearchView

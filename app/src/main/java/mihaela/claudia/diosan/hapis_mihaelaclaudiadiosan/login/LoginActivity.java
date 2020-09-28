@@ -20,9 +20,16 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.GetTokenResult;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.SetOptions;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
@@ -50,6 +57,7 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
 
     private FirebaseAuth mAuth;
     private FirebaseFirestore mFirestore;
+    private Map<String,String> userToken = new HashMap<>();
 
     SharedPreferences preferences;
 
@@ -154,6 +162,7 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
                     if (task.isSuccessful()){
                         DocumentSnapshot documentSnapshot = task.getResult();
                         if (documentSnapshot.exists()){
+                            getDonorToken(email);
                             startActivity(new Intent(LoginActivity.this, HomeDonor.class));
                         }
                     }
@@ -182,6 +191,34 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
             });
         }
     }
+
+    private void getDonorToken(String email){
+      /*  FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
+        mUser.getIdToken(true)
+                .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
+                    public void onComplete(@NonNull Task<GetTokenResult> task) {
+                        if (task.isSuccessful()) {
+                            String idToken = task.getResult().getToken();
+                            userToken.put("idToken", idToken);
+                            mFirestore.collection("donors").document(email).set(userToken, SetOptions.merge());
+                        }
+                    }
+                });*/
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            return;
+                        }
+                        // Get new Instance ID token
+                        String idToken = task.getResult().getToken();
+                        userToken.put("idToken", idToken);
+                        mFirestore.collection("donors").document(email).set(userToken, SetOptions.merge());
+                    }
+                });
+    }
+
 
     private void validateForm(){
         if (loginEmailEditText.getText().toString().isEmpty()){

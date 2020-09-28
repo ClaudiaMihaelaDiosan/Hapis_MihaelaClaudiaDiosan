@@ -4,25 +4,19 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.DatePicker;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.AutocompleteSupportFragment;
@@ -33,8 +27,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.SetOptions;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.util.Arrays;
 import java.util.Calendar;
@@ -70,7 +62,6 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
     private DatePickerDialog.OnDateSetListener setListener;
 
     /*Firebase*/
-    private StorageReference storageReference;
     private FirebaseUser user;
     private FirebaseFirestore mFirestore;
 
@@ -101,7 +92,6 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
             selectedDateDonor.setText(savedInstanceState.getString("date"));
             selectedTimeDonor.setText(savedInstanceState.getString("time"));
         }
-
         return view;
     }
 
@@ -118,8 +108,6 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
 
     private void firebaseInit(){
         user = FirebaseAuth.getInstance().getCurrentUser();
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-        storageReference = storage.getReference();
         mFirestore = FirebaseFirestore.getInstance();
 
     }
@@ -158,6 +146,8 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
         String donorEmail = user.getEmail();
         String homelessUsername = preferences.getString("homelessUsername", "");
         String donationType = preferences.getString("donationType", "");
+        String title = "DONACIÓN ENTREGADA";
+        String content = "Tu donación de" + " " + donationType + " para " + homelessUsername + " ha sido entregada!\n Gracias por tu ayuda!";
 
         addDonorData(donorEmail, homelessUsername, donationType);
         addVolunteerData(donorEmail, homelessUsername, donationType);
@@ -166,6 +156,8 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
         throughVolunteerDonations.put("donationHour", selectedTimeDonor.getText().toString());
         throughVolunteerDonations.put("donationDate", selectedDateDonor.getText().toString());
         throughVolunteerDonations.put("donorEmail", donorEmail);
+        throughVolunteerDonations.put("title", title);
+        throughVolunteerDonations.put("content", content);
         delivered.put("delivered", false);
 
         mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + homelessUsername + ":" + donationType).set(throughVolunteerDonations, SetOptions.merge());
@@ -173,19 +165,16 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
     }
 
     private void addDonorData(final String donorEmail, final String homelessUsername,final String donationType){
-        mFirestore.collection("donors").document(user.getEmail()).get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()){
-                    DocumentSnapshot documentSnapshot = task.getResult();
-                    if (documentSnapshot != null){
-                        String donorUsername = documentSnapshot.getString("username");
-                        String donorPhone = documentSnapshot.getString("phone");
-                        throughVolunteerDonations.put("donorUsername",donorUsername);
-                        throughVolunteerDonations.put("donorPhone", donorPhone);
-                        mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + homelessUsername + ":" + donationType).set(throughVolunteerDonations, SetOptions.merge());
+        mFirestore.collection("donors").document(user.getEmail()).get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                DocumentSnapshot documentSnapshot = task.getResult();
+                if (documentSnapshot != null){
+                    String donorUsername = documentSnapshot.getString("username");
+                    String donorPhone = documentSnapshot.getString("phone");
+                    throughVolunteerDonations.put("donorUsername",donorUsername);
+                    throughVolunteerDonations.put("donorPhone", donorPhone);
+                    mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + homelessUsername + ":" + donationType).set(throughVolunteerDonations, SetOptions.merge());
 
-                    }
                 }
             }
         });
@@ -193,15 +182,12 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
 
     private void addVolunteerData(final String donorEmail, final String homelessUsername,final String donationType){
         mFirestore.collection("homeless").document(homelessUsername).get()
-                .addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        DocumentSnapshot documentSnapshot = task.getResult();
-                        if (documentSnapshot.exists()){
-                            String volunteerEmail = documentSnapshot.getString("volunteerEmail");
-                            throughVolunteerDonations.put("volunteerEmail", volunteerEmail);
-                            mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + homelessUsername + ":" + donationType).set(throughVolunteerDonations, SetOptions.merge());
-                        }
+                .addOnCompleteListener(task -> {
+                    DocumentSnapshot documentSnapshot = task.getResult();
+                    if (documentSnapshot.exists()){
+                        String volunteerEmail = documentSnapshot.getString("volunteerEmail");
+                        throughVolunteerDonations.put("volunteerEmail", volunteerEmail);
+                        mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + homelessUsername + ":" + donationType).set(throughVolunteerDonations, SetOptions.merge());
                     }
                 });
     }
@@ -222,7 +208,6 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
 
     private void initPlaces() {
         Places.initialize(view.getContext(), getString(R.string.API_KEY));
-
     }
 
     private void setupPlaceAutoComplete(){
@@ -258,15 +243,11 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
 
     }
 
-
     private void setTextDateListener(){
-        setListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                month = month + 1;
-                String date = dayOfMonth + "/" + month + "/" + year;
-                selectedDateDonor.setText(date);
-            }
+        setListener = (view, year, month, dayOfMonth) -> {
+            month = month + 1;
+            String date = dayOfMonth + "/" + month + "/" + year;
+            selectedDateDonor.setText(date);
         };
     }
 
@@ -275,12 +256,9 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
        final int hour = calendar.get(Calendar.HOUR_OF_DAY);
        final int minute = calendar.get(Calendar.MINUTE);
 
-       TimePickerDialog timePickerDialog = new TimePickerDialog(view.getContext(), new TimePickerDialog.OnTimeSetListener() {
-           @Override
-           public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-               String time = hourOfDay + ":" + minute + "h";
-               selectedTimeDonor.setText(time);
-           }
+       TimePickerDialog timePickerDialog = new TimePickerDialog(view.getContext(), (view, hourOfDay, minute1) -> {
+           String time = hourOfDay + ":" + minute1 + "h";
+           selectedTimeDonor.setText(time);
        }, hour, minute, false);
         timePickerDialog.show();
     }

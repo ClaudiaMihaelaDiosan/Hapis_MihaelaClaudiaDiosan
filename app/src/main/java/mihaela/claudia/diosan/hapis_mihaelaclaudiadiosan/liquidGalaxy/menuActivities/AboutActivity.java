@@ -11,7 +11,7 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInf
 
 public class AboutActivity extends NetworkInfo {
 
-    TextView about_photos, about_photos1;
+    TextView about_photos, about_photos1, about_github;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +20,11 @@ public class AboutActivity extends NetworkInfo {
 
         about_photos = findViewById(R.id.about_photos_tv);
         about_photos1 = findViewById(R.id.about_photos_tv_1);
+        about_github = findViewById(R.id.about_github);
+
 
         about_photos.setMovementMethod(LinkMovementMethod.getInstance());
         about_photos1.setMovementMethod(LinkMovementMethod.getInstance());
+        about_github.setMovementMethod(LinkMovementMethod.getInstance());
     }
 }

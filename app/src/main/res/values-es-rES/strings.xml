@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources >
     <string name="app_name">Hapis_MihaelaClaudiaDiosan</string>
     <string name="name">HAPIS</string>
     <string name="API_KEY" templateMergeStrategy="preserve" translatable="false">AIzaSyCl1fruupMLaDB11EO0hHb2Ahx7rTYzwkA</string>
@@ -467,7 +467,7 @@
     <string name="lg_about_button">CERRAR</string>
     <string name="lg_about_info">Esta parte de la aplicación ha sido desarollada para el concurso Google Summer Of Code 2020 y como parte del proyecto para el Trabajo Final de Grado </string>
     <string name="lg_about_contact">Desarollada por Mihaela Claudia Diosan (mcd1591@gmail.com) </string>
-    <string name="lg_about_github"><a href="https://github.com/LiquidGalaxyLAB/GSoC2020_HomelessAidPanoramicInteractiveSystem?organization=LiquidGalaxyLAB&amp;organization=LiquidGalaxyLAB">HAPIS Github Reposiory</a> </string>
+    <string name="lg_about_github"><a href="https://github.com/ClaudiaMihaelaDiosan/Hapis_MihaelaClaudiaDiosan">HAPIS Github Reposiory</a> </string>
     <string name="lg_about_thanks">Desarollada con la ayuda de los Laboratorios TIC del Parque Cientifico de Lleida y los Laboratorios Liquid Galaxy</string>
     <string name="special_thanks"> Las siguientes personas me has ayudado para realizar este proyecto, así que GRACIAS A TODOS.</string>
     <string name="about_persons">Alexandra Rivero\n Maria Luz Mosterio\n Andreu Ibañez\n\n Paula Vidal\n Roger Colomo\n Josep Cunyat\n Guillem Felis de Dios\n\n Emilie Ma\n\n Sara Serrano\n Francesc Muñoz\n</string>
@@ -500,8 +500,51 @@
     <string name="show_transactions">Mostrando transacciones para</string>
     <string name="show_life_history">Mostrando historia de vida para</string>
 
-    <!--Help Fragment-->
+    <!--Help Donor Fragment-->
     <string name="help_text_title">Ayuda</string>
+    <string name="donor_help_1">Tipos de donaciones</string>
+    <string name="donor_help_2">1. Para ayudar a una persona, se puede escoger entre 5 tipos de donaciones: Comida, Ropa, Trabajo, Alojamiento o Productos de higiene personal.\n2. Para ecoger el tipo de ayuda, selecciona el perfil en el que estas intersado y en la parte \"Selecciona tu donación\" podrás escojer un ítem.\n3. Si tu donación no esta en la lista, no pasa nada.Escoge una opción existente y realiza de todos modos la donación que consideras.</string>
+    <string name="donor_help_3">Entrega de donaciones</string>
+    <string name="donor_help_4">Como podrás observar, una donación se puede realizar personalmente o a través de un voluntario.</string>
+    <string name="donor_help_5">Entrega personalmente</string>
+    <string name="donor_help_6">1. Para realizar una donación personalmente, después de haber escogido el tipo de donación, en la sección \"Selecciona como quieres realizar tu donación\" selecciona el botón \"Personalmente\".\n2. Se abrirá una nueva página con información sobre un punto de encuentro y horario establecidos previamente para que puedas ir y dar tu donación personalmente a la persona que has escogido.\n3. Si deseas y la persona necesitada esta de acuerdo, puede compartir fotos a nustras redes sociales enseñando las donaciones. </string>
+    <string name="donor_help_7">Entrega a través de un voluntario</string>
+    <string name="donor_help_8">1. Para realizar una donación a través de un voluntario, después de haber escogido el tipo de donación, en la sección \"Selecciona como quieres realizar tu donación\" selecciona el botón \"A través de un voluntario\".\n2. Se abrirá una nueva página que te permite establecer un punto de encuentro con un voluntario para entregarle la donación.\n3. Después de rellenar el formulario con la ubicación, la fecha y la hora que te van bien, el voluntario recibirá esta información, además de tu correo electrónico y el numero teléfono (si lo tienes en tu perfil).\n4. Un voluntario se pondrá en contacto contigo lo antes posible. </string>
+    <string name="donor_help_9">Mapa</string>
+    <string name="donor_help_10">1. En el mapa podrás ver los marcadores de todas las personas que necesitan ayuda.\n2. Si seleccionas un marcador se puede ver el nombre de usuario y el horario en que puedes encontrar en esa ubicación a la persona necesitada.\n3. Si presionar la ventana con información, serás redirigido a la página de ayuda de esa persona para que puedas realizar tu donación.</string>
+    <string name="donor_help_11">Lista de mapas</string>
+    <string name="donor_help_12">1. El la lista de mapas se pueden ver mapas para cada una de las personas necesitadas.\n2. Si seleccionas el primer botón en el mapa, se abrirá la aplicación Google Maps, mostrando la ruta desde tu ubicación hasta la ubicación de la persona necesitada.\n3. Si seleccionas el segundo botón en el mapa, solamente se abrirá la aplicación Google Maps y mostará la ubicación de la persona necesitada.</string>
+    <string name="donor_help_13">Donar</string>
+    <string name="donor_help_14">1. Como podrás ver en el menú lateral, hay un botón Donar.\n2. Aquí podrás donar dinero para apoyar al equipo que se encarga de mantener la aplicación, teniendo en cuenta que es un proyecto social.\n3. Se puede donar dinero a través de un sistema de pago seguro, utilizando la tarjeta de credito/débito o se puede contribuir con una donación realizada por terceros, mirando un video de no más de 30 segundos.</string>
+    <string name="donor_help_15">Configuración</string>
+    <string name="donor_help_16">1. En configuración podrás modificar información relacionada con tu perfil, como teléfono o contraseña.\n2. También se puede eliminar la cuenta definitivamente.\n3. En Mapa puedes escoger la opción de cargar el mapa solamente cuando tienes conexión por Wifi y de esta manera ahorrar datos móviles si lo prefieres.</string>
+    <string name="donor_help_17">Contacto</string>
+    <string name="donor_help_18">1. En esta página encontrarás un formulario de contacto para envirnos un mensaje.\n2. Una vez enviado el mensaje, nos pondremos en contacto contigo a través del correo con el que creaste la cuenta.\n</string>
+
+    <!--Help Volunteer Fragment-->
+    <string name="volunteer_help_1">Crear perfil persona necesitada</string>
+    <string name="volunteer_help_2">1. La primera vez que entras en la aplicación no verás ningún perfil, ya que solo aparecen los perfiles creados por ti.\n2. Para crear un perfil, en el botón flotante selecciona \"Nuevo perfil persona necesitada\".\n3. Antes de empezar con el perfil,verás una página con terminos y condiciones que tendrán que ser leídas y entendidas por la persona necesitada y después tendrá que firmar y confirmar con su nombre y apellidos.\n4. A continuación, tienes que rellenar la información de perfil.El teléfono y la fecha de nacimiento no son obligatorios y solo serán utilizados si la persona necesitada esta de acuerdo.La foto de perfil puedes subirla desde la Galería o utilizando la Cámara del dispositivo.\n5. En la siguiente pantalla se ha de facilitar una ubicación en la que los donantes pueden encontrar a la persona necesitada para realizar las entregas personales.\n6. Por último, completa un horario en el que se puede encontrar a la persona necesitada en la ubicación establecida anteriormente y la necesidad más importante que tiene en este momento.  </string>
+    <string name="volunteer_help_3">Editar perfil persona necesitada</string>
+    <string name="volunteer_help_4">1. Para editar un perfil, selecciona un ítem de la pantalla principal. Podrás editar la foto de perfil, el teléfono, la experiencia de vida, la ubicación, el horarío y la necesidad más importante.\n2. También se podrá borrar un perfil por completo, si la persona necesitada lo desea.</string>
+    <string name="volunteer_help_5">Entrega donaciones</string>
+    <string name="volunteer_help_6">1. Las donaciones se pueden entregar personalmente o a través de un voluntario.\n2. Si un donante elige realizar su donación a través de un voluntario, esta información será mostrada en la página \"Entrega donaciones\" situada en el botón flotante.\n3. Si lo deseas, puedes ponerte en contacto con los donantes a través del correo elctrónico o teléfono(si lo han facilitado).\n4. Una vez has realizado una donación selecciona el ítem y confirmala.De este modo el donante recibira una notificación conforme su donación a sido entregada y otros voluntarios no se pondrán en contacto con el.\n5. Si deseas y la persona necesitada esta de acuerdo, puedes compartir fotos a nuestras redes sociales enseñando la entrega de donaciones.</string>
+    <string name="volunteer_help_7">Donar</string>
+    <string name="volunteer_help_8">1. Como podrás ver en el menú lateral, hay un botón Donar.\n2. Aquí podrás donar dinero para apoyar al equipo que se encarga de mantener la aplicación, teniendo en cuenta que es un proyecto social.\n3. Se puede donar dinero a través de un sistema de pago seguro, utilizando la tarjeta de credito/débito o se puede contribuir con una donación realizada por terceros, mirando un video de no más de 30 segundos.</string>
+    <string name="volunteer_help_9">Configuración</string>
+    <string name="volunteer_help_10">1. En configuración podrás modificar información relacionada con tu perfil, como teléfono o contraseña.\n2. También puedes escoger si quieres ver todas las entregas de donaciones o solo las donaciones de las personas necesitadas cuyo perfil has creado.\n3. Si quieres eliminar tu cuenta definitivamente, tendrás que ponerte en contacto con nosotros para asignar los perfiles que tienes creados a otros voluntarios antes de eliminar la cuenta.</string>
+    <string name="volunteer_help_11">Contacto</string>
+    <string name="volunteer_help_12">1. En esta página encontrarás un formulario de contacto para envirnos un mensaje.\n2. Una vez enviado el mensaje, nos pondremos en contacto contigo a través del correo con el que creaste la cuenta.\n</string>
+
+    <!--About Us Fragment-->
+    <string name="about_us_1">Esta aplicación ha sido desarrollada como parte del Trabajo Final de Grado.</string>
+    <string name="about_us_2">Realizada por Mihaela Claudia Diosan, estudiante de Ingeniería Informática en la Universidad de Lleida.</string>
+    <string name="about_us_3">Agradecimientos por ayudarme y guíarme durante todo el proceso a mi directora del Trabajo Final de Grado, Montserrat Sendín Veloso. </string>
+    <string name="about_us_4"><a href="https://www.proyectohapis.com/">www.proyectohapis.com</a></string>
+    <string name="about_us_5"><a href="https://www.youtube.com/channel/UCtzRNzGoV4g5k1Bk5vU-N6g">Proyecto Hapis</a></string>
+    <string name="about_us_6"><a href="https://twitter.com/ProyectoHapis">\@ProyectoHapis</a></string>
+    <string name="about_us_7"><a href="https://www.instagram.com/proyecto_hapis/">\@proyecto_hapis</a></string>
+    <string name="about_us_8">proyectohapis@gmail.com</string>
+
 
 
 </resources>

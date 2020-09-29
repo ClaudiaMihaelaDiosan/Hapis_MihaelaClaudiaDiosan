@@ -453,7 +453,7 @@
     <string name="lg_about_button">CLOSE</string>
     <string name="lg_about_info">This app has been developed thanks to Intership students as a new application from GSoC 2020 Project </string>
     <string name="lg_about_contact">Depeloped by Mihaela Claudia Diosan (mcd1591@gmail.com) </string>
-    <string name="lg_about_github"><a href="https://github.com/LiquidGalaxyLAB/GSoC2020_HomelessAidPanoramicInteractiveSystem?organization=LiquidGalaxyLAB&amp;organization=LiquidGalaxyLAB">HAPIS Github Reposiory</a> </string>
+    <string name="lg_about_github"><a href="https://github.com/ClaudiaMihaelaDiosan/Hapis_MihaelaClaudiaDiosan">HAPIS Github Reposiory</a> </string>
     <string name="lg_about_thanks">Developed thanks to TIC Laboratories of the Scientific Park of Lleida and Liquid Galaxy LAB</string>
     <string name="special_thanks"> The next persons helped to realize this project, so THANK YOU ALL.</string>
     <string name="about_persons">Alexandra Rivero\n Maria Luz Mosterio\n Andreu Ibañez\n\n Paula Vidal\n Roger Colomo\n Josep Cunyat\n Guillem Felis de Dios\n\n Emilie Ma\n\n Sara Serrano\n Francesc Muñoz\n</string>
@@ -486,8 +486,49 @@
     <string name="show_transactions">Showing Transactions for</string>
     <string name="show_life_history">Showing Life History for</string>
 
-    <!--Help Fragment-->
+    <!--Help Donor Fragment-->
     <string name="help_text_title">Help</string>
+    <string name="donor_help_1">Donations tipes</string>
+    <string name="donor_help_2">1. To help a person, you can choose between 5 types of donations: Food, Clothing, Work, Accommodation or Personal hygiene products.\n2. To choose the type of aid, select the profile in which you are interested and in the \"Select your donation\" part you can choose an item.\n3. If your donation is not on the list, nothing happens, choose an existing option and make the donation you consider anyway.</string>
+    <string name="donor_help_3">Donations delivery</string>
+    <string name="donor_help_4">As you can see, a donation can be made personally or through a volunteer.</string>
+    <string name="donor_help_5">Personal delivery</string>
+    <string name="donor_help_6">1. To make a donation personally, after having chosen the type of donation, in the section \n"Select how you want to make your donation\n" select the "Personally" button.\n2. A new page will open with information about a meeting point and time previously established so that you can go and personally give your donation to the person you have chosen.\n3. If you want and the person in need agrees, you can share photos to our social networks showing donations. </string>
+    <string name="donor_help_7">Delivery through a volunteer</string>
+    <string name="donor_help_8">1. To make a donation through a volunteer, after having chosen the type of donation, in the section \"Select how you want to make your donation\" select the button \"Through a volunteer\".\n2. A new page will open allowing you to set up a meeting point with a volunteer to deliver the donation.\n3. After filling in the form with the location, date and time that suit you, the volunteer will receive this information, as well as your email and phone number (if you have it in your profile).\n4. A volunteer will contact you as soon as possible.</string>
+    <string name="donor_help_9">Map</string>
+    <string name="donor_help_10">1. On the map you will see the markers of all the people who need help.\n2. If you select a marker, you can see the username and the time you can find the person in need in that location.\n3. If you press the information window, you will be redirected to that person\'s help page so you can make your donation.</string>
+    <string name="donor_help_11">List of maps</string>
+    <string name="donor_help_12">1. In the map list you can see maps for each person in need.\n2. If you select the first button on the map, the Google Maps application will open, showing the route from your location to the location of the person in need.\n3. If you select the second button on the map, it will only open the Google Maps application and show the location of the person in need.</string>
+    <string name="donor_help_13">Donate</string>
+    <string name="donor_help_14">1. As you can see in the side menu, there is a Donate button.\n2. Here you can donate money to support the team that is responsible for maintaining the application, taking into account that it is a social project.\n3. Money can be donated through a secure payment system, using the credit / debit card or you can contribute with a donation made by third parties, watching a video of no more than 30 seconds.</string>
+    <string name="donor_help_15">Setting</string>
+    <string name="donor_help_16">1. In settings you can modify information related to your profile, such as phone number or password.\n2. The account can also be permanently deleted. \ N3. In Map you can choose the option to load the map only when you have a Wi-Fi connection and in this way save mobile data if you prefer.</string>
+    <string name="donor_help_17">Contact</string>
+    <string name="donor_help_18">1. On this page you will find a contact form to send us a message.\n2. Once the message has been sent, we will contact you through the email with which you created the account.</string>
 
+    <!--Help Volunteer Fragment-->
+    <!--Help Volunteer Fragment-->
+    <string name="volunteer_help_1">Create homeless profile</string>
+    <string name="volunteer_help_2">1. The first time you enter the application you will not see any profiles, since only the profiles created by you appear.\n2. To create a profile, in the floating button select \ "New profile person in need \".\n3. Before starting with the profile, you will see a page with terms and conditions that will have to be read and understood by the person in need and then they will have to sign and confirm with their name and surname.\n4. Next, you have to fill in the profile information. The phone and the date of birth are not mandatory and will only be used if the person in need agrees. The photo can be uploaded from the Gallery or using the device's Camera.\n5. On the next screen, provide a location where donors can find the person in need to make personal deliveries.\n6. Finally, complete a schedule in which the person in need can be found in the location established above and the most important need they have at this time.</string>
+    <string name="volunteer_help_3">Edit homeless profile</string>
+    <string name="volunteer_help_4">1. To edit a profile, select an item from the main screen. You will be able to edit the profile photo, phone, life experience, location, time and the most important need.\n2. You can also delete a profile completely, if the person in need wishes.</string>
+    <string name="volunteer_help_5">Donations delivery</string>
+    <string name="volunteer_help_6">1. Donations can be delivered in person or through a volunteer.\n2. If a donor chooses to donate through a volunteer, this information will be displayed on the \ "Deliver donations \" page located on the floating button.\n3. If you wish, you can contact the donors via email or telephone (if they have provided it).\n4. Once you have made a donation, select the item and confirm it. In this way, the donor will receive a notification that his donation has been delivered and other volunteers will not be able to contact him.\n5. If you want and the person in need agrees, you can share photos to our social networks showing donations.</string>
+    <string name="volunteer_help_7">Donate</string>
+    <string name="volunteer_help_8">1. As you can see in the side menu, there is a Donate button.\n2. Here you can donate money to support the team that is responsible for maintaining the application, taking into account that it is a social project.\n3. Money can be donated through a secure payment system, using the credit / debit card or you can contribute with a donation made by third parties, watching a video of no more than 30 seconds.</string>
+    <string name="volunteer_help_9">Setting</string>
+    <string name="volunteer_help_10">1. In settings you can modify information related to your profile, such as phone number or password.\n2. You can also choose whether you want to see all donation deliveries or just donations from people in need whose profile you have created.\n3. If you want to permanently delete your account, you will have to contact us to assign the profiles you have created to other volunteers before deleting the account.</string>
+    <string name="volunteer_help_11">Contact</string>
+    <string name="volunteer_help_12">1. On this page you will find a contact form to send us a message.\n2. Once the message has been sent, we will contact you through the email with which you created the account.</string>
+    <!--About Us Fragment-->
+    <string name="about_us_1">This application has been developed as part of the Final Degree Project.</string>
+    <string name="about_us_2">Carried out by Mihaela Claudia Diosan, Computer Engineering student at the University of Lleida.</string>
+    <string name="about_us_3">Thanks for helping and guiding me throughout the process to my director of the Final Degree Project, Montserrat Sendín Veloso. </string>
+    <string name="about_us_4"><a href="https://www.proyectohapis.com/">www.proyectohapis.com</a></string>
+    <string name="about_us_5"><a href="https://www.youtube.com/channel/UCtzRNzGoV4g5k1Bk5vU-N6g">Proyecto Hapis</a></string>
+    <string name="about_us_6"><a href="https://twitter.com/ProyectoHapis">\@ProyectoHapis</a></string>
+    <string name="about_us_7"><a href="https://www.instagram.com/proyecto_hapis/">\@proyecto_hapis</a></string>
+    <string name="about_us_8">proyectohapis@gmail.com</string>
 
 </resources>

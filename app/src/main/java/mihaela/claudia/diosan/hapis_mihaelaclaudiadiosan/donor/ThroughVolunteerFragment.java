@@ -146,8 +146,8 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
         String donorEmail = user.getEmail();
         String homelessUsername = preferences.getString("homelessUsername", "");
         String donationType = preferences.getString("donationType", "");
-        String title = "DONACIÓN ENTREGADA";
-        String content = "Tu donación de" + " " + donationType + " para " + homelessUsername + " ha sido entregada!\n Gracias por tu ayuda!";
+        String title = getString(R.string.notification_title);
+        String content = getString(R.string.notification_body_donation_of) + getString(R.string.blank_space) + donationType + getString(R.string.blank_space) + getString(R.string.notification_body_donation_for) + getString(R.string.blank_space) + homelessUsername + getString(R.string.blank_space) + getString(R.string.notification_body_donation_delivered);
 
         addDonorData(donorEmail, homelessUsername, donationType);
         addVolunteerData(donorEmail, homelessUsername, donationType);

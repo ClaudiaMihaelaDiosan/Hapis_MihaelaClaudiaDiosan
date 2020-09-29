@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Hapis_MihaelaClaudiaDiosan</string>
     <string name="name">HAPIS</string>
     <string name="API_KEY" templateMergeStrategy="preserve" translatable="false">AIzaSyCl1fruupMLaDB11EO0hHb2Ahx7rTYzwkA</string>
@@ -352,6 +352,12 @@
     <string name="negative_button_delivery">TODAVÍA NO</string>
     <string name="toast_delivery">Gracias por tu colaboración!</string>
     <string name="delivery_title">Donaciones para entregar</string>
+    <string name="notification_title">DONACIÓN ENTREGADA!</string>
+    <string name="notification_body_donation_of">Tu donación de</string>
+    <string name="notification_body_donation_for">para</string>
+    <string name="notification_body_donation_delivered">ha sido entregada.\nGracias por tu ayuda!</string>
+
+
 
     <!--Network options-->
     <string name="title_map">Mapa</string>
@@ -496,5 +502,6 @@
 
     <!--Help Fragment-->
     <string name="help_text_title">Ayuda</string>
+
 
 </resources>

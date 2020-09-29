@@ -1,9 +1,12 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login;
 
 import android.app.Dialog;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -193,17 +196,6 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
     }
 
     private void getDonorToken(String email){
-      /*  FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
-        mUser.getIdToken(true)
-                .addOnCompleteListener(new OnCompleteListener<GetTokenResult>() {
-                    public void onComplete(@NonNull Task<GetTokenResult> task) {
-                        if (task.isSuccessful()) {
-                            String idToken = task.getResult().getToken();
-                            userToken.put("idToken", idToken);
-                            mFirestore.collection("donors").document(email).set(userToken, SetOptions.merge());
-                        }
-                    }
-                });*/
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
                     @Override
@@ -211,12 +203,24 @@ public class LoginActivity extends MainActivity implements View.OnClickListener{
                         if (!task.isSuccessful()) {
                             return;
                         }
-                        // Get new Instance ID token
                         String idToken = task.getResult().getToken();
                         userToken.put("idToken", idToken);
                         mFirestore.collection("donors").document(email).set(userToken, SetOptions.merge());
+                        createNotificationChannel();
                     }
                 });
+    }
+
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = getString(R.string.notification_channel);
+            String description = getString(R.string.notification_channel_description);
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel channel = new NotificationChannel(getString(R.string.notification_channel), name, importance);
+            channel.setDescription(description);
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
     }
 
 

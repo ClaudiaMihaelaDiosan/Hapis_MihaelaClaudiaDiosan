@@ -27,13 +27,15 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:label"
         tools:targetApi="q">
-
-        <activity android:name=".liquidGalaxy.UserListActivity"
-            android:label="@string/users_list_name"/>
-        <activity android:name=".liquidGalaxy.OneCityActivity"
-            android:label="@string/city_name"/>
-        <activity android:name=".liquidGalaxy.menuActivities.AboutActivity"
-            android:label="@string/about_name"/>
+        <activity
+            android:name=".liquidGalaxy.UserListActivity"
+            android:label="@string/users_list_name" />
+        <activity
+            android:name=".liquidGalaxy.OneCityActivity"
+            android:label="@string/city_name" />
+        <activity
+            android:name=".liquidGalaxy.menuActivities.AboutActivity"
+            android:label="@string/about_name" />
         <activity
             android:name=".liquidGalaxy.menuActivities.HelpTextActivity"
             android:label="@string/lg_help_name" />
@@ -41,14 +43,16 @@
             android:name=".liquidGalaxy.menuActivities.ToolsActivity"
             android:label="@string/tools_name" />
         <activity android:name=".liquidGalaxy.menuActivities.SettingsActivity" />
-        <activity android:name=".liquidGalaxy.CitiesActivity"
-            android:label="@string/cities_name"/>
+        <activity
+            android:name=".liquidGalaxy.CitiesActivity"
+            android:label="@string/cities_name" />
         <activity
             android:name=".register.RegisterUserActivity"
             android:label="@string/register_activity_name" />
         <activity android:name=".auxiliary.HelpActivity" />
-        <activity android:name=".liquidGalaxy.MainActivityLG"
-            android:label="Liquid Galaxy"/>
+        <activity
+            android:name=".liquidGalaxy.MainActivityLG"
+            android:label="Liquid Galaxy" />
         <activity
             android:name=".common.YouTubePlayerActivity"
             android:configChanges="orientation|screenSize" />
@@ -102,6 +106,12 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/hapis_icon" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorPrimary" />
 
         <service
             android:name=".FirebaseMessaging.MyFirebaseMessagingService"

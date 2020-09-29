@@ -338,6 +338,12 @@
     <string name="negative_button_delivery">NOT YET</string>
     <string name="toast_delivery">Thank you for you collaboration!</string>
     <string name="delivery_title">Donations to deliver</string>
+    <string name="notification_channel" translatable="false">notification</string>
+    <string name="notification_channel_description" translatable="false">notificationD</string>
+    <string name="notification_title">DONATION DELIVERED!</string>
+    <string name="notification_body_donation_of">Your donation of</string>
+    <string name="notification_body_donation_for">for</string>
+    <string name="notification_body_donation_delivered">was delivered.\Thank you for your help!</string>
 
     <!--Network options-->
     <string name="title_map">Map</string>

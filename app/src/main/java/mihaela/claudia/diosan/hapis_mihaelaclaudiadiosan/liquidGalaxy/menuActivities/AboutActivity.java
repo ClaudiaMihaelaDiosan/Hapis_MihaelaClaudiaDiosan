@@ -7,8 +7,9 @@ import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
 
-public class AboutActivity extends AppCompatActivity {
+public class AboutActivity extends NetworkInfo {
 
     TextView about_photos, about_photos1;
 

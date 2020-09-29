@@ -15,11 +15,10 @@ import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
 
-public class CreateHomelessProfile extends MainActivity {
+public class CreateHomelessProfile extends NetworkInfo {
 
     ViewPager viewPager;
     TabLayout tabLayout;

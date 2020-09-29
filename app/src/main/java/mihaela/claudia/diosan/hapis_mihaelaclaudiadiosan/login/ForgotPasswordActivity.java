@@ -11,15 +11,16 @@ import android.widget.Button;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
+
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
 
-public class ForgotPasswordActivity extends MainActivity implements View.OnClickListener {
+public class ForgotPasswordActivity extends NetworkInfo implements View.OnClickListener {
 
 
     /*Buttons*/

@@ -41,7 +41,6 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             builder.setSmallIcon(R.mipmap.hapis_icon)
-                    .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.hapis_icon))
                     .setColor(getResources().getColor(R.color.colorPrimary))
                     .setContentTitle(remoteMessage.getNotification().getTitle())
                     .setContentText(remoteMessage.getNotification().getBody())
@@ -52,7 +51,6 @@ public class MyFirebaseMessagingService extends com.google.firebase.messaging.Fi
                     .setPriority(NotificationManager.IMPORTANCE_HIGH);
         } else {
             builder.setSmallIcon(R.mipmap.hapis_icon)
-                    .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.hapis_icon))
                     .setColor(getResources().getColor(R.color.colorPrimary))
                     .setContentTitle(remoteMessage.getNotification().getTitle())
                     .setContentText(remoteMessage.getNotification().getBody())

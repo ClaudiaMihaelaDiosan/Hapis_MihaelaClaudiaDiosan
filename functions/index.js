@@ -35,5 +35,5 @@ exports.sendDeliveredNotification = functions.firestore
                return false;
              });
   }
-    return false;
+  return false;
 });

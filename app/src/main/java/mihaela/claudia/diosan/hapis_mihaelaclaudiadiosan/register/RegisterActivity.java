@@ -10,12 +10,12 @@ import androidx.preference.PreferenceManager;
 
 import com.google.android.material.button.MaterialButton;
 
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
 
 
-public class RegisterActivity extends MainActivity implements View.OnClickListener {
+public class RegisterActivity extends NetworkInfo implements View.OnClickListener {
 
 
     /*Buttons*/

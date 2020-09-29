@@ -7,8 +7,9 @@ import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
 
-public class HelpTextActivity extends AppCompatActivity {
+public class HelpTextActivity extends NetworkInfo {
 
     TextView help_tv;
 

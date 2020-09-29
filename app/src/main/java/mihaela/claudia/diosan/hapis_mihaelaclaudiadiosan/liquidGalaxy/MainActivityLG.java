@@ -22,6 +22,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgConnection.LGCommand;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgConnection.LGConnectionManager;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigation.POI;
@@ -58,7 +59,7 @@ import static mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.aux
 import static mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.auxiliary.HelpBuildingStatistics.getVolunteersNumber;
 import static mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.auxiliary.HelpBuildingStatistics.getWork;
 
-public class MainActivityLG extends AppCompatActivity implements View.OnClickListener {
+public class MainActivityLG extends NetworkInfo implements View.OnClickListener {
 
     MaterialCardView cities, globalStatistics, cityStatistics;
     MaterialButton stopStatistics;

@@ -14,6 +14,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.auxiliary.HelpCityClass;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigation.POI;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigation.POIController;
@@ -29,7 +30,7 @@ import static mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.aux
 import static mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigation.POI.createPOI;
 import static mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigation.POIController.cleanKmls;
 
-public class OneCityActivity extends AppCompatActivity implements View.OnClickListener {
+public class OneCityActivity extends NetworkInfo implements View.OnClickListener {
 
     TextView city_tv, country_tv;
     MaterialCardView homeless, donors, volunteers,liveOverview ;

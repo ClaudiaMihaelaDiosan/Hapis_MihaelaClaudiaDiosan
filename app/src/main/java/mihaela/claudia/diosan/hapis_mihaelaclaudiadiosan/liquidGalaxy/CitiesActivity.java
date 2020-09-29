@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.adapters.CitiesCardsAdapter;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigation.POI;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigation.POIController;
@@ -25,7 +26,7 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.logic.Citi
 
 import static mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigation.POI.createPOI;
 
-public class CitiesActivity extends AppCompatActivity {
+public class CitiesActivity extends NetworkInfo {
 
     /*Firebase*/
     private FirebaseFirestore mFirestore;

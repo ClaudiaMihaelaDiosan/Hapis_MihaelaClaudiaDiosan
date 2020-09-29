@@ -22,17 +22,15 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.AboutUsFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.HelpTextFragment;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor.DonorConfigurationFragment;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.ContactFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.DonateFragment;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor.HelpFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 
-public class HomeVolunteer extends MainActivity implements NavigationView.OnNavigationItemSelectedListener  {
+public class HomeVolunteer extends NetworkInfo implements NavigationView.OnNavigationItemSelectedListener  {
 
 
     /*Navigation Elements*/

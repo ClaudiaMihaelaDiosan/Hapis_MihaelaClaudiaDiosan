@@ -1,6 +1,7 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary;
 
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -25,10 +26,11 @@ import java.nio.charset.Charset;
 import java.util.Objects;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.ForgotPasswordActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 
-public class HelpActivity extends AppCompatActivity {
+public class HelpActivity extends NetworkInfo {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,6 +136,5 @@ public class HelpActivity extends AppCompatActivity {
         }
         return false;
     }
-
 
 }

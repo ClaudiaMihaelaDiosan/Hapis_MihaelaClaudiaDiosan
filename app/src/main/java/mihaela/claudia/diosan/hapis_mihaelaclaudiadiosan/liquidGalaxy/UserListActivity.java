@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.adapters.LgUserAdapter;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigation.POI;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigation.POIController;
@@ -36,7 +37,7 @@ import static mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.aux
 import static mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.auxiliary.HomelessRecyclerView.setHomelessReyclerView;
 import static mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.auxiliary.VolunteerRecyclerView.setVolunteerRecyclerView;
 
-public class UserListActivity extends AppCompatActivity {
+public class UserListActivity extends NetworkInfo {
 
     /*Firebase*/
     private FirebaseFirestore mFirestore;

@@ -24,18 +24,18 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.MainActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.AboutUsFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.ContactFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.DonateFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.HelpTextFragment;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.maps.ListMapFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.maps.MapFragment;
 
 
-public class HomeDonor extends MainActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeDonor extends NetworkInfo implements NavigationView.OnNavigationItemSelectedListener {
 
     /*Navigation Elements*/
     private DrawerLayout donorDrawer;

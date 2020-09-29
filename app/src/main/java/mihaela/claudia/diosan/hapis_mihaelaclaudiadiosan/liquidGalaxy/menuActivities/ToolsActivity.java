@@ -13,13 +13,14 @@ import com.google.android.material.button.MaterialButton;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary.HelpActivity;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgConnection.LGCommand;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgConnection.LGConnectionManager;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.tasks.GetSessionTask;
 
 import static mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.lgNavigation.POIController.cleanKmlSlave;
 
-public class ToolsActivity extends AppCompatActivity implements View.OnClickListener {
+public class ToolsActivity extends NetworkInfo implements View.OnClickListener {
 
     MaterialButton cleanKmls, relaunchLG, rebootLG, shutdownLG;
 

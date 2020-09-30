@@ -159,6 +159,7 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
         throughVolunteerDonations.put("title", title);
         throughVolunteerDonations.put("content", content);
         delivered.put("delivered", false);
+        delivered.put("contacted", false);
 
         mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + homelessUsername + ":" + donationType).set(throughVolunteerDonations, SetOptions.merge());
         mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + homelessUsername + ":" + donationType).set(delivered, SetOptions.merge());

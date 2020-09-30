@@ -305,8 +305,13 @@
     <string name="delete_correct_toast">Perfil borrado con éxito</string>
     <string name="update_success_toast">Perfil actualizado con éxito</string>
     <string name="empty_error_toast">Tienes que editar almenos un campo para poder guardar! </string>
-
-
+    <string name="contacted_btn">DONANTE CONTACTADO</string>
+    <string name="delivered_btn">DONACIÓN ENTREGADA</string>
+    <string name="cancel_deliver_btn">CANCELAR ENTREGA</string>
+    <string name="cancel_deliver_title">CANCELAR ENTREGA</string>
+    <string name="cancel_deliver_body">El donante todavía quiere ser contactado de nuevo por otro voluntario para establecer un punto de encuentro, o se cancela toda la entrega?</string>
+    <string name="cancel_deliver_positive_btn">Contactar de nuevo</string>
+    <string name="cancel_deliver_negative_btn">Cancelar Toda la Entrega</string>
 
     <!--Homeless complete view-->
     <string name="birthday">Cumpleaños: </string>
@@ -348,8 +353,12 @@
     <string name="contact">Contacto: </string>
     <string name="delivery_done">ENTREGA REALIZADA</string>
     <string name="delivery_message">Has entregado esta donación a la persona necesitada?</string>
+    <string name="contacted_done">CONTACTADO</string>
+    <string name="contacted_text">DONANTE CONTACTADO</string>
+    <string name="contacted_message">Has contactado y establecido un punto de encuentro con este usuario?</string>
     <string name="confirm_button_delivery">SI</string>
     <string name="negative_button_delivery">TODAVÍA NO</string>
+    <string name="neutral_button_delivery">VOLVER</string>
     <string name="toast_delivery">Gracias por tu colaboración!</string>
     <string name="delivery_title">Donaciones para entregar</string>
     <string name="notification_title">DONACIÓN ENTREGADA!</string>
@@ -527,7 +536,7 @@
     <string name="volunteer_help_3">Editar perfil persona necesitada</string>
     <string name="volunteer_help_4">1. Para editar un perfil, selecciona un ítem de la pantalla principal. Podrás editar la foto de perfil, el teléfono, la experiencia de vida, la ubicación, el horarío y la necesidad más importante.\n2. También se podrá borrar un perfil por completo, si la persona necesitada lo desea.</string>
     <string name="volunteer_help_5">Entrega donaciones</string>
-    <string name="volunteer_help_6">1. Las donaciones se pueden entregar personalmente o a través de un voluntario.\n2. Si un donante elige realizar su donación a través de un voluntario, esta información será mostrada en la página \"Entrega donaciones\" situada en el botón flotante.\n3. Si lo deseas, puedes ponerte en contacto con los donantes a través del correo elctrónico o teléfono(si lo han facilitado).\n4. Una vez has realizado una donación selecciona el ítem y confirmala.De este modo el donante recibira una notificación conforme su donación a sido entregada y otros voluntarios no se pondrán en contacto con el.\n5. Si deseas y la persona necesitada esta de acuerdo, puedes compartir fotos a nuestras redes sociales enseñando la entrega de donaciones.</string>
+    <string name="volunteer_help_6">1. Las donaciones se pueden entregar personalmente o a través de un voluntario.\n2. Si un donante elige realizar su donación a través de un voluntario, esta información será mostrada en la página \"Entrega donaciones\" situada en el botón flotante.\n3. Si lo deseas, puedes ponerte en contacto con los donantes a través del correo elctrónico o teléfono(si lo han facilitado).Las tajetas de donaciones que tiene el texto \"Donante Contactado\" indican que este usuario ya ha sido contactado por otro voluntario y han establecido un punto de encuentro, así que no hace falta que lo contactes también.\n4. Si has contactado con un donante y has establecido un punto de encuentro, selecciona el botón \"Donante Contactado\" para que otros voluntarios no se pongan también en contacto con el.\n5. Una vez has realizada una donación selecciona el boton \"Donación Entregada\" y confirmala.De este modo el donante recibirá una notificación conforme su donación ha sido entregada.\n6.Si la entrega no se puede realizar por varios motivos, selecciona el boton \"Cancelar Entrega\".\n7. Si el donante aún quiere ser contactado por otros voluntarios para establecer un nuevo punto de encuentro, selecciona el boton \"Contactar de nuevo\".\n8. Si el donante ya no quiere realizar esta entrega, selecciona el boton \"Cancelar Toda la Entrega\".De esta manera se borrará toda la información relacionada con esta entrega.\n9. Si deseas y la persona necesitada esta de acuerdo, puedes compartir fotos a nuestras redes sociales enseñando la entrega de donaciones.</string>
     <string name="volunteer_help_7">Donar</string>
     <string name="volunteer_help_8">1. Como podrás ver en el menú lateral, hay un botón Donar.\n2. Aquí podrás donar dinero para apoyar al equipo que se encarga de mantener la aplicación, teniendo en cuenta que es un proyecto social.\n3. Se puede donar dinero a través de un sistema de pago seguro, utilizando la tarjeta de credito/débito o se puede contribuir con una donación realizada por terceros, mirando un video de no más de 30 segundos.</string>
     <string name="volunteer_help_9">Configuración</string>

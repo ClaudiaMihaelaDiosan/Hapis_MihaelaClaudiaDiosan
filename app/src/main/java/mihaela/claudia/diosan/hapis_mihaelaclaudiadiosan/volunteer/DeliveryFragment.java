@@ -1,36 +1,32 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
+
 
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.SearchView;
 
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.adapters.DeliveryAdapter;
@@ -46,8 +42,8 @@ public class DeliveryFragment extends Fragment {
     private View view;
     private DeliveryAdapter deliveryAdapter;
 
-   SharedPreferences preferences;
-
+    /*SearchView bar*/
+    private SearchView searchView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,6 +53,10 @@ public class DeliveryFragment extends Fragment {
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext().getApplicationContext());
         String visualizationPrefs = preferences.getString("visualization", "all");
+
+        searchView = view.findViewById(R.id.delivery_search);
+        searchView.onActionViewExpanded();
+        searchView.clearFocus();
 
         initFirebase();
 
@@ -80,70 +80,158 @@ public class DeliveryFragment extends Fragment {
 
 
     private void setUpRecyclerView(Query query) {
-
-        FirestoreRecyclerOptions<Delivery> options = new FirestoreRecyclerOptions.Builder<Delivery>()
-                .setQuery(query, Delivery.class)
-                .build();
-
-        deliveryAdapter = new DeliveryAdapter(options);
-
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view_delivery);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(deliveryAdapter);
 
-        deliveryAdapter.setOnItemClickListener(new DeliveryAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(final DocumentSnapshot documentSnapshot, int position) {
+        final List<Delivery> deliveryList = new ArrayList<>();
+        query.get()
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        for (QueryDocumentSnapshot document : task.getResult()) {
+                            final String donorUsername = document.getString("donorUsername");
+                            final String donationType = document.getString("donationType");
+                            final String donatesTo = document.getString("donatesTo");
+                            final String donationLocation = document.getString("donationLocation");
+                            final String donationDate = document.getString("donationDate");
+                            final String donationHour = document.getString("donationHour");
+                            final String donorEmail = document.getString("donorEmail");
+                            final String donorPhone = document.getString("donorPhone");
 
-                if (documentSnapshot.exists()){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                    builder.setCancelable(false);
+                            final Delivery delivery = new Delivery(donatesTo, donorUsername, donorEmail, donorPhone, donationType, donationLocation, donationHour, donationDate);
+                            deliveryList.add(delivery);
 
-                    builder.setTitle(getString(R.string.delivery_done))
-                            .setMessage(getString(R.string.delivery_message))
-                            .setIcon(R.drawable.check_drawable)
-                            .setPositiveButton(getString(R.string.confirm_button_delivery), new DialogInterface.OnClickListener() {
+                            final DeliveryAdapter deliveryAdapter = new DeliveryAdapter(deliveryList);
+                            searchText(deliveryAdapter);
+                            recyclerView.setAdapter(deliveryAdapter);
+
+
+                            deliveryAdapter.setOnItemClickListener(new DeliveryAdapter.OnItemClickListener() {
                                 @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    String donorEmail = documentSnapshot.getString("donorEmail");
-                                    String donatesTo = documentSnapshot.getString("donatesTo");
-                                    String donationType = documentSnapshot.getString("donationType");
-
-                                    DocumentReference documentReference = mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + donatesTo + ":" + donationType);
-
-                                    documentReference.update("delivered", true);
-                                    HelpActivity.showSuccessToast(getActivity(),getString(R.string.toast_delivery));
-
-                                    Intent homeIntent = new Intent(getActivity(),HomeVolunteer.class );
-                                    startActivity(homeIntent);
+                                public void onContactedClick(int position) {
+                                  contactedClick(deliveryList, position);
                                 }
-                            }).setNegativeButton(getString(R.string.negative_button_delivery), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
+
+                                @Override
+                                public void onDeliveredClick(int position) {
+                                deliveredClick(deliveryList, position);
+                                }
+
+                                @Override
+                                public void onCancelDeliverClick(int position) {
+                                   canceledClick(deliveryList, position);
+                                }
+                            });
                         }
-                    });
+                    }
+                });
+    }
 
-                    AlertDialog alertDialog = builder.show();
-                    alertDialog.setCanceledOnTouchOutside(false);
+    private void searchText(final DeliveryAdapter deliveryAdapter){
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
-                }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                deliveryAdapter.getFilter().filter(newText);
+
+                return false;
             }
         });
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        deliveryAdapter.startListening();
+
+    private void contactedClick(List<Delivery> deliveryList, int position){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setCancelable(false);
+
+        builder.setTitle(getString(R.string.contacted_done))
+                .setMessage(getString(R.string.contacted_message))
+                .setIcon(R.drawable.check_drawable)
+                .setPositiveButton(getString(R.string.confirm_button_delivery), (dialog, which) -> {
+
+                    String donorEmail = deliveryList.get(position).getDonorEmail();
+                    String donatesTo = deliveryList.get(position).getDonatesTo();
+                    String donationType = deliveryList.get(position).getDonationType();
+
+                    DocumentReference documentReference = mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + donatesTo + ":" + donationType);
+                    documentReference.update("contacted", true);
+
+                    HelpActivity.showSuccessToast(getActivity(), getString(R.string.toast_delivery));
+                    Intent homeIntent = new Intent(getActivity(), HomeVolunteer.class);
+                    startActivity(homeIntent);
+                }).setNegativeButton(getString(R.string.neutral_button_delivery), (dialog, which) -> dialog.dismiss());
+
+        AlertDialog alertDialog = builder.show();
+        alertDialog.setCanceledOnTouchOutside(false);
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        deliveryAdapter.stopListening();
+    private void deliveredClick(List<Delivery> deliveryList, int position){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setCancelable(false);
+
+        builder.setTitle(getString(R.string.delivery_done))
+                .setMessage(getString(R.string.delivery_message))
+                .setIcon(R.drawable.check_drawable)
+                .setPositiveButton(getString(R.string.confirm_button_delivery), (dialog, which) -> {
+                    String donorEmail = deliveryList.get(position).getDonorEmail();
+                    String donatesTo = deliveryList.get(position).getDonatesTo();
+                    String donationType = deliveryList.get(position).getDonationType();
+
+                    DocumentReference documentReference = mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + donatesTo + ":" + donationType);
+
+                    documentReference.update("delivered", true);
+                    HelpActivity.showSuccessToast(getActivity(), getString(R.string.toast_delivery));
+
+                    Intent homeIntent = new Intent(getActivity(), HomeVolunteer.class);
+                    startActivity(homeIntent);
+                }).setNegativeButton(getString(R.string.negative_button_delivery), (dialog, which) -> dialog.dismiss());
+
+        AlertDialog alertDialog = builder.show();
+        alertDialog.setCanceledOnTouchOutside(false);
     }
 
+    private void canceledClick(List<Delivery> deliveryList, int position){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setCancelable(false);
 
+        builder.setTitle(getString(R.string.cancel_deliver_title))
+                .setMessage(getString(R.string.cancel_deliver_body))
+                .setIcon(R.drawable.check_drawable)
+                .setPositiveButton(getString(R.string.cancel_deliver_positive_btn), (dialog, which) -> {
+                    String donorEmail = deliveryList.get(position).getDonorEmail();
+                    String donatesTo = deliveryList.get(position).getDonatesTo();
+                    String donationType = deliveryList.get(position).getDonationType();
+
+                    DocumentReference documentReference = mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + donatesTo + ":" + donationType);
+
+                    documentReference.update("contacted", false);
+                    HelpActivity.showSuccessToast(getActivity(), getString(R.string.toast_delivery));
+
+                    Intent homeIntent = new Intent(getActivity(), HomeVolunteer.class);
+                    startActivity(homeIntent);
+                }).setNegativeButton(getString(R.string.cancel_deliver_negative_btn), (dialog, which) -> {
+                    String donorEmail = deliveryList.get(position).getDonorEmail();
+                    String donatesTo = deliveryList.get(position).getDonatesTo();
+                    String donationType = deliveryList.get(position).getDonationType();
+
+                    mFirestore.collection("throughVolunteerDonations").document(donorEmail + "->" + donatesTo + ":" + donationType)
+                            .delete()
+                            .addOnSuccessListener(aVoid -> {
+                                HelpActivity.showSuccessToast(getActivity(), getString(R.string.toast_delivery));
+                                Intent homeIntent = new Intent(getActivity(), HomeVolunteer.class);
+                                startActivity(homeIntent);
+                            })
+                            .addOnFailureListener(e -> {
+                                //   Log.w(TAG, "Error deleting document", e);
+                            });
+                }).setNeutralButton(getString(R.string.cancel), (dialog, which) -> dialog.dismiss());
+
+        AlertDialog alertDialog = builder.show();
+        alertDialog.setCanceledOnTouchOutside(false);
+    }
 }

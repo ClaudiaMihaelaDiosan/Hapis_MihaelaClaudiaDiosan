@@ -293,6 +293,13 @@
     <string name="delete_correct_toast">Profile successfully deleted</string>
     <string name="update_success_toast">Profile successfully updated</string>
     <string name="empty_error_toast">You have to edit at least one field to edit! </string>
+    <string name="contacted_btn">DONOR CONTATED</string>
+    <string name="delivered_btn">DONATION DELIVERED</string>
+    <string name="cancel_deliver_btn">CANCEL DELIVER</string>
+    <string name="cancel_deliver_title">CANCELA DELIVER</string>
+    <string name="cancel_deliver_body"> The donot still wants to be contacted again by another volunteer to establish a meeting point, or is cancelled all the delivery?</string>
+    <string name="cancel_deliver_positive_btn">Contact again</string>
+    <string name="cancel_deliver_negative_btn">Cancel All Delivery</string>
 
     <!--Homeless complete view -->
     <string name="birthday">Birthday: </string>
@@ -334,8 +341,12 @@
     <string name="contact">Contact: </string>
     <string name="delivery_done">DELIVERY DONE</string>
     <string name="delivery_message">Did you delivered this donation to homeless?</string>
+    <string name="contacted_done">CONTACTED</string>
+    <string name="contacted_text">DONOR CONTACTED</string>
+    <string name="contacted_message">Dis you contact and establish the meeting poiont with this user?</string>
     <string name="confirm_button_delivery">YES</string>
     <string name="negative_button_delivery">NOT YET</string>
+    <string name="neutral_button_delivery">BACK</string>
     <string name="toast_delivery">Thank you for you collaboration!</string>
     <string name="delivery_title">Donations to deliver</string>
     <string name="notification_channel" translatable="false">notification</string>
@@ -344,6 +355,7 @@
     <string name="notification_body_donation_of">Your donation of</string>
     <string name="notification_body_donation_for">for</string>
     <string name="notification_body_donation_delivered">was delivered.\Thank you for your help!</string>
+
 
     <!--Network options-->
     <string name="title_map">Map</string>
@@ -507,20 +519,22 @@
     <string name="donor_help_17">Contact</string>
     <string name="donor_help_18">1. On this page you will find a contact form to send us a message.\n2. Once the message has been sent, we will contact you through the email with which you created the account.</string>
 
-    <!--Help Volunteer Fragment-->
+
     <!--Help Volunteer Fragment-->
     <string name="volunteer_help_1">Create homeless profile</string>
     <string name="volunteer_help_2">1. The first time you enter the application you will not see any profiles, since only the profiles created by you appear.\n2. To create a profile, in the floating button select \ "New profile person in need \".\n3. Before starting with the profile, you will see a page with terms and conditions that will have to be read and understood by the person in need and then they will have to sign and confirm with their name and surname.\n4. Next, you have to fill in the profile information. The phone and the date of birth are not mandatory and will only be used if the person in need agrees. The photo can be uploaded from the Gallery or using the device's Camera.\n5. On the next screen, provide a location where donors can find the person in need to make personal deliveries.\n6. Finally, complete a schedule in which the person in need can be found in the location established above and the most important need they have at this time.</string>
     <string name="volunteer_help_3">Edit homeless profile</string>
     <string name="volunteer_help_4">1. To edit a profile, select an item from the main screen. You will be able to edit the profile photo, phone, life experience, location, time and the most important need.\n2. You can also delete a profile completely, if the person in need wishes.</string>
     <string name="volunteer_help_5">Donations delivery</string>
-    <string name="volunteer_help_6">1. Donations can be delivered in person or through a volunteer.\n2. If a donor chooses to donate through a volunteer, this information will be displayed on the \ "Deliver donations \" page located on the floating button.\n3. If you wish, you can contact the donors via email or telephone (if they have provided it).\n4. Once you have made a donation, select the item and confirm it. In this way, the donor will receive a notification that his donation has been delivered and other volunteers will not be able to contact him.\n5. If you want and the person in need agrees, you can share photos to our social networks showing donations.</string>
+    <string name ="volunteer_help_6"> 1. Donations can be delivered personally or through a volunteer.\n2. If a donor chooses to donate through a volunteer, this information will be displayed on the \ "Deliver donations \" page located on the floating button.\n3. If you wish, you can contact the donors via email or telephone (if they have provided it). If a donation card appears with the text "Donor Contacted" means that another volunteer has already contacted him and established a meeing point, so don't contact it again.\n4. If you have contacted a donor and have established a meeting point, select the \ "Contacted Donor \" button so that other volunteers will not also contact him.\n5. Once you have made a donation, select the button \ "Delivered Donation \" and confirm it. In this way the donor will receive a notification that their donation has been delivered.\n6. If the delivery cannot be made for various reasons, select the button \ "Cancel Delivery \".\n7. If the donor still wants to be contacted by other volunteers to establish a new meeting point, select the button \ "Contact again \".\n8. If the donor no longer wants to make this delivery, select the button \ "Cancel All Delivery. \" This will delete all information related to this delivery.\n9. If you wish and the person in need agrees, you can share photos to our social networks showing the delivery of donations. </string>
     <string name="volunteer_help_7">Donate</string>
     <string name="volunteer_help_8">1. As you can see in the side menu, there is a Donate button.\n2. Here you can donate money to support the team that is responsible for maintaining the application, taking into account that it is a social project.\n3. Money can be donated through a secure payment system, using the credit / debit card or you can contribute with a donation made by third parties, watching a video of no more than 30 seconds.</string>
     <string name="volunteer_help_9">Setting</string>
     <string name="volunteer_help_10">1. In settings you can modify information related to your profile, such as phone number or password.\n2. You can also choose whether you want to see all donation deliveries or just donations from people in need whose profile you have created.\n3. If you want to permanently delete your account, you will have to contact us to assign the profiles you have created to other volunteers before deleting the account.</string>
     <string name="volunteer_help_11">Contact</string>
     <string name="volunteer_help_12">1. On this page you will find a contact form to send us a message.\n2. Once the message has been sent, we will contact you through the email with which you created the account.</string>
+
+
     <!--About Us Fragment-->
     <string name="about_us_1">This application has been developed as part of the Final Degree Project.</string>
     <string name="about_us_2">Carried out by Mihaela Claudia Diosan, Computer Engineering student at the University of Lleida.</string>

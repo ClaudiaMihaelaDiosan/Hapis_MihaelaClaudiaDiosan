@@ -2,11 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
 
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/deliver_card_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/top_margin"
@@ -14,6 +16,21 @@
         android:layout_marginEnd="@dimen/end_margin"
         android:layout_marginBottom="2dp"
         android:backgroundTint="@color/white">
+
+
+        <TextView
+            android:id="@+id/contacted_text"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/bottom_margin"
+            android:textSize="@dimen/title"
+            android:textColor="@color/dark_green"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:text="@string/contacted_text"/>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,6 +42,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/contactedBtn"
+                        android:backgroundTint="@color/white"
+                        android:textSize="@dimen/body"
+                        android:layout_marginEnd="@dimen/end_margin"
+                        android:textColor="@color/colorPrimary"
+                        app:iconTint="@null"
+                        app:icon="@drawable/contacted_img"
+                        app:iconSize="48dp"
+                        android:layout_width="wrap_content"
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:layout_marginBottom="@dimen/cv_margins"
+                        android:layout_height="wrap_content"
+                        app:strokeColor="@color/colorPrimaryDark"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:text="@string/contacted_btn" />
+                </LinearLayout>
 
                 <TextView
                     android:id="@+id/delivery_donor_name"
@@ -188,10 +230,51 @@
                             android:textColor="@color/colorPrimaryDark"
                             android:textStyle="bold"
                             android:text="@string/text"/>
-
                     </LinearLayout>
 
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/deliveredBtn"
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:layout_marginEnd="@dimen/end_margin"
+                        android:backgroundTint="@color/white"
+                        android:textSize="@dimen/body"
+                        android:textColor="@color/colorPrimary"
+                        app:iconTint="@null"
+                        app:icon="@drawable/delivered_img"
+                        app:iconSize="48dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:strokeColor="@color/green"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:text="@string/delivered_btn" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/cancelDeliverBtn"
+                        android:backgroundTint="@color/white"
+                        android:textSize="@dimen/body"
+                        android:layout_marginEnd="@dimen/end_margin"
+                        android:layout_marginStart="@dimen/start_margin"
+                        android:textColor="@color/colorPrimary"
+                        app:iconTint="@null"
+                        app:icon="@drawable/cancel_img"
+                        app:iconSize="48dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:strokeColor="@color/red"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:text="@string/cancel_deliver_btn" />
+
+                </LinearLayout>
+
 
             </LinearLayout>
 

@@ -14,6 +14,8 @@ public class Delivery {
 
     }
 
+
+
     public Delivery(String homelessUsername, String donorUsername, String donorEmail, String donorPhone, String donationType,String location, String date, String time){
         this.donatesTo = homelessUsername;
         this.donorUsername = donorUsername;
@@ -23,8 +25,8 @@ public class Delivery {
         this.donationLocation = location;
         this.donationHour = time;
         this.donationDate = date;
-
     }
+
 
     public String getDonatesTo() {
         return donatesTo;

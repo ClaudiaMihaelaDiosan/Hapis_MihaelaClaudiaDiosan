@@ -47,8 +47,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="@dimen/about_icons"
+                        android:layout_height="@dimen/about_icons"
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/end_margin"
                         android:src="@drawable/about_info_img"
@@ -71,8 +71,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="@dimen/about_icons"
+                        android:layout_height="@dimen/about_icons"
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/end_margin"
                         android:src="@drawable/about_created_img"/>
@@ -95,8 +95,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="@dimen/about_icons"
+                        android:layout_height="@dimen/about_icons"
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/end_margin"
                         android:tint="@color/icons_blue"
@@ -120,8 +120,8 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="@dimen/about_icons"
+                    android:layout_height="@dimen/about_icons"
                     android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/end_margin"
                     android:src="@drawable/about_web_page"/>
@@ -144,8 +144,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="@dimen/about_icons"
+                        android:layout_height="@dimen/about_icons"
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/end_margin"
                         android:src="@drawable/about_youtube"/>
@@ -168,8 +168,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="@dimen/about_icons"
+                        android:layout_height="@dimen/about_icons"
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/end_margin"
                         android:src="@drawable/about_twitter"/>
@@ -192,8 +192,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="@dimen/about_icons"
+                        android:layout_height="@dimen/about_icons"
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/end_margin"
                         android:src="@drawable/about_instagram"/>
@@ -215,8 +215,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="@dimen/about_icons"
+                        android:layout_height="@dimen/about_icons"
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/end_margin"
                         android:src="@drawable/about_email_img"/>
@@ -238,8 +238,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="@dimen/about_icons"
+                        android:layout_height="@dimen/about_icons"
                         android:layout_gravity="center"
                         android:layout_marginEnd="@dimen/end_margin"
                         android:src="@drawable/about_thanks_img"/>
@@ -251,7 +251,6 @@
                         android:textColor="@color/grey"
                         android:text="@string/about_us_3" />
                 </LinearLayout>
-
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

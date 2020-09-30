@@ -88,7 +88,7 @@
                 android:gravity="center"
                 android:layout_marginTop="@dimen/top_margin"
                 app:iconTint="@null"
-                app:iconSize="24dp"
+                app:iconSize="@dimen/btn_icon"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 app:strokeColor="@color/colorPrimary"
                 android:textStyle="bold"

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,10 +23,11 @@
             android:text="@string/lg_about_title"/>
 
         <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="@dimen/icon_title"
+            android:layout_height="@dimen/icon_title"
             android:layout_gravity="center"
-            android:src="@drawable/about_us_img"/>
+            android:src="@drawable/about_img"
+            android:contentDescription="@string/content_description"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,11 +36,12 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/about_icons"
+                android:layout_height="@dimen/about_icons"
                 android:layout_gravity="center"
                 android:layout_marginEnd="@dimen/end_margin"
-                android:src="@drawable/about_info_img"/>
+                android:src="@drawable/about_info_img"
+                android:contentDescription="@string/content_description" />
 
 
             <TextView
@@ -60,8 +61,8 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/about_icons"
+                android:layout_height="@dimen/about_icons"
                 android:layout_gravity="center"
                 android:layout_marginEnd="@dimen/end_margin"
                 android:src="@drawable/about_email_img"/>
@@ -84,8 +85,8 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/about_icons"
+                android:layout_height="@dimen/about_icons"
                 android:layout_gravity="center"
                 android:layout_marginEnd="@dimen/end_margin"
                 android:tint="@color/icons_blue"
@@ -110,8 +111,8 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/about_icons"
+                android:layout_height="@dimen/about_icons"
                 android:layout_gravity="center"
                 android:layout_marginEnd="@dimen/end_margin"
                 android:src="@drawable/about_develop_img"/>
@@ -133,8 +134,8 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/about_icons"
+                android:layout_height="@dimen/about_icons"
                 android:layout_gravity="center"
                 android:layout_marginEnd="@dimen/end_margin"
                 android:src="@drawable/about_thanks_img"/>
@@ -145,6 +146,7 @@
                 android:textSize="@dimen/body"
                 android:textColor="@color/grey"
                 android:text="@string/special_thanks" />
+
 
         </LinearLayout>
 
@@ -158,7 +160,6 @@
             android:layout_marginTop="@dimen/top_margin"
             android:layout_marginBottom="@dimen/bottom_margin"
             android:text="@string/about_persons" />
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -175,8 +176,8 @@
 
 
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="@dimen/about_icons"
+                    android:layout_height="@dimen/about_icons"
                     android:layout_gravity="center"
                     android:layout_marginEnd="@dimen/end_margin"
                     android:src="@drawable/photos_img"/>
@@ -202,6 +203,10 @@
 
         </LinearLayout>
 
+
+
     </LinearLayout>
+
+
 
 </ScrollView>

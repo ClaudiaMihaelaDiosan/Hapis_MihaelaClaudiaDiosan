@@ -73,8 +73,8 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
+                        android:layout_width="@dimen/btn_icon"
+                        android:layout_height="@dimen/btn_icon"
                         android:layout_marginEnd="@dimen/cv_margins"
                         android:src="@drawable/location_img"
                         />
@@ -117,7 +117,7 @@
                         android:text="@string/homeless_profile_cancel_button"
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/body"
-                        map:iconSize="48dp"
+                        map:iconSize="@dimen/btn_icon"
                         app:icon="@drawable/cancel_img"
                         app:iconTint="@null"
                         app:strokeColor="@color/red" />
@@ -129,7 +129,7 @@
                         android:textColor="@color/colorPrimary"
                         app:icon="@drawable/save_img"
                         app:iconTint="@null"
-                        map:iconSize="48dp"
+                        map:iconSize="@dimen/btn_icon"
                         android:layout_marginStart="@dimen/start_margin"
                         android:textSize="@dimen/body"
                         android:layout_marginTop="@dimen/top_margin"

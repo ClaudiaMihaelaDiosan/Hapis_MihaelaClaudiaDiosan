@@ -3,7 +3,6 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -17,8 +16,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -31,19 +28,11 @@ public class PersonallyFragment extends Fragment implements OnMapReadyCallback {
 
     private SharedPreferences preferences;
 
-    /*TextViews*/
-    private TextView homelessLocation;
-    private TextView homelessSchedule;
-    private TextView homelessUsername;
+    private TextView homelessLocation, homelessSchedule, homelessUsername;
 
-    /*Firebase*/
     private FirebaseFirestore mFirestore;
-    private String address;
-    private String schedule;
-    private String longitude;
-    private String latitude;
+    private String address, schedule, longitude, latitude;
 
-    /*Maps*/
     private GoogleMap mGoogleMap;
 
 
@@ -81,20 +70,17 @@ public class PersonallyFragment extends Fragment implements OnMapReadyCallback {
     private void getHomelessInfo(final String username){
         DocumentReference documentReference = mFirestore.collection("homeless").document(username);
 
-        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()){
-                    DocumentSnapshot documentSnapshot = task.getResult();
-                    if (documentSnapshot != null){
+        documentReference.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                DocumentSnapshot documentSnapshot = task.getResult();
+                if (documentSnapshot != null){
 
-                        address = documentSnapshot.getString("homelessAddress");
-                        schedule = documentSnapshot.getString("homelessSchedule");
+                    address = documentSnapshot.getString("homelessAddress");
+                    schedule = documentSnapshot.getString("homelessSchedule");
 
-                        homelessLocation.setText(address);
-                        homelessSchedule.setText(schedule);
-                        homelessUsername.setText(username);
-                    }
+                    homelessLocation.setText(address);
+                    homelessSchedule.setText(schedule);
+                    homelessUsername.setText(username);
                 }
             }
         });
@@ -108,32 +94,26 @@ public class PersonallyFragment extends Fragment implements OnMapReadyCallback {
 
         String username = preferences.getString("homelessUsername", "");
         DocumentReference documentReference = mFirestore.collection("homeless").document(username);
-        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()){
-                    DocumentSnapshot documentSnapshot = task.getResult();
-                    if (documentSnapshot != null){
+        documentReference.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                DocumentSnapshot documentSnapshot = task.getResult();
+                if (documentSnapshot != null){
 
-                        latitude = documentSnapshot.getString("homelessLatitude");
-                        longitude = documentSnapshot.getString("homelessLongitude");
+                    latitude = documentSnapshot.getString("homelessLatitude");
+                    longitude = documentSnapshot.getString("homelessLongitude");
 
-                        final LatLng position = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
-                        final MarkerOptions markerOptions = new MarkerOptions();
-                        markerOptions.position(position);
+                    final LatLng position = new LatLng(Double.parseDouble(latitude), Double.parseDouble(longitude));
+                    final MarkerOptions markerOptions = new MarkerOptions();
+                    markerOptions.position(position);
 
-                        mGoogleMap.setOnMapLoadedCallback(new GoogleMap.OnMapLoadedCallback() {
-                            @Override
-                            public void onMapLoaded() {
-                                // Animating to the touched position
-                                mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(position));
-                                mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(position, 13.3f));
-                                mGoogleMap.addMarker(markerOptions);
+                    mGoogleMap.setOnMapLoadedCallback(() -> {
+                        // Animating to the touched position
+                        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLng(position));
+                        mGoogleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(position, 13.3f));
+                        mGoogleMap.addMarker(markerOptions);
 
-                            }
-                        });
+                    });
 
-                    }
                 }
             }
         });

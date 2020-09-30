@@ -145,7 +145,7 @@
                 android:layout_marginTop="@dimen/top_margin"
                 app:icon="@drawable/confirm_icon"
                 app:iconTint="@null"
-                app:iconSize="24dp"
+                app:iconSize="@dimen/btn_icon"
                 android:gravity="center"
                 app:iconPadding="@dimen/padding"
                 app:strokeColor="@color/colorPrimary"

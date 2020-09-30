@@ -13,8 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
@@ -122,7 +121,7 @@ public class HomelessAdapter extends RecyclerView.Adapter<HomelessAdapter.Homele
         TextView schedule;
         TextView need;
         LinearLayout phoneLayout;
-        ImageView phoneImg;
+
 
 
         public HomelessAdapterHolder(@NonNull View itemView, final OnItemClickListener listener) {
@@ -146,27 +145,22 @@ public class HomelessAdapter extends RecyclerView.Adapter<HomelessAdapter.Homele
             need = itemView.findViewById(R.id.homeless_need_tv);
             phoneLayout = itemView.findViewById(R.id.phone_layout);
 
+
             DocumentReference donorsDocument = mFirestore.collection("donors").document(email);
-            donorsDocument.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()){
-                        DocumentSnapshot documentSnapshot = task.getResult();
-                        if (documentSnapshot.exists()){
-                            phoneLayout.setVisibility(View.GONE);
-                        }
+            donorsDocument.get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()){
+                    DocumentSnapshot documentSnapshot = task.getResult();
+                    if (documentSnapshot.exists()){
+                        phoneLayout.setVisibility(View.GONE);
                     }
                 }
             });
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (listener != null) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION){
-                            listener.onItemClick(position);
-                        }
+            itemView.setOnClickListener(v -> {
+                if (listener != null) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION){
+                        listener.onItemClick(position);
                     }
                 }
             });

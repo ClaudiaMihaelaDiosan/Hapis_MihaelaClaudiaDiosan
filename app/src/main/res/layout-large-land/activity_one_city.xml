@@ -101,7 +101,7 @@
             android:elevation="@dimen/elevation"
             android:backgroundTint="@color/color_first_card"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp">
+            android:layout_margin="@dimen/cv_margins">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -122,7 +122,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="@dimen/margins">
 
                     <!-- Title, secondary and supporting text -->
                     <TextView
@@ -149,7 +149,7 @@
             android:elevation="@dimen/elevation"
             android:backgroundTint="@color/color_third_card"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp">
+            android:layout_margin="@dimen/cv_margins">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -170,7 +170,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="@dimen/margins">
 
                     <!-- Title, secondary and supporting text -->
                     <TextView
@@ -195,7 +195,7 @@
             android:backgroundTint="@color/color_second_card"
             android:layout_height="wrap_content"
             app:cardCornerRadius="@dimen/cardCornerRadius"
-            android:layout_margin="8dp">
+            android:layout_margin="@dimen/cv_margins">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -216,7 +216,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="@dimen/margins">
 
                     <!-- Title, secondary and supporting text -->
                     <TextView
@@ -244,7 +244,7 @@
             android:backgroundTint="@color/green_color"
             android:layout_height="260dp"
             app:cardCornerRadius="@dimen/cardCornerRadius"
-            android:layout_margin="8dp">
+            android:layout_margin="@dimen/cv_margins">
 
             <LinearLayout
                 android:layout_width="match_parent"

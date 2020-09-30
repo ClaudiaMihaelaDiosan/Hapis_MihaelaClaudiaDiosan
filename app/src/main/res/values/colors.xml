@@ -10,48 +10,18 @@
     <color name="green">#00F10A</color>
     <color name="icons_blue">#b6dcfe</color>
     <color name="light_blue">#75a7ff</color>
+    <color name="red">#F10000</color>
+    <color name="dark_green">#1faa00</color>
+    <color name="green_color">#66ff99</color>
+    <color name="tab_indicator_gray">#c0c0c0</color>
+    <color name="black">#000000</color>
+    <color name="darkGrey">#555454</color>
+
 
     <!--dashboard cards-->
     <color name="color_first_card">#00bfff</color>
     <color name="color_second_card">#ff66c4</color>
     <color name="color_third_card">#ffc604</color>
     <color name="color_forth_card">#ff6100</color>
-
-
-
-
-    <color name="blue">#0A4CB6</color>
-
-
-    <color name="dark_green">#1faa00</color>
-    <color name="transparent">#00000000</color>
-    <color name="red">#F10000</color>
-
-    <color name="light_red">#ff6666</color>
-    <color name="blue_light">#00bfff</color>
-
-    <color name="green_color">#66ff99</color>
-    <color name="lila_color">#cc99ff</color>
-    <color name="yellow_color">#ffcc66</color>
-    <color name="amber">#FF5722</color>
-
-    <!-- colors for Intro-->
-
-
-    <!-- colors for buttons-->
-
-    <color name="gradient_start_color">#2979ff</color>
-    <color name="gradient_end_color">#022763</color>
-
-    <!--colors for tab and screens text-->
-
-    <color name="tab_indicator_gray">#c0c0c0</color>
-    <color name="intro_description_color">#656565</color>
-
-    <!--    Login colors -->
-    <color name="black">#000000</color>
-
-
-        <color name="darkGrey">#555454</color>
 
 </resources>

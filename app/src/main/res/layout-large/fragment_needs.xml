@@ -173,7 +173,7 @@
                         android:textColor="@color/colorPrimary"
                         android:textSize="@dimen/body"
                         app:icon="@drawable/cancel_img"
-                        app:iconSize="48dp"
+                        app:iconSize="@dimen/btn_icon"
                         app:iconTint="@null"
                         app:strokeColor="@color/red"/>
 
@@ -188,7 +188,7 @@
                         android:textColor="@color/colorPrimary"
                         app:icon="@drawable/save_img"
                         app:iconTint="@null"
-                        app:iconSize="48dp"
+                        app:iconSize="@dimen/btn_icon"
                         android:layout_marginTop="@dimen/top_margin"
                         android:layout_marginBottom="@dimen/bottom_margin"
                         android:text="@string/homeless_profile_save_button" />

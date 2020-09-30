@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/header"
-    android:background="@drawable/header"
+    android:background="@color/colorPrimary"
     android:orientation="horizontal"
     android:gravity="bottom">
 
@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/welcome_user"
                 android:textStyle="bold"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/white"
                 android:layout_marginBottom="@dimen/bottom_margin"/>
 
             <TextView
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"
+            android:textColor="@color/white"
             android:text="@string/user_profile_info"
             android:layout_marginBottom="@dimen/bottom_margin"/>
 

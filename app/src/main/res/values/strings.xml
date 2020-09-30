@@ -7,6 +7,22 @@
     <string name="content_description" translatable="false">Content description</string>
     <string name="text" translatable="false">text</string>
 
+    <string name="open_navigation_drawer">Open navigation drawer</string>
+    <string name="close_navigation_drawer">Close navigation drawer</string>
+
+    <!--Buttons-->
+    <string name="next_button">Next</string>
+    <string name="get_started_button">GET STARTED</string>
+    <string name="login_button">LOGIN</string>
+    <string name="sign_up">REGISTER NOW</string>
+    <string name="liquid_galaxy_btn">LIQUID GALAXY</string>
+
+    <!--EditTextHints-->
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+
+
+    <!--Errors-->
     <string name="phone_error_text"> Enter a valid phone number</string>
     <string name="mobile_connected">Mobile Connected!</string>
     <string name="wifi_connected">Wifi Connected!</string>
@@ -15,9 +31,8 @@
     <string name="positive_button_network">CLOSE</string>
     <string name="negative_button_network">WAIT</string>
 
-    <string name="open_navigation_drawer">Open navigation drawer</string>
-    <string name="close_navigation_drawer">Close navigation drawer</string>
 
+    <!--Text-->
 
     <!-- ********* Intro Activity********** -->
     <string name="logo_intro_title">HAPIS</string>
@@ -28,19 +43,13 @@
     <string name="donor_intro_description">Become a donor and you will have the opportunity to see profiles of people in need and help them.</string>
     <string name="volunteer_intro_description">Be a volunteer and help to register and manage the profiles of people that need help.</string>
     <string name="liquid_galaxy_description">If you have a Liquid Galaxy System installed you can view all this info into a spectacular panoramic screens.</string>
-    <string name="next_button">Next</string>
-    <string name="get_started_button">GET STARTED</string>
 
     <!--******  Login activity  *******-->
     <string name="login_title">Login to continue</string>
-    <string name="email_hint">Email</string>
-    <string name="password_hint">Password</string>
     <string name="forgot_password">Forgot password?</string>
-    <string name="login_button">LOGIN</string>
     <string name="signup_tex_view">Don\'t have an account yet?</string>
-    <string name="sign_up">REGISTER NOW</string>
     <string name="liquid_galaxy_text">Here you can access the Liquid Galaxy System:</string>
-    <string name="liquid_galaxy_tv">LIQUID GALAXY</string>
+
     <string name="email_error_text">Enter a valid email</string>
     <string name="error_login">Check your username or password</string>
     <string name="password_error_text">Introduce a valid password.Password must have at least 6 characters </string>
@@ -104,23 +113,16 @@
 
     <string name="user_exists">There already exists an account with this email address!</string>
     <string name="username_error_text">Enter a valid username. Username must have at least 4 characters</string>
-    <string name="complete_life_toast">You have to fill this field</string>
 
 
     <!--    User Home Activity-->
     <string name="user_home_name">Volunteer</string>
     <string name="user_menu_home">Home</string>
     <string name="user_menu_donate">Donate</string>
-    <string name="user_menu_profile">Profile</string>
-    <string name="user_menu_configuration">Configuration</string>
     <string name="user_menu_logout">Logout</string>
     <string name="user_menu_contact">Contact</string>
-    <string name="user_username_text_view">Username</string>
-    <string name="user_email_text_view">Email</string>
-    <string name="user_phone_text_view">Phone Number</string>
     <string name="configuration_menu">Configuration</string>
     <string name="more_menu_title">More</string>
-    <string name="contact_menu">Contact</string>
     <string name="help_menu">Help</string>
     <string name="about_us_menu">About us</string>
     <string name="bottom_nav_home">Home</string>
@@ -129,9 +131,6 @@
     <string name="welcome_user">WELCOME,</string>
     <string name="user_profile_info">PROFILE INFO:</string>
 
-    <!--    Volunteer home fragment-->
-    <string name="edit_button_toast">This button will let the volunteer edit the shown fields of the homeless</string>
-    <string name="delete_button_toast">With this button the homeless profile will be deleted</string>
     <!--Floating Action Menu -->
     <string name="welcome_vol">WELCOME TO</string>
     <string name="first_homeless">Go on the floating menu and select\n New homeless profile\n to create your first homeless profile.\n\n\n THANK YOU for your collaboration!</string>
@@ -142,23 +141,15 @@
     <string name="location_fragment_title">Next, search and select the location where the donors can find the homeless person </string>
     <string name="selected_location">You have selected the next location:</string>
     <string name="location_error_toast">You have to select a location</string>
-    <string name="toast_save_btn">Your information saved correctly!</string>
+
 
     <!--    Create profile fragment-->
-    <string name="photo">Add your photo here</string>
     <string name="homeless_profile_fragment_username_hint">Username</string>
     <string name="homeless_profile_fragment_phone_number">Phone number (optional)</string>
     <string name="homeless_profile_fragment_birthday_hint">Birthday (optional) </string>
     <string name="homeless_profile_fragment_life_history_hint">Write something about you and your life experiences</string>
     <string name="homeless_profile_cancel_button">CANCEL</string>
     <string name="homeless_profile_save_button">SAVE</string>
-    <string name="homeless_profile_add_photo">Add profile photo</string>
-    <string name="chooser_gallery">Gallery</string>
-    <string name="chooser_camera">Camera</string>
-    <string name="chooser_cancel">Cancel</string>
-    <string name="dialog_add_image">Add Image</string>
-    <string name="dialog_select_file">Select File</string>
-    <string name="select_photo_button">SELECT PROFILE PHOTO</string>
     <string name="life_hitory_error">Life History must be between 20 and 400 characters large.</string>
     <string name="uploading_photo">Uploading…</string>
     <string name="uploaded_photo">Uploaded</string>
@@ -167,7 +158,6 @@
     <string name="schedule_text">Write when the homeless could  be found on the previous selected location:</string>
     <string name="schedule_edit_text">Available days and hours </string>
     <string name="needs_text">Next, select the most important need of the homeless person in this moment:</string>
-    <string name="most_important_need_tv">The  most important need selected is: </string>
     <string name="complete_schedule_toast">You have to complete the schedule</string>
     <string name="maxim_char_schedule">Schedule must be between 5 and 40 characters large.</string>
     <string name="complete_need_toast">You have to chose your most important need</string>
@@ -241,7 +231,6 @@
     <string name="contact_subject_hint">Subject</string>
     <string name="contact_text_hint">Write your message here</string>
     <string name="contact_send_button">SEND MESSAGE</string>
-    <string name="contact_sended_toast_message">You have successfully sent your message.\n We\'ll revert back to you as soon as possible.</string>
     <string name="contact_toast_message">You have successfully sent your message.\n We\'ll revert back to you as soon as possible to the registered email address.</string>
     <string name="empty_field_error">This field can not be empty!</string>
 
@@ -265,8 +254,6 @@
     <string name="help_type">Choose the manner you want to make your donation</string>
     <string name="personally_button">PERSONALLY</string>
     <string name="through_volunteer_button">THROUGH A VOLUNTEER</string>
-    <string name="chip_text1">Your donation of   </string>
-    <string name="chip_text2">   will be added to our statistics</string>
     <string name="error_chip">You have to select a type of help first.</string>
 
     <!--    Homeless custom view -->
@@ -282,7 +269,6 @@
 
     <!--Edit Homeless-->
     <string name="edit_title">Edit profile info of</string>
-    <string name="edit_profile_photo_button">CHANGE PROFILE FOTO</string>
     <string name="cancelEditBtn">CANCEL</string>
     <string name="saveEditBtn">SAVE</string>
     <string name="deleteHomelessBtn">DELETE ALL PROFILE</string>
@@ -292,7 +278,6 @@
     <string name="delete_cancel_button">CANCEL</string>
     <string name="delete_correct_toast">Profile successfully deleted</string>
     <string name="update_success_toast">Profile successfully updated</string>
-    <string name="empty_error_toast">You have to edit at least one field to edit! </string>
     <string name="contacted_btn">DONOR CONTATED</string>
     <string name="delivered_btn">DONATION DELIVERED</string>
     <string name="cancel_deliver_btn">CANCEL DELIVER</string>
@@ -301,19 +286,9 @@
     <string name="cancel_deliver_positive_btn">Contact again</string>
     <string name="cancel_deliver_negative_btn">Cancel All Delivery</string>
 
-    <!--Homeless complete view -->
-    <string name="birthday">Birthday: </string>
-    <string name="life_history">Life History: </string>
-    <string name="location">Location</string>
-    <string name="schedule">In this location: </string>
-    <string name="need">Most important need:  </string>
-    <string name="help_button">I WANT TO HELP</string>
 
     <!--Map Fragment-->
     <string name="here">In this location</string>
-    <string name="map_not_ready">Map is not ready yet</string>
-    <string name="list_map">Linear</string>
-    <string name="grid_map">Grid</string>
     <string name="search_hint_map">Username or address</string>
 
     <!--    Fragment personally-->
@@ -331,9 +306,9 @@
     <string name="fr_tv_confirm_toast">Thank you for your help! The volunteer will receive this data and will contact you</string>
     <string name="date_error_toast">You have to select a date!</string>
     <string name="time_error_toast">You have to select an hour!</string>
-    <string name="fthv_location_error_toast">You have to select the location!</string>
 
-    <!--Through volunteer fragment-->
+
+    <!--Delivery fragment-->
     <string name="donation_type_tv">Wants to donate</string>
     <string name="donates_to">To</string>
     <string name="can_be">Location</string>
@@ -492,11 +467,8 @@
     <string name="homeless_from">Homeless people from</string>
     <string name="donors_from">Donors from</string>
     <string name="volunteers_from">Volunteers from</string>
-    <string name="show_basic_info">Showing basic info of</string>
-    <string name="on_lg">on Liquid Galaxy</string>
-    <string name="extra_info">Showing Extra Info of</string>
-    <string name="show_transactions">Showing Transactions for</string>
-    <string name="show_life_history">Showing Life History for</string>
+
+
 
     <!--Help Donor Fragment-->
     <string name="help_text_title">Help</string>

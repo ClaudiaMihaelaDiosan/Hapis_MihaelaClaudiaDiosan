@@ -135,7 +135,7 @@
                         android:textStyle="bold"
                         app:icon="@drawable/register_user_icon"
                         app:iconTint="@null"
-                        app:iconSize="48dp"
+                        app:iconSize="@dimen/btn_icon"
                         app:iconPadding="@dimen/padding"
                         app:strokeColor="@color/colorPrimary"
                         style="@style/Widget.MaterialComponents.Button.OutlinedButton"

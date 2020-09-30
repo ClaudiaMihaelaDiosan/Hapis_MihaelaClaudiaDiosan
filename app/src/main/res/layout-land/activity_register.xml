@@ -48,7 +48,7 @@
                         android:textAppearance="?attr/textAppearanceHeadline6" />
 
                     <ImageView
-                        android:layout_width="300dp"
+                        android:layout_width="@dimen/register_img_width"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:scaleType="fitXY"
@@ -84,7 +84,7 @@
                             card_view:icon="@drawable/start_register_icon"
                             card_view:iconGravity="end"
                             card_view:iconPadding="@dimen/padding"
-                            card_view:iconSize="24dp"
+                            card_view:iconSize="@dimen/btn_icon"
                             android:textStyle="bold"
                             card_view:iconTint="@null"
                             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>
@@ -129,7 +129,7 @@
                         android:textAppearance="?attr/textAppearanceHeadline6" />
 
                     <ImageView
-                        android:layout_width="300dp"
+                        android:layout_width="@dimen/register_img_width"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:scaleType="fitXY"
@@ -164,7 +164,7 @@
                             card_view:icon="@drawable/start_register_icon"
                             card_view:iconGravity="end"
                             card_view:iconPadding="@dimen/padding"
-                            card_view:iconSize="24dp"
+                            card_view:iconSize="@dimen/btn_icon"
                             android:textStyle="bold"
                             card_view:iconTint="@null"
                             style="@style/Widget.MaterialComponents.Button.OutlinedButton"/>

@@ -39,6 +39,10 @@
     <dimen name="create_profile_image">300dp</dimen>
     <dimen name="dashboard_image_cv">194dp</dimen>
     <dimen name="logos_image">300dp</dimen>
+    <dimen name="icon_title">300dp</dimen>
+    <dimen name="about_icons">50dp</dimen>
+    <dimen name="btn_icon">48dp</dimen>
+    <dimen name="register_img_width">600dp</dimen>
 
 
     <!--Boxes-->
@@ -53,6 +57,7 @@
     <dimen name="terms_fragment">500dp</dimen>
     <dimen name="signature_pad">200dp</dimen>
     <dimen name="dashboard_cards">300dp</dimen>
+    <dimen name="delivery_bottom_margin">3dp</dimen>
 
     <!--Delivery margins-->
     <dimen name="delivery_top_margin">100dp</dimen>

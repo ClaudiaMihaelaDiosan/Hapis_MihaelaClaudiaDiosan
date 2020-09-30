@@ -1,5 +1,6 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -115,7 +116,8 @@ public class LoginActivity extends NetworkInfo implements View.OnClickListener{
     }
 
 
-    public void login(){
+
+    private void login(){
         loginEmailValue = loginEmailEditText.getText().toString();
         String loginPasswordValue = loginPasswordEditText.getText().toString();
         SharedPreferences.Editor editor = preferences.edit();
@@ -153,7 +155,6 @@ public class LoginActivity extends NetworkInfo implements View.OnClickListener{
 
     private void isDonor(String email){
         DocumentReference donorsDocument = mFirestore.collection("donors").document(email);
-
         if (email.isEmpty()){
             loginEmailEditText.setError(getString(R.string.email_error_text));
         }else{
@@ -175,7 +176,6 @@ public class LoginActivity extends NetworkInfo implements View.OnClickListener{
 
     private void isVolunteer(String email){
         DocumentReference volunteersDocument = mFirestore.collection("volunteers").document(email);
-
         if (email.isEmpty()){
             loginEmailEditText.setError(getString(R.string.email_error_text));
         }else{

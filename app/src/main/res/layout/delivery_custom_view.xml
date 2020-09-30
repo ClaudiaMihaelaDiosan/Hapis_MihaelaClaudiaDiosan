@@ -14,7 +14,7 @@
         android:layout_marginTop="@dimen/top_margin"
         android:layout_marginStart="@dimen/start_margin"
         android:layout_marginEnd="@dimen/end_margin"
-        android:layout_marginBottom="2dp"
+        android:layout_marginBottom="@dimen/delivery_bottom_margin"
         android:backgroundTint="@color/white">
 
 
@@ -58,7 +58,7 @@
                             android:textColor="@color/colorPrimary"
                             app:iconTint="@null"
                             app:icon="@drawable/contacted_img"
-                            app:iconSize="24dp"
+                            app:iconSize="@dimen/btn_icon"
                             android:layout_width="wrap_content"
                             android:layout_marginStart="@dimen/start_margin"
                             android:layout_marginBottom="@dimen/cv_margins"
@@ -250,7 +250,7 @@
                             android:textColor="@color/colorPrimary"
                             app:iconTint="@null"
                             app:icon="@drawable/delivered_img"
-                            app:iconSize="24dp"
+                            app:iconSize="@dimen/btn_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:strokeColor="@color/green"
@@ -266,7 +266,7 @@
                             android:textColor="@color/colorPrimary"
                             app:iconTint="@null"
                             app:icon="@drawable/cancel_img"
-                            app:iconSize="24dp"
+                            app:iconSize="@dimen/btn_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:strokeColor="@color/red"

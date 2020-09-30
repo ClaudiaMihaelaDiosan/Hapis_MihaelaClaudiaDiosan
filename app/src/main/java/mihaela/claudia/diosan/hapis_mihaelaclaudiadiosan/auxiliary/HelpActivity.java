@@ -1,17 +1,10 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.auxiliary;
 
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -20,15 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
-
-import java.io.ByteArrayOutputStream;
-import java.nio.charset.Charset;
 import java.util.Objects;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.ForgotPasswordActivity;
-import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
+
 
 public class HelpActivity extends NetworkInfo {
 
@@ -83,12 +72,7 @@ public class HelpActivity extends NetworkInfo {
         new MaterialAlertDialogBuilder(context)
                 .setTitle(title)
                 .setMessage(message)
-                .setPositiveButton(positiveBtn, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
+                .setPositiveButton(positiveBtn, (dialog, which) -> dialog.dismiss())
                 .show();
     }
 
@@ -108,33 +92,21 @@ public class HelpActivity extends NetworkInfo {
 
 
     public static boolean isPasswordValid(CharSequence password){
-        if (password.length() > 5) {
-            return true;
-        }
-        return false;
+        return password.length() > 5;
     }
 
     public static boolean isUsernameValid(CharSequence username){
-        if (username.length() > 3 && username.length() <=25) {
-            return true;
-        }
-        return false;
+        return username.length() > 3 && username.length() <= 25;
     }
 
     public static boolean isLifeHistoryValid(CharSequence lifeHistory){
 
-        if (lifeHistory.length() > 19 && lifeHistory.length()<=400) {
-            return true;
-        }
-        return false;
+        return lifeHistory.length() > 19 && lifeHistory.length() <= 400;
     }
 
     public static boolean isScheduleValid(CharSequence schedule){
 
-        if ( schedule.length() > 4 && schedule.length() <= 40){
-            return true;
-        }
-        return false;
+        return schedule.length() > 4 && schedule.length() <= 40;
     }
 
 }

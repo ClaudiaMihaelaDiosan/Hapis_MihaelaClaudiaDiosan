@@ -22,8 +22,8 @@
             android:text="@string/contact_title" />
 
         <ImageView
-            android:layout_width="@dimen/contact_image"
-            android:layout_height="@dimen/contact_image"
+            android:layout_width="@dimen/icon_title"
+            android:layout_height="@dimen/icon_title"
             android:layout_gravity="center"
             android:src="@drawable/contact_drawable"
             android:contentDescription="@string/content_description"/>
@@ -80,7 +80,7 @@
                     android:textColor="@color/colorPrimary"
                     android:padding="@dimen/padding"
                     android:textSize="@dimen/body"
-                    app:iconSize="24dp"
+                    app:iconSize="@dimen/btn_icon"
                     style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                     app:strokeColor="@color/colorPrimary"
                     app:icon="@drawable/send_notification_drawable"

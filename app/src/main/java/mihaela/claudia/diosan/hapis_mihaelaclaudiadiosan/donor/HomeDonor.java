@@ -14,8 +14,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -36,23 +34,17 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.maps.MapFragment;
 
 public class HomeDonor extends NetworkInfo implements NavigationView.OnNavigationItemSelectedListener {
 
-    /*Navigation Elements*/
+
     private DrawerLayout donorDrawer;
     NavigationView navigationView;
     Toolbar mToolbar;
     BottomNavigationView bottomNavigationView;
     View header;
 
-    /*TextViews*/
-    TextView donorUsername;
-    TextView donorEmail;
-    TextView donorPhone;
-    TextView donorFirstName;
-    TextView donorLastName;
+    private  TextView donorUsername, donorEmail, donorPhone, donorFirstName, donorLastName;
 
-    /*Firebase*/
-    FirebaseUser user;
-    FirebaseFirestore mFirestore;
+    private  FirebaseUser user;
+    private FirebaseFirestore mFirestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,18 +88,15 @@ public class HomeDonor extends NetworkInfo implements NavigationView.OnNavigatio
         if (user != null){
             donorEmail.setText(user.getEmail());
 
-            documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()){
-                        DocumentSnapshot documentSnapshot = task.getResult();
-                        if (documentSnapshot != null){
+            documentReference.get().addOnCompleteListener(task -> {
+                if (task.isSuccessful()){
+                    DocumentSnapshot documentSnapshot = task.getResult();
+                    if (documentSnapshot != null){
 
-                            donorUsername.setText( documentSnapshot.getString("username"));
-                            donorPhone.setText(documentSnapshot.getString("phone"));
-                            donorFirstName.setText(documentSnapshot.getString("firstName"));
-                            donorLastName.setText(documentSnapshot.getString("lastName"));
-                        }
+                        donorUsername.setText( documentSnapshot.getString("username"));
+                        donorPhone.setText(documentSnapshot.getString("phone"));
+                        donorFirstName.setText(documentSnapshot.getString("firstName"));
+                        donorLastName.setText(documentSnapshot.getString("lastName"));
                     }
                 }
             });
@@ -135,31 +124,27 @@ public class HomeDonor extends NetworkInfo implements NavigationView.OnNavigatio
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener(){
+            = item -> {
+                Fragment fragment = null;
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment fragment = null;
+                switch (item.getItemId()){
 
-            switch (item.getItemId()){
+                    case R.id.home_navigation:
+                        fragment = new HomeDonorFragment();
+                        break;
 
-                case R.id.home_navigation:
-                    fragment = new HomeDonorFragment();
-                    break;
+                    case R.id.map_navigation:
+                        fragment = new MapFragment();
+                        break;
 
-                case R.id.map_navigation:
-                    fragment = new MapFragment();
-                    break;
+                    case R.id.list_map_navigaion:
+                        fragment = new ListMapFragment();
+                        break;
+                }
+                getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, fragment).commit();
+                return true;
 
-                case R.id.list_map_navigaion:
-                    fragment = new ListMapFragment();
-                    break;
-            }
-            getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container, fragment).commit();
-            return true;
-
-        }
-    };
+            };
 
 
 

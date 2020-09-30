@@ -76,7 +76,6 @@
                 android:text="@string/next_button"
                 android:textSize="@dimen/body"
                 android:textColor="@color/colorPrimary" />
-
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

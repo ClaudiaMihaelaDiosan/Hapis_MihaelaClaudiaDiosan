@@ -10,8 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -108,17 +106,14 @@ public class DeliveryAdapter extends RecyclerView.Adapter<DeliveryAdapter.Delive
         deliveryHolder.phone.setText(delivery.getDonorPhone());
 
         DocumentReference documentReference = mFirestore.collection("throughVolunteerDonations").document(delivery.getDonorEmail() + "->" + delivery.getDonatesTo() + ":" + delivery.getDonationType());
-        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                if (task.isSuccessful()){
-                    DocumentSnapshot documentSnapshot = task.getResult();
-                    Boolean contacted = documentSnapshot.getBoolean("contacted");
+        documentReference.get().addOnCompleteListener(task -> {
+            if (task.isSuccessful()){
+                DocumentSnapshot documentSnapshot = task.getResult();
+                Boolean contacted = documentSnapshot.getBoolean("contacted");
 
-                    if (contacted != null && contacted){
-                        deliveryHolder.contactedText.setVisibility(View.VISIBLE);
-                        deliveryHolder.contactedBtn.setEnabled(false);
-                    }
+                if (contacted != null && contacted){
+                    deliveryHolder.contactedText.setVisibility(View.VISIBLE);
+                    deliveryHolder.contactedBtn.setEnabled(false);
                 }
             }
         });
@@ -163,38 +158,29 @@ public class DeliveryAdapter extends RecyclerView.Adapter<DeliveryAdapter.Delive
             cancelDeliverBtn = itemView.findViewById(R.id.cancelDeliverBtn);
 
 
-          contactedBtn.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  if (listener != null){
-                      int position = getAdapterPosition();
-                      if (position != RecyclerView.NO_POSITION) {
-                          listener.onContactedClick(position);
-                      }
+          contactedBtn.setOnClickListener(v -> {
+              if (listener != null){
+                  int position = getAdapterPosition();
+                  if (position != RecyclerView.NO_POSITION) {
+                      listener.onContactedClick(position);
                   }
               }
           });
 
-          deliveredBtn.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  if (listener != null){
-                      int position = getAdapterPosition();
-                      if (position != RecyclerView.NO_POSITION) {
-                          listener.onDeliveredClick(position);
-                      }
+          deliveredBtn.setOnClickListener(v -> {
+              if (listener != null){
+                  int position = getAdapterPosition();
+                  if (position != RecyclerView.NO_POSITION) {
+                      listener.onDeliveredClick(position);
                   }
               }
           });
 
-          cancelDeliverBtn.setOnClickListener(new View.OnClickListener() {
-              @Override
-              public void onClick(View v) {
-                  if (listener != null){
-                      int position = getAdapterPosition();
-                      if (position != RecyclerView.NO_POSITION){
-                          listener.onCancelDeliverClick(position);
-                      }
+          cancelDeliverBtn.setOnClickListener(v -> {
+              if (listener != null){
+                  int position = getAdapterPosition();
+                  if (position != RecyclerView.NO_POSITION){
+                      listener.onCancelDeliverClick(position);
                   }
               }
           });

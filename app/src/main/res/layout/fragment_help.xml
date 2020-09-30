@@ -183,7 +183,7 @@
                 android:layout_gravity="center"
                 android:textColor="@color/colorPrimary"
                 android:textStyle="bold"
-                app:iconSize="24dp"
+                app:iconSize="@dimen/btn_icon"
                 android:backgroundTint="@color/white"
                 app:icon="@drawable/personally_icon"
                 app:iconPadding="@dimen/padding"
@@ -201,14 +201,13 @@
                 android:layout_gravity="center"
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/body"
-                app:iconSize="24dp"
+                app:iconSize="@dimen/btn_icon"
                 android:backgroundTint="@color/white"
                 app:icon="@drawable/volunteer_icon"
                 app:iconPadding="@dimen/padding"
                 app:strokeColor="@color/colorAccent"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 app:iconTint="@null" />
-
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>

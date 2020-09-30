@@ -1,19 +1,15 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor;
 
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 
-import androidx.annotation.IdRes;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.chip.Chip;
@@ -33,27 +29,22 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class HelpFragment extends Fragment implements View.OnClickListener {
 
-    /*SharedPreferences*/
+
     private SharedPreferences preferences;
 
-    /*Firebase*/
     private FirebaseFirestore mFirestore;
     private FirebaseUser user;
+
     private Map<String,String> personallyDonations = new HashMap<>();
     private Map<String,String> throughVolunteerDonations = new HashMap<>();
 
-    /*Buttons*/
-
-    private MaterialButton personallyBtn;
-    private MaterialButton throughVolunteerBtn;
-
-    private TextView homelessToHelp;
-
     private ChipGroup chipGroup;
-    private TextView helpType;
 
-    private String need;
-    private String homelessUsername;
+    private MaterialButton personallyBtn, throughVolunteerBtn;
+
+    private TextView homelessToHelp, helpType;
+
+    private String need, homelessUsername;
 
     private View view;
 
@@ -81,24 +72,21 @@ public class HelpFragment extends Fragment implements View.OnClickListener {
         personallyBtn.setOnClickListener(this);
         throughVolunteerBtn.setOnClickListener(this);
 
-        chipGroup.setOnCheckedChangeListener(new ChipGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(ChipGroup group, @IdRes final int checkedId) {
+        chipGroup.setOnCheckedChangeListener((group, checkedId) -> {
 
-                final Chip chip = chipGroup.findViewById(checkedId);
-                if(chip != null){
-                    need = chip.getText().toString();
-                    helpType.setText(need);
-                }
-
+            final Chip chip = chipGroup.findViewById(checkedId);
+            if(chip != null){
+                need = chip.getText().toString();
+                helpType.setText(need);
             }
+
         });
 
     }
 
 
     private void initViews(){
-        chipGroup = (ChipGroup) view.findViewById(R.id.chip_group_donation);
+        chipGroup = view.findViewById(R.id.chip_group_donation);
         personallyBtn = view.findViewById(R.id.personally_button);
         throughVolunteerBtn = view.findViewById(R.id.through_volunteer_button);
         helpType = view.findViewById(R.id.help_type_donor);

@@ -19,16 +19,13 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 
 public class IntroActivity extends NetworkInfo {
 
-    /*View Pager*/
     private ViewPager screenPager;
     private TabLayout tabIndicator;
 
-    /*Buttons*/
-    private MaterialButton btnNext;
-    private MaterialButton btnGetStarted;
+
+    private MaterialButton btnNext, btnGetStarted;
     private Animation btnAnim;
 
-    /*Variables*/
     int position = 0;
 
     @Override
@@ -81,22 +78,19 @@ public class IntroActivity extends NetworkInfo {
         tabIndicator.setupWithViewPager(screenPager);
 
         //next button click Listener
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnNext.setOnClickListener(v -> {
 
-                position = screenPager.getCurrentItem();
-                if (position < mList.size()){
-                    position++;
-                    screenPager.setCurrentItem(position);
+            position = screenPager.getCurrentItem();
+            if (position < mList.size()){
+                position++;
+                screenPager.setCurrentItem(position);
 
-                }
-                if (position == mList.size()-1){  //when we reach to the last screen
-                    //show the GETSTARTED Button and hide the indicator and the next button
+            }
+            if (position == mList.size()-1){  //when we reach to the last screen
+                //show the GETSTARTED Button and hide the indicator and the next button
 
-                    loadLastScreen();
+                loadLastScreen();
 
-                }
             }
         });
 
@@ -124,21 +118,18 @@ public class IntroActivity extends NetworkInfo {
         });
 
         //Get Started button click Listener
-        btnGetStarted.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btnGetStarted.setOnClickListener(v -> {
 
-                //open login activity
-                Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(loginActivity);
+            //open login activity
+            Intent loginActivity = new Intent(getApplicationContext(), LoginActivity.class);
+            startActivity(loginActivity);
 
-                //we need to save a boolean value to storage so next time when the user run the app
-                //we could know that he is already check the intro screen activity
-                //we use sharedpreference
+            //we need to save a boolean value to storage so next time when the user run the app
+            //we could know that he is already check the intro screen activity
+            //we use sharedpreference
 
-                savePrefsData();
-                finish();
-            }
+            savePrefsData();
+            finish();
         });
     }
 

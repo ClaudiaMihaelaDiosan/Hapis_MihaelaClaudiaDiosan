@@ -5,15 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".volunteer.DeliveryFragment">
 
-
         <SearchView
             android:id="@+id/delivery_search"
             android:padding="@dimen/padding"
             android:layout_width="match_parent"
             android:queryHint="@string/search_hint_donor"
             android:layout_height="?actionBarSize"/>
-
-
 
 
     <androidx.recyclerview.widget.RecyclerView

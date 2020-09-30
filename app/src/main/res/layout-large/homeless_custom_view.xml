@@ -41,9 +41,9 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginEnd="@dimen/end_margin"
+                        android:layout_width="@dimen/btn_icon"
+                        android:layout_height="@dimen/btn_icon"
+                        android:layout_marginEnd="@dimen/cv_margins"
                         android:src="@drawable/username_img"/>
 
 
@@ -66,9 +66,9 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginEnd="@dimen/end_margin"
+                        android:layout_width="@dimen/btn_icon"
+                        android:layout_height="@dimen/btn_icon"
+                        android:layout_marginEnd="@dimen/cv_margins"
                         android:src="@drawable/phone_img"/>
 
 
@@ -89,9 +89,9 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginEnd="@dimen/end_margin"
+                        android:layout_width="@dimen/btn_icon"
+                        android:layout_height="@dimen/btn_icon"
+                        android:layout_marginEnd="@dimen/cv_margins"
                         android:src="@drawable/birthday_img"/>
 
 
@@ -111,17 +111,18 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginEnd="@dimen/end_margin"
+                        android:layout_width="@dimen/btn_icon"
+                        android:layout_height="@dimen/btn_icon"
+                        android:layout_marginEnd="@dimen/cv_margins"
                         android:src="@drawable/life_history_img"/>
 
                     <TextView
                         android:id="@+id/homeless_lifeHistory_tv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/hcv_life_history"
-                        android:textSize="@dimen/body"/>
+                        android:textSize="@dimen/body"
+                        android:textAlignment="inherit"
+                        android:text="@string/hcv_life_history"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -131,9 +132,9 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginEnd="@dimen/end_margin"
+                        android:layout_width="@dimen/btn_icon"
+                        android:layout_height="@dimen/btn_icon"
+                        android:layout_marginEnd="@dimen/cv_margins"
                         android:src="@drawable/location_img"/>
 
                     <TextView
@@ -152,9 +153,9 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginEnd="@dimen/end_margin"
+                        android:layout_width="@dimen/btn_icon"
+                        android:layout_height="@dimen/btn_icon"
+                        android:layout_marginEnd="@dimen/cv_margins"
                         android:src="@drawable/schedule_img"/>
 
                     <TextView
@@ -173,9 +174,9 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginEnd="@dimen/end_margin"
+                        android:layout_width="@dimen/btn_icon"
+                        android:layout_height="@dimen/btn_icon"
+                        android:layout_marginEnd="@dimen/cv_margins"
                         android:src="@drawable/needs_img"/>
 
                     <TextView

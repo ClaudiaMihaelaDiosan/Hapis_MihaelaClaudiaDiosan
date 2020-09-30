@@ -8,17 +8,14 @@
     android:background="@drawable/gradient_background"
     tools:context=".volunteer.ProfileFragment">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
             android:layout_margin="@dimen/margins">
 
             <LinearLayout
@@ -50,7 +47,7 @@
                         android:singleLine="true"
                         android:drawableStart="@drawable/username_drawable"
                         android:drawablePadding="@dimen/padding"
-                        android:drawableTint="@color/grey"
+                        android:drawableTint="@color/icons_blue"
                         android:inputType="textPersonName"
                         android:hint="@string/homeless_profile_fragment_username_hint"
                         />
@@ -70,7 +67,7 @@
                         android:inputType="phone"
                         android:drawableStart="@drawable/phone_drawable"
                         android:drawablePadding="@dimen/padding"
-                        android:drawableTint="@color/grey"
+                        android:drawableTint="@color/icons_blue"
                         android:hint="@string/homeless_profile_fragment_phone_number" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,7 +87,7 @@
                         android:focusableInTouchMode="false"
                         android:drawableStart="@drawable/birthday_drawable"
                         android:drawablePadding="@dimen/padding"
-                        android:drawableTint="@color/grey"/>
+                        android:drawableTint="@color/icons_blue"/>
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -109,7 +106,7 @@
                         android:layout_marginBottom="@dimen/bottom_margin"
                         android:drawableStart="@drawable/life_history_drawable"
                         android:drawablePadding="@dimen/padding"
-                        android:drawableTint="@color/grey"
+                        android:drawableTint="@color/icons_blue"
                         android:hint="@string/homeless_profile_fragment_life_history_hint" />
 
                     <LinearLayout
@@ -122,10 +119,11 @@
                         <com.google.android.material.button.MaterialButton
                             android:id="@+id/cancelProfileButton"
                             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                            app:strokeColor="@color/colorPrimary"
+                            app:strokeColor="@color/red"
                             android:textColor="@color/colorPrimary"
-                            app:icon="@drawable/ic_close_black_24dp"
-                            app:iconTint="@color/colorPrimary"
+                            app:icon="@drawable/cancel_img"
+                            app:iconTint="@null"
+                            app:iconSize="@dimen/btn_icon"
                             android:textSize="@dimen/body"
                             android:layout_marginEnd="@dimen/end_margin"
                             android:layout_width="wrap_content"
@@ -139,9 +137,10 @@
                             android:id="@+id/saveProfileButton"
                             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                             app:strokeColor="@color/green"
-                            android:textColor="@color/green"
-                            app:icon="@drawable/ic_save_black_24dp"
-                            app:iconTint="@color/green"
+                            android:textColor="@color/colorPrimary"
+                            app:icon="@drawable/save_img"
+                            app:iconTint="@null"
+                            app:iconSize="@dimen/btn_icon"
                             android:textSize="@dimen/body"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

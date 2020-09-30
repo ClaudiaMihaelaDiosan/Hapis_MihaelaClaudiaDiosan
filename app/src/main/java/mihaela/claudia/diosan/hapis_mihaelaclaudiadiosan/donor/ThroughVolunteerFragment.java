@@ -42,22 +42,13 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class ThroughVolunteerFragment extends Fragment implements View.OnClickListener {
 
-
-    /*Views*/
     private View view;
 
-    /*Autocomplete places*/
     private List<Place.Field> placeFields = Arrays.asList(Place.Field.ID, Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
 
-    /*TextViews*/
-    private TextView selectedDateDonor;
-    private TextView selectedTimeDonor;
-    private TextView locationDonor;
+    private TextView selectedDateDonor, selectedTimeDonor, locationDonor;
 
-    /*Buttons*/
-    private MaterialButton datePickerBtn;
-    private MaterialButton timePickerBtn;
-    private MaterialButton confirmBtn;
+    private MaterialButton datePickerBtn, timePickerBtn, confirmBtn;
 
     private DatePickerDialog.OnDateSetListener setListener;
 
@@ -68,7 +59,6 @@ public class ThroughVolunteerFragment extends Fragment implements View.OnClickLi
     private Map<String,String> throughVolunteerDonations = new HashMap<>();
     private Map<String,Boolean> delivered = new HashMap<>();
 
-    /*SharedPreferences*/
     private SharedPreferences preferences;
 
 

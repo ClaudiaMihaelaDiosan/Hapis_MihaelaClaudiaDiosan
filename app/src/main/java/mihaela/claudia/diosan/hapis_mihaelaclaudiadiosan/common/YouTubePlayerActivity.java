@@ -23,7 +23,7 @@ public class YouTubePlayerActivity extends YouTubeBaseActivity implements YouTub
 
         fullScreenActivity();
 
-        youTubePlayerView = (YouTubePlayerView) findViewById(R.id.youtube_video);
+        youTubePlayerView = findViewById(R.id.youtube_video);
         youTubePlayerView.initialize(getString(R.string.API_KEY), this);
 
     }

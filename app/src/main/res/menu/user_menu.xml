@@ -22,7 +22,7 @@
             <group android:checkableBehavior="single">
             <item
                 android:id="@+id/user_menu_configuration"
-                android:title="@string/user_menu_configuration"
+                android:title="@string/configuration_menu"
                 android:icon="@drawable/menu_configuration_icon"/>
 
             <item

@@ -2,10 +2,8 @@ package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common;
 
 import androidx.appcompat.app.AlertDialog;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.InputType;
-import android.view.View;
 import android.widget.Toast;
 
 import com.braintreepayments.cardform.view.CardForm;
@@ -33,7 +31,7 @@ public class Payment extends NetworkInfo {
     }
 
     private void setupPaymentForm(){
-        etInput = (CurrencyEditText) findViewById(R.id.etInput);
+        etInput = findViewById(R.id.etInput);
         etInput.setCurrency("€");
         etInput.setDelimiter(false);
         etInput.setSpacing(true);
@@ -53,14 +51,11 @@ public class Payment extends NetworkInfo {
 
         cardForm.getCvvEditText().setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
 
-        payBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (cardForm.isValid()){
-                    showAlertDialog();
-                }else {
-                    HelpActivity.showErrorToast(getApplicationContext(),getString(R.string.payment_toast_fail));
-                }
+        payBtn.setOnClickListener(v -> {
+            if (cardForm.isValid()){
+                showAlertDialog();
+            }else {
+                HelpActivity.showErrorToast(getApplicationContext(),getString(R.string.payment_toast_fail));
             }
         });
     }
@@ -74,20 +69,12 @@ public class Payment extends NetworkInfo {
                 getString(R.string.payment_postal_code) + cardForm.getPostalCode() + "\n" +
                 getString(R.string.payment_phone_number) + cardForm.getMobileNumber());
 
-        alertDialogBuilder.setPositiveButton( getString(R.string.payment_confirm_button), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-                Toast.makeText(Payment.this,  getString(R.string.payment_toast_success), Toast.LENGTH_SHORT).show();
-            }
+        alertDialogBuilder.setPositiveButton( getString(R.string.payment_confirm_button), (dialog, which) -> {
+            dialog.dismiss();
+            Toast.makeText(Payment.this,  getString(R.string.payment_toast_success), Toast.LENGTH_SHORT).show();
         });
 
-        alertDialogBuilder.setNegativeButton( getString(R.string.payment_cancel_button), new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
+        alertDialogBuilder.setNegativeButton( getString(R.string.payment_cancel_button), (dialog, which) -> dialog.dismiss());
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }

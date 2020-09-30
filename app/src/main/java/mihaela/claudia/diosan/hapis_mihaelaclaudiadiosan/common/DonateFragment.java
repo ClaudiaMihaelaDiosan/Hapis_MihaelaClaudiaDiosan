@@ -16,10 +16,8 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 
 public class DonateFragment extends Fragment implements View.OnClickListener{
 
+    private MaterialButton donateBtn, videoBtn;
 
-    /*Buttons*/
-    private MaterialButton donateBtn;
-    private MaterialButton videoBtn;
 
 
     @Override
@@ -57,7 +55,6 @@ public class DonateFragment extends Fragment implements View.OnClickListener{
                 startActivity(new Intent(getActivity(), YouTubePlayerActivity.class));
                 break;
         }
-
     }
 
 }

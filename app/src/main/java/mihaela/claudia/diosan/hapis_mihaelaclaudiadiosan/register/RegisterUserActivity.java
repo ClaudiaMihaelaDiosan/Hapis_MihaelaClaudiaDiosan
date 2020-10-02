@@ -141,6 +141,13 @@ public class RegisterUserActivity extends NetworkInfo implements View.OnClickLis
         user.put("lastName", lastNameValue);
         user.put("phone", phoneValue);
 
+        //Liquid Galaxy demo fake data
+        user.put("city", "Lleida");
+        user.put("country", "Spain");
+        user.put("altitude", "200");
+        user.put("latitude", "41.611882");
+        user.put("longitude", "0.618444");
+
         if (emailValue.isEmpty()){
             emailEditText.setError(getString(R.string.email_error_text));
         }else{

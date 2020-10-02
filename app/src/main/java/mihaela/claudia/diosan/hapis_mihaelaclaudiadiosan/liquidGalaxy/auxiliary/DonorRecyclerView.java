@@ -49,7 +49,7 @@ public class DonorRecyclerView {
                             final String firstName = document.getString("firstName");
                             final String lastName = document.getString("lastName");
                             final String location = document.getString("address");
-                            final String personallyDonations = document.getString("personallyDonation");
+                            final String personallyDonations = document.getString("personallyDonations");
                             final String throughVolunteerDonations = document.getString("throughVolunteerDonations");
 
 
@@ -129,8 +129,8 @@ public class DonorRecyclerView {
                 .get()
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()){
-                        String personallyDonation = String.valueOf(task.getResult().size());
-                        donorInfo.put("personallyDonation", personallyDonation);
+                        String personallyDonations = String.valueOf(task.getResult().size());
+                        donorInfo.put("personallyDonations", personallyDonations);
                         mFirestore.collection("donors").document(email).set(donorInfo, SetOptions.merge());
 
                     }

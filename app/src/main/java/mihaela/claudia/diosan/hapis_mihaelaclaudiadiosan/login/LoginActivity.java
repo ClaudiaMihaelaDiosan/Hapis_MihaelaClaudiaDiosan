@@ -1,6 +1,5 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -105,7 +104,6 @@ public class LoginActivity extends NetworkInfo implements View.OnClickListener{
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
             case R.id.liquid_galaxy_tv:
-              //  startActivity(new Intent(LoginActivity.this, MainActivityLG.class));
                 showLGDialog();
                 overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
                 break;
@@ -268,8 +266,6 @@ public class LoginActivity extends NetworkInfo implements View.OnClickListener{
         });
 
         builder.show();
-
-
 
     }
 

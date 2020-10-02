@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.adapters.HomelessAdapter;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.logic.Homeless;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -162,17 +163,18 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
 
                                 final Homeless homeless = new Homeless(image, username, phone, birthday, lifeHistory, address, schedule, need);
                                 homelesses.add(homeless);
-                                final VolunteerAdapter volunteerAdapter = new VolunteerAdapter(homelesses);
-                                volunteerAdapter.notifyDataSetChanged();
-                                searchText(volunteerAdapter);
-                                recyclerView.setAdapter(volunteerAdapter);
+                                final HomelessAdapter homelessAdapter = new HomelessAdapter(homelesses);
+                                homelessAdapter.notifyDataSetChanged();
+                                searchText(homelessAdapter);
+                                recyclerView.setAdapter(homelessAdapter);
 
-                                if (volunteerAdapter.getItemCount() != 0){
+                                if (homelessAdapter.getItemCount() != 0){
                                     searchView.setVisibility(View.VISIBLE);
                                     firstHomeless.setVisibility(View.GONE);
 
                                 }
-                                volunteerAdapter.setOnItemClicklistener(new VolunteerAdapter.OnItemClickListener() {
+
+                                homelessAdapter.setOnItemClicklistener(new HomelessAdapter.OnItemClickListener() {
                                     @Override
                                     public void onItemClick(int position) {
                                         SharedPreferences.Editor editor = preferences.edit();
@@ -188,7 +190,7 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
                 });
     }
 
-    private void searchText(final VolunteerAdapter volunteerAdapter){
+    private void searchText(final HomelessAdapter homelessAdapter){
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -197,7 +199,7 @@ public class HomeVolunteerFragment extends Fragment implements View.OnClickListe
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                volunteerAdapter.getFilter().filter(newText);
+                homelessAdapter.getFilter().filter(newText);
 
                 return false;
             }

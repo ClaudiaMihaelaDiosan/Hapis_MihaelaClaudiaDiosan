@@ -81,7 +81,7 @@ public class HelpCityClass {
                 .addOnCompleteListener(task -> {
                     if (task.isSuccessful()){
                         String personallyDonation = String.valueOf(task.getResult().size());
-                        homelessInfo.put("personallyDonation", personallyDonation);
+                        homelessInfo.put("personallyDonations", personallyDonation);
                         mFirestore.collection("donors").document(email).set(homelessInfo, SetOptions.merge());
 
                     }

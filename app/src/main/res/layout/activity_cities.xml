@@ -24,6 +24,11 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayoutCities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/bottom_margin">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_cities"
@@ -33,5 +38,7 @@
         app:spanCount="3"
         android:layout_marginBottom="@dimen/bottom_margin"
         android:scrollbars="vertical"/>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </LinearLayout>

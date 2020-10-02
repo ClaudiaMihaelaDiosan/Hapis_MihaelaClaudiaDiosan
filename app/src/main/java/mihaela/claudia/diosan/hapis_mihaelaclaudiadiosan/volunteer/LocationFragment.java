@@ -180,6 +180,15 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
                     homeless.put("city", city);
                     homeless.put("country", country);
 
+                    String cityWS = city.replace(" ", "_");
+                    cities.put("city", city);
+                    cities.put("cityWS", cityWS);
+                    cities.put("country", country);
+                    cities.put("altitude", "300");
+                    cities.put("latitude", homelessLatitude);
+                    cities.put("longitude", homelessLongitude);
+
+
                     mFirestore.collection("homeless").document(homelessUsername).set(homeless, SetOptions.merge());
                     mFirestore.collection("cities").document(city).set(cities,SetOptions.merge());
 
@@ -220,7 +229,7 @@ public class LocationFragment extends Fragment  implements  OnMapAndViewReadyLis
         });
     }
 
-    private String getCityNameByCoordinates(double lat, double lon)  {
+    private  String getCityNameByCoordinates(double lat, double lon)  {
 
         List<Address> addresses = null;
         try {

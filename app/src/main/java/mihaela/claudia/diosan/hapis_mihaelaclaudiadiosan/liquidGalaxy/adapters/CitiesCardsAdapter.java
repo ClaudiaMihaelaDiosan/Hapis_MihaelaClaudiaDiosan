@@ -1,5 +1,7 @@
 package mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.adapters;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,11 +9,13 @@ import android.widget.Filter;
 import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.theartofdev.edmodo.cropper.CropImage;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,11 +23,16 @@ import java.util.List;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.liquidGalaxy.logic.Cities;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.volunteer.EditHomelessFragment;
+
+import static android.content.Context.MODE_PRIVATE;
 
 public class CitiesCardsAdapter extends RecyclerView.Adapter<CitiesCardsAdapter.CardsAdapterHolder> implements Filterable {
     private List<Cities> citiesData;
     private List<Cities> citiesList;
     private OnItemClickListener mListener;
+    Context context;
+
 
     @Override
     public Filter getFilter() {
@@ -66,9 +75,11 @@ public class CitiesCardsAdapter extends RecyclerView.Adapter<CitiesCardsAdapter.
         mListener = listener;
    }
 
-    public CitiesCardsAdapter(List<Cities> citiesData) {
+
+    public CitiesCardsAdapter(List<Cities> citiesData, Context context) {
         this.citiesData = citiesData;
         this.citiesList = new ArrayList<>(citiesData);
+        this.context = context;
     }
 
     @NonNull
@@ -84,11 +95,25 @@ public class CitiesCardsAdapter extends RecyclerView.Adapter<CitiesCardsAdapter.
         holder.city.setText(cities.getCity());
         holder.country.setText(cities.getCountry());
 
+        holder.itemView.setLongClickable(true);
+
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                SharedPreferences preferences = context.getSharedPreferences("cityInfo", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("city", cities.getCity()).apply();
+                return false;
+            }
+        });
+
         Glide
                 .with(holder.itemView.getContext())
                 .load(cities.getImage())
                 .placeholder(R.drawable.no_profile_image)
                 .into(holder.city_image);
+
+
           }
 
     @Override
@@ -102,12 +127,15 @@ public class CitiesCardsAdapter extends RecyclerView.Adapter<CitiesCardsAdapter.
         ImageView city_image;
 
 
+
         public CardsAdapterHolder(@NonNull View itemView,final OnItemClickListener listener) {
             super(itemView);
 
             city = itemView.findViewById(R.id.city_name);
             country = itemView.findViewById(R.id.country_name);
             city_image = itemView.findViewById(R.id.city_image);
+
+
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -120,6 +148,7 @@ public class CitiesCardsAdapter extends RecyclerView.Adapter<CitiesCardsAdapter.
                     }
                 }
             });
+
         }
     }
 

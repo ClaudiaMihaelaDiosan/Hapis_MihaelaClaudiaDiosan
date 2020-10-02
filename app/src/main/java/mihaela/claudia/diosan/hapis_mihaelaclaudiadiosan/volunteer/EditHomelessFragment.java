@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Address;
+import android.location.Geocoder;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -54,6 +56,7 @@ import com.google.firebase.storage.UploadTask;
 import com.google.rpc.Help;
 import com.theartofdev.edmodo.cropper.CropImage;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -97,6 +100,7 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
     private FirebaseUser user;
     private StorageReference storageReference;
 
+
     /*Buttons*/
     private MaterialButton cancelBtn;
     private MaterialButton saveBtn;
@@ -104,6 +108,8 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
 
     private ChipGroup chipGroup;
     MaterialAlertDialogBuilder deleteProfileDialog;
+
+    private Geocoder mGeocoder;
 
     /*Autocomplete place field*/
     private List<Place.Field> placeFields = Arrays.asList(Place.Field.ID,Place.Field.NAME, Place.Field.ADDRESS, Place.Field.LAT_LNG);
@@ -197,7 +203,6 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
                 verifyStoragePermissions(getActivity());
                 CropImage.activity()
                         .start(getContext(), this);
-               // chooseImage();
                 break;
         }
     }
@@ -390,12 +395,25 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
                     String homelessLatitude = Double.toString(latitude);
                     String homelessLongitude = Double.toString(longitude);
 
+                    String city = getCityNameByCoordinates(latitude, longitude);
+                    String country = getCountryNameByCoordinates(latitude, longitude);
+
+
                     DocumentReference documentReference = mFirestore.collection("homeless").document(username);
 
                     location.setText(homelessAddress);
                     documentReference.update("homelessAddress", homelessAddress);
                     documentReference.update("homelessLongitude", homelessLongitude);
                     documentReference.update("homelessLatitude", homelessLatitude);
+
+                    DocumentReference citiesReference = mFirestore.collection("cities").document(city);
+
+                    String cityWS = city.replace(" ", "_");
+                    citiesReference.update("city", city);
+                    citiesReference.update("cityWS", cityWS);
+                    citiesReference.update("country", country);
+                    citiesReference.update("longitude", homelessLongitude);
+                    citiesReference.update("latitude", homelessLatitude);
 
                 }
 
@@ -412,6 +430,37 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
         return Math.ceil(number * cifras) / cifras;
     }
 
+    private  String getCityNameByCoordinates(double lat, double lon)  {
+
+        List<Address> addresses = null;
+        try {
+            addresses = mGeocoder.getFromLocation(lat, lon, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (addresses != null && addresses.size() > 0) {
+            return addresses.get(0).getLocality();
+        }
+        return null;
+    }
+
+    private String getCountryNameByCoordinates(double lat, double lon){
+        List<Address> addresses = null;
+        try {
+            addresses = mGeocoder.getFromLocation(lat, lon, 1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (addresses != null && addresses.size() > 0)
+        {
+            return addresses.get(0).getCountryName();
+        }
+        return null;
+    }
+
+
+
 
     private boolean isValidForm(){
         if (!HelpActivity.isValidPhoneNumber(phoneET.getText().toString())){
@@ -425,30 +474,6 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
     }
 
 
-
-  /*  private void chooseImage(){
-        Intent selectFileIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        selectFileIntent.setType("image/*");
-        startActivityForResult(selectFileIntent.createChooser(selectFileIntent, getString(R.string.dialog_select_file)), SELECT_FILE);
-    }*/
-
-
-   /* @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        //  super.onActivityResult(requestCode, resultCode, data);
-
-        if ( requestCode == SELECT_FILE && resultCode == Activity.RESULT_OK && null != data){
-
-            selectedImagePath = data.getData();
-
-            Glide
-                    .with(getActivity())
-                    .load(selectedImagePath)
-                    .placeholder(R.drawable.add_profile_image)
-                    .into(editProfileImage);
-
-        }
-    }*/
 
 
     @Override
@@ -473,7 +498,7 @@ public class EditHomelessFragment extends Fragment implements View.OnClickListen
     }
 
 
-    private void verifyStoragePermissions(Activity activity) {
+    private static void verifyStoragePermissions(Activity activity) {
         // Check if we have write permission
         int permission = ActivityCompat.checkSelfPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE);
 

@@ -54,6 +54,10 @@
                     android:id="@+id/user_menu_about_us"
                     android:title="@string/about_us_menu"
                     android:icon="@drawable/about_us_menu"/>
+                <item
+                    android:id="@+id/user_terms_of_use"
+                    android:title="@string/terms_of_use_menu"
+                    android:icon="@drawable/terms_of_use_menu"/>
             </group>
         </menu>
 

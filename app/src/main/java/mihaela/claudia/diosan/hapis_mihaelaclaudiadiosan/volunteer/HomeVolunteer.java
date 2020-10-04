@@ -24,6 +24,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.AboutUsFragment;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.UseTerms;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.donor.HelpDonorFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.ContactFragment;
@@ -160,6 +161,9 @@ public class HomeVolunteer extends NetworkInfo implements NavigationView.OnNavig
                 break;
             case R.id.user_menu_help:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HelpVolunteerFragment()).commit();
+                break;
+            case  R.id.user_terms_of_use:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new UseTerms()).commit();
                 break;
             case  R.id.user_menu_about_us:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AboutUsFragment()).commit();

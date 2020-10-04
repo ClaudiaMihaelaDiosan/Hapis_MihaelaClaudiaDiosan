@@ -26,6 +26,7 @@ import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.R;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.AboutUsFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.ContactFragment;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.DonateFragment;
+import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.common.UseTerms;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.connectivity.NetworkInfo;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.login.LoginActivity;
 import mihaela.claudia.diosan.hapis_mihaelaclaudiadiosan.maps.ListMapFragment;
@@ -190,10 +191,15 @@ public class HomeDonor extends NetworkInfo implements NavigationView.OnNavigatio
                 bottomNavigationView.setVisibility(View.GONE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new HelpDonorFragment()).commit();
                 break;
+            case  R.id.user_terms_of_use:
+                bottomNavigationView.setVisibility(View.GONE);
+                getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new UseTerms()).commit();
+                break;
             case  R.id.user_menu_about_us:
                 bottomNavigationView.setVisibility(View.GONE);
                 getSupportFragmentManager().beginTransaction().replace(R.id.donor_fragment_container,new AboutUsFragment()).commit();
                 break;
+
         }
         donorDrawer.closeDrawer(GravityCompat.START);
         return false;

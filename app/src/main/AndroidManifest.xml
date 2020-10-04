@@ -27,7 +27,7 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:label"
         tools:targetApi="q">
-        <activity android:name=".connectivity.NetworkInfo"></activity>
+        <activity android:name=".connectivity.NetworkInfo" />
         <activity
             android:name=".liquidGalaxy.UserListActivity"
             android:label="@string/users_list_name" />

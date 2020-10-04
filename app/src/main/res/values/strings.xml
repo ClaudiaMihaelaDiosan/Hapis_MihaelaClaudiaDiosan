@@ -125,6 +125,7 @@
     <string name="more_menu_title">More</string>
     <string name="help_menu">Help</string>
     <string name="about_us_menu">About us</string>
+    <string name="terms_of_use_menu">Terms Of Use</string>
     <string name="bottom_nav_home">Home</string>
     <string name="bottom_nav_map">Map</string>
     <string name="bottom_nav_list_map">List Map</string>
@@ -350,7 +351,7 @@
     <string name="statistics">Global\n Statistics</string>
     <string name="city_statistics">City\n Statistics</string>
     <string name="stop_statistics">Local Statistics Stop</string>
-
+    <string name="change_photo_cities">Change city photo</string>
 
     <string name="popup_info_title">You are about to enter into the Liquid Galaxy part</string>
     <string name="popup_info_message">All the functionalities in this part will work only is you have a functional Liquid Galaxy installed!</string>
@@ -469,7 +470,6 @@
     <string name="volunteers_from">Volunteers from</string>
 
 
-
     <!--Help Donor Fragment-->
     <string name="help_text_title">Help</string>
     <string name="donor_help_1">Donations tipes</string>
@@ -498,7 +498,7 @@
     <string name="volunteer_help_3">Edit homeless profile</string>
     <string name="volunteer_help_4">1. To edit a profile, select an item from the main screen. You will be able to edit the profile photo, phone, life experience, location, time and the most important need.\n2. You can also delete a profile completely, if the person in need wishes.</string>
     <string name="volunteer_help_5">Donations delivery</string>
-    <string name ="volunteer_help_6"> 1. Donations can be delivered personally or through a volunteer.\n2. If a donor chooses to donate through a volunteer, this information will be displayed on the \ "Deliver donations \" page located on the floating button.\n3. If you wish, you can contact the donors via email or telephone (if they have provided it). If a donation card appears with the text "Donor Contacted" means that another volunteer has already contacted him and established a meeing point, so don't contact it again.\n4. If you have contacted a donor and have established a meeting point, select the \ "Contacted Donor \" button so that other volunteers will not also contact him.\n5. Once you have made a donation, select the button \ "Delivered Donation \" and confirm it. In this way the donor will receive a notification that their donation has been delivered.\n6. If the delivery cannot be made for various reasons, select the button \ "Cancel Delivery \".\n7. If the donor still wants to be contacted by other volunteers to establish a new meeting point, select the button \ "Contact again \".\n8. If the donor no longer wants to make this delivery, select the button \ "Cancel All Delivery. \" This will delete all information related to this delivery.\n9. If you wish and the person in need agrees, you can share photos to our social networks showing the delivery of donations. </string>
+    <string name="volunteer_help_6"> 1. Donations can be delivered personally or through a volunteer.\n2. If a donor chooses to donate through a volunteer, this information will be displayed on the \ "Deliver donations \" page located on the floating button.\n3. If you wish, you can contact the donors via email or telephone (if they have provided it). If a donation card appears with the text "Donor Contacted" means that another volunteer has already contacted him and established a meeing point, so don't contact it again.\n4. If you have contacted a donor and have established a meeting point, select the \ "Contacted Donor \" button so that other volunteers will not also contact him.\n5. Once you have made a donation, select the button \ "Delivered Donation \" and confirm it. In this way the donor will receive a notification that their donation has been delivered.\n6. If the delivery cannot be made for various reasons, select the button \ "Cancel Delivery \".\n7. If the donor still wants to be contacted by other volunteers to establish a new meeting point, select the button \ "Contact again \".\n8. If the donor no longer wants to make this delivery, select the button \ "Cancel All Delivery. \" This will delete all information related to this delivery.\n9. If you wish and the person in need agrees, you can share photos to our social networks showing the delivery of donations. </string>
     <string name="volunteer_help_7">Donate</string>
     <string name="volunteer_help_8">1. As you can see in the side menu, there is a Donate button.\n2. Here you can donate money to support the team that is responsible for maintaining the application, taking into account that it is a social project.\n3. Money can be donated through a secure payment system, using the credit / debit card or you can contribute with a donation made by third parties, watching a video of no more than 30 seconds.</string>
     <string name="volunteer_help_9">Setting</string>
@@ -516,5 +516,12 @@
     <string name="about_us_6"><a href="https://twitter.com/ProyectoHapis">\@ProyectoHapis</a></string>
     <string name="about_us_7"><a href="https://www.instagram.com/proyecto_hapis/">\@proyecto_hapis</a></string>
     <string name="about_us_8">proyectohapis@gmail.com</string>
+
+    <!--Terms of use-->
+    <string name="terms_of_use_title">Terms Of Use</string>
+    <string name="volunteer_terms">The volunteer has the next obligations and rights:\n\n 1. You have to respect confidentiality and privacy of the homeless and donors.\n\n 2. You can\'t use a donation for your personal use or sell it.\n\n 3. You must respect the rights of the beneficiaries of the volunteering activity, and act and participate in the volunteering activity effectively and supportive.\n\n 4. You have the right to be adequately covered by insurance.\n\n 5. You have the right to be given a copy of the organisation\'s volunteer policy and any other policy that affects your work.</string>
+    <string name="donor_terms">The donor has the next obligations and rights:\n\n 1. You have to respect and do not discriminate at any time the persons involved in this project.\n\n 2. You have the right to keep your personal data completely anonymous for all the homeless person and if you wish, the volunteer will not receive your contact information either. To do so, you have to contact our team first.\n\n 3. In case of the donations made through a volunteer, our volunteers will receive your username, email and the phone number if you have it in your profile info.\n\n 4. You have the right to report any suspicious activity or misuse with your donation and we will take the appropriate measures.  </string>
+
+
 
 </resources>

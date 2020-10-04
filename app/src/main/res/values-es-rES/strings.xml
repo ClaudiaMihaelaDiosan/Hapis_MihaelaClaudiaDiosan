@@ -114,6 +114,7 @@
     <string name="configuration_menu">Configuración</string>
     <string name="more_menu_title">Más</string>
     <string name="help_menu">Ayuda</string>
+    <string name="terms_of_use_menu">Condiciones de uso</string>
     <string name="about_us_menu">Sobre nosotros</string>
     <string name="bottom_nav_home">Inicio</string>
     <string name="bottom_nav_map">Mapa</string>
@@ -344,6 +345,7 @@
     <string name="statistics">Estadísticas\n globales</string>
     <string name="city_statistics">Estadísticas\n por ciudad </string>
     <string name="stop_statistics">Se han parado las estadísticas locales</string>
+    <string name="change_photo_cities">Cambiar foto ciudad</string>
 
     <string name="popup_info_title">Entrarás en la parte dedicada al Liquid Galaxy</string>
     <string name="popup_info_message"> Todas las funcionalidades que encuentras aquí solo funcionarán si dispones de un sistema Liquid Galaxy correctamente instalado!</string>
@@ -506,6 +508,9 @@
     <string name="about_us_7"><a href="https://www.instagram.com/proyecto_hapis/">\@proyecto_hapis</a></string>
     <string name="about_us_8">proyectohapis@gmail.com</string>
 
-
+    <!--Terms of use-->
+    <string name="terms_of_use_title">Condiciones de uso</string>
+    <string name="volunteer_terms">El voluntario tiene las siguientes obligaciones y derechos:\n\n 1.Tienes la obligación de mantener confidenciales los datos personales de los donantes y personas necesitadas.\n\n 2. No puedes utilizar una donación para tu uso personal o revender los productos.\n\n 3. Tienes que respectar los derechos de los beneficiarios de la actividad voluntaria y participar en la actividad de una manera eficaz.\n\n 4. Tiene derecho a estar adecuadamente cubierto por un seguro.\n\n 5. Tienes derecho a recibir una copia de la política de voluntariado de la organización y cualquier otra política que afecte tu trabajo.</string>
+    <string name="donor_terms">El donante tiene las siguientes obligaciones y derechos:\n\n 1. Tienes que respetar y no discriminar en ningún momento a las personas involucradas en este proyecto.\n\n 2. Tienes derecho a mantener tus datos personales completamente anónimos para todas las personas sin hogar y si lo deseas, el voluntario tampoco recibirá tu información de contacto. Para hacerlo, primero debes comunicarte con nuestro equipo.\n\n 3. En caso de las donaciones realizadas a través de un voluntario, nuestros voluntarios recibirán tu nombre de usuario, correo electrónico y el número de teléfono si lo tienes en la información de tu perfil.\n\n 4. Tienes derecho a denunciar cualquier actividad sospechosa o mal uso de tu donación y tomaremos las medidas oportunas.  </string>
 
 </resources>

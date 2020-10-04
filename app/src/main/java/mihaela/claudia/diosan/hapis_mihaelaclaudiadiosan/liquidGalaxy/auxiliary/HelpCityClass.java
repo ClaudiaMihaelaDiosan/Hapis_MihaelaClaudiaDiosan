@@ -56,8 +56,6 @@ public class HelpCityClass {
                             personallyTransactionsD(email, mFirestore);
                             throughVolunteerTransactionsD(email, mFirestore);
 
-                            assert longitude != null;
-                            assert latitude != null;
                             POI Homeless = new POI()
                                     .setName(name)
                                     .setLongitude(Double.parseDouble(longitude))
@@ -66,7 +64,7 @@ public class HelpCityClass {
                                     .setHeading(0d)
                                     .setTilt(40.0d)
                                     .setRange(100.0d)
-                                    .setAltitudeMode("relativeToSeaFloor ");
+                                    .setAltitudeMode("relativeToSeaFloor");
 
                             POIController.getInstance().sendPlacemark(Homeless, null, ip, "placemarks/donors");
                             POIController.getInstance().showPlacemark(Homeless,null, "https://i.ibb.co/Bg4Lnvk/donor-icon.png", "placemarks/donors");
@@ -125,7 +123,7 @@ public class HelpCityClass {
                                     .setHeading(0d)
                                     .setTilt(40.0d)
                                     .setRange(100.0d)
-                                    .setAltitudeMode("relativeToSeaFloor ");
+                                    .setAltitudeMode("relativeToSeaFloor");
                             POIController.getInstance().sendPlacemark(Homeless, null, ip, "placemarks/volunteers");
                             POIController.getInstance().showPlacemark(Homeless,null, "https://i.ibb.co/xf1S6cn/volunteer-icon.png", "placemarks/volunteers");
                         }}
